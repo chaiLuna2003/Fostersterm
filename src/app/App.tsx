@@ -7,6 +7,10 @@ import {
   Clock,
   Shield,
   ArrowRight,
+  ClipboardList,
+  Network,
+  HeartPulse,
+  Sparkles,
 } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { FAQItem } from "./components/FAQItem";
@@ -35,52 +39,43 @@ export default function App() {
 
         {/* Glassmorphism Navbar */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg border-b border-white/20 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-[10px] py-3 flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-3">
               <ImageWithFallback
                 src="/src/imports/ChatGPT_Image_13_may_2026__17_55_44.png"
                 alt="Foster Stern Group"
-                className="w-auto h-16 md:h-24 lg:h-[100px]"
+                className="w-auto h-10 md:h-12"
               />
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-8">
-              <a
-                href="#servicios"
-                className="hover:text-[#238CCC] transition-colors"
-                style={{ color: "#898989" }}
-              >
+            <div className="hidden md:flex items-center gap-6">
+              <a href="#nosotros" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+                Nosotros
+              </a>
+              <a href="#servicios" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
                 Servicios
               </a>
-              <a
-                href="#beneficios"
-                className="hover:text-[#238CCC] transition-colors"
-                style={{ color: "#898989" }}
-              >
+              <a href="#beneficios" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
                 Beneficios
               </a>
-              <a
-                href="#proceso"
-                className="hover:text-[#238CCC] transition-colors"
-                style={{ color: "#898989" }}
-              >
+              <a href="#proceso" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
                 Proceso
               </a>
-              <a
-                href="#faq"
-                className="hover:text-[#238CCC] transition-colors"
-                style={{ color: "#898989" }}
-              >
+              <a href="#casos" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+                Casos de Éxito
+              </a>
+              <a href="#blog" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+                Blog
+              </a>
+              <a href="#faq" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
                 FAQ
               </a>
               <a
                 href="#contacto"
-                className="px-6 py-2.5 bg-[#238CCC] text-white rounded-lg hover:bg-[#0D3B7F] transition-all shadow-md"
-                style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
-                }}
+                className="text-base px-5 py-2 bg-[#238CCC] text-white rounded-lg hover:bg-[#0D3B7F] transition-all shadow-md"
+                style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}
               >
                 Contactar
               </a>
@@ -705,6 +700,111 @@ export default function App() {
         </div>
       </section>
 
+      {/* How We Work Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8 md:px-12">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+
+            {/* Imagen izquierda */}
+            <div className="relative rounded-3xl overflow-hidden h-[480px]">
+              <img
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
+                alt="Especialista en alergias con paciente"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                className="absolute bottom-0 left-0 right-0 h-24"
+                style={{ background: "linear-gradient(to top, #0D3B7F88, transparent)" }}
+              />
+            </div>
+
+            {/* Contenido derecha */}
+            <div className="flex flex-col gap-8">
+              <div>
+                <h2
+                  className="text-3xl md:text-4xl mb-3"
+                  style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "#0D3B7F" }}
+                >
+                  Cómo Brindamos Soluciones Duraderas
+                </h2>
+                <p className="text-base" style={{ color: "#898989" }}>
+                  Encuentra el tratamiento que mejor se adapta a tu clínica y tus pacientes.
+                </p>
+              </div>
+
+              {/* Grid 2x2 de características */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    icon: <Users className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    title: "Proveedores Locales",
+                    desc: "Cada clínica es única. Como socios, desarrollamos planes de servicio personalizados para cada práctica médica.",
+                    link: "Encontrar un proveedor",
+                  },
+                  {
+                    icon: <Network className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    title: "Red Nacional",
+                    desc: "Foster Stern Group es una de las redes de alergias más grandes y confiables del país, con presencia en todo el territorio.",
+                    link: "¿Por qué Foster Stern?",
+                  },
+                  {
+                    icon: <ClipboardList className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    title: "Soluciones Personalizadas",
+                    desc: "Desarrolladas con cientos de especialistas, nuestros procesos ofrecen a los pacientes alivio rápido y de calidad.",
+                    link: "Tu camino al alivio",
+                  },
+                  {
+                    icon: <HeartPulse className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    title: "Experiencias Sin Fricción",
+                    desc: "Desde la agenda hasta el laboratorio en consultorio, hacemos más fácil que nunca brindar la atención que merecen.",
+                    link: "Ver recursos",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex flex-col gap-2">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center mb-1"
+                      style={{ backgroundColor: "#E8F4FB" }}
+                    >
+                      {item.icon}
+                    </div>
+                    <h3
+                      className="text-base"
+                      style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "#0D3B7F" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "#898989" }}>
+                      {item.desc}
+                    </p>
+                    <a
+                      href="#contacto"
+                      className="text-sm font-semibold underline underline-offset-2 mt-1 hover:opacity-70 transition-opacity"
+                      style={{ color: "#238CCC" }}
+                    >
+                      {item.link}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Botón flotante de WhatsApp */}
+      <a
+        href="https://wa.me/521XXXXXXXXXX"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:scale-110 transition-transform"
+        style={{ backgroundColor: "#25D366" }}
+        aria-label="Contactar por WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+
       {/* Contact Form Section */}
       <section id="contacto" className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -894,6 +994,67 @@ export default function App() {
                 </button>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-8 md:px-12">
+          <div className="rounded-3xl overflow-hidden grid md:grid-cols-2 min-h-[480px]" style={{ backgroundColor: "#0D3B7F" }}>
+            
+            {/* Texto lado izquierdo */}
+            <div className="flex flex-col justify-center px-10 md:px-16 py-14 gap-6">
+              <span
+                className="text-xs uppercase tracking-widest"
+                style={{ color: "#238CCC" }}
+              >
+                Únete a nuestra red
+              </span>
+              <h2
+                className="text-3xl md:text-4xl leading-tight text-white"
+                style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}
+              >
+                Transforma tu clínica con soluciones de alergia de primer nivel
+              </h2>
+              <p className="text-base leading-relaxed" style={{ color: "#B0C4DE" }}>
+                Miles de clínicas ya confían en Foster Stern Group para ofrecer 
+                servicios de alergia de alta calidad. Da el siguiente paso y 
+                lleva tu práctica médica al siguiente nivel.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                <a
+                  href="#contacto"
+                  className="px-7 py-3 rounded-xl text-center text-white transition-all hover:opacity-90"
+                  style={{ backgroundColor: "#238CCC", fontFamily: "'AvantGarde-Demi', sans-serif" }}
+                >
+                  Hablar con un especialista
+                </a>
+                <a
+                  href="#servicios"
+                  className="px-7 py-3 rounded-xl text-center transition-all hover:bg-white/10 border border-white/30"
+                  style={{ color: "#fff", fontFamily: "'AvantGarde-Demi', sans-serif" }}
+                >
+                  Ver servicios
+                </a>
+              </div>
+            </div>
+
+            {/* Imagen lado derecho */}
+            <div className="relative hidden md:block">
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
+                alt="Médico especialista en alergias"
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ filter: "brightness(0.85)" }}
+              />
+              {/* Overlay degradado para integrar con el azul */}
+              <div
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(to right, #0D3B7F 0%, transparent 40%)" }}
+              />
+            </div>
+
           </div>
         </div>
       </section>

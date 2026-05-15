@@ -12,9 +12,14 @@ import {
   HeartPulse,
   Sparkles,
 } from "lucide-react";
+import { Routes, Route } from "react-router-dom";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { FAQItem } from "./components/FAQItem";
 import { MobileMenu } from "./components/MobileMenu";
+import { CasosCarousel } from "./components/CasosCarousel";
+import Blog from "./pages/Blog";
+
+
 
 export default function App() {
   return (
@@ -66,9 +71,10 @@ export default function App() {
               <a href="#casos" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
                 Casos de Éxito
               </a>
-              <a href="#blog" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="/blog" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
                 Blog
               </a>
+              
               <a href="#faq" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
                 FAQ
               </a>
@@ -533,6 +539,8 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      <CasosCarousel />
 
       {/* Process Section */}
       <section id="proceso" className="py-20 bg-white">
@@ -1194,7 +1202,7 @@ export default function App() {
                 className="space-y-2"
                 style={{ color: "#898989" }}
               >
-                <li>info@allergypro.com</li>
+                <li>info@fosternSterm.com</li>
                 <li>+1 (555) 123-4567</li>
                 <li>Lun - Vie: 9:00 - 18:00</li>
               </ul>

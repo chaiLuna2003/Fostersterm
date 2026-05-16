@@ -42,7 +42,7 @@ export function MobileMenu() {
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
           <span
             className="text-lg"
-            style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
+            style={{ fontFamily: "'Source Sans 3', sans-serif", color: "var(--brand-primary)" }}
           >
             Menú
           </span>
@@ -72,8 +72,8 @@ export function MobileMenu() {
                 }
                 style={
                   isContact
-                    ? { backgroundColor: "var(--brand-green)", fontFamily: "'AvantGarde-Demi', sans-serif" }
-                    : { color: "var(--brand-primary)", fontFamily: "'AvantGarde-Demi', sans-serif" }
+                    ? { backgroundColor: "var(--brand-green)", fontFamily: "'Source Sans 3', sans-serif" }
+                    : { color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }
                 }
               >
                 {item.name}

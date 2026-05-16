@@ -18,39 +18,41 @@ import { FAQItem } from "./components/FAQItem";
 import { MobileMenu } from "./components/MobileMenu";
 import { CasosCarousel } from "./components/CasosCarousel";
 import Blog from "./pages/Blog";
+import { useEffect, useState } from "react";
 
 
 
 export default function App() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <div
       className="min-h-screen bg-white"
-      style={{ fontFamily: "'AvantGarde-Book', sans-serif" }}
+      style={{ fontFamily: "'Source Sans 3', sans-serif" }}
     >
       {/* Hero Section */}
-      <header className="relative overflow-hidden min-h-screen bg-white pt-24 md:pt-32">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1760074032551-fef8992ca72d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
-            alt="Medical professionals in laboratory"
-            className="w-full h-full object-cover"
-          />
-          {/* White Overlay */}
-          <div className="absolute inset-0 bg-white/95"></div>
-          {/* Glass effect overlay */}
-          <div className="absolute inset-0 backdrop-blur-sm"></div>
-        </div>
+      <header className="relative overflow-hidden bg-white pt-20 pb-12 md:pt-24 md:pb-16">
 
-        {/* Glassmorphism Navbar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg border-b border-white/20 shadow-sm">
+        {/* Navbar con scroll shadow */}
+        <nav
+          className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg border-b transition-all duration-300"
+          style={{
+            borderBottomColor: scrolled ? "rgba(186,198,216,0.3)" : "rgba(255,255,255,0.2)",
+            boxShadow: scrolled ? "0 4px 24px rgba(5,74,91,0.13)" : "none",
+          }}
+        >
           <div className="max-w-7xl mx-auto px-[10px] py-3 flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-3">
               <ImageWithFallback
-                src="/src/imports/ChatGPT_Image_13_may_2026__17_55_44.png"
+                src="/src/imports/LogoFS.png"
                 alt="Foster Stern Group"
-                className="w-auto h-10 md:h-12"
+                    className="w-auto h-12 md:h-14"
               />
             </div>
 
@@ -74,14 +76,13 @@ export default function App() {
               <a href="/blog" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Blog
               </a>
-              
               <a href="#faq" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 FAQ
               </a>
               <a
                 href="#contacto"
-                className="text-base px-5 py-2 bg-[var(--brand-green)] text-white rounded-lg hover:bg-[var(--brand-primary)] transition-all shadow-md"
-                style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}
+                className="nav-cta text-base px-5 py-2 text-white rounded-lg transition-all shadow-md"
+                style={{ backgroundColor: "#054A5B", fontFamily: "'Source Sans 3', sans-serif" }}
               >
                 Contactar
               </a>
@@ -92,161 +93,64 @@ export default function App() {
           </div>
         </nav>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-32 flex items-center min-h-screen">
+        {/* Contenido Hero — completamente blanco */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 md:pt-20">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-[var(--brand-green)]/10 backdrop-blur-md rounded-full border border-[var(--brand-green)]/20 mb-6">
-              <span
-                className="text-sm"
-                style={{ color: "var(--brand-green)" }}
-              >
+            <div className="inline-block px-4 py-2 rounded-full border mb-5" style={{ backgroundColor: "var(--brand-light)", borderColor: "var(--brand-secondary)" }}>
+              <span className="text-sm" style={{ color: "var(--brand-primary)" }}>
                 Soluciones Médicas Innovadoras
               </span>
             </div>
             <h1
-              className="text-5xl md:text-7xl mb-6 leading-tight"
-              style={{
-                fontFamily: "'AvantGarde-Demi', sans-serif",
-                color: "var(--brand-primary)",
-              }}
+              className="text-4xl md:text-6xl mb-5 leading-tight"
+              style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}
             >
               Servicios de Alergia Llave en Mano
             </h1>
-            <p
-              className="text-xl md:text-2xl mb-10 leading-relaxed max-w-2xl"
-              style={{ color: "var(--brand-muted)" }}
-            >
+            <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-2xl" style={{ color: "var(--brand-muted)" }}>
               Protocolos clínicos estandarizados y pruebas de
               alergia e inmunoterapia realizadas directamente en
               su consultorio médico.
             </p>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-              <div className="bg-white/80 backdrop-blur-md rounded-xl p-4 border border-gray-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-1">
-                  <FlaskConical
-                    className="w-5 h-5"
-                    style={{ color: "var(--brand-green)" }}
-                  />
-                </div>
-                <div
-                  className="text-2xl mb-1"
-                  style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  15min
-                </div>
-                <div
-                  className="text-sm"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Resultados
-                </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div className="rounded-xl p-4 border" style={{ backgroundColor: "var(--brand-light)", borderColor: "var(--brand-secondary)" }}>
+                <FlaskConical className="w-5 h-5 mb-2" style={{ color: "var(--brand-green)" }} />
+                <div className="text-2xl mb-1" style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}>15min</div>
+                <div className="text-sm" style={{ color: "var(--brand-muted)" }}>Resultados</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-md rounded-xl p-4 border border-gray-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-1">
-                  <Shield
-                    className="w-5 h-5"
-                    style={{ color: "var(--brand-green)" }}
-                  />
-                </div>
-                <div
-                  className="text-2xl mb-1"
-                  style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  100%
-                </div>
-                <div
-                  className="text-sm"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Seguro
-                </div>
+              <div className="rounded-xl p-4 border" style={{ backgroundColor: "var(--brand-light)", borderColor: "var(--brand-secondary)" }}>
+                <Shield className="w-5 h-5 mb-2" style={{ color: "var(--brand-green)" }} />
+                <div className="text-2xl mb-1" style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}>100%</div>
+                <div className="text-sm" style={{ color: "var(--brand-muted)" }}>Seguro</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-md rounded-xl p-4 border border-gray-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-1">
-                  <Users
-                    className="w-5 h-5"
-                    style={{ color: "var(--brand-green)" }}
-                  />
-                </div>
-                <div
-                  className="text-2xl mb-1"
-                  style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  24/7
-                </div>
-                <div
-                  className="text-sm"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Soporte
-                </div>
+              <div className="rounded-xl p-4 border" style={{ backgroundColor: "var(--brand-light)", borderColor: "var(--brand-secondary)" }}>
+                <Users className="w-5 h-5 mb-2" style={{ color: "var(--brand-green)" }} />
+                <div className="text-2xl mb-1" style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}>24/7</div>
+                <div className="text-sm" style={{ color: "var(--brand-muted)" }}>Soporte</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-md rounded-xl p-4 border border-gray-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-1">
-                  <Syringe
-                    className="w-5 h-5"
-                    style={{ color: "var(--brand-green)" }}
-                  />
-                </div>
-                <div
-                  className="text-2xl mb-1"
-                  style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  500+
-                </div>
-                <div
-                  className="text-sm"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Clínicas
-                </div>
+              <div className="rounded-xl p-4 border" style={{ backgroundColor: "var(--brand-light)", borderColor: "var(--brand-secondary)" }}>
+                <Syringe className="w-5 h-5 mb-2" style={{ color: "var(--brand-green)" }} />
+                <div className="text-2xl mb-1" style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}>500+</div>
+                <div className="text-sm" style={{ color: "var(--brand-muted)" }}>Clínicas</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                className="px-8 py-4 bg-[var(--brand-green)] text-white rounded-lg hover:bg-[var(--brand-primary)] transition-all flex items-center justify-center gap-2 shadow-lg"
-                style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
-                }}
+                className="px-8 py-3.5 text-white rounded-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-md"
+                style={{ backgroundColor: "var(--brand-green)", fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700 }}
               >
                 Comenzar Ahora
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button
-                className="px-8 py-4 bg-white text-[var(--brand-primary)] rounded-lg hover:bg-gray-50 transition-all border-2 border-[var(--brand-green)]"
-                style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
-                }}
+                className="px-8 py-3.5 rounded-lg transition-all border-2 hover:bg-[var(--brand-light)]"
+                style={{ borderColor: "var(--brand-primary)", color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600 }}
               >
                 Ver Demo
               </button>
-            </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-            <div
-              className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2"
-              style={{ borderColor: "var(--brand-green)" }}
-            >
-              <div
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: "var(--brand-green)" }}
-              ></div>
             </div>
           </div>
         </div>
@@ -262,7 +166,7 @@ export default function App() {
             <h2
               className="text-4xl md:text-5xl mb-4"
               style={{
-                fontFamily: "'AvantGarde-Demi', sans-serif",
+                fontFamily: "'Source Sans 3', sans-serif",
                 color: "var(--brand-primary)",
               }}
             >
@@ -284,7 +188,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -331,7 +235,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -377,7 +281,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -424,7 +328,7 @@ export default function App() {
             <h2
               className="text-4xl md:text-5xl mb-4"
               style={{
-                fontFamily: "'AvantGarde-Demi', sans-serif",
+                fontFamily: "'Source Sans 3', sans-serif",
                 color: "var(--brand-primary)",
               }}
             >
@@ -446,7 +350,7 @@ export default function App() {
               <h3
                 className="text-xl mb-3"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
+                  fontFamily: "'Source Sans 3', sans-serif",
                   color: "var(--brand-primary)",
                 }}
               >
@@ -471,7 +375,7 @@ export default function App() {
               <h3
                 className="text-xl mb-3"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
+                  fontFamily: "'Source Sans 3', sans-serif",
                   color: "var(--brand-primary)",
                 }}
               >
@@ -497,7 +401,7 @@ export default function App() {
               <h3
                 className="text-xl mb-3"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
+                  fontFamily: "'Source Sans 3', sans-serif",
                   color: "var(--brand-primary)",
                 }}
               >
@@ -522,7 +426,7 @@ export default function App() {
               <h3
                 className="text-xl mb-3"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
+                  fontFamily: "'Source Sans 3', sans-serif",
                   color: "var(--brand-primary)",
                 }}
               >
@@ -549,7 +453,7 @@ export default function App() {
             <h2
               className="text-4xl md:text-5xl mb-4"
               style={{
-                fontFamily: "'AvantGarde-Demi', sans-serif",
+                fontFamily: "'Source Sans 3', sans-serif",
                 color: "var(--brand-primary)",
               }}
             >
@@ -570,7 +474,7 @@ export default function App() {
                 <div
                   className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                   }}
                 >
                   1
@@ -578,7 +482,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -604,7 +508,7 @@ export default function App() {
                 <div
                   className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                   }}
                 >
                   2
@@ -612,7 +516,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -634,7 +538,7 @@ export default function App() {
                 <div
                   className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                   }}
                 >
                   3
@@ -642,7 +546,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -668,7 +572,7 @@ export default function App() {
             <h2
               className="text-4xl md:text-5xl mb-4"
               style={{
-                fontFamily: "'AvantGarde-Demi', sans-serif",
+                fontFamily: "'Source Sans 3', sans-serif",
                 color: "var(--brand-primary)",
               }}
             >
@@ -731,7 +635,7 @@ export default function App() {
               <div>
                 <h2
                   className="text-3xl md:text-4xl mb-3"
-                  style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
+                  style={{ fontFamily: "'Source Sans 3', sans-serif", color: "var(--brand-primary)" }}
                 >
                   Cómo Brindamos Soluciones Duraderas
                 </h2>
@@ -777,7 +681,7 @@ export default function App() {
                     </div>
                     <h3
                       className="text-base"
-                      style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
+                      style={{ fontFamily: "'Source Sans 3', sans-serif", color: "var(--brand-primary)" }}
                     >
                       {item.title}
                     </h3>
@@ -822,7 +726,7 @@ export default function App() {
               <h2
                 className="text-4xl md:text-5xl mb-6"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
+                  fontFamily: "'Source Sans 3', sans-serif",
                   color: "var(--brand-primary)",
                 }}
               >
@@ -844,7 +748,7 @@ export default function App() {
                     <h3
                       className="text-lg mb-2"
                       style={{
-                        fontFamily: "'AvantGarde-Demi', sans-serif",
+                        fontFamily: "'Source Sans 3', sans-serif",
                         color: "var(--brand-primary)",
                       }}
                     >
@@ -864,7 +768,7 @@ export default function App() {
                     <h3
                       className="text-lg mb-2"
                       style={{
-                        fontFamily: "'AvantGarde-Demi', sans-serif",
+                        fontFamily: "'Source Sans 3', sans-serif",
                         color: "var(--brand-primary)",
                       }}
                     >
@@ -884,7 +788,7 @@ export default function App() {
                     <h3
                       className="text-lg mb-2"
                       style={{
-                        fontFamily: "'AvantGarde-Demi', sans-serif",
+                        fontFamily: "'Source Sans 3', sans-serif",
                         color: "var(--brand-primary)",
                       }}
                     >
@@ -905,7 +809,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'AvantGarde-Demi', sans-serif",
+                      fontFamily: "'Source Sans 3', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -923,7 +827,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'AvantGarde-Demi', sans-serif",
+                      fontFamily: "'Source Sans 3', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -941,7 +845,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'AvantGarde-Demi', sans-serif",
+                      fontFamily: "'Source Sans 3', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -959,7 +863,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'AvantGarde-Demi', sans-serif",
+                      fontFamily: "'Source Sans 3', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -977,7 +881,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'AvantGarde-Demi', sans-serif",
+                      fontFamily: "'Source Sans 3', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -994,7 +898,7 @@ export default function App() {
                   type="submit"
                   className="w-full px-8 py-4 bg-[var(--brand-green)] text-white rounded-lg hover:bg-[var(--brand-primary)] transition-all flex items-center justify-center gap-2 shadow-lg"
                   style={{
-                    fontFamily: "'AvantGarde-Demi', sans-serif",
+                    fontFamily: "'Source Sans 3', sans-serif",
                   }}
                 >
                   Enviar Mensaje
@@ -1021,7 +925,7 @@ export default function App() {
               </span>
               <h2
                 className="text-3xl md:text-4xl leading-tight text-white"
-                style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}
+                style={{ fontFamily: "'Source Sans 3', sans-serif" }}
               >
                 Transforma tu clínica con soluciones de alergia de primer nivel
               </h2>
@@ -1034,14 +938,14 @@ export default function App() {
                 <a
                   href="#contacto"
                   className="px-7 py-3 rounded-xl text-center text-white transition-all hover:opacity-90"
-                  style={{ backgroundColor: "var(--brand-green)", fontFamily: "'AvantGarde-Demi', sans-serif" }}
+                  style={{ backgroundColor: "var(--brand-green)", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
                   Hablar con un especialista
                 </a>
                 <a
                   href="#servicios"
                   className="px-7 py-3 rounded-xl text-center transition-all hover:bg-white/10 border border-white/30"
-                  style={{ color: "#fff", fontFamily: "'AvantGarde-Demi', sans-serif" }}
+                  style={{ color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
                   Ver servicios
                 </a>
@@ -1068,20 +972,20 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-12">
+      <footer className="py-12 border-t" style={{ backgroundColor: "var(--brand-primary)", borderColor: "rgba(186,198,216,0.2)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="mb-4">
                 <ImageWithFallback
-                  src="/src/imports/ChatGPT_Image_13_may_2026__17_55_44.png"
+                  src="/src/imports/LogoFS.png"
                   alt="Foster Stern Group"
                   className="h-10 w-auto"
                 />
               </div>
               <p
                 className="leading-relaxed"
-                style={{ color: "var(--brand-muted)" }}
+                style={{ color: "var(--brand-secondary)" }}
               >
                 Soluciones innovadoras para servicios de alergia
                 en clínicas médicas.
@@ -1092,8 +996,8 @@ export default function App() {
               <h4
                 className="mb-4"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "var(--brand-primary)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "white",
                 }}
               >
                 Servicios
@@ -1102,8 +1006,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Pruebas de Alergia
                   </a>
@@ -1111,8 +1015,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Inmunoterapia
                   </a>
@@ -1120,8 +1024,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Protocolos Clínicos
                   </a>
@@ -1129,8 +1033,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Capacitación
                   </a>
@@ -1142,8 +1046,8 @@ export default function App() {
               <h4
                 className="mb-4"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "var(--brand-primary)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "white",
                 }}
               >
                 Empresa
@@ -1152,8 +1056,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Sobre Nosotros
                   </a>
@@ -1161,8 +1065,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Casos de Éxito
                   </a>
@@ -1170,8 +1074,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Blog
                   </a>
@@ -1179,8 +1083,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[var(--brand-green)] transition-colors"
-                    style={{ color: "var(--brand-muted)" }}
+                    className="hover:text-white transition-colors"
+                    style={{ color: "var(--brand-secondary)" }}
                   >
                     Contacto
                   </a>
@@ -1192,15 +1096,15 @@ export default function App() {
               <h4
                 className="mb-4"
                 style={{
-                  fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "var(--brand-primary)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "white",
                 }}
               >
                 Contacto
               </h4>
               <ul
                 className="space-y-2"
-                style={{ color: "var(--brand-muted)" }}
+                style={{ color: "var(--brand-secondary)" }}
               >
                 <li>info@fosternSterm.com</li>
                 <li>+1 (555) 123-4567</li>
@@ -1210,8 +1114,8 @@ export default function App() {
           </div>
 
           <div
-            className="border-t border-gray-200 pt-8 text-center"
-            style={{ color: "var(--brand-muted)" }}
+            className="border-t pt-8 text-center"
+            style={{ color: "var(--brand-secondary)" }}
           >
             <p>
               &copy; 2026 Foster Stern Group. Todos los derechos

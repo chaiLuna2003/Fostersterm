@@ -126,7 +126,7 @@ export function CasosCarousel() {
           </span>
           <h2
             className="text-3xl md:text-4xl mt-2"
-            style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
+            style={{ fontFamily: "'Source Sans 3', sans-serif", color: "var(--brand-primary)" }}
           >
             Casos de Éxito
           </h2>
@@ -165,14 +165,14 @@ export function CasosCarousel() {
           >
             <span
               className="inline-block self-start px-4 py-1 rounded-full text-white text-sm mb-4"
-              style={{ backgroundColor: "var(--brand-green)", fontFamily: "'AvantGarde-Demi', sans-serif" }}
+              style={{ backgroundColor: "var(--brand-green)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
               {caso.resultado}
             </span>
 
             <h3
               className="text-xl md:text-3xl text-white mb-1"
-              style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}
+              style={{ fontFamily: "'Source Sans 3', sans-serif" }}
             >
               {caso.clinica}
             </h3>
@@ -191,7 +191,7 @@ export function CasosCarousel() {
                 {caso.iniciales}
               </div>
               <div>
-                <p className="text-white text-sm" style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}>
+                <p className="text-white text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
                   {caso.especialista}
                 </p>
                 <p className="text-xs" style={{ color: "var(--brand-secondary)" }}>{caso.cargo}</p>

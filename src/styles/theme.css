@@ -12,6 +12,15 @@
   --primary-foreground: #ffffff;
   --secondary: #BAC6D8;
   --secondary-foreground: #054A5B;
+
+  /* Paleta de marca Foster Stern */
+  --brand-primary:   #054A5B;
+  --brand-green:     #008154;
+  --brand-secondary: #BAC6D8;
+  --brand-text:      #054A5B;
+  --brand-muted:     #5a7a84;
+  --brand-light:     #e8f2f4;
+  --brand-bg:        #f0f6f7;
   --muted: #ececf0;
   --muted-foreground: #717182;
   --accent: #e9ebef;

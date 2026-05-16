@@ -2,13 +2,14 @@ import { X, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
+
 const menuItems = [
   { name: "Nosotros", href: "#nosotros" },
   { name: "Servicios", href: "#servicios" },
   { name: "Beneficios", href: "#beneficios" },
   { name: "Casos de Éxito", href: "#casos" },
   { name: "Proceso", href: "#proceso" },
-  { name: "Blog", href: "#blog" },
+  { name: "Blog", href: "/blog" },
   { name: "FAQ", href: "#faq" },
   { name: "Contactar", href: "#contacto" },
 ];
@@ -39,22 +40,23 @@ export function MobileMenu() {
         style={{ animation: "slideIn 0.25s ease-out" }}
       >
         {/* Header del menú */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-          <span
-            className="text-lg"
-            style={{ fontFamily: "'Source Sans 3', sans-serif", color: "var(--brand-primary)" }}
-          >
-            Menú
-          </span>
-          <button
-            onClick={close}
-            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label="Cerrar menú"
-            type="button"
-          >
-            <X className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
-          </button>
-        </div>
+        {/* Header del menú */}
+<div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+  <img
+    src="/src/imports/LogoFS.png"
+    alt="Foster Stern Group"
+    className="h-10 w-auto object-contain"
+  />
+
+  <button
+    onClick={close}
+    className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+    aria-label="Cerrar menú"
+    type="button"
+  >
+    <X className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
+  </button>
+</div>
 
         {/* Links de navegación */}
         <nav className="flex flex-col px-4 py-6 gap-1 flex-1">

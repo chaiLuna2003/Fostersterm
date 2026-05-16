@@ -117,11 +117,11 @@ export default function Blog() {
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-16">
-          <span className="bg-[#238CCC]/10 text-[#238CCC] px-4 py-2 rounded-full text-sm font-medium">
+          <span className="bg-[var(--brand-green)]/10 text-[var(--brand-green)] px-4 py-2 rounded-full text-sm font-medium">
             Blog Médico
           </span>
 
-          <h1 className="text-5xl font-bold text-[#0D3B7F] mt-6">
+          <h1 className="text-5xl font-bold text-[var(--brand-primary)] mt-6">
             Últimos Artículos y Noticias
           </h1>
 
@@ -149,11 +149,11 @@ export default function Blog() {
 
               {/* CONTENT */}
               <div className="p-7">
-                <span className="text-sm text-[#238CCC] font-medium">
+                <span className="text-sm text-[var(--brand-green)] font-medium">
                   {blog.date}
                 </span>
 
-                <h2 className="text-2xl font-bold text-[#0D3B7F] mt-3 leading-snug">
+                <h2 className="text-2xl font-bold text-[var(--brand-primary)] mt-3 leading-snug">
                   {blog.title}
                 </h2>
 
@@ -161,7 +161,7 @@ export default function Blog() {
                   {blog.excerpt}
                 </p>
 
-                <button className="mt-6 text-[#238CCC] font-semibold hover:text-[#0D3B7F] transition-colors">
+                <button className="mt-6 text-[var(--brand-green)] font-semibold hover:text-[var(--brand-primary)] transition-colors">
                   Leer más →
                 </button>
               </div>

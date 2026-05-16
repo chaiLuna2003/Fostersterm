@@ -1,4 +1,20 @@
-/* ── Botón Contactar navbar ── */
+/* ── Fade-in al hacer scroll ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays escalonados para las cards */
+.fade-in.delay-1 { transition-delay: 0s; }
+.fade-in.delay-2 { transition-delay: 0.2s; }
+.fade-in.delay-3 { transition-delay: 0.4s; }
+
 .nav-cta {
   position: relative;
   overflow: hidden;

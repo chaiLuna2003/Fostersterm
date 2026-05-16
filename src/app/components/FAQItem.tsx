@@ -16,14 +16,14 @@ export function FAQItem({ question, answer }: FAQItemProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-[#238CCC] transition-all hover:shadow-md"
+      className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-[var(--brand-green)] transition-all hover:shadow-md"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full cursor-pointer flex items-center justify-between p-6 text-left"
         style={{
-          fontFamily: "'AvantGarde-Demi', sans-serif",
-          color: "#0D3B7F",
+          fontFamily: "'Source Sans 3', sans-serif",
+          color: "var(--brand-primary)",
         }}
       >
         <span className="text-lg pr-4">{question}</span>
@@ -31,7 +31,7 @@ export function FAQItem({ question, answer }: FAQItemProps) {
           animate={{ rotate: isOpen ? 90 : 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <ArrowRight className="w-5 h-5 flex-shrink-0" style={{ color: "#238CCC" }} />
+          <ArrowRight className="w-5 h-5 flex-shrink-0" style={{ color: "var(--brand-green)" }} />
         </motion.div>
       </button>
 

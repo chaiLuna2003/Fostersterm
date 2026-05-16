@@ -50,19 +50,27 @@ export default function App() {
   const svcCard2 = useFadeIn();
   const svcCard3 = useFadeIn();
 
+  // Refs fade-in cards del hero
+  const heroCard1 = useFadeIn();
+  const heroCard2 = useFadeIn();
+  const heroCard3 = useFadeIn();
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
+    <Routes>
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/*" element={
     <div
       className="min-h-screen bg-white"
       style={{ fontFamily: "'Source Sans 3', sans-serif" }}
     >
       {/* Hero Section */}
 
-      <header className="relative overflow-hidden bg-white pt-24 pb-16">
+      <header className="relative overflow-hidden bg-white pt-20 pb-10 md:pt-24 md:pb-16">
         {/* Background decor */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--brand-green)]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[var(--brand-primary)]/5 rounded-full blur-3xl"></div>
@@ -89,53 +97,28 @@ export default function App() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-7">
-              <a
-                href="#nosotros"
-                className="text-base hover:text-[var(--brand-primary)] transition-colors"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Nosotros
-              </a>
-
-              <a
-                href="#servicios"
-                className="text-base hover:text-[var(--brand-primary)] transition-colors"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Servicios
-              </a>
-
-              <a
-                href="#beneficios"
-                className="text-base hover:text-[var(--brand-primary)] transition-colors"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Beneficios
-              </a>
-
-              <a
-                href="#proceso"
-                className="text-base hover:text-[var(--brand-primary)] transition-colors"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Proceso
-              </a>
-
-              <a
-                href="#faq"
-                className="text-base hover:text-[var(--brand-primary)] transition-colors"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                FAQ
-              </a>
+              {[
+                { href: "#nosotros", label: "Nosotros" },
+                { href: "#servicios", label: "Servicios" },
+                { href: "#beneficios", label: "Beneficios" },
+                { href: "#proceso", label: "Proceso" },
+                { href: "#faq", label: "FAQ" },
+                { href: "/blog", label: "Blog" },
+              ].map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="nav-link text-base"
+                  style={{ color: "var(--brand-muted)" }}
+                >
+                  {label}
+                </a>
+              ))}
 
               <a
                 href="#contacto"
-                className="px-5 py-2.5 rounded-xl text-white transition-all shadow-md hover:scale-105"
-                style={{
-                  backgroundColor: "var(--brand-primary)",
-                  fontFamily: "'Source Sans 3', sans-serif",
-                }}
+                className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md"
+                style={{ backgroundColor: "var(--brand-primary)" }}
               >
                 Contactar
               </a>
@@ -173,7 +156,7 @@ export default function App() {
 
               {/* Title */}
               <h1
-                className="text-5xl md:text-6xl leading-tight mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6"
                 style={{
                   fontFamily: "'Source Sans 3', sans-serif",
                   fontWeight: 700,
@@ -320,7 +303,98 @@ export default function App() {
           {/* CARDS ABAJO DEL HERO */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {/* Card 1 */}
-            <div className="group bg-white rounded-3xl p-7 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div ref={heroCard1} className="fade-in delay-1 group bg-white rounded-3xl p-7 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+                }}
+              >
+                <Clock className="w-8 h-8 text-white" />
+              </div>
+
+              <h3
+                className="text-2xl mb-3"
+                style={{
+                  color: "var(--brand-primary)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                Resultados Rápidos
+              </h3>
+
+              <p
+                className="leading-relaxed"
+                style={{ color: "var(--brand-muted)" }}
+              >
+                Diagnósticos precisos y atención médica eficiente para brindar
+                tranquilidad inmediata a cada paciente.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div ref={heroCard2} className="fade-in delay-2 group bg-white rounded-3xl p-7 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+                }}
+              >
+                <Users className="w-8 h-8 text-white" />
+              </div>
+
+              <h3
+                className="text-2xl mb-3"
+                style={{
+                  color: "var(--brand-primary)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                Atención Familiar
+              </h3>
+
+              <p
+                className="leading-relaxed"
+                style={{ color: "var(--brand-muted)" }}
+              >
+                Soluciones médicas diseñadas para proteger y mejorar la calidad
+                de vida de toda la familia.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div ref={heroCard3} className="fade-in delay-3 group bg-white rounded-3xl p-7 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+                }}
+              >
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+
+              <h3
+                className="text-2xl mb-3"
+                style={{
+                  color: "var(--brand-primary)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                Seguridad Médica
+              </h3>
+
+              <p
+                className="leading-relaxed"
+                style={{ color: "var(--brand-muted)" }}
+              >
+                Protocolos clínicos avanzados y procesos certificados para
+                ofrecer atención médica confiable.
+              </p>
+            </div>
+          </div>
               <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
                 style={{
@@ -1484,5 +1558,7 @@ export default function App() {
         </div>
       </footer>
     </div>
+      } />
+    </Routes>
   );
 }

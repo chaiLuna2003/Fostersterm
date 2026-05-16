@@ -116,21 +116,21 @@ export function CasosCarousel() {
   const caso = casos[current];
 
   return (
-    <section className="py-20 overflow-hidden" style={{ backgroundColor: "#F0F6FB" }}>
+    <section className="py-20 overflow-hidden" style={{ backgroundColor: "var(--brand-bg)" }}>
       <div className="max-w-7xl mx-auto px-[10px]">
 
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-xs uppercase tracking-widest" style={{ color: "#238CCC" }}>
+          <span className="text-xs uppercase tracking-widest" style={{ color: "var(--brand-green)" }}>
             Resultados reales
           </span>
           <h2
             className="text-3xl md:text-4xl mt-2"
-            style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "#0D3B7F" }}
+            style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
           >
             Casos de Éxito
           </h2>
-          <p className="mt-3 text-base max-w-xl mx-auto" style={{ color: "#898989" }}>
+          <p className="mt-3 text-base max-w-xl mx-auto" style={{ color: "var(--brand-muted)" }}>
             Clínicas que transformaron su práctica médica con Foster Stern Group.
           </p>
         </div>
@@ -165,7 +165,7 @@ export function CasosCarousel() {
           >
             <span
               className="inline-block self-start px-4 py-1 rounded-full text-white text-sm mb-4"
-              style={{ backgroundColor: "#238CCC", fontFamily: "'AvantGarde-Demi', sans-serif" }}
+              style={{ backgroundColor: "var(--brand-green)", fontFamily: "'AvantGarde-Demi', sans-serif" }}
             >
               {caso.resultado}
             </span>
@@ -176,7 +176,7 @@ export function CasosCarousel() {
             >
               {caso.clinica}
             </h3>
-            <p className="text-sm mb-3" style={{ color: "#B0C4DE" }}>
+            <p className="text-sm mb-3" style={{ color: "var(--brand-secondary)" }}>
               {caso.ciudad}
             </p>
             <p className="text-sm md:text-base leading-relaxed text-white/90 mb-6 max-w-lg">
@@ -186,7 +186,7 @@ export function CasosCarousel() {
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style={{ backgroundColor: "#238CCC" }}
+                style={{ backgroundColor: "var(--brand-green)" }}
               >
                 {caso.iniciales}
               </div>
@@ -194,7 +194,7 @@ export function CasosCarousel() {
                 <p className="text-white text-sm" style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}>
                   {caso.especialista}
                 </p>
-                <p className="text-xs" style={{ color: "#B0C4DE" }}>{caso.cargo}</p>
+                <p className="text-xs" style={{ color: "var(--brand-secondary)" }}>{caso.cargo}</p>
               </div>
             </div>
           </div>
@@ -205,8 +205,8 @@ export function CasosCarousel() {
           <button
             onClick={prev}
             aria-label="Anterior"
-            className="w-11 h-11 rounded-full border flex items-center justify-center transition-all hover:border-[#238CCC] hover:text-[#238CCC]"
-            style={{ borderColor: "#B0C4DE", color: "#0D3B7F" }}
+            className="w-11 h-11 rounded-full border flex items-center justify-center transition-all hover:border-[var(--brand-green)] hover:text-[var(--brand-green)]"
+            style={{ borderColor: "var(--brand-secondary)", color: "var(--brand-primary)" }}
           >
             <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -215,8 +215,8 @@ export function CasosCarousel() {
           <button
             onClick={next}
             aria-label="Siguiente"
-            className="w-11 h-11 rounded-full border flex items-center justify-center transition-all hover:border-[#238CCC] hover:text-[#238CCC]"
-            style={{ borderColor: "#B0C4DE", color: "#0D3B7F" }}
+            className="w-11 h-11 rounded-full border flex items-center justify-center transition-all hover:border-[var(--brand-green)] hover:text-[var(--brand-green)]"
+            style={{ borderColor: "var(--brand-secondary)", color: "var(--brand-primary)" }}
           >
             <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

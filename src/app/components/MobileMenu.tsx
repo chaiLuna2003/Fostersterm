@@ -42,7 +42,7 @@ export function MobileMenu() {
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
           <span
             className="text-lg"
-            style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "#0D3B7F" }}
+            style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
           >
             Menú
           </span>
@@ -52,7 +52,7 @@ export function MobileMenu() {
             aria-label="Cerrar menú"
             type="button"
           >
-            <X className="w-5 h-5" style={{ color: "#0D3B7F" }} />
+            <X className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
           </button>
         </div>
 
@@ -72,8 +72,8 @@ export function MobileMenu() {
                 }
                 style={
                   isContact
-                    ? { backgroundColor: "#238CCC", fontFamily: "'AvantGarde-Demi', sans-serif" }
-                    : { color: "#0D3B7F", fontFamily: "'AvantGarde-Demi', sans-serif" }
+                    ? { backgroundColor: "var(--brand-green)", fontFamily: "'AvantGarde-Demi', sans-serif" }
+                    : { color: "var(--brand-primary)", fontFamily: "'AvantGarde-Demi', sans-serif" }
                 }
               >
                 {item.name}
@@ -101,7 +101,7 @@ export function MobileMenu() {
         aria-label="Abrir menú"
         type="button"
       >
-        <Menu className="w-6 h-6" style={{ color: "#0D3B7F" }} />
+        <Menu className="w-6 h-6" style={{ color: "var(--brand-primary)" }} />
       </button>
 
       {/* Portal: renderiza fuera del header para evitar overflow-hidden */}

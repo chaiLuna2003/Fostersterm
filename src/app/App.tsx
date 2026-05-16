@@ -56,31 +56,31 @@ export default function App() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
-              <a href="#nosotros" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="#nosotros" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Nosotros
               </a>
-              <a href="#servicios" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="#servicios" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Servicios
               </a>
-              <a href="#beneficios" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="#beneficios" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Beneficios
               </a>
-              <a href="#proceso" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="#proceso" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Proceso
               </a>
-              <a href="#casos" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="#casos" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Casos de Éxito
               </a>
-              <a href="/blog" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="/blog" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Blog
               </a>
               
-              <a href="#faq" className="text-base hover:text-[#238CCC] transition-colors" style={{ color: "#898989" }}>
+              <a href="#faq" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
                 FAQ
               </a>
               <a
                 href="#contacto"
-                className="text-base px-5 py-2 bg-[#238CCC] text-white rounded-lg hover:bg-[#0D3B7F] transition-all shadow-md"
+                className="text-base px-5 py-2 bg-[var(--brand-green)] text-white rounded-lg hover:bg-[var(--brand-primary)] transition-all shadow-md"
                 style={{ fontFamily: "'AvantGarde-Demi', sans-serif" }}
               >
                 Contactar
@@ -94,10 +94,10 @@ export default function App() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-32 flex items-center min-h-screen">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-[#238CCC]/10 backdrop-blur-md rounded-full border border-[#238CCC]/20 mb-6">
+            <div className="inline-block px-4 py-2 bg-[var(--brand-green)]/10 backdrop-blur-md rounded-full border border-[var(--brand-green)]/20 mb-6">
               <span
                 className="text-sm"
-                style={{ color: "#238CCC" }}
+                style={{ color: "var(--brand-green)" }}
               >
                 Soluciones Médicas Innovadoras
               </span>
@@ -106,14 +106,14 @@ export default function App() {
               className="text-5xl md:text-7xl mb-6 leading-tight"
               style={{
                 fontFamily: "'AvantGarde-Demi', sans-serif",
-                color: "#0D3B7F",
+                color: "var(--brand-primary)",
               }}
             >
               Servicios de Alergia Llave en Mano
             </h1>
             <p
               className="text-xl md:text-2xl mb-10 leading-relaxed max-w-2xl"
-              style={{ color: "#898989" }}
+              style={{ color: "var(--brand-muted)" }}
             >
               Protocolos clínicos estandarizados y pruebas de
               alergia e inmunoterapia realizadas directamente en
@@ -126,21 +126,21 @@ export default function App() {
                 <div className="flex items-center gap-2 mb-1">
                   <FlaskConical
                     className="w-5 h-5"
-                    style={{ color: "#238CCC" }}
+                    style={{ color: "var(--brand-green)" }}
                   />
                 </div>
                 <div
                   className="text-2xl mb-1"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   15min
                 </div>
                 <div
                   className="text-sm"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Resultados
                 </div>
@@ -149,21 +149,21 @@ export default function App() {
                 <div className="flex items-center gap-2 mb-1">
                   <Shield
                     className="w-5 h-5"
-                    style={{ color: "#238CCC" }}
+                    style={{ color: "var(--brand-green)" }}
                   />
                 </div>
                 <div
                   className="text-2xl mb-1"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   100%
                 </div>
                 <div
                   className="text-sm"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Seguro
                 </div>
@@ -172,21 +172,21 @@ export default function App() {
                 <div className="flex items-center gap-2 mb-1">
                   <Users
                     className="w-5 h-5"
-                    style={{ color: "#238CCC" }}
+                    style={{ color: "var(--brand-green)" }}
                   />
                 </div>
                 <div
                   className="text-2xl mb-1"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   24/7
                 </div>
                 <div
                   className="text-sm"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Soporte
                 </div>
@@ -195,21 +195,21 @@ export default function App() {
                 <div className="flex items-center gap-2 mb-1">
                   <Syringe
                     className="w-5 h-5"
-                    style={{ color: "#238CCC" }}
+                    style={{ color: "var(--brand-green)" }}
                   />
                 </div>
                 <div
                   className="text-2xl mb-1"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   500+
                 </div>
                 <div
                   className="text-sm"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Clínicas
                 </div>
@@ -218,7 +218,7 @@ export default function App() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                className="px-8 py-4 bg-[#238CCC] text-white rounded-lg hover:bg-[#0D3B7F] transition-all flex items-center justify-center gap-2 shadow-lg"
+                className="px-8 py-4 bg-[var(--brand-green)] text-white rounded-lg hover:bg-[var(--brand-primary)] transition-all flex items-center justify-center gap-2 shadow-lg"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
                 }}
@@ -227,7 +227,7 @@ export default function App() {
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button
-                className="px-8 py-4 bg-white text-[#0D3B7F] rounded-lg hover:bg-gray-50 transition-all border-2 border-[#238CCC]"
+                className="px-8 py-4 bg-white text-[var(--brand-primary)] rounded-lg hover:bg-gray-50 transition-all border-2 border-[var(--brand-green)]"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
                 }}
@@ -241,11 +241,11 @@ export default function App() {
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
             <div
               className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2"
-              style={{ borderColor: "#238CCC" }}
+              style={{ borderColor: "var(--brand-green)" }}
             >
               <div
                 className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: "#238CCC" }}
+                style={{ backgroundColor: "var(--brand-green)" }}
               ></div>
             </div>
           </div>
@@ -263,12 +263,12 @@ export default function App() {
               className="text-4xl md:text-5xl mb-4"
               style={{
                 fontFamily: "'AvantGarde-Demi', sans-serif",
-                color: "#0D3B7F",
+                color: "var(--brand-primary)",
               }}
             >
               Servicios Integrales
             </h2>
-            <p className="text-xl" style={{ color: "#898989" }}>
+            <p className="text-xl" style={{ color: "var(--brand-muted)" }}>
               Todo lo que necesita para ofrecer servicios de
               alergia de clase mundial
             </p>
@@ -276,23 +276,23 @@ export default function App() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#238CCC]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#238CCC] to-[#0D3B7F] rounded-xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-xl flex items-center justify-center mb-6">
                   <Microscope className="w-8 h-8 text-white" />
                 </div>
                 <h3
                   className="text-2xl mb-4"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   Pruebas de Alergia
                 </h3>
                 <p
                   className="mb-6 leading-relaxed"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Pruebas cutáneas y de sangre de última
                   generación para identificar alérgenos
@@ -301,20 +301,20 @@ export default function App() {
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Pruebas cutáneas estandarizadas
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Análisis de IgE específica
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Resultados en 15-20 minutos
                     </span>
                   </li>
@@ -323,23 +323,23 @@ export default function App() {
             </div>
 
             <div className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#238CCC]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#238CCC] to-[#0D3B7F] rounded-xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-xl flex items-center justify-center mb-6">
                   <Syringe className="w-8 h-8 text-white" />
                 </div>
                 <h3
                   className="text-2xl mb-4"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   Inmunoterapia
                 </h3>
                 <p
                   className="mb-6 leading-relaxed"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Tratamientos personalizados de inmunoterapia
                   subcutánea y sublingual para desensibilización
@@ -347,20 +347,20 @@ export default function App() {
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Protocolos personalizados
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Seguimiento continuo
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Resultados medibles
                     </span>
                   </li>
@@ -369,23 +369,23 @@ export default function App() {
             </div>
 
             <div className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#238CCC]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#238CCC] to-[#0D3B7F] rounded-xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-xl flex items-center justify-center mb-6">
                   <FlaskConical className="w-8 h-8 text-white" />
                 </div>
                 <h3
                   className="text-2xl mb-4"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   Protocolos Clínicos
                 </h3>
                 <p
                   className="mb-6 leading-relaxed"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Guías clínicas estandarizadas basadas en
                   evidencia para garantizar la calidad y
@@ -393,20 +393,20 @@ export default function App() {
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Basados en evidencia científica
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Actualizaciones continuas
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#238CCC] mt-0.5 flex-shrink-0" />
-                    <span style={{ color: "#898989" }}>
+                    <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
+                    <span style={{ color: "var(--brand-muted)" }}>
                       Capacitación incluida
                     </span>
                   </li>
@@ -425,61 +425,61 @@ export default function App() {
               className="text-4xl md:text-5xl mb-4"
               style={{
                 fontFamily: "'AvantGarde-Demi', sans-serif",
-                color: "#0D3B7F",
+                color: "var(--brand-primary)",
               }}
             >
               ¿Por Qué Elegirnos?
             </h2>
-            <p className="text-xl" style={{ color: "#898989" }}>
+            <p className="text-xl" style={{ color: "var(--brand-muted)" }}>
               Beneficios que transformarán su práctica médica
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[#238CCC] transition-all shadow-sm hover:shadow-md">
-              <div className="w-12 h-12 bg-[#238CCC]/10 rounded-lg flex items-center justify-center mb-4 border border-[#238CCC]/20">
+            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[var(--brand-green)] transition-all shadow-sm hover:shadow-md">
+              <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center mb-4 border border-[var(--brand-green)]/20">
                 <Clock
                   className="w-6 h-6"
-                  style={{ color: "#238CCC" }}
+                  style={{ color: "var(--brand-green)" }}
                 />
               </div>
               <h3
                 className="text-xl mb-3"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 Implementación Rápida
               </h3>
               <p
                 className="leading-relaxed"
-                style={{ color: "#898989" }}
+                style={{ color: "var(--brand-muted)" }}
               >
                 Configure su servicio de alergia en menos de 2
                 semanas con nuestro sistema integral.
               </p>
             </div>
 
-            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[#238CCC] transition-all shadow-sm hover:shadow-md">
-              <div className="w-12 h-12 bg-[#238CCC]/10 rounded-lg flex items-center justify-center mb-4 border border-[#238CCC]/20">
+            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[var(--brand-green)] transition-all shadow-sm hover:shadow-md">
+              <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center mb-4 border border-[var(--brand-green)]/20">
                 <Shield
                   className="w-6 h-6"
-                  style={{ color: "#238CCC" }}
+                  style={{ color: "var(--brand-green)" }}
                 />
               </div>
               <h3
                 className="text-xl mb-3"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 Máxima Seguridad
               </h3>
               <p
                 className="leading-relaxed"
-                style={{ color: "#898989" }}
+                style={{ color: "var(--brand-muted)" }}
               >
                 Protocolos certificados y equipos de última
                 generación para garantizar la seguridad del
@@ -487,50 +487,50 @@ export default function App() {
               </p>
             </div>
 
-            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[#238CCC] transition-all shadow-sm hover:shadow-md">
-              <div className="w-12 h-12 bg-[#238CCC]/10 rounded-lg flex items-center justify-center mb-4 border border-[#238CCC]/20">
+            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[var(--brand-green)] transition-all shadow-sm hover:shadow-md">
+              <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center mb-4 border border-[var(--brand-green)]/20">
                 <Users
                   className="w-6 h-6"
-                  style={{ color: "#238CCC" }}
+                  style={{ color: "var(--brand-green)" }}
                 />
               </div>
               <h3
                 className="text-xl mb-3"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 Soporte Continuo
               </h3>
               <p
                 className="leading-relaxed"
-                style={{ color: "#898989" }}
+                style={{ color: "var(--brand-muted)" }}
               >
                 Equipo de especialistas disponible 24/7 para
                 resolver dudas y apoyar su equipo médico.
               </p>
             </div>
 
-            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[#238CCC] transition-all shadow-sm hover:shadow-md">
-              <div className="w-12 h-12 bg-[#238CCC]/10 rounded-lg flex items-center justify-center mb-4 border border-[#238CCC]/20">
+            <div className="bg-white backdrop-blur-md rounded-2xl p-6 border border-gray-200 hover:border-[var(--brand-green)] transition-all shadow-sm hover:shadow-md">
+              <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center mb-4 border border-[var(--brand-green)]/20">
                 <CheckCircle2
                   className="w-6 h-6"
-                  style={{ color: "#238CCC" }}
+                  style={{ color: "var(--brand-green)" }}
                 />
               </div>
               <h3
                 className="text-xl mb-3"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 ROI Garantizado
               </h3>
               <p
                 className="leading-relaxed"
-                style={{ color: "#898989" }}
+                style={{ color: "var(--brand-muted)" }}
               >
                 Aumente los ingresos de su clínica con servicios
                 de alto valor y demanda creciente.
@@ -550,12 +550,12 @@ export default function App() {
               className="text-4xl md:text-5xl mb-4"
               style={{
                 fontFamily: "'AvantGarde-Demi', sans-serif",
-                color: "#0D3B7F",
+                color: "var(--brand-primary)",
               }}
             >
               Proceso Simple
             </h2>
-            <p className="text-xl" style={{ color: "#898989" }}>
+            <p className="text-xl" style={{ color: "var(--brand-muted)" }}>
               Comience a ofrecer servicios de alergia en 3 pasos
             </p>
           </div>
@@ -563,12 +563,12 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="relative">
               <div
-                className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-[#238CCC] to-[#0D3B7F] hidden md:block"
+                className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-[var(--brand-green)] to-[var(--brand-primary)] hidden md:block"
                 style={{ transform: "translateX(50%)" }}
               ></div>
               <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
                 <div
-                  className="w-16 h-16 bg-gradient-to-br from-[#238CCC] to-[#0D3B7F] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
+                  className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
                   }}
@@ -579,14 +579,14 @@ export default function App() {
                   className="text-2xl mb-4"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   Consulta Inicial
                 </h3>
                 <p
                   className="leading-relaxed"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Evaluamos las necesidades de su clínica y
                   diseñamos un plan personalizado de
@@ -597,12 +597,12 @@ export default function App() {
 
             <div className="relative">
               <div
-                className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-[#238CCC] to-[#0D3B7F] hidden md:block"
+                className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-[var(--brand-green)] to-[var(--brand-primary)] hidden md:block"
                 style={{ transform: "translateX(50%)" }}
               ></div>
               <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
                 <div
-                  className="w-16 h-16 bg-gradient-to-br from-[#238CCC] to-[#0D3B7F] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
+                  className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
                   }}
@@ -613,14 +613,14 @@ export default function App() {
                   className="text-2xl mb-4"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   Implementación
                 </h3>
                 <p
                   className="leading-relaxed"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Instalamos equipos, capacitamos a su personal
                   y configuramos todos los protocolos clínicos
@@ -632,7 +632,7 @@ export default function App() {
             <div className="relative">
               <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
                 <div
-                  className="w-16 h-16 bg-gradient-to-br from-[#238CCC] to-[#0D3B7F] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
+                  className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
                   }}
@@ -643,14 +643,14 @@ export default function App() {
                   className="text-2xl mb-4"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
-                    color: "#0D3B7F",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   Lanzamiento
                 </h3>
                 <p
                   className="leading-relaxed"
-                  style={{ color: "#898989" }}
+                  style={{ color: "var(--brand-muted)" }}
                 >
                   Comience a atender pacientes con soporte
                   continuo de nuestro equipo de especialistas.
@@ -669,12 +669,12 @@ export default function App() {
               className="text-4xl md:text-5xl mb-4"
               style={{
                 fontFamily: "'AvantGarde-Demi', sans-serif",
-                color: "#0D3B7F",
+                color: "var(--brand-primary)",
               }}
             >
               Preguntas Frecuentes
             </h2>
-            <p className="text-xl" style={{ color: "#898989" }}>
+            <p className="text-xl" style={{ color: "var(--brand-muted)" }}>
               Resolvemos las dudas más comunes sobre nuestros servicios
             </p>
           </div>
@@ -722,7 +722,7 @@ export default function App() {
               />
               <div
                 className="absolute bottom-0 left-0 right-0 h-24"
-                style={{ background: "linear-gradient(to top, #0D3B7F88, transparent)" }}
+                style={{ background: "linear-gradient(to top, var(--brand-primary)88, transparent)" }}
               />
             </div>
 
@@ -731,11 +731,11 @@ export default function App() {
               <div>
                 <h2
                   className="text-3xl md:text-4xl mb-3"
-                  style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "#0D3B7F" }}
+                  style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
                 >
                   Cómo Brindamos Soluciones Duraderas
                 </h2>
-                <p className="text-base" style={{ color: "#898989" }}>
+                <p className="text-base" style={{ color: "var(--brand-muted)" }}>
                   Encuentra el tratamiento que mejor se adapta a tu clínica y tus pacientes.
                 </p>
               </div>
@@ -744,25 +744,25 @@ export default function App() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   {
-                    icon: <Users className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
                     title: "Proveedores Locales",
                     desc: "Cada clínica es única. Como socios, desarrollamos planes de servicio personalizados para cada práctica médica.",
                     link: "Encontrar un proveedor",
                   },
                   {
-                    icon: <Network className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    icon: <Network className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
                     title: "Red Nacional",
                     desc: "Foster Stern Group es una de las redes de alergias más grandes y confiables del país, con presencia en todo el territorio.",
                     link: "¿Por qué Foster Stern?",
                   },
                   {
-                    icon: <ClipboardList className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    icon: <ClipboardList className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
                     title: "Soluciones Personalizadas",
                     desc: "Desarrolladas con cientos de especialistas, nuestros procesos ofrecen a los pacientes alivio rápido y de calidad.",
                     link: "Tu camino al alivio",
                   },
                   {
-                    icon: <HeartPulse className="w-6 h-6" style={{ color: "#238CCC" }} />,
+                    icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
                     title: "Experiencias Sin Fricción",
                     desc: "Desde la agenda hasta el laboratorio en consultorio, hacemos más fácil que nunca brindar la atención que merecen.",
                     link: "Ver recursos",
@@ -771,23 +771,23 @@ export default function App() {
                   <div key={item.title} className="flex flex-col gap-2">
                     <div
                       className="w-12 h-12 rounded-full flex items-center justify-center mb-1"
-                      style={{ backgroundColor: "#E8F4FB" }}
+                      style={{ backgroundColor: "var(--brand-light)" }}
                     >
                       {item.icon}
                     </div>
                     <h3
                       className="text-base"
-                      style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "#0D3B7F" }}
+                      style={{ fontFamily: "'AvantGarde-Demi', sans-serif", color: "var(--brand-primary)" }}
                     >
                       {item.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#898989" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)" }}>
                       {item.desc}
                     </p>
                     <a
                       href="#contacto"
                       className="text-sm font-semibold underline underline-offset-2 mt-1 hover:opacity-70 transition-opacity"
-                      style={{ color: "#238CCC" }}
+                      style={{ color: "var(--brand-green)" }}
                     >
                       {item.link}
                     </a>
@@ -823,74 +823,74 @@ export default function App() {
                 className="text-4xl md:text-5xl mb-6"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 ¿Listo para Comenzar?
               </h2>
               <p
                 className="text-xl mb-8 leading-relaxed"
-                style={{ color: "#898989" }}
+                style={{ color: "var(--brand-muted)" }}
               >
                 Complete el formulario y uno de nuestros especialistas se pondrá en contacto con usted en menos de 24 horas.
               </p>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#238CCC]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6" style={{ color: "#238CCC" }} />
+                  <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />
                   </div>
                   <div>
                     <h3
                       className="text-lg mb-2"
                       style={{
                         fontFamily: "'AvantGarde-Demi', sans-serif",
-                        color: "#0D3B7F",
+                        color: "var(--brand-primary)",
                       }}
                     >
                       Asesoría Personalizada
                     </h3>
-                    <p style={{ color: "#898989" }}>
+                    <p style={{ color: "var(--brand-muted)" }}>
                       Analizamos las necesidades específicas de su clínica
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#238CCC]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2 className="w-6 h-6" style={{ color: "#238CCC" }} />
+                  <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-6 h-6" style={{ color: "var(--brand-green)" }} />
                   </div>
                   <div>
                     <h3
                       className="text-lg mb-2"
                       style={{
                         fontFamily: "'AvantGarde-Demi', sans-serif",
-                        color: "#0D3B7F",
+                        color: "var(--brand-primary)",
                       }}
                     >
                       Sin Compromiso
                     </h3>
-                    <p style={{ color: "#898989" }}>
+                    <p style={{ color: "var(--brand-muted)" }}>
                       Cotización gratuita y sin obligación de contratación
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#238CCC]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6" style={{ color: "#238CCC" }} />
+                  <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6" style={{ color: "var(--brand-green)" }} />
                   </div>
                   <div>
                     <h3
                       className="text-lg mb-2"
                       style={{
                         fontFamily: "'AvantGarde-Demi', sans-serif",
-                        color: "#0D3B7F",
+                        color: "var(--brand-primary)",
                       }}
                     >
                       Respuesta Rápida
                     </h3>
-                    <p style={{ color: "#898989" }}>
+                    <p style={{ color: "var(--brand-muted)" }}>
                       Nos contactamos en menos de 24 horas hábiles
                     </p>
                   </div>
@@ -906,7 +906,7 @@ export default function App() {
                     className="block mb-2"
                     style={{
                       fontFamily: "'AvantGarde-Demi', sans-serif",
-                      color: "#0D3B7F",
+                      color: "var(--brand-primary)",
                     }}
                   >
                     Nombre Completo *
@@ -914,7 +914,7 @@ export default function App() {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#238CCC] focus:ring-2 focus:ring-[#238CCC]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all"
                     placeholder="Dr. Juan Pérez"
                   />
                 </div>
@@ -924,7 +924,7 @@ export default function App() {
                     className="block mb-2"
                     style={{
                       fontFamily: "'AvantGarde-Demi', sans-serif",
-                      color: "#0D3B7F",
+                      color: "var(--brand-primary)",
                     }}
                   >
                     Correo Electrónico *
@@ -932,7 +932,7 @@ export default function App() {
                   <input
                     type="email"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#238CCC] focus:ring-2 focus:ring-[#238CCC]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all"
                     placeholder="correo@clinica.com"
                   />
                 </div>
@@ -942,7 +942,7 @@ export default function App() {
                     className="block mb-2"
                     style={{
                       fontFamily: "'AvantGarde-Demi', sans-serif",
-                      color: "#0D3B7F",
+                      color: "var(--brand-primary)",
                     }}
                   >
                     Teléfono *
@@ -950,7 +950,7 @@ export default function App() {
                   <input
                     type="tel"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#238CCC] focus:ring-2 focus:ring-[#238CCC]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
@@ -960,7 +960,7 @@ export default function App() {
                     className="block mb-2"
                     style={{
                       fontFamily: "'AvantGarde-Demi', sans-serif",
-                      color: "#0D3B7F",
+                      color: "var(--brand-primary)",
                     }}
                   >
                     Nombre de la Clínica *
@@ -968,7 +968,7 @@ export default function App() {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#238CCC] focus:ring-2 focus:ring-[#238CCC]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all"
                     placeholder="Clínica Médica XYZ"
                   />
                 </div>
@@ -978,21 +978,21 @@ export default function App() {
                     className="block mb-2"
                     style={{
                       fontFamily: "'AvantGarde-Demi', sans-serif",
-                      color: "#0D3B7F",
+                      color: "var(--brand-primary)",
                     }}
                   >
                     Mensaje
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#238CCC] focus:ring-2 focus:ring-[#238CCC]/20 outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all resize-none"
                     placeholder="Cuéntenos sobre su clínica y sus necesidades..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-[#238CCC] text-white rounded-lg hover:bg-[#0D3B7F] transition-all flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full px-8 py-4 bg-[var(--brand-green)] text-white rounded-lg hover:bg-[var(--brand-primary)] transition-all flex items-center justify-center gap-2 shadow-lg"
                   style={{
                     fontFamily: "'AvantGarde-Demi', sans-serif",
                   }}
@@ -1009,13 +1009,13 @@ export default function App() {
       {/* CTA Section */}
       <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 md:px-12">
-          <div className="rounded-3xl overflow-hidden grid md:grid-cols-2 min-h-[480px]" style={{ backgroundColor: "#0D3B7F" }}>
+          <div className="rounded-3xl overflow-hidden grid md:grid-cols-2 min-h-[480px]" style={{ backgroundColor: "var(--brand-primary)" }}>
             
             {/* Texto lado izquierdo */}
             <div className="flex flex-col justify-center px-10 md:px-16 py-14 gap-6">
               <span
                 className="text-xs uppercase tracking-widest"
-                style={{ color: "#238CCC" }}
+                style={{ color: "var(--brand-green)" }}
               >
                 Únete a nuestra red
               </span>
@@ -1025,7 +1025,7 @@ export default function App() {
               >
                 Transforma tu clínica con soluciones de alergia de primer nivel
               </h2>
-              <p className="text-base leading-relaxed" style={{ color: "#B0C4DE" }}>
+              <p className="text-base leading-relaxed" style={{ color: "var(--brand-secondary)" }}>
                 Miles de clínicas ya confían en Foster Stern Group para ofrecer 
                 servicios de alergia de alta calidad. Da el siguiente paso y 
                 lleva tu práctica médica al siguiente nivel.
@@ -1034,7 +1034,7 @@ export default function App() {
                 <a
                   href="#contacto"
                   className="px-7 py-3 rounded-xl text-center text-white transition-all hover:opacity-90"
-                  style={{ backgroundColor: "#238CCC", fontFamily: "'AvantGarde-Demi', sans-serif" }}
+                  style={{ backgroundColor: "var(--brand-green)", fontFamily: "'AvantGarde-Demi', sans-serif" }}
                 >
                   Hablar con un especialista
                 </a>
@@ -1059,7 +1059,7 @@ export default function App() {
               {/* Overlay degradado para integrar con el azul */}
               <div
                 className="absolute inset-0"
-                style={{ background: "linear-gradient(to right, #0D3B7F 0%, transparent 40%)" }}
+                style={{ background: "linear-gradient(to right, var(--brand-primary) 0%, transparent 40%)" }}
               />
             </div>
 
@@ -1081,7 +1081,7 @@ export default function App() {
               </div>
               <p
                 className="leading-relaxed"
-                style={{ color: "#898989" }}
+                style={{ color: "var(--brand-muted)" }}
               >
                 Soluciones innovadoras para servicios de alergia
                 en clínicas médicas.
@@ -1093,7 +1093,7 @@ export default function App() {
                 className="mb-4"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 Servicios
@@ -1102,8 +1102,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Pruebas de Alergia
                   </a>
@@ -1111,8 +1111,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Inmunoterapia
                   </a>
@@ -1120,8 +1120,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Protocolos Clínicos
                   </a>
@@ -1129,8 +1129,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Capacitación
                   </a>
@@ -1143,7 +1143,7 @@ export default function App() {
                 className="mb-4"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 Empresa
@@ -1152,8 +1152,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Sobre Nosotros
                   </a>
@@ -1161,8 +1161,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Casos de Éxito
                   </a>
@@ -1170,8 +1170,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Blog
                   </a>
@@ -1179,8 +1179,8 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-[#238CCC] transition-colors"
-                    style={{ color: "#898989" }}
+                    className="hover:text-[var(--brand-green)] transition-colors"
+                    style={{ color: "var(--brand-muted)" }}
                   >
                     Contacto
                   </a>
@@ -1193,14 +1193,14 @@ export default function App() {
                 className="mb-4"
                 style={{
                   fontFamily: "'AvantGarde-Demi', sans-serif",
-                  color: "#0D3B7F",
+                  color: "var(--brand-primary)",
                 }}
               >
                 Contacto
               </h4>
               <ul
                 className="space-y-2"
-                style={{ color: "#898989" }}
+                style={{ color: "var(--brand-muted)" }}
               >
                 <li>info@fosternSterm.com</li>
                 <li>+1 (555) 123-4567</li>
@@ -1211,7 +1211,7 @@ export default function App() {
 
           <div
             className="border-t border-gray-200 pt-8 text-center"
-            style={{ color: "#898989" }}
+            style={{ color: "var(--brand-muted)" }}
           >
             <p>
               &copy; 2026 Foster Stern Group. Todos los derechos

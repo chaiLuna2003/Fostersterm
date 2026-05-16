@@ -1,28 +1,64 @@
+/* ── Botón Contactar navbar ── */
 .nav-cta {
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
 }
 
-.nav-cta::after {
+/* Brillo que barre de izquierda a derecha al hover */
+.nav-cta::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.12), transparent);
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transition: left 0.4s ease;
+  pointer-events: none;
 }
 
-.nav-cta:hover::after {
-  opacity: 1;
+.nav-cta:hover::before {
+  left: 160%;
 }
 
 .nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(5, 74, 91, 0.4);
+  box-shadow: 0 8px 24px rgba(5, 74, 91, 0.35);
+  background-color: #076677 !important; /* tono ligeramente más claro al hover */
 }
 
 .nav-cta:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(5, 74, 91, 0.3);
+  transform: translateY(0px);
+  box-shadow: 0 2px 8px rgba(5, 74, 91, 0.25);
+}
+
+/* ── Links del navbar ── */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+/* Línea inferior que crece desde el centro al hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  right: 50%;
+  height: 1.5px;
+  background-color: var(--brand-green);
+  transition: left 0.25s ease, right 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  left: 0;
+  right: 0;
 }

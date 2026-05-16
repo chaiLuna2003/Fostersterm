@@ -58,25 +58,25 @@ export default function App() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
-              <a href="#nosotros" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
+              <a href="#nosotros" className="nav-link text-base transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Nosotros
               </a>
-              <a href="#servicios" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
+              <a href="#servicios" className="nav-link text-base transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Servicios
               </a>
-              <a href="#beneficios" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
+              <a href="#beneficios" className="nav-link text-base transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Beneficios
               </a>
-              <a href="#proceso" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
+              <a href="#proceso" className="nav-link text-base transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Proceso
               </a>
-              <a href="#casos" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
+              <a href="#casos" className="nav-link text-base transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Casos de Éxito
               </a>
-              <a href="/blog" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
+              <a href="/blog" className="nav-link text-base transition-colors" style={{ color: "var(--brand-muted)" }}>
                 Blog
               </a>
-              <a href="#faq" className="text-base hover:text-[var(--brand-green)] transition-colors" style={{ color: "var(--brand-muted)" }}>
+              <a href="#faq" className="nav-link text-base transition-colors" style={{ color: "var(--brand-muted)" }}>
                 FAQ
               </a>
               <a

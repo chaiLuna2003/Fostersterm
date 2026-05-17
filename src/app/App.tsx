@@ -432,6 +432,131 @@ export default function App() {
         </div>
       </section>
 
+<section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8 md:px-12">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Imagen izquierda */}
+            <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[480px]">
+              <img
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
+                alt="Especialista en alergias con paciente"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                className="absolute bottom-0 left-0 right-0 h-24"
+                style={{
+                  background:
+                    "linear-gradient(to top, var(--brand-primary)88, transparent)",
+                }}
+              />
+            </div>
+
+            {/* Contenido derecha */}
+            <div ref={howContent} className="fade-in from-right flex flex-col gap-8">
+              <div>
+                <h2
+                  className="text-3xl md:text-4xl mb-3"
+                  style={{
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    color: "var(--brand-primary)",
+                  }}
+                >
+                  Cómo Brindamos Soluciones Duraderas
+                </h2>
+                <p
+                  className="text-base"
+                  style={{ color: "var(--brand-muted)" }}
+                >
+                  Encuentra el tratamiento que mejor se adapta a tu clínica y
+                  tus pacientes.
+                </p>
+              </div>
+
+              {/* Grid 2x2 de características */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    icon: (
+                      <Users
+                        className="w-6 h-6"
+                        style={{ color: "var(--brand-green)" }}
+                      />
+                    ),
+                    title: "Proveedores Locales",
+                    desc: "Cada clínica es única. Como socios, desarrollamos planes de servicio personalizados para cada práctica médica.",
+                    link: "Encontrar un proveedor",
+                  },
+                  {
+                    icon: (
+                      <Network
+                        className="w-6 h-6"
+                        style={{ color: "var(--brand-green)" }}
+                      />
+                    ),
+                    title: "Red Nacional",
+                    desc: "Foster Stern Group es una de las redes de alergias más grandes y confiables del país, con presencia en todo el territorio.",
+                    link: "¿Por qué Foster Stern?",
+                  },
+                  {
+                    icon: (
+                      <ClipboardList
+                        className="w-6 h-6"
+                        style={{ color: "var(--brand-green)" }}
+                      />
+                    ),
+                    title: "Soluciones Personalizadas",
+                    desc: "Desarrolladas con cientos de especialistas, nuestros procesos ofrecen a los pacientes alivio rápido y de calidad.",
+                    link: "Tu camino al alivio",
+                  },
+                  {
+                    icon: (
+                      <HeartPulse
+                        className="w-6 h-6"
+                        style={{ color: "var(--brand-green)" }}
+                      />
+                    ),
+                    title: "Experiencias Sin Fricción",
+                    desc: "Desde la agenda hasta el laboratorio en consultorio, hacemos más fácil que nunca brindar la atención que merecen.",
+                    link: "Ver recursos",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex flex-col gap-2">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center mb-1"
+                      style={{ backgroundColor: "var(--brand-light)" }}
+                    >
+                      {item.icon}
+                    </div>
+                    <h3
+                      className="text-base"
+                      style={{
+                        fontFamily: "'Source Sans 3', sans-serif",
+                        color: "var(--brand-primary)",
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      className="text-sm leading-relaxed"
+                      style={{ color: "var(--brand-muted)" }}
+                    >
+                      {item.desc}
+                    </p>
+                    <a
+                      href="#contacto"
+                      className="text-sm font-semibold underline underline-offset-2 mt-1 hover:opacity-70 transition-opacity"
+                      style={{ color: "var(--brand-green)" }}
+                    >
+                      {item.link}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section
         id="servicios"
@@ -806,130 +931,7 @@ export default function App() {
       </section>
 
       {/* How We Work Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-8 md:px-12">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Imagen izquierda */}
-            <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[480px]">
-              <img
-                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
-                alt="Especialista en alergias con paciente"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div
-                className="absolute bottom-0 left-0 right-0 h-24"
-                style={{
-                  background:
-                    "linear-gradient(to top, var(--brand-primary)88, transparent)",
-                }}
-              />
-            </div>
-
-            {/* Contenido derecha */}
-            <div ref={howContent} className="fade-in from-right flex flex-col gap-8">
-              <div>
-                <h2
-                  className="text-3xl md:text-4xl mb-3"
-                  style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  Cómo Brindamos Soluciones Duraderas
-                </h2>
-                <p
-                  className="text-base"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Encuentra el tratamiento que mejor se adapta a tu clínica y
-                  tus pacientes.
-                </p>
-              </div>
-
-              {/* Grid 2x2 de características */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[
-                  {
-                    icon: (
-                      <Users
-                        className="w-6 h-6"
-                        style={{ color: "var(--brand-green)" }}
-                      />
-                    ),
-                    title: "Proveedores Locales",
-                    desc: "Cada clínica es única. Como socios, desarrollamos planes de servicio personalizados para cada práctica médica.",
-                    link: "Encontrar un proveedor",
-                  },
-                  {
-                    icon: (
-                      <Network
-                        className="w-6 h-6"
-                        style={{ color: "var(--brand-green)" }}
-                      />
-                    ),
-                    title: "Red Nacional",
-                    desc: "Foster Stern Group es una de las redes de alergias más grandes y confiables del país, con presencia en todo el territorio.",
-                    link: "¿Por qué Foster Stern?",
-                  },
-                  {
-                    icon: (
-                      <ClipboardList
-                        className="w-6 h-6"
-                        style={{ color: "var(--brand-green)" }}
-                      />
-                    ),
-                    title: "Soluciones Personalizadas",
-                    desc: "Desarrolladas con cientos de especialistas, nuestros procesos ofrecen a los pacientes alivio rápido y de calidad.",
-                    link: "Tu camino al alivio",
-                  },
-                  {
-                    icon: (
-                      <HeartPulse
-                        className="w-6 h-6"
-                        style={{ color: "var(--brand-green)" }}
-                      />
-                    ),
-                    title: "Experiencias Sin Fricción",
-                    desc: "Desde la agenda hasta el laboratorio en consultorio, hacemos más fácil que nunca brindar la atención que merecen.",
-                    link: "Ver recursos",
-                  },
-                ].map((item) => (
-                  <div key={item.title} className="flex flex-col gap-2">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center mb-1"
-                      style={{ backgroundColor: "var(--brand-light)" }}
-                    >
-                      {item.icon}
-                    </div>
-                    <h3
-                      className="text-base"
-                      style={{
-                        fontFamily: "'Source Sans 3', sans-serif",
-                        color: "var(--brand-primary)",
-                      }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: "var(--brand-muted)" }}
-                    >
-                      {item.desc}
-                    </p>
-                    <a
-                      href="#contacto"
-                      className="text-sm font-semibold underline underline-offset-2 mt-1 hover:opacity-70 transition-opacity"
-                      style={{ color: "var(--brand-green)" }}
-                    >
-                      {item.link}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Botón flotante de WhatsApp */}
       <a
@@ -975,76 +977,62 @@ export default function App() {
                 en contacto con usted en menos de 24 horas.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users
-                      className="w-6 h-6"
-                      style={{ color: "var(--brand-green)" }}
-                    />
-                  </div>
-                  <div>
-                    <h3
-                      className="text-lg mb-2"
-                      style={{
-                        fontFamily: "'Source Sans 3', sans-serif",
-                        color: "var(--brand-primary)",
-                      }}
-                    >
-                      Asesoría Personalizada
-                    </h3>
-                    <p style={{ color: "var(--brand-muted)" }}>
-                      Analizamos las necesidades específicas de su clínica
-                    </p>
-                  </div>
-                </div>
+              {/* MAPA */}
+<div className="mt-10">
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2
-                      className="w-6 h-6"
-                      style={{ color: "var(--brand-green)" }}
-                    />
-                  </div>
-                  <div>
-                    <h3
-                      className="text-lg mb-2"
-                      style={{
-                        fontFamily: "'Source Sans 3', sans-serif",
-                        color: "var(--brand-primary)",
-                      }}
-                    >
-                      Sin Compromiso
-                    </h3>
-                    <p style={{ color: "var(--brand-muted)" }}>
-                      Cotización gratuita y sin obligación de contratación
-                    </p>
-                  </div>
-                </div>
+  <div
+    className="
+      overflow-hidden
+      rounded-3xl
+      border
+      border-gray-200
+      shadow-xl
+      bg-white
+    "
+  >
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[var(--brand-green)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock
-                      className="w-6 h-6"
-                      style={{ color: "var(--brand-green)" }}
-                    />
-                  </div>
-                  <div>
-                    <h3
-                      className="text-lg mb-2"
-                      style={{
-                        fontFamily: "'Source Sans 3', sans-serif",
-                        color: "var(--brand-primary)",
-                      }}
-                    >
-                      Respuesta Rápida
-                    </h3>
-                    <p style={{ color: "var(--brand-muted)" }}>
-                      Nos contactamos en menos de 24 horas hábiles
-                    </p>
-                  </div>
-                </div>
-              </div>
+    <iframe
+      title="Ubicación Foster Stern Group"
+      src="https://www.google.com/maps?q=Monterrey,+Nuevo+León&output=embed"
+      width="100%"
+      height="340"
+      loading="lazy"
+      className="w-full border-0"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+
+  </div>
+
+  {/* DIRECCIÓN */}
+  <div className="mt-5">
+
+    <p
+      className="text-sm uppercase tracking-[0.2em] mb-2"
+      style={{ color: "var(--brand-green)" }}
+    >
+      Oficina Principal
+    </p>
+
+    <h3
+      className="text-xl mb-2"
+      style={{
+        fontFamily: "'Source Sans 3', sans-serif",
+        color: "var(--brand-primary)",
+      }}
+    >
+      Foster Stern Group
+    </h3>
+
+    <p
+      className="leading-relaxed"
+      style={{ color: "var(--brand-muted)" }}
+    >
+      Av. Empresarial 2450, Piso 8 <br />
+      San Pedro Garza García, Nuevo León, México
+    </p>
+
+  </div>
+</div>
             </div>
 
             {/* Right Column - Form */}

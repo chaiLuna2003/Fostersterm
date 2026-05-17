@@ -119,7 +119,7 @@ export default function App() {
               <ImageWithFallback
                 src="/src/imports/LogoFS.png"
                 alt="Foster Stern Group"
-                className="w-auto h-24 md:h-28"
+                className="h-24 w-auto object-contain"
               />
             </div>
 
@@ -1028,7 +1028,9 @@ export default function App() {
       style={{ color: "var(--brand-muted)" }}
     >
       Av. Empresarial 2450, Piso 8 <br />
-      San Pedro Garza García, Nuevo León, México
+      
+      7480 SW 40th Street Suite 850 Miami, FL 33155
+
     </p>
 
   </div>

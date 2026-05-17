@@ -17,6 +17,7 @@ import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { FAQItem } from "./components/FAQItem";
 import { MobileMenu } from "./components/MobileMenu";
 import { CasosCarousel } from "./components/CasosCarousel";
+import { ProcessCarousel } from "./components/ProcessCarousel";
 import Blog from "./pages/Blog";
 import { useEffect, useState, useRef } from "react";
 
@@ -91,7 +92,7 @@ export default function App() {
               <ImageWithFallback
                 src="/src/imports/LogoFS.png"
                 alt="Foster Stern Group"
-                className="w-auto h-12 md:h-14"
+                className="w-auto h-24 md:h-28"
               />
             </div>
 
@@ -343,6 +344,65 @@ export default function App() {
           </div>
         </div>
       </header>
+
+      {/* Focused Allergy Solutions Section */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
+
+            {/* Imagen derecha */}
+            <div className="w-full md:w-[420px] flex-shrink-0">
+              <img
+                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
+                alt="Paciente con alergia"
+                className="w-full h-[440px] object-cover rounded-3xl shadow-lg"
+              />
+            </div>
+
+            {/* Contenido izquierda */}
+            <div className="flex-1 flex flex-col gap-6">
+              <h2
+                className="text-4xl md:text-5xl leading-tight"
+                style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-green)" }}
+              >
+                Soluciones de Alergia Enfocadas
+              </h2>
+
+              <p
+                className="text-lg font-semibold"
+                style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                La atención de alergias está en alta demanda, pero muchas clínicas enfrentan:
+              </p>
+
+              {/* Lista sin caja */}
+              <ul className="space-y-4">
+                {[
+                  "Personal limitado capacitado en pruebas de alergia, inmunoterapia, espacio, equipos y barreras de cumplimiento.",
+                  "Ingresos perdidos por referencias enviadas fuera de la clínica.",
+                  "Mayor carga administrativa y operativa.",
+                  "Los pacientes esperan más, las clínicas pierden ingresos y la continuidad del cuidado se ve afectada.",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <div
+                      className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={{ backgroundColor: "var(--brand-light)", border: "1.5px solid var(--brand-green)" }}
+                    >
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--brand-green)" }} />
+                    </div>
+                    <span
+                      className="text-base leading-relaxed"
+                      style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}
+                    >
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section
@@ -666,122 +726,9 @@ export default function App() {
 
       <CasosCarousel />
 
-      {/* Process Section */}
-      <section id="proceso" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2
-              className="text-4xl md:text-5xl mb-4"
-              style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                color: "var(--brand-primary)",
-              }}
-            >
-              Proceso Simple
-            </h2>
-            <p className="text-xl" style={{ color: "var(--brand-muted)" }}>
-              Comience a ofrecer servicios de alergia en 3 pasos
-            </p>
-          </div>
+      
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="relative">
-              <div
-                className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-[var(--brand-green)] to-[var(--brand-primary)] hidden md:block"
-                style={{ transform: "translateX(50%)" }}
-              ></div>
-              <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
-                <div
-                  className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
-                  style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                  }}
-                >
-                  1
-                </div>
-                <h3
-                  className="text-2xl mb-4"
-                  style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  Consulta Inicial
-                </h3>
-                <p
-                  className="leading-relaxed"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Evaluamos las necesidades de su clínica y diseñamos un plan
-                  personalizado de implementación.
-                </p>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div
-                className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-[var(--brand-green)] to-[var(--brand-primary)] hidden md:block"
-                style={{ transform: "translateX(50%)" }}
-              ></div>
-              <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
-                <div
-                  className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
-                  style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                  }}
-                >
-                  2
-                </div>
-                <h3
-                  className="text-2xl mb-4"
-                  style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  Implementación
-                </h3>
-                <p
-                  className="leading-relaxed"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Instalamos equipos, capacitamos a su personal y configuramos
-                  todos los protocolos clínicos necesarios.
-                </p>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
-                <div
-                  className="w-16 h-16 bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-primary)] rounded-full flex items-center justify-center mb-6 text-white text-2xl"
-                  style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                  }}
-                >
-                  3
-                </div>
-                <h3
-                  className="text-2xl mb-4"
-                  style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  Lanzamiento
-                </h3>
-                <p
-                  className="leading-relaxed"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Comience a atender pacientes con soporte continuo de nuestro
-                  equipo de especialistas.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProcessCarousel />
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 bg-white">
@@ -1255,160 +1202,140 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer
-        className="py-12 border-t"
-        style={{
-          backgroundColor: "var(--brand-primary)",
-          borderColor: "rgba(186,198,216,0.2)",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="mb-4">
-                <ImageWithFallback
-                  src="/src/imports/LogoFS.png"
-                  alt="Foster Stern Group"
-                  className="h-10 w-auto"
-                />
-              </div>
-              <p
-                className="leading-relaxed"
-                style={{ color: "var(--brand-secondary)" }}
-              >
-                Soluciones innovadoras para servicios de alergia en clínicas
-                médicas.
+      <footer className="bg-white border-t" style={{ borderColor: "var(--brand-secondary)" }}>
+        <div className="max-w-7xl mx-auto px-6 py-14">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+
+            {/* Col 1 — Logo + descripción + redes */}
+            <div className="flex flex-col gap-5">
+              <ImageWithFallback
+                src="/src/imports/LogoFS.png"
+                alt="Foster Stern Group"
+                className="h-24 w-auto object-contain"
+              />
+              <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                Tu éxito es nuestro éxito. Transforma tu clínica con servicios
+                integrados de alergia: sin inversión inicial, sin riesgo y con el
+                respaldo de profesionales expertos. Crecemos juntos.
               </p>
+              {/* Redes sociales */}
+              <div className="flex items-center gap-3 mt-1">
+                {[
+                  { label: "Twitter", path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" },
+                  { label: "Facebook", path: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" },
+                  { label: "YouTube", path: "M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58a2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12z" },
+                  { label: "Instagram", path: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" },
+                ].map(({ label, path }) => (
+                  <a
+                    key={label}
+                    href="#"
+                    aria-label={label}
+                    className="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                    style={{ backgroundColor: "var(--brand-green)" }}
+                  >
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white">
+                      <path d={path} />
+                    </svg>
+                  </a>
+                ))}
+              </div>
             </div>
 
+            {/* Col 2 — Información */}
             <div>
-              <h4
-                className="mb-4"
-                style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  color: "white",
-                }}
-              >
-                Servicios
+              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                Información
               </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Pruebas de Alergia
-                  </a>
+              <ul className="space-y-3">
+                {[
+                  { label: "Sobre Nosotros", href: "#nosotros" },
+                  { label: "Servicios", href: "#servicios" },
+                  { label: "FAQ", href: "#faq" },
+                  { label: "Contacto", href: "#contacto" },
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="footer-link text-sm flex items-center gap-2"
+                      style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}
+                    >
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 3 — Contacto */}
+            <div>
+              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                Contáctanos
+              </h4>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor" style={{ color: "var(--brand-green)" }}>
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                    7480 SW 40th Street<br />Suite 850<br />Miami, FL 33155
+                  </span>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Inmunoterapia
-                  </a>
+                <li className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor" style={{ color: "var(--brand-green)" }}>
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>+1 (786) 977-3733</span>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Protocolos Clínicos
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Capacitación
-                  </a>
+                <li className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor" style={{ color: "var(--brand-green)" }}>
+                      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>info@fosterstern.com</span>
                 </li>
               </ul>
             </div>
 
+            {/* Col 4 — Horario */}
             <div>
-              <h4
-                className="mb-4"
-                style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  color: "white",
-                }}
-              >
-                Empresa
+              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                Horario de Atención
               </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Sobre Nosotros
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Casos de Éxito
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4
-                className="mb-4"
-                style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  color: "white",
-                }}
-              >
-                Contacto
-              </h4>
-              <ul
-                className="space-y-2"
-                style={{ color: "var(--brand-secondary)" }}
-              >
-                <li>info@fosternSterm.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>Lun - Vie: 9:00 - 18:00</li>
-              </ul>
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: "var(--brand-light)" }}>
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor" style={{ color: "var(--brand-green)" }}>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>
+                    9:00AM – 5:00PM, Lunes – Viernes
+                  </p>
+                  <p className="text-sm mt-1" style={{ color: "var(--brand-muted)" }}>
+                    Atendemos en horario de oficina
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div
-            className="border-t pt-8 text-center"
-            style={{ color: "var(--brand-secondary)" }}
-          >
-            <p>
+          {/* Bottom bar */}
+          <div className="border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-3" style={{ borderColor: "var(--brand-secondary)" }}>
+            <p className="text-sm" style={{ color: "var(--brand-muted)" }}>
               &copy; 2026 Foster Stern Group. Todos los derechos reservados.
             </p>
+            <div className="flex gap-4">
+              <a href="#" className="footer-link text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>Privacidad</a>
+              <a href="#" className="footer-link text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>Términos</a>
+            </div>
           </div>
         </div>
       </footer>

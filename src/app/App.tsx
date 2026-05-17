@@ -22,11 +22,13 @@ import Blog from "./pages/Blog";
 import { useEffect, useState, useRef } from "react";
 
 // Hook para fade-in al hacer scroll
-function useFadeIn() {
+function useFadeIn(direction: "up" | "left" | "right" = "up") {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (direction === "left")  el.classList.add("from-left");
+    if (direction === "right") el.classList.add("from-right");
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -34,7 +36,7 @@ function useFadeIn() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.12 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -45,16 +47,41 @@ function useFadeIn() {
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
-  // Refs fade-in sección servicios
+  // Hero cards
+  const heroCard1 = useFadeIn();
+  const heroCard2 = useFadeIn();
+  const heroCard3 = useFadeIn();
+
+  // Servicios
   const svcTitle = useFadeIn();
   const svcCard1 = useFadeIn();
   const svcCard2 = useFadeIn();
   const svcCard3 = useFadeIn();
 
-  // Refs fade-in cards del hero
-  const heroCard1 = useFadeIn();
-  const heroCard2 = useFadeIn();
-  const heroCard3 = useFadeIn();
+  // Focused Allergy
+  const focusedImg   = useFadeIn("right");
+  const focusedTitle = useFadeIn("left");
+  const focusedList  = useFadeIn("left");
+
+  // Benefits
+  const benefitsTitle = useFadeIn();
+  const benefitsLeft  = useFadeIn("left");
+  const benefitsRight = useFadeIn("right");
+
+  // FAQ
+  const faqTitle = useFadeIn();
+  const faqItems = useFadeIn();
+
+  // How We Work
+  const howImg     = useFadeIn("left");
+  const howContent = useFadeIn("right");
+
+  // CTA
+  const ctaBlock = useFadeIn();
+
+  // Contact
+  const contactLeft  = useFadeIn("left");
+  const contactRight = useFadeIn("right");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -351,7 +378,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
 
             {/* Imagen derecha */}
-            <div className="w-full md:w-[420px] flex-shrink-0">
+            <div ref={focusedImg} className="fade-in w-full md:w-[420px] flex-shrink-0">
               <img
                 src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
                 alt="Paciente con alergia"
@@ -362,7 +389,8 @@ export default function App() {
             {/* Contenido izquierda */}
             <div className="flex-1 flex flex-col gap-6">
               <h2
-                className="text-4xl md:text-5xl leading-tight"
+                ref={focusedTitle}
+                className="fade-in text-4xl md:text-5xl leading-tight"
                 style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-green)" }}
               >
                 Soluciones de Alergia Enfocadas
@@ -376,7 +404,7 @@ export default function App() {
               </p>
 
               {/* Lista sin caja */}
-              <ul className="space-y-4">
+              <ul ref={focusedList} className="fade-in space-y-4">
                 {[
                   "Personal limitado capacitado en pruebas de alergia, inmunoterapia, espacio, equipos y barreras de cumplimiento.",
                   "Ingresos perdidos por referencias enviadas fuera de la clínica.",
@@ -627,7 +655,7 @@ export default function App() {
     <div className="grid md:grid-cols-2 gap-12 items-start">
       
       {/* LEFT */}
-      <div>
+      <div ref={benefitsLeft} className="fade-in from-left">
         <span
           className="uppercase tracking-[0.3em] text-sm"
           style={{ color: "var(--brand-green)" }}
@@ -656,7 +684,7 @@ export default function App() {
       </div>
 
       {/* RIGHT */}
-      <div className="space-y-8">
+      <div ref={benefitsRight} className="fade-in from-right space-y-8">
         
         <div className="border-b border-gray-200 pb-6">
           <h3
@@ -733,7 +761,7 @@ export default function App() {
       {/* FAQ Section */}
       <section id="faq" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div ref={faqTitle} className="fade-in text-center mb-16">
             <h2
               className="text-4xl md:text-5xl mb-4"
               style={{
@@ -748,7 +776,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div ref={faqItems} className="fade-in space-y-4">
             <FAQItem
               question="¿Qué incluye el servicio llave en mano?"
               answer="Nuestro servicio incluye todo lo necesario para comenzar: equipos de diagnóstico, protocolos clínicos estandarizados, capacitación completa del personal, materiales para pruebas de alergia e inmunoterapia, soporte técnico continuo y sistema de gestión de pacientes."
@@ -782,7 +810,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-8 md:px-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Imagen izquierda */}
-            <div className="relative rounded-3xl overflow-hidden h-[480px]">
+            <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[480px]">
               <img
                 src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
                 alt="Especialista en alergias con paciente"
@@ -798,7 +826,7 @@ export default function App() {
             </div>
 
             {/* Contenido derecha */}
-            <div className="flex flex-col gap-8">
+            <div ref={howContent} className="fade-in from-right flex flex-col gap-8">
               <div>
                 <h2
                   className="text-3xl md:text-4xl mb-3"
@@ -1131,7 +1159,8 @@ export default function App() {
       <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 md:px-12">
           <div
-            className="rounded-3xl overflow-hidden grid md:grid-cols-2 min-h-[480px]"
+            ref={ctaBlock}
+            className="fade-in rounded-3xl overflow-hidden grid md:grid-cols-2 min-h-[480px]"
             style={{ backgroundColor: "var(--brand-primary)" }}
           >
             {/* Texto lado izquierdo */}

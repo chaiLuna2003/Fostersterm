@@ -19,6 +19,7 @@ import { MobileMenu } from "./components/MobileMenu";
 import { CasosCarousel } from "./components/CasosCarousel";
 import { ProcessCarousel } from "./components/ProcessCarousel";
 import Blog from "./pages/Blog";
+import Nosotros from "./pages/Nosotros";
 import { useEffect, useState, useRef } from "react";
 
 // Hook para fade-in al hacer scroll
@@ -91,6 +92,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/blog" element={<Blog />} />
+      <Route path="/nosotros" element={<Nosotros />} />
       <Route path="/*" element={
     <div
       className="min-h-screen bg-white"
@@ -126,7 +128,7 @@ export default function App() {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-7">
               {[
-                { href: "#nosotros", label: "Nosotros" },
+                { href: "/nosotros", label: "Nosotros" },
                 { href: "#servicios", label: "Servicios" },
                 { href: "#beneficios", label: "Beneficios" },
                 { href: "#proceso", label: "Proceso" },
@@ -1267,7 +1269,7 @@ export default function App() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  { label: "Sobre Nosotros", href: "#nosotros" },
+                  { label: "Sobre Nosotros", href: "/nosotros" },
                   { label: "Servicios", href: "#servicios" },
                   { label: "FAQ", href: "#faq" },
                   { label: "Contacto", href: "#contacto" },

@@ -364,23 +364,101 @@ export default function Nosotros() {
         </div>
       </section>
 
-      {/* ── CTA FINAL ────────────────────────────────────────────── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div ref={ctaBlock} className="rounded-3xl p-12 md:p-16 text-center" style={{ backgroundColor: "var(--brand-primary)" }}>
-            <h2 className="text-3xl md:text-4xl text-white mb-4" style={{ fontWeight: 700 }}>
+      {/* ── CONTACTO + MAPA ──────────────────────────────────────── */}
+      <section className="py-20 bg-white" id="contacto-nosotros">
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
+          <div ref={ctaBlock} className="text-center mb-14">
+            <span className="text-xs uppercase tracking-widest" style={{ color: "var(--brand-green)" }}>Hablemos</span>
+            <h2 className="text-3xl md:text-4xl mt-3" style={{ fontWeight: 700, color: "var(--brand-primary)" }}>
               ¿Listo para unirte a nuestra red?
             </h2>
-            <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: "rgba(186,198,216,0.9)" }}>
+            <p className="mt-4 max-w-xl mx-auto text-base" style={{ color: "var(--brand-muted)" }}>
               Únete a las más de 500 clínicas que ya transformaron su práctica médica con Foster Stern Group.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/#contacto" className="px-8 py-4 rounded-xl text-white transition-all hover:opacity-90 font-semibold" style={{ backgroundColor: "var(--brand-green)" }}>
-                Contactar ahora
-              </a>
-              <a href="/blog" className="px-8 py-4 rounded-xl transition-all border border-white/30 text-white hover:bg-white/10 font-semibold">
-                Ver Blog
-              </a>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+
+            {/* Mapa + dirección */}
+            <div>
+              <div className="overflow-hidden rounded-3xl border shadow-md" style={{ borderColor: "var(--brand-secondary)" }}>
+                <iframe
+                  title="Ubicación Foster Stern Group"
+                  src="https://www.google.com/maps?q=7480+SW+40th+Street+Miami+FL&output=embed"
+                  width="100%"
+                  height="320"
+                  loading="lazy"
+                  className="w-full border-0"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="mt-6 flex flex-col gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" style={{ color: "var(--brand-green)" }}><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Oficina Principal</p>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)" }}>7480 SW 40th Street, Suite 850<br />Miami, FL 33155</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" style={{ color: "var(--brand-green)" }}><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                  </div>
+                  <p className="text-sm" style={{ color: "var(--brand-muted)" }}>+1 (786) 977-3733</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" style={{ color: "var(--brand-green)" }}><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  </div>
+                  <p className="text-sm" style={{ color: "var(--brand-muted)" }}>info@fosterstern.com</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Formulario */}
+            <div className="rounded-3xl p-8 border shadow-md" style={{ backgroundColor: "white", borderColor: "var(--brand-secondary)" }}>
+              <form className="space-y-5">
+                <div>
+                  <label className="block mb-1.5 text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Nombre Completo *</label>
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm" style={{ borderColor: "var(--brand-secondary)" }} placeholder="Dr. Juan Pérez"
+                    onFocus={e => e.target.style.borderColor = "var(--brand-green)"}
+                    onBlur={e => e.target.style.borderColor = "var(--brand-secondary)"}
+                  />
+                </div>
+                <div>
+                  <label className="block mb-1.5 text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Correo Electrónico *</label>
+                  <input type="email" required className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm" style={{ borderColor: "var(--brand-secondary)" }} placeholder="correo@clinica.com"
+                    onFocus={e => e.target.style.borderColor = "var(--brand-green)"}
+                    onBlur={e => e.target.style.borderColor = "var(--brand-secondary)"}
+                  />
+                </div>
+                <div>
+                  <label className="block mb-1.5 text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Teléfono *</label>
+                  <input type="tel" required className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm" style={{ borderColor: "var(--brand-secondary)" }} placeholder="+1 (555) 123-4567"
+                    onFocus={e => e.target.style.borderColor = "var(--brand-green)"}
+                    onBlur={e => e.target.style.borderColor = "var(--brand-secondary)"}
+                  />
+                </div>
+                <div>
+                  <label className="block mb-1.5 text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Nombre de la Clínica *</label>
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm" style={{ borderColor: "var(--brand-secondary)" }} placeholder="Clínica Médica XYZ"
+                    onFocus={e => e.target.style.borderColor = "var(--brand-green)"}
+                    onBlur={e => e.target.style.borderColor = "var(--brand-secondary)"}
+                  />
+                </div>
+                <div>
+                  <label className="block mb-1.5 text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Mensaje</label>
+                  <textarea rows={3} className="w-full px-4 py-3 rounded-xl border outline-none transition-all resize-none text-sm" style={{ borderColor: "var(--brand-secondary)" }} placeholder="Cuéntenos sobre su clínica..."
+                    onFocus={e => e.target.style.borderColor = "var(--brand-green)"}
+                    onBlur={e => e.target.style.borderColor = "var(--brand-secondary)"}
+                  />
+                </div>
+                <button type="submit" className="w-full py-3.5 rounded-xl text-white font-semibold transition-all hover:opacity-90" style={{ backgroundColor: "var(--brand-green)" }}>
+                  Enviar Mensaje
+                </button>
+              </form>
             </div>
           </div>
         </div>

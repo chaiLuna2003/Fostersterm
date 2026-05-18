@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 
 
 const menuItems = [
-  { name: "Nosotros", href: "#nosotros" },
+  { name: "Nosotros", href: "/nosotros" },
   { name: "Servicios", href: "#servicios" },
   { name: "Beneficios", href: "#beneficios" },
   { name: "Casos de Éxito", href: "#casos" },
@@ -45,7 +45,7 @@ export function MobileMenu() {
   <img
     src="/src/imports/LogoFS.png"
     alt="Foster Stern Group"
-    className="h-10 w-auto object-contain"
+    className="h-14 w-auto object-contain"
   />
 
   <button

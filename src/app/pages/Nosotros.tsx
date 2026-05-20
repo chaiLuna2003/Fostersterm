@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { MobileMenu } from "../components/MobileMenu";
@@ -43,17 +44,25 @@ function Navbar() {
       style={{ borderBottomColor: scrolled ? "rgba(186,198,216,0.3)" : "transparent", boxShadow: scrolled ? "0 4px 24px rgba(5,74,91,0.08)" : "none" }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/"><ImageWithFallback src="/src/imports/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" /></a>
+        <a href="/" className="flex items-center gap-3"><ImageWithFallback src="/src/imports/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" /></a>
         <div className="hidden md:flex items-center gap-7">
           {[
-            { href: "/nosotros", label: "Nosotros" },
-            { href: "/#servicios", label: "Servicios" },
-            { href: "/#beneficios", label: "Beneficios" },
-            { href: "/#proceso", label: "Proceso" },
-            { href: "/#faq", label: "FAQ" },
-            { href: "/blog", label: "Blog" },
-          ].map(({ href, label }) => (
-            <a key={href} href={href} className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>{label}</a>
+            { href: "/nosotros", label: "Nosotros", isRoute: true },
+            { href: "/#servicios", label: "Servicios", isRoute: false },
+            { href: "/#beneficios", label: "Beneficios", isRoute: false },
+            { href: "/#proceso", label: "Proceso", isRoute: false },
+            { href: "/#faq", label: "FAQ", isRoute: false },
+            { href: "/blog", label: "Blog", isRoute: true },
+          ].map(({ href, label, isRoute }) => (
+            isRoute ? (
+              <Link key={href} to={href} className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>
+                {label}
+              </Link>
+            ) : (
+              <a key={href} href={href} className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>
+                {label}
+              </a>
+            )
           ))}
           <a href="/#contacto" className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md" style={{ backgroundColor: "var(--brand-primary)" }}>Contactar</a>
         </div>

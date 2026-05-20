@@ -44,7 +44,7 @@ export function MobileMenu() {
         {/* Header del menú */}
 <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
   <img
-    src="/LogoFS.png"
+    src="/Fostersterm/LogoFS.png"
     alt="Foster Stern Group"
     className="h-14 w-auto object-contain"
   />

@@ -312,7 +312,7 @@ export default function Nosotros() {
               {/* Foto */}
               <div className="h-80 md:h-full overflow-hidden">
                 <img
-                  src="/Fostersterm/ceo-carrasquillo.png"
+                  src="/Fostersterm/Carlitos-Solo.png"
                   alt="Dr. Carrasquillo — CEO Foster Stern Group"
                   className="w-full h-full object-cover object-top"
                   onError={(e) => {

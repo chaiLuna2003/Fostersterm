@@ -92,9 +92,6 @@ export function MobileMenu() {
                 {item.name}
               </a>
             );
-                {item.name}
-              </a>
-            );
           })}
         </nav>
       </div>

@@ -12,7 +12,7 @@ import {
   HeartPulse,
   Sparkles,
 } from "lucide-react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { FAQItem } from "./components/FAQItem";
 import { MobileMenu } from "./components/MobileMenu";
@@ -129,20 +129,31 @@ export default function App() {
             <div className="hidden md:flex items-center gap-7">
               {[
                 { href: "/nosotros", label: "Nosotros" },
-                { href: "#servicios", label: "Servicios" },
-                { href: "#beneficios", label: "Beneficios" },
-                { href: "#proceso", label: "Proceso" },
-                { href: "#faq", label: "FAQ" },
+                { href: "/#servicios", label: "Servicios" },
+                { href: "/#beneficios", label: "Beneficios" },
+                { href: "/#proceso", label: "Proceso" },
+                { href: "/#faq", label: "FAQ" },
                 { href: "/blog", label: "Blog" },
               ].map(({ href, label }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="nav-link text-base"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  {label}
-                </a>
+                href.startsWith("/") && !href.startsWith("/#") ? (
+                  <Link
+                    key={href}
+                    to={href}
+                    className="nav-link text-base"
+                    style={{ color: "var(--brand-muted)" }}
+                  >
+                    {label}
+                  </Link>
+                ) : (
+                  <a
+                    key={href}
+                    href={href}
+                    className="nav-link text-base"
+                    style={{ color: "var(--brand-muted)" }}
+                  >
+                    {label}
+                  </a>
+                )
               ))}
 
               <a

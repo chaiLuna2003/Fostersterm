@@ -1,6 +1,7 @@
 import { X, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 
 
 const menuItems = [
@@ -62,22 +63,35 @@ export function MobileMenu() {
         <nav className="flex flex-col px-4 py-6 gap-1 flex-1">
           {menuItems.map((item) => {
             const isContact = item.name === "Contactar";
-            return (
+            const isRoute = item.href.startsWith("/") && !item.href.startsWith("/#");
+            const className = isContact
+              ? "mt-4 px-5 py-3 rounded-xl text-center text-white transition-colors"
+              : "px-5 py-3 rounded-xl transition-colors hover:bg-gray-50";
+            const style = isContact
+              ? { backgroundColor: "var(--brand-green)", fontFamily: "'Source Sans 3', sans-serif" }
+              : { color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" };
+
+            return isRoute ? (
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={close}
+                className={className}
+                style={style}
+              >
+                {item.name}
+              </Link>
+            ) : (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={close}
-                className={
-                  isContact
-                    ? "mt-4 px-5 py-3 rounded-xl text-center text-white transition-colors"
-                    : "px-5 py-3 rounded-xl transition-colors hover:bg-gray-50"
-                }
-                style={
-                  isContact
-                    ? { backgroundColor: "var(--brand-green)", fontFamily: "'Source Sans 3', sans-serif" }
-                    : { color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }
-                }
+                className={className}
+                style={style}
               >
+                {item.name}
+              </a>
+            );
                 {item.name}
               </a>
             );

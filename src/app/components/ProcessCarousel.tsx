@@ -4,12 +4,12 @@ const slides = [
   {
     id: 1,
     imagen: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80",
-    texto: "Consulta inicial y evaluación de necesidades clínicas.",
+    texto: "Nos integramos con el flujo de trabajo de tu clínica",
   },
   {
     id: 2,
     imagen: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80",
-    texto: "Instalación de equipos y configuración de protocolos.",
+    texto: "Nuestro equipo capacitado llega a tu ubicación.",
   },
   {
     id: 3,

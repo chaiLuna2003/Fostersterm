@@ -413,16 +413,16 @@ export default function App() {
                 className="text-lg font-semibold"
                 style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}
               >
-                La atención de alergias está en alta demanda, pero muchas clínicas enfrentan:
+                La atención en alergias está en alta demanda, pero muchas prácticas enfrentan:
               </p>
 
               {/* Lista sin caja */}
               <ul ref={focusedList} className="fade-in space-y-4">
                 {[
-                  "Personal limitado capacitado en pruebas de alergia, inmunoterapia, espacio, equipos y barreras de cumplimiento.",
-                  "Ingresos perdidos por referencias enviadas fuera de la clínica.",
+                  "Personal limitado capacitado en pruebas de alergia e inmunoterapiabarreras de espacio, equipo y cumplimiento normativo.",
+                  "Pérdida de ingresos por derivaciones enviadas fuera de la práctica.",
                   "Mayor carga administrativa y operativa.",
-                  "Los pacientes esperan más, las clínicas pierden ingresos y la continuidad del cuidado se ve afectada.",
+                  "Resultado: los pacientes esperan más tiempo, las clínicas pierden ingresos y la continuidad del cuidado se ve afectada.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <div

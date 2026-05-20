@@ -17,6 +17,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+    base: '/Fostersterm/',
   plugins: [
     figmaAssetResolver(),
     react(),

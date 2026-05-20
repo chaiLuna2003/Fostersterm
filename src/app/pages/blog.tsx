@@ -51,7 +51,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3">
           <ImageWithFallback
-            src="/src/imports/LogoFS.png"
+            src="/LogoFS.png"
             alt="Foster Stern Group"
             className="h-24 w-auto object-contain"
           />
@@ -93,7 +93,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
 
           <div className="flex flex-col gap-5">
-            <ImageWithFallback src="/src/imports/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" />
+            <ImageWithFallback src="/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" />
             <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>
               Tu éxito es nuestro éxito. Transforma tu clínica con servicios integrados de alergia: sin inversión inicial, sin riesgo y con el respaldo de profesionales expertos.
             </p>

@@ -44,7 +44,7 @@ function Navbar() {
       style={{ borderBottomColor: scrolled ? "rgba(186,198,216,0.3)" : "transparent", boxShadow: scrolled ? "0 4px 24px rgba(5,74,91,0.08)" : "none" }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3"><ImageWithFallback src="/src/imports/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" /></a>
+        <a href="/" className="flex items-center gap-3"><ImageWithFallback src="/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" /></a>
         <div className="hidden md:flex items-center gap-7">
           {[
             { href: "/nosotros", label: "Nosotros", isRoute: true },
@@ -79,7 +79,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           <div className="flex flex-col gap-5">
-            <ImageWithFallback src="/src/imports/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" />
+            <ImageWithFallback src="/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" />
             <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>
               Tu éxito es nuestro éxito. Transforma tu clínica con servicios integrados de alergia sin inversión inicial.
             </p>
@@ -312,7 +312,7 @@ export default function Nosotros() {
               {/* Foto */}
               <div className="h-80 md:h-full overflow-hidden">
                 <img
-                  src="/src/imports/ceo-carrasquillo.png"
+                  src="/ceo-carrasquillo.png"
                   alt="Dr. Carrasquillo — CEO Foster Stern Group"
                   className="w-full h-full object-cover object-top"
                   onError={(e) => {

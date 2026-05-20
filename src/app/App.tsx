@@ -119,7 +119,7 @@ export default function App() {
             {/* Logo */}
             <div className="flex items-center gap-3">
               <ImageWithFallback
-                src="/src/imports/LogoFS.png"
+                src="/LogoFS.png"
                 alt="Foster Stern Group"
                 className="h-24 w-auto object-contain"
               />
@@ -266,7 +266,7 @@ export default function App() {
 
               {/* IMAGE */}
               <img
-                src="/src/imports/fam-foster.png"
+                src="/fam-foster.png"
                 alt="Familia feliz"
                 className="relative z-10 w-full max-w-[560px] object-contain drop-shadow-2xl"
               />
@@ -1241,7 +1241,7 @@ export default function App() {
             {/* Col 1 — Logo + descripción + redes */}
             <div className="flex flex-col gap-5">
               <ImageWithFallback
-                src="/src/imports/LogoFS.png"
+                src="/LogoFS.png"
                 alt="Foster Stern Group"
                 className="h-24 w-auto object-contain"
               />

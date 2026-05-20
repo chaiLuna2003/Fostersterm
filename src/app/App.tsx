@@ -191,7 +191,7 @@ export default function App() {
                   className="text-sm"
                   style={{ color: "var(--brand-primary)" }}
                 >
-                  Soluciones Médicas Innovadoras
+                  Mejorando vidas, una prueba a la vez
                 </span>
               </div>
 
@@ -393,7 +393,7 @@ export default function App() {
             {/* Imagen derecha */}
             <div ref={focusedImg} className="fade-in w-full md:w-[420px] flex-shrink-0">
               <img
-                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
+                src="/Fostersterm/MujerEstornudandootroFondo.png"
                 alt="Paciente con alergia"
                 className="w-full h-[440px] object-cover rounded-3xl shadow-lg"
               />
@@ -406,7 +406,7 @@ export default function App() {
                 className="fade-in text-4xl md:text-5xl leading-tight"
                 style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-green)" }}
               >
-                Soluciones de Alergia Enfocadas
+                El problema que resolvemos
               </h2>
 
               <p

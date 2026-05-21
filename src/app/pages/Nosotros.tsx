@@ -454,7 +454,7 @@ export default function Nosotros() {
             {/* LEFT IMAGE */}
             <div className="relative h-[400px] md:h-[500px] lg:h-[650px] rounded-[36px] overflow-hidden shadow-2xl">
               <img
-                src="/Fostersterm/ImagenNosotros.png"
+                src="/Fostersterm/MujerEstornudandootroFondo.png"
                 alt="Equipo médico Foster Stern"
                 className="w-full h-full object-cover"
                 loading="eager"

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { MobileMenu } from "../components/MobileMenu";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 
 // ── Fade-in hook ──────────────────────────────────────────────────
 function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
@@ -36,11 +37,17 @@ function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
 // ── Navbar ────────────────────────────────────────────────────────
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+
+  const base = "/Fostersterm";
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
+
     window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b transition-all duration-300"
@@ -50,32 +57,26 @@ function Navbar() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3">
+        {/* LOGO */}
+        <Link to="/" className="flex items-center gap-3">
           <ImageWithFallback
-            src="/Fostersterm/LogoFS.png"
+            src={`${base}/LogoFS.png`}
             alt="Foster Stern Group"
             className="h-24 w-auto object-contain"
           />
-        </a>
+        </Link>
+
+        {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-7">
           {[
-            { href: "/nosotros", label: "Nosotros", isRoute: true },
-            { href: "/#servicios", label: "Servicios", isRoute: false },
-            { href: "/#beneficios", label: "Beneficios", isRoute: false },
-            { href: "/#proceso", label: "Proceso", isRoute: false },
-            { href: "/#faq", label: "FAQ", isRoute: false },
-            { href: "/blog", label: "Blog", isRoute: true },
-          ].map(({ href, label, isRoute }) =>
-            isRoute ? (
-              <Link
-                key={href}
-                to={href}
-                className="nav-link text-base"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                {label}
-              </Link>
-            ) : (
+            { href: `${base}/nosotros`, label: "Nosotros" },
+            { href: `${base}/#servicios`, label: "Servicios" },
+            { href: `${base}/#beneficios`, label: "Beneficios" },
+            { href: `${base}/#proceso`, label: "Proceso" },
+            { href: `${base}/#faq`, label: "FAQ" },
+            { href: `${base}/blog`, label: "Blog" },
+          ].map(({ href, label }) =>
+            href.includes("#") ? (
               <a
                 key={href}
                 href={href}
@@ -84,16 +85,28 @@ function Navbar() {
               >
                 {label}
               </a>
+            ) : (
+              <Link
+                key={href}
+                to={href.replace(base, "")}
+                className="nav-link text-base"
+                style={{ color: "var(--brand-muted)" }}
+              >
+                {label}
+              </Link>
             ),
           )}
+
+          {/* CTA */}
           <a
-            href="/#contacto"
+            href={`${base}/#contacto`}
             className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md"
             style={{ backgroundColor: "var(--brand-primary)" }}
           >
             Contactar
           </a>
         </div>
+
         <MobileMenu />
       </div>
     </nav>
@@ -368,6 +381,45 @@ export default function Nosotros() {
   const num3 = useFade("up", 0.3);
   const num4 = useFade("up", 0.45);
   const ctaBlock = useFade("up");
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  const testimonials = [
+    {
+      name: "Dr. Michael Rivera",
+      role: "Clínica Family Care",
+      text: "Foster Stern transformó completamente nuestra operación clínica. Hoy ofrecemos servicios de alergia sin complicaciones.",
+      image:
+        "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&q=80",
+    },
+    {
+      name: "Dr. Sarah Collins",
+      role: "Medical Center Florida",
+      text: "La implementación fue increíblemente rápida y el soporte del equipo ha sido impecable desde el primer día.",
+      image:
+        "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80",
+    },
+    {
+      name: "Dr. Emily Watson",
+      role: "Watson Health Group",
+      text: "Nuestros pacientes ahora reciben atención especializada sin tener que salir de nuestra clínica.",
+      image:
+        "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&q=80",
+    },
+    {
+      name: "Dr. Daniel Brooks",
+      role: "Brooks Medical",
+      text: "La experiencia ha sido extremadamente profesional. El crecimiento para nuestra clínica fue inmediato.",
+      image:
+        "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&q=80",
+    },
+    {
+      name: "Dr. Olivia Carter",
+      role: "Prime Allergy Center",
+      text: "El modelo llave en mano nos permitió expandir servicios sin realizar inversión inicial.",
+      image:
+        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&q=80",
+    },
+  ];
 
   return (
     <div
@@ -377,8 +429,8 @@ export default function Nosotros() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-40 pb-24 bg-white">
-        {/* Fondo decorativo sutil */}
+      <section className="relative overflow-hidden bg-white pt-40 pb-24">
+        {/* DECOR */}
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-5"
           style={{
@@ -387,6 +439,7 @@ export default function Nosotros() {
             transform: "translate(30%, -30%)",
           }}
         />
+
         <div
           className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-5"
           style={{
@@ -397,190 +450,209 @@ export default function Nosotros() {
         />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-          <div className="max-w-3xl">
-            <div ref={heroTitle}>
-              <span
-                className="inline-block text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
-                style={{
-                  backgroundColor: "var(--brand-light)",
-                  color: "var(--brand-green)",
-                }}
-              >
-                Sobre nosotros
-              </span>
-              <h1
-                className="text-4xl md:text-6xl lg:text-7xl leading-tight mb-6"
-                style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-              >
-                Transformando la atención de{" "}
-                <span style={{ color: "var(--brand-green)" }}>alergia</span> en
-                América.
-              </h1>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* LEFT IMAGE */}
+            <div className="relative h-[400px] md:h-[500px] lg:h-[650px] rounded-[36px] overflow-hidden shadow-2xl">
+              <img
+                src="/Fostersterm/ImagenNosotros.png"
+                alt="Equipo médico Foster Stern"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+
+              {/* Floating Card */}
             </div>
-            <div ref={heroSub}>
-              <p
-                className="text-lg md:text-xl leading-relaxed mb-10"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Somos Foster Stern Group, una empresa dedicada a integrar
-                servicios de alergia de clase mundial directamente en clínicas
-                médicas, sin inversión inicial y con soporte especializado
-                continuo.
-              </p>
-            </div>
-            <div
-              ref={heroStats}
-              className="grid grid-cols-2 md:grid-cols-4 gap-5"
-            >
-              {[
-                { valor: "500+", label: "Clínicas aliadas" },
-                { valor: "15", label: "Años de experiencia" },
-                { valor: "98%", label: "Satisfacción" },
-                { valor: "24/7", label: "Soporte médico" },
-              ].map(({ valor, label }) => (
-                <div
-                  key={label}
-                  className="rounded-2xl p-5 border"
+
+            {/* RIGHT CONTENT */}
+            <div className="max-w-2xl">
+              <div ref={heroTitle}>
+                {/* Badge */}
+                <span
+                  className="inline-block text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
                   style={{
                     backgroundColor: "var(--brand-light)",
-                    borderColor: "var(--brand-secondary)",
+                    color: "var(--brand-green)",
                   }}
                 >
-                  <p
-                    className="text-3xl font-bold mb-1"
-                    style={{ color: "var(--brand-primary)" }}
-                  >
-                    {valor}
-                  </p>
-                  <p
-                    className="text-sm"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    {label}
-                  </p>
-                </div>
-              ))}
+                  Sobre nosotros
+                </span>
+
+                {/* TITLE */}
+                <h1
+                  className="text-4xl md:text-6xl lg:text-7xl leading-tight mb-8"
+                  style={{
+                    fontWeight: 700,
+                    color: "var(--brand-primary)",
+                  }}
+                >
+                  Transformando la atención de{" "}
+                  <span style={{ color: "var(--brand-green)" }}>alergia</span>{" "}
+                  en América.
+                </h1>
+              </div>
+
+              {/* DESCRIPTION */}
+              <div ref={heroSub}>
+                <p
+                  className="text-lg md:text-xl leading-relaxed mb-10"
+                  style={{ color: "var(--brand-muted)" }}
+                >
+                  Somos Foster Stern Group, una empresa dedicada a integrar
+                  servicios de alergia de clase mundial directamente en clínicas
+                  médicas, sin inversión inicial y con soporte especializado
+                  continuo.
+                </p>
+              </div>
+
+              {/* BUTTONS */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  className="px-8 py-4 rounded-2xl text-white transition-all hover:scale-105 shadow-lg"
+                  style={{
+                    backgroundColor: "var(--brand-green)",
+                    fontWeight: 700,
+                  }}
+                >
+                  Conocer servicios
+                </button>
+
+                <button
+                  className="px-8 py-4 rounded-2xl border-2 transition-all hover:bg-[var(--brand-light)]"
+                  style={{
+                    borderColor: "var(--brand-primary)",
+                    color: "var(--brand-primary)",
+                    fontWeight: 600,
+                  }}
+                >
+                  Contactar equipo
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── MISIÓN ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div
-              ref={misionImg}
-              className="rounded-3xl overflow-hidden h-[440px]"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
-                alt="Nuestra misión"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div ref={misionTxt} className="flex flex-col gap-6">
-              <span
-                className="text-xs uppercase tracking-widest"
-                style={{ color: "var(--brand-green)" }}
-              >
-                Nuestra Misión
-              </span>
-              <h2
-                className="text-3xl md:text-4xl leading-tight"
-                style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-              >
-                Hacer accesible la atención de alergia en cada consultorio.
-              </h2>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Creemos que cada clínica médica debería poder ofrecer servicios
-                de alergia de alta calidad a sus pacientes. Por eso
-                desarrollamos un modelo llave en mano que elimina las barreras
-                tradicionales: sin inversión en equipos, sin necesidad de
-                especialistas de planta, sin riesgo financiero.
-              </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Trabajamos como socios estratégicos de las clínicas, aportando
-                protocolos clínicos, equipos, capacitación y soporte continuo
-                para que puedan enfocarse en lo más importante: el bienestar de
-                sus pacientes.
-              </p>
-              <a
-                href="/#contacto"
-                className="self-start px-7 py-3 rounded-xl text-white transition-all hover:opacity-90"
-                style={{
-                  backgroundColor: "var(--brand-green)",
-                  fontWeight: 600,
-                }}
-              >
-                Trabaja con nosotros
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      
+      {/* ── MISIÓN & VISIÓN ───────────────────────────────────── */}
+<section className="py-28 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col gap-32">
 
-      {/* ── VISIÓN ───────────────────────────────────────────────── */}
-      <section
-        className="py-24 overflow-hidden"
-        style={{ backgroundColor: "var(--brand-bg)" }}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div
-              ref={visionTxt}
-              className="flex flex-col gap-6 order-2 md:order-1"
-            >
-              <span
-                className="text-xs uppercase tracking-widest"
-                style={{ color: "var(--brand-green)" }}
-              >
-                Nuestra Visión
-              </span>
-              <h2
-                className="text-3xl md:text-4xl leading-tight"
-                style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-              >
-                Ser la red de alergia más confiable del continente americano.
-              </h2>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Visualizamos un futuro donde ningún paciente tenga que esperar
-                semanas para ser atendido por un alergólogo o viajar lejos para
-                acceder a tratamiento. Nuestro objetivo es que cada clínica
-                médica pueda ser un punto de acceso a servicios de alergia de
-                primer nivel.
-              </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                Para 2030, proyectamos estar presentes en más de 2,000 clínicas
-                en toda América Latina y Estados Unidos, con un estándar de
-                calidad clínica reconocido internacionalmente.
-              </p>
-            </div>
-            <div
-              ref={visionImg}
-              className="rounded-3xl overflow-hidden h-[440px] order-1 md:order-2"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
-                alt="Nuestra visión"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+    {/* ── MISIÓN ───────────────── */}
+    <div className="grid lg:grid-cols-2 gap-14 items-center">
+
+      {/* IMAGE */}
+      <div className="relative group">
+        <div className="overflow-hidden rounded-[32px] shadow-2xl">
+          <img
+            src="/Fostersterm/Medicos-Contentos-1408x768-1-e1778107355311.jpg"
+            alt="Misión Foster Stern"
+            className="w-full h-[320px] md:h-[450px] object-cover transition-all duration-700 group-hover:scale-105"
+          />
         </div>
-      </section>
+
+        {/* DECOR */}
+        <div
+          className="absolute -bottom-6 -right-6 w-40 h-40 rounded-full opacity-10 blur-3xl"
+          style={{ backgroundColor: "var(--brand-green)" }}
+        />
+      </div>
+
+      {/* CONTENT */}
+      <div className="relative">
+        <span
+          className="text-xs uppercase tracking-[0.3em]"
+          style={{
+            color: "var(--brand-green)",
+            fontWeight: 700,
+          }}
+        >
+          Nuestra Misión
+        </span>
+
+        <h2
+          className="text-5xl md:text-6xl mt-5 leading-none"
+          style={{
+            color: "var(--brand-primary)",
+            fontWeight: 700,
+          }}
+        >
+          Transformar la atención médica moderna.
+        </h2>
+
+        <p
+          className="mt-8 text-lg leading-relaxed max-w-xl"
+          style={{
+            color: "var(--brand-muted)",
+          }}
+        >
+          En Foster Stern Group impulsamos clínicas médicas mediante
+          soluciones integrales de alergia, tecnología clínica y soporte
+          especializado, permitiendo ofrecer atención de clase mundial
+          sin inversión inicial y con un enfoque centrado en el paciente.
+        </p>
+      </div>
+    </div>
+
+    {/* ── VISIÓN ───────────────── */}
+    <div className="grid lg:grid-cols-2 gap-14 items-center">
+
+      {/* CONTENT */}
+      <div className="order-2 lg:order-1 relative">
+        <span
+          className="text-xs uppercase tracking-[0.3em]"
+          style={{
+            color: "var(--brand-green)",
+            fontWeight: 700,
+          }}
+        >
+          Nuestra Visión
+        </span>
+
+        <h2
+          className="text-5xl md:text-6xl mt-5 leading-none"
+          style={{
+            color: "var(--brand-primary)",
+            fontWeight: 700,
+          }}
+        >
+          Liderar el futuro de la alergología.
+        </h2>
+
+        <p
+          className="mt-8 text-lg leading-relaxed max-w-xl"
+          style={{
+            color: "var(--brand-muted)",
+          }}
+        >
+          Aspiramos a convertirnos en la red médica de alergia más
+          confiable e innovadora de América, conectando clínicas,
+          especialistas y pacientes mediante un ecosistema moderno,
+          accesible y altamente eficiente.
+        </p>
+      </div>
+
+      {/* IMAGE */}
+      <div className="order-1 lg:order-2 relative group">
+        <div className="overflow-hidden rounded-[32px] shadow-2xl">
+          <img
+            src="/Fostersterm/EstreChandoManos21339x784.jpg"
+            alt="Visión Foster Stern"
+            className="w-full h-[320px] md:h-[450px] object-cover transition-all duration-700 group-hover:scale-105"
+          />
+        </div>
+
+        {/* DECOR */}
+        <div
+          className="absolute -top-6 -left-6 w-40 h-40 rounded-full opacity-10 blur-3xl"
+          style={{ backgroundColor: "var(--brand-primary)" }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ── VALORES ──────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
@@ -818,7 +890,296 @@ export default function Nosotros() {
         </div>
       </section>
 
-      {/* ── NÚMEROS ──────────────────────────────────────────────── */}
+      {/* ── TESTIMONIOS ESTILO HOSTINGER ───────────────────────────── */}
+      <section
+        className="py-24 overflow-hidden"
+        style={{ backgroundColor: "#f5f7fb" }}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          {/* HEADER */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+            <div className="max-w-2xl">
+              <span
+                className="text-xs uppercase tracking-[0.25em]"
+                style={{ color: "var(--brand-green)" }}
+              >
+                Testimonios
+              </span>
+
+              <h2
+                className="text-3xl md:text-5xl leading-tight mt-4"
+                style={{
+                  color: "var(--brand-primary)",
+                  fontWeight: 700,
+                }}
+              >
+                Clínicas que ya transformaron su atención médica.
+              </h2>
+            </div>
+
+            {/* CONTROLES */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() =>
+                  setTestimonialIndex((prev) =>
+                    prev === 0 ? testimonials.length - 1 : prev - 1,
+                  )
+                }
+                className="w-14 h-14 rounded-2xl bg-white border transition-all duration-300 hover:scale-105 shadow-sm"
+                style={{
+                  borderColor: "rgba(0,0,0,0.08)",
+                }}
+              >
+                <ChevronLeft
+                  className="w-5 h-5 mx-auto"
+                  style={{ color: "var(--brand-primary)" }}
+                />
+              </button>
+
+              <button
+                onClick={() =>
+                  setTestimonialIndex((prev) =>
+                    prev === testimonials.length - 1 ? 0 : prev + 1,
+                  )
+                }
+                className="w-14 h-14 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
+                style={{
+                  backgroundColor: "var(--brand-green)",
+                }}
+              >
+                <ChevronRight className="w-5 h-5 mx-auto text-white" />
+              </button>
+            </div>
+          </div>
+
+          {/* CAROUSEL */}
+          <div className="overflow-hidden">
+            <div
+              className="flex gap-6 transition-transform duration-500 ease-out"
+              style={{
+                transform: `translateX(-${
+                  testimonialIndex * (window.innerWidth < 768 ? 100 : 34)
+                }%)`,
+              }}
+            >
+              {testimonials.map((item, index) => (
+                <div
+                  key={index}
+                  className="
+              min-w-full
+              md:min-w-[48%]
+              lg:min-w-[32%]
+              bg-white
+              rounded-[32px]
+              p-8
+              flex
+              flex-col
+              justify-between
+              border
+              shadow-sm
+              hover:shadow-xl
+              transition-all
+              duration-300
+            "
+                  style={{
+                    borderColor: "rgba(0,0,0,0.06)",
+                    minHeight: "420px",
+                  }}
+                >
+                  {/* ICON */}
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+                    }}
+                  >
+                    <Quote className="w-7 h-7 text-white" />
+                  </div>
+
+                  {/* TEXTO */}
+                  <p
+                    className="text-xl leading-relaxed mb-10"
+                    style={{
+                      color: "var(--brand-primary)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    “{item.text}”
+                  </p>
+
+                  {/* USER */}
+                  <div className="flex items-center gap-4 mt-auto">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+
+                    <div>
+                      <h4
+                        className="text-2xl leading-none mb-2"
+                        style={{
+                          color: "var(--brand-primary)",
+                          fontWeight: 700,
+                        }}
+                      >
+                        {item.name}
+                      </h4>
+
+                      <span
+                        className="text-lg"
+                        style={{
+                          color: "var(--brand-muted)",
+                        }}
+                      >
+                        {item.role}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* DOTS */}
+          <div className="flex justify-center gap-3 mt-10">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setTestimonialIndex(index)}
+                className="transition-all duration-300 rounded-full"
+                style={{
+                  width: testimonialIndex === index ? "34px" : "10px",
+                  height: "10px",
+                  backgroundColor:
+                    testimonialIndex === index
+                      ? "var(--brand-green)"
+                      : "#cfd4dc",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+{/* ── GALERÍA ESTILO EDITORIAL ───────────────────────────── */}
+{/* ── GALERÍA ───────────────────────────────────────────── */}
+{/* ── GALERÍA ───────────────────────────────────────────── */}
+<section className="relative py-24 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+    {/* HEADER */}
+    <div className="text-center mb-16 relative z-10">
+
+      <span
+        className="block text-xs uppercase tracking-[0.3em] mb-4"
+        style={{
+          color: "var(--brand-green)",
+          fontWeight: 700,
+        }}
+      >
+        NUESTRA GALERÍA
+      </span>
+
+      <h2
+        className="text-4xl md:text-5xl leading-tight"
+        style={{
+          color: "var(--brand-primary)",
+          fontWeight: 700,
+        }}
+      >
+        Espacios médicos modernos y atención de primer nivel.
+      </h2>
+
+      <p
+        className="max-w-2xl mx-auto mt-6 text-lg leading-relaxed"
+        style={{
+          color: "var(--brand-muted)",
+        }}
+      >
+        Foster Stern Group impulsa clínicas con tecnología,
+        innovación médica y experiencias centradas en el paciente.
+      </p>
+    </div>
+
+    {/* MASONRY GRID */}
+    <div className="columns-1 sm:columns-2 lg:columns-4 gap-5 space-y-5">
+
+      {[
+        {
+          src: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200",
+          height: "h-[320px]",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1580281657527-47f249e8f4df?q=80&w=1200",
+          height: "h-[220px]",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200",
+          height: "h-[400px]",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200",
+          height: "h-[260px]",
+        },
+        {
+          
+          src: "/Fostersterm/Carlitos-Solo.png",
+          height: "h-[350px]",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1200",
+          height: "h-[250px]",
+        },
+        {
+          src: "/Fostersterm/image.jpg",
+          height: "h-[430px]",
+        },
+        {
+          src: "/Fostersterm/maxresdefault.jpg",
+          height: "h-[300px]",
+        },
+      ].map((img, index) => (
+        <div
+          key={index}
+          className="relative overflow-hidden rounded-[28px] mb-5 break-inside-avoid group cursor-pointer"
+        >
+          {/* IMAGE */}
+          <div className={`${img.height} overflow-hidden`}>
+            <img
+              src={img.src}
+              alt={`Galería Foster Stern ${index + 1}`}
+              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+            />
+          </div>
+
+          {/* OVERLAY */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-500"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.05), transparent)",
+            }}
+          />
+
+          {/* CONTENT */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 z-10 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+
+            <span className="text-white/80 text-xs uppercase tracking-[0.2em]">
+              Foster Stern
+            </span>
+
+            <h3 className="text-white text-xl font-semibold mt-2">
+              Atención médica moderna
+            </h3>
+
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── CONTACTO + MAPA ──────────────────────────────────────── */}
       <section className="py-20 bg-white" id="contacto-nosotros">

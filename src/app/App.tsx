@@ -83,6 +83,7 @@ export default function App() {
   // Contact
   const contactLeft = useFadeIn("left");
   const contactRight = useFadeIn("right");
+  const base = "/Fostersterm";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -130,44 +131,45 @@ export default function App() {
                   </div>
 
                   {/* Desktop Menu */}
-                  <div className="hidden md:flex items-center gap-7">
-                    {[
-                      { href: "/nosotros", label: "Nosotros" },
-                      { href: "/#servicios", label: "Servicios" },
-                      { href: "/#beneficios", label: "Beneficios" },
-                      { href: "/#proceso", label: "Proceso" },
-                      { href: "/#faq", label: "FAQ" },
-                      { href: "/blog", label: "Blog" },
-                    ].map(({ href, label }) =>
-                      href.startsWith("/") && !href.startsWith("/#") ? (
-                        <Link
-                          key={href}
-                          to={href}
-                          className="nav-link text-base"
-                          style={{ color: "var(--brand-muted)" }}
-                        >
-                          {label}
-                        </Link>
-                      ) : (
-                        <a
-                          key={href}
-                          href={href}
-                          className="nav-link text-base"
-                          style={{ color: "var(--brand-muted)" }}
-                        >
-                          {label}
-                        </a>
-                      ),
-                    )}
+                  {/* Desktop Menu */}
+<div className="hidden md:flex items-center gap-7">
+  {[
+    { href: `${base}/nosotros`, label: "Nosotros" },
+    { href: `${base}/#servicios`, label: "Servicios" },
+    { href: `${base}/#beneficios`, label: "Beneficios" },
+    { href: `${base}/#proceso`, label: "Proceso" },
+    { href: `${base}/#faq`, label: "FAQ" },
+    { href: `${base}/blog`, label: "Blog" },
+  ].map(({ href, label }) =>
+    href.includes("#") ? (
+      <a
+        key={href}
+        href={href}
+        className="nav-link text-base"
+        style={{ color: "var(--brand-muted)" }}
+      >
+        {label}
+      </a>
+    ) : (
+      <Link
+        key={href}
+        to={href.replace(base, "")}
+        className="nav-link text-base"
+        style={{ color: "var(--brand-muted)" }}
+      >
+        {label}
+      </Link>
+    ),
+  )}
 
-                    <a
-                      href="#contacto"
-                      className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md"
-                      style={{ backgroundColor: "var(--brand-primary)" }}
-                    >
-                      Contactar
-                    </a>
-                  </div>
+  <a
+    href={`${base}/#contacto`}
+    className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md"
+    style={{ backgroundColor: "var(--brand-primary)" }}
+  >
+    Contactar
+  </a>
+</div>
 
                   <MobileMenu />
                 </div>

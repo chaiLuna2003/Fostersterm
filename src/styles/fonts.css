@@ -1,8 +1,5 @@
-/* Acumin Variable Concept — via Adobe Fonts (requiere licencia Adobe)      */
-/* Como alternativa libre usamos Myriad Pro / Source Sans que es su gemela  */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,opsz,wght@0,200..900,200..900;1,200..900,200..900&display=swap');
+/* Nunito Sans se carga desde index.html via <link> para garantizar compatibilidad */
 
-/* Mantenemos AvantGarde como fallback por si algún componente aún la usa */
 @font-face {
   font-family: 'AvantGarde-Demi';
   src: url('https://fonts.cdnfonts.com/s/14984/AvantGardeDemiBold.woff') format('woff');
@@ -17,8 +14,7 @@
   font-style: normal;
 }
 
-/* Variables de tipografía del sitio */
 :root {
-  --font-heading: 'Source Sans 3', 'AvantGarde-Demi', sans-serif;
-  --font-body:    'Source Sans 3', 'AvantGarde-Book', sans-serif;
+  --font-heading: 'Nunito Sans', sans-serif;
+  --font-body:    'Nunito Sans', sans-serif;
 }

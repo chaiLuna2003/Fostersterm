@@ -96,7 +96,7 @@ export default function App() {
       <Route path="/*" element={
     <div
       className="min-h-screen bg-white"
-      style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+      style={{ fontFamily: "'Nunito Sans', sans-serif" }}
     >
       {/* Hero Section */}
 
@@ -191,7 +191,7 @@ export default function App() {
                   className="text-sm"
                   style={{ color: "var(--brand-primary)" }}
                 >
-                  Mejorando vidas, una prueba a la vez
+                  Soluciones Médicas Innovadoras
                 </span>
               </div>
 
@@ -199,7 +199,7 @@ export default function App() {
               <h1
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6"
                 style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
+                  fontFamily: "'Nunito Sans', sans-serif",
                   fontWeight: 700,
                   color: "var(--brand-primary)",
                 }}
@@ -223,7 +223,7 @@ export default function App() {
                   className="px-8 py-4 text-white rounded-2xl transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "var(--brand-green)",
-                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontFamily: "'Nunito Sans', sans-serif",
                     fontWeight: 700,
                   }}
                 >
@@ -236,7 +236,7 @@ export default function App() {
                   style={{
                     borderColor: "var(--brand-primary)",
                     color: "var(--brand-primary)",
-                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontFamily: "'Nunito Sans', sans-serif",
                     fontWeight: 600,
                   }}
                 >
@@ -296,7 +296,7 @@ export default function App() {
                       className="text-lg"
                       style={{
                         color: "var(--brand-primary)",
-                        fontFamily: "'Source Sans 3', sans-serif",
+                        fontFamily: "'Nunito Sans', sans-serif",
                       }}
                     >
                       24/7 Soporte
@@ -330,7 +330,7 @@ export default function App() {
                       className="text-lg"
                       style={{
                         color: "var(--brand-primary)",
-                        fontFamily: "'Source Sans 3', sans-serif",
+                        fontFamily: "'Nunito Sans', sans-serif",
                       }}
                     >
                       100% Seguro
@@ -348,7 +348,7 @@ export default function App() {
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5" style={{ background: "linear-gradient(135deg, var(--brand-green), var(--brand-primary))" }}>
                 <Clock className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl mb-3" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <h3 className="text-2xl mb-3" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
                 Resultados Rápidos
               </h3>
               <p className="leading-relaxed" style={{ color: "var(--brand-muted)" }}>
@@ -361,7 +361,7 @@ export default function App() {
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5" style={{ background: "linear-gradient(135deg, var(--brand-green), var(--brand-primary))" }}>
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl mb-3" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <h3 className="text-2xl mb-3" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
                 Atención Familiar
               </h3>
               <p className="leading-relaxed" style={{ color: "var(--brand-muted)" }}>
@@ -374,7 +374,7 @@ export default function App() {
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5" style={{ background: "linear-gradient(135deg, var(--brand-green), var(--brand-primary))" }}>
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl mb-3" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <h3 className="text-2xl mb-3" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
                 Seguridad Médica
               </h3>
               <p className="leading-relaxed" style={{ color: "var(--brand-muted)" }}>
@@ -393,7 +393,7 @@ export default function App() {
             {/* Imagen derecha */}
             <div ref={focusedImg} className="fade-in w-full md:w-[420px] flex-shrink-0">
               <img
-                src="/Fostersterm/MujerEstornudandootroFondo.png"
+                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
                 alt="Paciente con alergia"
                 className="w-full h-[440px] object-cover rounded-3xl shadow-lg"
               />
@@ -404,25 +404,25 @@ export default function App() {
               <h2
                 ref={focusedTitle}
                 className="fade-in text-4xl md:text-5xl leading-tight"
-                style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-green)" }}
+                style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 700, color: "var(--brand-green)" }}
               >
-                El problema que resolvemos
+                Soluciones de Alergia Enfocadas
               </h2>
 
               <p
                 className="text-lg font-semibold"
-                style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}
+                style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}
               >
-                La atención en alergias está en alta demanda, pero muchas prácticas enfrentan:
+                La atención de alergias está en alta demanda, pero muchas clínicas enfrentan:
               </p>
 
               {/* Lista sin caja */}
               <ul ref={focusedList} className="fade-in space-y-4">
                 {[
-                  "Personal limitado capacitado en pruebas de alergia e inmunoterapiabarreras de espacio, equipo y cumplimiento normativo.",
-                  "Pérdida de ingresos por derivaciones enviadas fuera de la práctica.",
+                  "Personal limitado capacitado en pruebas de alergia, inmunoterapia, espacio, equipos y barreras de cumplimiento.",
+                  "Ingresos perdidos por referencias enviadas fuera de la clínica.",
                   "Mayor carga administrativa y operativa.",
-                  "Resultado: los pacientes esperan más tiempo, las clínicas pierden ingresos y la continuidad del cuidado se ve afectada.",
+                  "Los pacientes esperan más, las clínicas pierden ingresos y la continuidad del cuidado se ve afectada.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <div
@@ -433,7 +433,7 @@ export default function App() {
                     </div>
                     <span
                       className="text-base leading-relaxed"
-                      style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}
+                      style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}
                     >
                       {item}
                     </span>
@@ -470,7 +470,7 @@ export default function App() {
                 <h2
                   className="text-3xl md:text-4xl mb-3"
                   style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontFamily: "'Nunito Sans', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -543,7 +543,7 @@ export default function App() {
                     <h3
                       className="text-base"
                       style={{
-                        fontFamily: "'Source Sans 3', sans-serif",
+                        fontFamily: "'Nunito Sans', sans-serif",
                         color: "var(--brand-primary)",
                       }}
                     >
@@ -580,7 +580,7 @@ export default function App() {
             <h2
               className="text-4xl md:text-5xl mb-4"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
+                fontFamily: "'Nunito Sans', sans-serif",
                 color: "var(--brand-primary)",
               }}
             >
@@ -605,7 +605,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontFamily: "'Nunito Sans', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -654,7 +654,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontFamily: "'Nunito Sans', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -702,7 +702,7 @@ export default function App() {
                 <h3
                   className="text-2xl mb-4"
                   style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontFamily: "'Nunito Sans', sans-serif",
                     color: "var(--brand-primary)",
                   }}
                 >
@@ -804,7 +804,7 @@ export default function App() {
         <h2
           className="text-4xl md:text-5xl mt-4 mb-6 leading-tight"
           style={{
-            fontFamily: "'Source Sans 3', sans-serif",
+            fontFamily: "'Nunito Sans', sans-serif",
             color: "var(--brand-primary)",
           }}
         >
@@ -828,7 +828,7 @@ export default function App() {
           <h3
             className="text-2xl mb-3"
             style={{
-              fontFamily: "'Source Sans 3', sans-serif",
+              fontFamily: "'Nunito Sans', sans-serif",
               color: "var(--brand-primary)",
             }}
           >
@@ -848,7 +848,7 @@ export default function App() {
           <h3
             className="text-2xl mb-3"
             style={{
-              fontFamily: "'Source Sans 3', sans-serif",
+              fontFamily: "'Nunito Sans', sans-serif",
               color: "var(--brand-primary)",
             }}
           >
@@ -869,7 +869,7 @@ export default function App() {
           <h3
             className="text-2xl mb-3"
             style={{
-              fontFamily: "'Source Sans 3', sans-serif",
+              fontFamily: "'Nunito Sans', sans-serif",
               color: "var(--brand-primary)",
             }}
           >
@@ -903,7 +903,7 @@ export default function App() {
             <h2
               className="text-4xl md:text-5xl mb-4"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
+                fontFamily: "'Nunito Sans', sans-serif",
                 color: "var(--brand-primary)",
               }}
             >
@@ -976,7 +976,7 @@ export default function App() {
               <h2
                 className="text-4xl md:text-5xl mb-6"
                 style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
+                  fontFamily: "'Nunito Sans', sans-serif",
                   color: "var(--brand-primary)",
                 }}
               >
@@ -1029,7 +1029,7 @@ export default function App() {
     <h3
       className="text-xl mb-2"
       style={{
-        fontFamily: "'Source Sans 3', sans-serif",
+        fontFamily: "'Nunito Sans', sans-serif",
         color: "var(--brand-primary)",
       }}
     >
@@ -1057,7 +1057,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
+                      fontFamily: "'Nunito Sans', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -1075,7 +1075,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
+                      fontFamily: "'Nunito Sans', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -1093,7 +1093,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
+                      fontFamily: "'Nunito Sans', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -1111,7 +1111,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
+                      fontFamily: "'Nunito Sans', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -1129,7 +1129,7 @@ export default function App() {
                   <label
                     className="block mb-2"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
+                      fontFamily: "'Nunito Sans', sans-serif",
                       color: "var(--brand-primary)",
                     }}
                   >
@@ -1146,7 +1146,7 @@ export default function App() {
                   type="submit"
                   className="w-full px-8 py-4 bg-[var(--brand-green)] text-white rounded-lg hover:bg-[var(--brand-primary)] transition-all flex items-center justify-center gap-2 shadow-lg"
                   style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontFamily: "'Nunito Sans', sans-serif",
                   }}
                 >
                   Enviar Mensaje
@@ -1160,79 +1160,73 @@ export default function App() {
 
       {/* CTA Section */}
       <section className="py-20 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8 md:px-12">
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div
             ref={ctaBlock}
-            className="fade-in rounded-3xl overflow-hidden grid md:grid-cols-2 min-h-[480px]"
-            style={{ backgroundColor: "var(--brand-primary)" }}
+            className="fade-in rounded-3xl overflow-hidden grid md:grid-cols-2 min-h-[420px] border"
+            style={{ borderColor: "var(--brand-secondary)" }}
           >
-            {/* Texto lado izquierdo */}
-            <div className="flex flex-col justify-center px-10 md:px-16 py-14 gap-6">
-              <span
-                className="text-xs uppercase tracking-widest"
+            {/* Imagen lado izquierdo */}
+            <div className="relative h-34 md:h-auto">
+              <img
+                src="/Fostersterm/Image1.png"
+                alt="Médico especialista en alergias"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Texto lado derecho */}
+            <div
+              className="flex flex-col justify-center px-10 md:px-14 py-12 gap-5"
+              style={{ backgroundColor: "white" }}
+            >
+              <h2
+                className="text-3xl md:text-4xl leading-tight font-bold"
                 style={{ color: "var(--brand-green)" }}
               >
-                Únete a nuestra red
-              </span>
-              <h2
-                className="text-3xl md:text-4xl leading-tight text-white"
-                style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                Transforma tu clínica con soluciones de alergia de primer nivel
+                Trabajemos Juntos
               </h2>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--brand-secondary)" }}
-              >
-                Miles de clínicas ya confían en Foster Stern Group para ofrecer
-                servicios de alergia de alta calidad. Da el siguiente paso y
-                lleva tu práctica médica al siguiente nivel.
+
+              <p className="text-base font-semibold" style={{ color: "var(--brand-primary)" }}>
+                Si tu clínica busca:
               </p>
+
+              <ul className="space-y-3">
+                {[
+                  "Expandir los servicios de alergia",
+                  "Mejorar el acceso a la atención para los pacientes",
+                  "Incrementar los ingresos sin añadir complejidad",
+                  "¡Nos encantaría asociarnos contigo!",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "var(--brand-green)" }} />
+                    <span className="text-base leading-relaxed" style={{ color: "var(--brand-muted)" }}>
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
                 <a
                   href="#contacto"
                   className="px-7 py-3 rounded-xl text-center text-white transition-all hover:opacity-90"
-                  style={{
-                    backgroundColor: "var(--brand-green)",
-                    fontFamily: "'Source Sans 3', sans-serif",
-                  }}
+                  style={{ backgroundColor: "var(--brand-green)" }}
                 >
                   Hablar con un especialista
                 </a>
                 <a
                   href="#servicios"
-                  className="px-7 py-3 rounded-xl text-center transition-all hover:bg-white/10 border border-white/30"
-                  style={{
-                    color: "white",
-                    fontFamily: "'Source Sans 3', sans-serif",
-                  }}
+                  className="px-7 py-3 rounded-xl text-center transition-all border-2 hover:bg-[var(--brand-light)]"
+                  style={{ borderColor: "var(--brand-primary)", color: "var(--brand-primary)" }}
                 >
                   Ver servicios
                 </a>
               </div>
             </div>
-
-            {/* Imagen lado derecho */}
-            <div className="relative hidden md:block">
-              <img
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
-                alt="Médico especialista en alergias"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ filter: "brightness(0.85)" }}
-              />
-              {/* Overlay degradado para integrar con el azul */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to right, var(--brand-primary) 0%, transparent 40%)",
-                }}
-              />
-            </div>
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-white border-t" style={{ borderColor: "var(--brand-secondary)" }}>
         <div className="max-w-7xl mx-auto px-6 py-14">
@@ -1245,7 +1239,7 @@ export default function App() {
                 alt="Foster Stern Group"
                 className="h-24 w-auto object-contain"
               />
-              <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}>
                 Tu éxito es nuestro éxito. Transforma tu clínica con servicios
                 integrados de alergia: sin inversión inicial, sin riesgo y con el
                 respaldo de profesionales expertos. Crecemos juntos.
@@ -1275,7 +1269,7 @@ export default function App() {
 
             {/* Col 2 — Información */}
             <div>
-              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
                 Información
               </h4>
               <ul className="space-y-3">
@@ -1289,7 +1283,7 @@ export default function App() {
                     <a
                       href={href}
                       className="footer-link text-sm flex items-center gap-2"
-                      style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}
+                      style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}
                     >
                       <svg viewBox="0 0 24 24" className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -1303,7 +1297,7 @@ export default function App() {
 
             {/* Col 3 — Contacto */}
             <div>
-              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
                 Contáctanos
               </h4>
               <ul className="space-y-4">
@@ -1313,7 +1307,7 @@ export default function App() {
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
                   </div>
-                  <span className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  <span className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}>
                     7480 SW 40th Street<br />Suite 850<br />Miami, FL 33155
                   </span>
                 </li>
@@ -1323,7 +1317,7 @@ export default function App() {
                       <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
                   </div>
-                  <span className="text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>+1 (786) 977-3733</span>
+                  <span className="text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}>+1 (786) 977-3733</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
@@ -1331,14 +1325,14 @@ export default function App() {
                       <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                   </div>
-                  <span className="text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>info@fosterstern.com</span>
+                  <span className="text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}>info@fosterstern.com</span>
                 </li>
               </ul>
             </div>
 
             {/* Col 4 — Horario */}
             <div>
-              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <h4 className="text-base font-bold mb-5" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
                 Horario de Atención
               </h4>
               <div className="flex items-start gap-3">
@@ -1365,8 +1359,8 @@ export default function App() {
               &copy; 2026 Foster Stern Group. Todos los derechos reservados.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="footer-link text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>Privacidad</a>
-              <a href="#" className="footer-link text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>Términos</a>
+              <a href="#" className="footer-link text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}>Privacidad</a>
+              <a href="#" className="footer-link text-sm" style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}>Términos</a>
             </div>
           </div>
         </div>

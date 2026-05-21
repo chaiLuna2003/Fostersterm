@@ -54,6 +54,32 @@ const casos = [
     cargo: "Fundadora",
     iniciales: "PR",
   },
+   {
+    id: 5,
+    clinica: "Clínica BioSalud1",
+    ciudad: "CDMX, MX",
+    imagen:
+      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1200&q=80",
+    resultado: "+120 pacientes/mes",
+    descripcion:
+      "Integramos pruebas de alergia en consultorio y escalamos rápidamente el servicio.",
+    especialista: "Dra. Patricia Ruiz",
+    cargo: "Fundadora",
+    iniciales: "PR",
+  },
+   {
+    id: 6,
+    clinica: "Clínica BioSalud",
+    ciudad: "CDMX, MX",
+    imagen:
+      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1200&q=80",
+    resultado: "+120 pacientes/mes",
+    descripcion:
+      "Integramos pruebas de alergia en consultorio y escalamos rápidamente el servicio.",
+    especialista: "Dra. Patricia Ruiz",
+    cargo: "Fundadora",
+    iniciales: "PR",
+  },
 ];
 
 export function CasosCarousel() {

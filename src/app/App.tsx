@@ -210,8 +210,7 @@ export default function App() {
                         color: "var(--brand-primary)",
                       }}
                     >
-                      Cuidamos la salud de las familias con tecnología médica
-                      moderna.
+                      Mejorando vidas, una prueba a la vez
                     </h1>
 
                     {/* Description */}
@@ -219,9 +218,7 @@ export default function App() {
                       className="text-lg md:text-xl leading-relaxed mb-8 max-w-2xl"
                       style={{ color: "var(--brand-muted)" }}
                     >
-                      Protocolos clínicos avanzados, atención especializada y
-                      soluciones integrales de alergia para transformar la
-                      experiencia de tus pacientes.
+                      Ofrecemos soluciones integrales de alergología para tu clínica, encargándonos de todo, desde personal especializado hasta el equipo necesario, para que puedas brindar atención integral y tratamientos que cambian vidas directamente en tus instalaciones.
                     </p>
 
                     {/* Buttons */}

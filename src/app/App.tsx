@@ -103,10 +103,23 @@ export default function App() {
           >
             {/* Hero Section */}
 
-            <header className="relative overflow-hidden bg-white pt-20 pb-10 md:pt-24 md:pb-16">
-              {/* Background decor */}
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--brand-green)]/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[var(--brand-primary)]/5 rounded-full blur-3xl"></div>
+            <header className="relative overflow-hidden min-h-screen flex flex-col">
+
+              {/* ── IMAGEN DE FONDO ── */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src="/Fostersterm/fam-foster-bg.png"
+                  alt="Familia Foster Stern"
+                  className="w-full h-full object-cover object-center"
+                />
+                {/* Gradiente de marca sobre la imagen */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(5,74,91,0.88) 0%, rgba(0,129,84,0.45) 60%, rgba(5,74,91,0.2) 100%)"
+                  }}
+                />
+              </div>
 
               {/* Navbar */}
               <nav
@@ -131,292 +144,130 @@ export default function App() {
                   </div>
 
                   {/* Desktop Menu */}
-                  {/* Desktop Menu */}
-<div className="hidden md:flex items-center gap-7">
-  {[
-    { href: `${base}/nosotros`, label: "Nosotros" },
-    { href: `${base}/#servicios`, label: "Servicios" },
-    { href: `${base}/#beneficios`, label: "Beneficios" },
-    { href: `${base}/#proceso`, label: "Proceso" },
-    { href: `${base}/#faq`, label: "FAQ" },
-    { href: `${base}/blog`, label: "Blog" },
-  ].map(({ href, label }) =>
-    href.includes("#") ? (
-      <a
-        key={href}
-        href={href}
-        className="nav-link text-base"
-        style={{ color: "var(--brand-muted)" }}
-      >
-        {label}
-      </a>
-    ) : (
-      <Link
-        key={href}
-        to={href.replace(base, "")}
-        className="nav-link text-base"
-        style={{ color: "var(--brand-muted)" }}
-      >
-        {label}
-      </Link>
-    ),
-  )}
-
-  <a
-    href={`${base}/#contacto`}
-    className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md"
-    style={{ backgroundColor: "var(--brand-primary)" }}
-  >
-    Contactar
-  </a>
-</div>
+                  <div className="hidden md:flex items-center gap-7">
+                    <Link to="/nosotros" className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>Nosotros</Link>
+                    <a href="/#servicios" className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>Servicios</a>
+                    <a href="/#beneficios" className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>Beneficios</a>
+                    <a href="/#proceso" className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>Proceso</a>
+                    <a href="/#faq" className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>FAQ</a>
+                    <Link to="/blog" className="nav-link text-base" style={{ color: "var(--brand-muted)" }}>Blog</Link>
+                    <a href="/#contacto" className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md" style={{ backgroundColor: "var(--brand-primary)" }}>Contactar</a>
+                  </div>
 
                   <MobileMenu />
                 </div>
               </nav>
 
-              {/* HERO CONTENT */}
-              <div className="relative z-10 max-w-7xl mx-auto px-6 pt-12">
-                <div className="grid lg:grid-cols-2 gap-14 items-center">
-                  {/* LEFT CONTENT */}
-                  <div>
+              {/* ── HERO CONTENT ── */}
+              <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-6 pb-10" style={{ paddingTop: "140px" }}>
+                <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+
+                  {/* Columna izquierda — texto */}
+                  <div className="flex flex-col gap-6">
                     {/* Badge */}
                     <div
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6"
-                      style={{
-                        backgroundColor: "var(--brand-light)",
-                        borderColor: "var(--brand-secondary)",
-                      }}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full self-start border"
+                      style={{ backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.3)" }}
                     >
-                      <Sparkles
-                        className="w-4 h-4"
-                        style={{ color: "var(--brand-green)" }}
-                      />
-
-                      <span
-                        className="text-sm"
-                        style={{ color: "var(--brand-primary)" }}
-                      >
-                        Soluciones Médicas Innovadoras
-                      </span>
+                      <Sparkles className="w-4 h-4 text-white" />
+                      <span className="text-sm text-white">Soluciones Médicas Innovadoras</span>
                     </div>
 
-                    {/* Title */}
+                    {/* Título */}
                     <h1
-                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6"
-                      style={{
-                        fontFamily: "'Nunito Sans', sans-serif",
-                        fontWeight: 700,
-                        color: "var(--brand-primary)",
-                      }}
+                      className="text-4xl md:text-6xl lg:text-7xl leading-tight text-white"
+                      style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800 }}
                     >
-                      Mejorando vidas, una prueba a la vez
+                      Mejorando vidas, una prueba a la vez.
                     </h1>
 
-                    {/* Description */}
-                    <p
-                      className="text-lg md:text-xl leading-relaxed mb-8 max-w-2xl"
-                      style={{ color: "var(--brand-muted)" }}
-                    >
+                    {/* Subtítulo */}
+                    <p className="text-lg md:text-xl leading-relaxed max-w-xl" style={{ color: "rgba(255,255,255,0.88)" }}>
                       Ofrecemos soluciones integrales de alergología para tu clínica, encargándonos de todo, desde personal especializado hasta el equipo necesario, para que puedas brindar atención integral y tratamientos que cambian vidas directamente en tus instalaciones.
                     </p>
 
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                      <button
-                        className="px-8 py-4 text-white rounded-2xl transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-                        style={{
-                          backgroundColor: "var(--brand-green)",
-                          fontFamily: "'Nunito Sans', sans-serif",
-                          fontWeight: 700,
-                        }}
+                    {/* Botones */}
+                    <div className="flex flex-col sm:flex-row gap-4 mt-2">
+                      <a
+                        href="#contacto"
+                        className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
+                        style={{ backgroundColor: "var(--brand-green)" }}
                       >
                         Comenzar Ahora
-                        <ArrowRight className="w-5 h-5" />
-                      </button>
-
-                      <button
-                        className="px-8 py-4 rounded-2xl border-2 transition-all hover:bg-[var(--brand-light)]"
-                        style={{
-                          borderColor: "var(--brand-primary)",
-                          color: "var(--brand-primary)",
-                          fontFamily: "'Nunito Sans', sans-serif",
-                          fontWeight: 600,
-                        }}
+                      </a>
+                      <a
+                        href="#servicios"
+                        className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                        style={{ borderColor: "rgba(255,255,255,0.5)" }}
                       >
+                        <span className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-sm">▶</span>
                         Ver Servicios
-                      </button>
+                      </a>
                     </div>
                   </div>
 
-                  {/* RIGHT IMAGE */}
-                  {/* RIGHT IMAGE */}
-                  {/* RIGHT IMAGE */}
-                  <div className="relative hidden lg:flex justify-center lg:justify-end">
-                    {/* Glow */}
-                    <div
-                      className="absolute w-[420px] h-[420px] rounded-full blur-3xl opacity-20"
-                      style={{ backgroundColor: "var(--brand-green)" }}
-                    ></div>
-
-                    {/* Circle background */}
-                    <div
-                      className="absolute w-[420px] h-[420px] rounded-full"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, var(--brand-light), #ffffff)",
-                      }}
-                    ></div>
-
-                    {/* IMAGE */}
-                    <img
-                      src="/Fostersterm/fam-foster.png"
-                      alt="Familia feliz"
-                      className="relative z-10 w-full max-w-[560px] object-contain drop-shadow-2xl"
-                    />
-
-                    {/* Floating Card */}
-                    <div className="absolute top-10 left-0 md:left-8 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 z-20 hidden md:block">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center"
-                          style={{ backgroundColor: "var(--brand-light)" }}
-                        >
-                          <HeartPulse
-                            className="w-6 h-6"
-                            style={{ color: "var(--brand-green)" }}
-                          />
+                  {/* Columna derecha — floating cards */}
+                  <div className="hidden lg:flex flex-col gap-4 items-end">
+                    {/* Card 1 — Equipo */}
+                    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl w-72">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "var(--brand-light)" }}>
+                          <Users className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
                         </div>
-
-                        <div>
-                          <p
-                            className="text-sm"
-                            style={{ color: "var(--brand-muted)" }}
-                          >
-                            Atención médica
-                          </p>
-
-                          <h4
-                            className="text-lg"
-                            style={{
-                              color: "var(--brand-primary)",
-                              fontFamily: "'Nunito Sans', sans-serif",
-                            }}
-                          >
-                            24/7 Soporte
-                          </h4>
-                        </div>
+                        <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>Conoce a nuestro equipo</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        {["CM","LP","AT","PR"].map((ini) => (
+                          <div key={ini} className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 first:ml-0 border-2 border-white" style={{ backgroundColor: "var(--brand-green)" }}>{ini}</div>
+                        ))}
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 border-2 border-white" style={{ backgroundColor: "var(--brand-primary)" }}>+</div>
                       </div>
                     </div>
 
-                    {/* Floating Card 2 */}
-                    <div className="absolute bottom-8 right-0 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 z-20 hidden md:block">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center"
-                          style={{ backgroundColor: "var(--brand-light)" }}
-                        >
-                          <Shield
-                            className="w-6 h-6"
-                            style={{ color: "var(--brand-green)" }}
-                          />
-                        </div>
-
+                    {/* Card 2 — Review */}
+                    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl w-72">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>Testimonio reciente</span>
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs" style={{ backgroundColor: "var(--brand-green)" }}>★</div>
+                      </div>
+                      <p className="text-xs leading-relaxed mb-3" style={{ color: "var(--brand-muted)" }}>
+                        "Transformamos nuestra clínica completamente. El soporte de Foster Stern es excepcional."
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ backgroundColor: "var(--brand-primary)" }}>DM</div>
                         <div>
-                          <p
-                            className="text-sm"
-                            style={{ color: "var(--brand-muted)" }}
-                          >
-                            Pacientes protegidos
-                          </p>
-
-                          <h4
-                            className="text-lg"
-                            style={{
-                              color: "var(--brand-primary)",
-                              fontFamily: "'Nunito Sans', sans-serif",
-                            }}
-                          >
-                            100% Seguro
-                          </h4>
+                          <p className="text-xs font-semibold" style={{ color: "var(--brand-primary)" }}>Dr. Mendoza</p>
+                          <p className="text-xs" style={{ color: "var(--brand-muted)" }}>Director Médico</p>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* CARDS ABAJO DEL HERO */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-                  {/* Card 1 */}
-                  <div
-                    ref={heroCard1}
-                    className="fade-in delay-1 group rounded-3xl p-7 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                    style={{ backgroundColor: "#054A5B" }}
-                  >
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 bg-white/80 backdrop-blur-sm">
-                      <Clock className="w-8 h-8 text-black" />
-                    </div>
-
-                    <h3
-                      className="text-2xl mb-3 text-white"
-                      style={{ fontFamily: "'Nunito Sans', sans-serif" }}
-                    >
-                      Resultados Rápidos
-                    </h3>
-
-                    <p className="leading-relaxed text-white/85">
-                      Diagnósticos precisos y atención médica eficiente para
-                      brindar tranquilidad inmediata a cada paciente.
-                    </p>
-                  </div>
-
-                  {/* Card 2 */}
-                  <div
-                    ref={heroCard2}
-                    className="fade-in delay-2 group rounded-3xl p-7 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                    style={{ backgroundColor: "#054A5B" }}
-                  >
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 bg-white/80 backdrop-blur-sm">
-                      <Users className="w-8 h-8 text-black" />
-                    </div>
-
-                    <h3
-                      className="text-2xl mb-3 text-white"
-                      style={{ fontFamily: "'Nunito Sans', sans-serif" }}
-                    >
-                      Atención Familiar
-                    </h3>
-
-                    <p className="leading-relaxed text-white/85">
-                      Soluciones médicas diseñadas para proteger y mejorar la
-                      calidad de vida de toda la familia.
-                    </p>
-                  </div>
-
-                  {/* Card 3 */}
-                  <div
-                    ref={heroCard3}
-                    className="fade-in delay-3 group rounded-3xl p-7 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                    style={{ backgroundColor: "#054A5B" }}
-                  >
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 bg-white/80 backdrop-blur-sm">
-                      <Shield className="w-8 h-8 text-black" />
-                    </div>
-
-                    <h3
-                      className="text-2xl mb-3 text-white"
-                      style={{ fontFamily: "'Nunito Sans', sans-serif" }}
-                    >
-                      Seguridad Médica
-                    </h3>
-
-                    <p className="leading-relaxed text-white/85">
-                      Protocolos clínicos avanzados y procesos certificados para
-                      ofrecer atención médica confiable.
-                    </p>
                   </div>
                 </div>
               </div>
+
+              {/* ── BARRA INFERIOR ── */}
+              <div className="relative z-10 w-full">
+                <div className="max-w-7xl mx-auto px-6 pb-8">
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl px-8 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xl">
+                    {[
+                      { icon: <Shield className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Sin Inversión Inicial", desc: "Integramos el servicio sin riesgo financiero para tu clínica." },
+                      { icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Soporte Especializado", desc: "Personal capacitado y protocolos clínicos incluidos." },
+                      { icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Atención Completa", desc: "Desde el diagnóstico hasta el tratamiento en tu consultorio." },
+                    ].map((item, i) => (
+                      <div key={i} className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""}`}>
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                          {item.icon}
+                        </div>
+                        <div>
+                          <p className="font-bold text-sm mb-1" style={{ color: "var(--brand-primary)" }}>{item.title}</p>
+                          <p className="text-xs leading-relaxed" style={{ color: "var(--brand-muted)" }}>{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
             </header>
 
             {/* Focused Allergy Solutions Section */}

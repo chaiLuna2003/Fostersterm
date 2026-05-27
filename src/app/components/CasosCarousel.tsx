@@ -4,81 +4,68 @@ import useEmblaCarousel from "embla-carousel-react";
 const casos = [
   {
     id: 1,
-    clinica: "Clínica del Valle",
-    ciudad: "Monterrey, MX",
+    clinica: "South Florida Family Care",
+    ciudad: "Miami, FL",
     imagen:
       "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80",
-    resultado: "+65% ingresos",
+    resultado: "+$180K ingresos/año",
     descripcion:
-      "Tras integrar nuestro programa de alergias, la clínica duplicó su cartera de pacientes en menos de 8 meses.",
-    especialista: "Dr. Carlos Mendoza",
-    cargo: "Director Médico",
-    iniciales: "CM",
+      "Integramos el programa de alergia sin contratar personal adicional. En seis meses pasamos de referir el 100% de nuestros pacientes alérgicos a tratarlos íntegramente en nuestra práctica.",
+    especialista: "Dr. Robert M. Castillo",
+    cargo: "Médico de Atención Primaria",
+    iniciales: "RC",
   },
   {
     id: 2,
-    clinica: "Centro Médico Integral",
-    ciudad: "Guadalajara, MX",
+    clinica: "Pediatric Wellness Group",
+    ciudad: "Doral, FL",
     imagen:
       "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1200&q=80",
-    resultado: "3x pacientes nuevos",
+    resultado: "2x retención de pacientes",
     descripcion:
-      "Con el soporte de Foster Stern, lanzamos el departamento de alergología en tiempo récord.",
-    especialista: "Dra. Laura Pérez",
-    cargo: "Subdirectora Clínica",
-    iniciales: "LP",
+      "Como pediatras, veíamos a diario niños con rinitis y eccema sin solución efectiva. Con Foster Stern ahora ofrecemos diagnóstico y tratamiento en consultorio. La satisfacción de nuestros pacientes se disparó.",
+    especialista: "Dra. Sandra López",
+    cargo: "Pediatra — Directora Médica",
+    iniciales: "SL",
   },
   {
     id: 3,
-    clinica: "Salud Familiar Querétaro",
-    ciudad: "Querétaro, MX",
+    clinica: "Coral Gables Internal Medicine",
+    ciudad: "Coral Gables, FL",
     imagen:
       "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80",
-    resultado: "90% satisfacción",
+    resultado: "Operativo en 12 días",
     descripcion:
-      "Nuestros pacientes destacan la calidad y rapidez del diagnóstico y atención.",
-    especialista: "Dr. Andrés Torres",
-    cargo: "Médico General",
-    iniciales: "AT",
+      "El proceso de implementación fue sorprendentemente ágil. En menos de dos semanas mi equipo ya realizaba pruebas cutáneas con confianza. El soporte clínico de Foster Stern ha sido impecable.",
+    especialista: "Dr. James O'Brien",
+    cargo: "Internista",
+    iniciales: "JO",
   },
   {
     id: 4,
-    clinica: "Clínica BioSalud",
-    ciudad: "CDMX, MX",
+    clinica: "Brickell Medical Associates",
+    ciudad: "Miami, FL",
     imagen:
       "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1200&q=80",
-    resultado: "+120 pacientes/mes",
+    resultado: "+95 pacientes nuevos/mes",
     descripcion:
-      "Integramos pruebas de alergia en consultorio y escalamos rápidamente el servicio.",
-    especialista: "Dra. Patricia Ruiz",
-    cargo: "Fundadora",
-    iniciales: "PR",
+      "Añadir el servicio de inmunoterapia transformó nuestra práctica. Los pacientes que antes abandonaban el tratamiento ahora lo completan en nuestra clínica, y el flujo de referidos internos creció de forma orgánica.",
+    especialista: "Dra. Ana Fernández",
+    cargo: "Médica Familiar — Fundadora",
+    iniciales: "AF",
   },
-   {
+  {
     id: 5,
-    clinica: "Clínica BioSalud1",
-    ciudad: "CDMX, MX",
+    clinica: "North Broward Primary Care",
+    ciudad: "Fort Lauderdale, FL",
     imagen:
-      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1200&q=80",
-    resultado: "+120 pacientes/mes",
+      "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1200&q=80",
+    resultado: "ROI positivo en 5 meses",
     descripcion:
-      "Integramos pruebas de alergia en consultorio y escalamos rápidamente el servicio.",
-    especialista: "Dra. Patricia Ruiz",
-    cargo: "Fundadora",
-    iniciales: "PR",
-  },
-   {
-    id: 6,
-    clinica: "Clínica BioSalud",
-    ciudad: "CDMX, MX",
-    imagen:
-      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1200&q=80",
-    resultado: "+120 pacientes/mes",
-    descripcion:
-      "Integramos pruebas de alergia en consultorio y escalamos rápidamente el servicio.",
-    especialista: "Dra. Patricia Ruiz",
-    cargo: "Fundadora",
-    iniciales: "PR",
+      "No tenía experiencia en alergología. Foster Stern me capacitó, me dio los protocolos y el respaldo de un alergólogo cuando lo necesito. Hoy es el servicio más rentable y mejor valorado de mi práctica.",
+    especialista: "Dr. Michael Grant",
+    cargo: "Médico General",
+    iniciales: "MG",
   },
 ];
 
@@ -123,7 +110,7 @@ export function CasosCarousel() {
             className="text-xs uppercase tracking-[0.25em]"
             style={{ color: "var(--brand-green)" }}
           >
-            Resultados reales
+            Médicos que ya lo hicieron
           </span>
 
           <h2
@@ -133,14 +120,14 @@ export function CasosCarousel() {
               color: "var(--brand-primary)",
             }}
           >
-            Casos de Éxito
+            Lo que dicen nuestros socios clínicos
           </h2>
 
           <p
             className="mt-4 text-sm md:text-base max-w-2xl mx-auto"
             style={{ color: "var(--brand-muted)" }}
           >
-            Clínicas que transformaron su práctica médica con Foster Stern Group.
+            Médicos de atención primaria, pediatras y especialistas que ya ofrecen servicios de alergología en su consultorio con Foster Stern Group.
           </p>
         </div>
 

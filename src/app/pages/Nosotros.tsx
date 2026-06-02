@@ -38,76 +38,84 @@ function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
-  const base = "/Fostersterm";
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
-
     window.addEventListener("scroll", onScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
       style={{
-        borderBottomColor: scrolled ? "rgba(186,198,216,0.3)" : "transparent",
-        boxShadow: scrolled ? "0 4px 24px rgba(5,74,91,0.08)" : "none",
+        backgroundColor: scrolled ? "rgba(255,255,255,0.7)" : "transparent",
+        backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.03)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.4)" : "1px solid transparent",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* LOGO */}
-        <Link to="/" className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+        <Link to="/">
           <ImageWithFallback
-            src={`${base}/LogoFS.png`}
+            src="/Fostersterm/LOGOFALLERGY.png"
             alt="Foster Stern Group"
-            className="h-24 w-auto object-contain"
+            className={`h-16 md:h-18 lg:h-24 w-auto object-contain transition-all duration-300 ${
+              scrolled ? "brightness-0 opacity-90" : ""
+            }`}
           />
         </Link>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-7">
+        {/* Desktop links — lg+ only */}
+        <div className="hidden lg:flex items-center gap-5 xl:gap-7">
           {[
-            { href: `${base}/nosotros`, label: "Nosotros" },
-            { href: `${base}/#servicios`, label: "Servicios" },
-            { href: `${base}/#beneficios`, label: "Beneficios" },
-            { href: `${base}/#proceso`, label: "Proceso" },
-            { href: `${base}/#faq`, label: "FAQ" },
-            { href: `${base}/blog`, label: "Blog" },
-          ].map(({ href, label }) =>
-            href.includes("#") ? (
-              <a
-                key={href}
-                href={href}
-                className="nav-link text-base"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                {label}
-              </a>
-            ) : (
+            { label: "Nosotros", to: "/nosotros" },
+            { label: "Servicios", href: "/#Servicios" },
+            { label: "Beneficios", href: "/#Beneficios" },
+            { label: "Proceso", href: "/#Proceso" },
+            { label: "FAQ", href: "/#FAQ" },
+            { label: "Blog", to: "/blog" },
+          ].map((item) =>
+            "to" in item ? (
               <Link
-                key={href}
-                to={href.replace(base, "")}
-                className="nav-link text-base"
-                style={{ color: "var(--brand-muted)" }}
+                key={item.label}
+                to={item.to!}
+                className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300"
+                style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
               >
-                {label}
+                {item.label}
               </Link>
-            ),
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300"
+                style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
+              >
+                {item.label}
+              </a>
+            )
           )}
-
-          {/* CTA */}
           <a
-            href={`${base}/#contacto`}
-            className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md"
-            style={{ backgroundColor: "var(--brand-primary)" }}
+            href="/#contacto"
+            className="nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold transition-all duration-300 hover:scale-105 text-sm xl:text-base"
+            style={{ backgroundColor: "var(--brand-green)" }}
           >
             Contactar
           </a>
+          <Link
+            to="/english"
+            className="px-4 py-2 rounded-xl font-bold border-2 transition-all duration-300 hover:scale-105 text-sm xl:text-base"
+            style={{
+              color: scrolled ? "#054A5B" : "white",
+              borderColor: scrolled ? "#054A5B" : "rgba(255,255,255,0.7)",
+            }}
+          >
+            🇺🇸 English
+          </Link>
         </div>
 
-        <MobileMenu />
+        <MobileMenu scrolled={scrolled} />
       </div>
     </nav>
   );
@@ -429,108 +437,164 @@ export default function Nosotros() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-40 pb-24">
-        {/* DECOR */}
-        <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-5"
-          style={{
-            backgroundColor: "var(--brand-green)",
-            filter: "blur(100px)",
-            transform: "translate(30%, -30%)",
-          }}
-        />
+      <section className="relative overflow-hidden min-h-screen flex flex-col">
 
-        <div
-          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-5"
-          style={{
-            backgroundColor: "var(--brand-primary)",
-            filter: "blur(80px)",
-            transform: "translate(-30%, 30%)",
-          }}
-        />
+        {/* Background — misma imagen que el home */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Fostersterm/heroSectionFooterImg.png"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+          />
+          {/* Overlay oscuro con gradiente — más denso abajo para los stats */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(160deg, rgba(5,74,91,0.82) 0%, rgba(5,74,91,0.55) 40%, rgba(5,74,91,0.72) 100%)",
+            }}
+          />
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* LEFT IMAGE */}
-            <div className="relative h-[400px] md:h-[500px] lg:h-[650px] rounded-[36px] overflow-hidden shadow-2xl">
-              <img
-                src="/Fostersterm/MujerEstornudandootroFondo.png"
-                alt="Equipo médico Foster Stern"
-                className="w-full h-full object-cover"
-                loading="eager"
+        {/* Imagen de referencia — dándole la composición: texto izq, imagen-collage der */}
+        {/* Columna derecha: la imagen subida por el usuario como decoración */}
+        <div className="absolute right-0 top-0 h-full w-1/2 z-[1] hidden lg:block">
+          <img
+            src="/Fostersterm/Gemini_Generated_Image_xxeyopxxeyopxxey.png"
+            alt=""
+            className="w-full h-full object-cover object-left"
+            style={{ opacity: 0.35 }}
+          />
+          {/* Fade hacia la izquierda para mezclar con el overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(5,74,91,0.95) 0%, rgba(5,74,91,0.3) 40%, transparent 100%)",
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div
+          className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-10"
+          style={{ paddingTop: "130px", paddingBottom: "48px" }}
+        >
+          {/* Badge */}
+          <div className="mb-6">
+            <span
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.1)",
+                borderColor: "rgba(255,255,255,0.25)",
+                color: "rgba(255,255,255,0.9)",
+              }}
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: "var(--brand-green)" }}
               />
+              Sobre Nosotros
+            </span>
+          </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+          {/* Title */}
+          <div ref={heroTitle} className="max-w-2xl">
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.08] mb-6"
+              style={{ fontWeight: 800, fontFamily: "'Nunito Sans', sans-serif" }}
+            >
+              <span className="hero-title-shimmer">Transformando</span>
+              <br />
+              <span className="text-white">la atención de </span>
+              <span style={{ color: "#5de8b0" }}>alergia</span>
+              <br />
+              <span className="text-white">en América.</span>
+            </h1>
+          </div>
 
-              {/* Floating Card */}
+          {/* Description */}
+          <div ref={heroSub} className="max-w-xl mb-10">
+            <p
+              className="text-base md:text-lg leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.82)" }}
+            >
+              Somos Foster Stern Group, una empresa dedicada a integrar
+              servicios de alergia de clase mundial directamente en clínicas
+              médicas — sin inversión inicial y con soporte especializado continuo.
+            </p>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-16 md:mb-20">
+            <a
+              href="/#contacto"
+              className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
+              style={{ backgroundColor: "var(--brand-green)" }}
+            >
+              Conocer Servicios
+            </a>
+            <a
+              href="/#contacto"
+              className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all"
+              style={{ borderColor: "rgba(255,255,255,0.45)" }}
+            >
+              Contactar Equipo
+            </a>
+          </div>
+
+          {/* Stats bar — al fondo del hero, inspirado en la imagen */}
+          <div ref={heroStats}>
+            <div
+              className="inline-grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border"
+              style={{
+                borderColor: "rgba(255,255,255,0.15)",
+                backgroundColor: "rgba(255,255,255,0.06)",
+              }}
+            >
+              {[
+                { value: "500+", label: "Clínicas asociadas" },
+                { value: "98%", label: "Satisfacción clínica" },
+                { value: "$0", label: "Inversión inicial" },
+                { value: "10+", label: "Años de experiencia" },
+              ].map((stat, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col items-center justify-center px-6 py-5"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.07)",
+                    backdropFilter: "blur(12px)",
+                  }}
+                >
+                  <span
+                    className="text-2xl md:text-3xl font-black mb-1"
+                    style={{ color: "#5de8b0" }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span
+                    className="text-xs text-center font-medium leading-tight"
+                    style={{ color: "rgba(255,255,255,0.7)" }}
+                  >
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
 
-            {/* RIGHT CONTENT */}
-            <div className="max-w-2xl">
-              <div ref={heroTitle}>
-                {/* Badge */}
-                <span
-                  className="inline-block text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
-                  style={{
-                    backgroundColor: "var(--brand-light)",
-                    color: "var(--brand-green)",
-                  }}
-                >
-                  Sobre nosotros
-                </span>
-
-                {/* TITLE */}
-                <h1
-                  className="text-4xl md:text-6xl lg:text-7xl leading-tight mb-8"
-                  style={{
-                    fontWeight: 700,
-                    color: "var(--brand-primary)",
-                  }}
-                >
-                  Transformando la atención de{" "}
-                  <span style={{ color: "var(--brand-green)" }}>alergia</span>{" "}
-                  en América.
-                </h1>
-              </div>
-
-              {/* DESCRIPTION */}
-              <div ref={heroSub}>
-                <p
-                  className="text-lg md:text-xl leading-relaxed mb-10"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Somos Foster Stern Group, una empresa dedicada a integrar
-                  servicios de alergia de clase mundial directamente en clínicas
-                  médicas, sin inversión inicial y con soporte especializado
-                  continuo.
-                </p>
-              </div>
-
-              {/* BUTTONS */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  className="px-8 py-4 rounded-2xl text-white transition-all hover:scale-105 shadow-lg"
-                  style={{
-                    backgroundColor: "var(--brand-green)",
-                    fontWeight: 700,
-                  }}
-                >
-                  Conocer servicios
-                </button>
-
-                <button
-                  className="px-8 py-4 rounded-2xl border-2 transition-all hover:bg-[var(--brand-light)]"
-                  style={{
-                    borderColor: "var(--brand-primary)",
-                    color: "var(--brand-primary)",
-                    fontWeight: 600,
-                  }}
-                >
-                  Contactar equipo
-                </button>
-              </div>
-            </div>
+        {/* Scroll indicator */}
+        <div className="relative z-10 flex justify-center pb-8">
+          <div
+            className="flex flex-col items-center gap-1 opacity-50"
+            style={{ color: "white" }}
+          >
+            <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+            <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
         </div>
       </section>

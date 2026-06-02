@@ -136,23 +136,22 @@ export default function App() {
           borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.4)" : "1px solid transparent",
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between transition-all duration-300">
           <div className="flex items-center gap-3">
             <ImageWithFallback
               src="/Fostersterm/LOGOFALLERGY.png"
               alt="Foster Stern Group"
-              // Invertimos el color del logo a oscuro cuando el fondo del cristal es claro (scroll)
-              className={`h-20 md:h-24 w-auto object-contain transition-all duration-300 ${
+              className={`h-16 md:h-18 lg:h-24 w-auto object-contain transition-all duration-300 ${
                 scrolled ? "brightness-0 opacity-90" : ""
               }`}
             />
           </div>
 
-          {/* Enlaces de navegación con cambio dinámico de color según el fondo */}
-          <div className="hidden md:flex items-center gap-7">
+          {/* Desktop nav links — only shown on lg+ */}
+          <div className="hidden lg:flex items-center gap-5 xl:gap-7">
             <Link 
               to="/nosotros" 
-              className="nav-link text-base font-semibold transition-colors duration-300" 
+              className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300" 
               style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
             >
               Nosotros
@@ -161,7 +160,7 @@ export default function App() {
               <a 
                 key={section}
                 href={`/#${section}`} 
-                className="nav-link text-base font-semibold transition-colors duration-300" 
+                className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300" 
                 style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
               >
                 {section}
@@ -169,144 +168,198 @@ export default function App() {
             ))}
             <Link 
               to="/blog" 
-              className="nav-link text-base font-semibold transition-colors duration-300" 
+              className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300" 
               style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
             >
               Blog
             </Link>
             <a 
               href="/#contacto" 
-              className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md font-bold transition-all duration-300 hover:scale-105" 
+              className="nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold transition-all duration-300 hover:scale-105 text-sm xl:text-base" 
               style={{ backgroundColor: "var(--brand-green)" }}
             >
               Contactar
             </a>
             <Link
               to="/english"
-              className="px-5 py-2.5 rounded-xl font-bold border-2 transition-all duration-300 hover:scale-105"
+              className="px-4 py-2 rounded-xl font-bold border-2 transition-all duration-300 hover:scale-105 text-sm xl:text-base"
               style={{ color: scrolled ? "#054A5B" : "white", borderColor: scrolled ? "#054A5B" : "rgba(255,255,255,0.7)" }}
             >
               🇺🇸 English
             </Link>
           </div>
 
+          {/* Tablet + Mobile hamburger — shown below lg */}
           <MobileMenu scrolled={scrolled} />
         </div>
       </nav>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-6 pb-6 overflow-x-hidden" style={{ paddingTop: "140px" }}>
-        <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-          <div className="flex flex-col gap-6">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full self-start border"
-              style={{ backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.3)" }}
-            >
-              <Sparkles className="w-4 h-4 text-white" />
-              <span className="text-sm text-white">Soluciones Médicas Innovadoras</span>
+      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-10 pb-6 overflow-x-hidden" style={{ paddingTop: "130px" }}>
+        <div className="w-full">
+          {/* Text content — centered on mobile/tablet, left on desktop */}
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+            <div className="flex flex-col gap-5 md:gap-6 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+              <div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full self-center lg:self-start border"
+                style={{ backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.3)" }}
+              >
+                <Sparkles className="w-4 h-4 text-white" />
+                <span className="text-sm text-white">Soluciones Médicas Innovadoras</span>
+              </div>
+
+              <h1
+                className="hero-title-shimmer text-4xl md:text-5xl lg:text-7xl leading-tight"
+                style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800 }}
+              >
+                Mejorando vidas, una prueba a la vez.
+              </h1>
+
+              <p className="text-base md:text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0" style={{ color: "rgba(255,255,255,0.88)" }}>
+                Ofrecemos soluciones integrales de alergología para tu clínica, encargándonos de todo para que puedas brindar atención integral directamente en tus instalaciones.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-start">
+                <a
+                  href="#contacto"
+                  className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
+                  style={{ backgroundColor: "var(--brand-green)" }}
+                >
+                  Comenzar Ahora
+                </a>
+                <a
+                  href="#servicios"
+                  className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                  style={{ borderColor: "rgba(255,255,255,0.5)" }}
+                >
+                  <span className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-sm">▶</span>
+                  Ver Servicios
+                </a>
+              </div>
             </div>
 
-            <h1
-              className="text-4xl md:text-6xl lg:text-7xl leading-tight text-white"
-              style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800 }}
-            >
-              Mejorando vidas, una prueba a la vez.
-            </h1>
-
-            <p className="text-lg md:text-xl leading-relaxed max-w-xl" style={{ color: "rgba(255,255,255,0.88)" }}>
-              Ofrecemos soluciones integrales de alergología para tu clínica, encargándonos de todo para que puedas brindar atención integral directamente en tus instalaciones.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mt-2">
-              <a
-                href="#contacto"
-                className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
-                style={{ backgroundColor: "var(--brand-green)" }}
+            {/* Tablet: horizontal mini-cards row | Desktop: vertical cards column */}
+            <div className="hidden md:flex lg:hidden flex-row gap-4 mt-10 justify-center">
+              {/* Card 1 mini — equipo */}
+              <div
+                className="rounded-2xl p-4 flex-1 max-w-[220px] border shadow-lg"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.35)",
+                  backdropFilter: "blur(16px) saturate(150%)",
+                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                  borderColor: "rgba(255,255,255,0.4)",
+                }}
               >
-                Comenzar Ahora
-              </a>
-              <a
-                href="#servicios"
-                className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
-                style={{ borderColor: "rgba(255,255,255,0.5)" }}
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/60 shadow-sm flex-shrink-0">
+                    <Users className="w-4 h-4" style={{ color: "var(--brand-primary)" }} />
+                  </div>
+                  <span className="text-xs font-bold leading-tight" style={{ color: "var(--brand-primary)" }}>
+                    Nuestro equipo
+                  </span>
+                </div>
+                <div className="flex items-center gap-0.5">
+                  {["CM", "LP", "AT", "PR"].map((ini) => (
+                    <div
+                      key={ini}
+                      className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold -ml-1 first:ml-0 border-2 border-white/60"
+                      style={{ backgroundColor: "var(--brand-green)" }}
+                    >
+                      {ini}
+                    </div>
+                  ))}
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold -ml-1 border-2 border-white/60" style={{ backgroundColor: "var(--brand-primary)" }}>+</div>
+                </div>
+              </div>
+
+              {/* Card 2 mini — testimonio */}
+              <div
+                className="rounded-2xl p-4 flex-1 max-w-[260px] border shadow-lg"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.35)",
+                  backdropFilter: "blur(16px) saturate(150%)",
+                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                  borderColor: "rgba(255,255,255,0.4)",
+                }}
               >
-                <span className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-sm">▶</span>
-                Ver Servicios
-              </a>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold" style={{ color: "var(--brand-primary)" }}>Testimonio reciente</span>
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs shadow-sm flex-shrink-0" style={{ backgroundColor: "var(--brand-green)" }}>★</div>
+                </div>
+                <p className="text-[11px] leading-relaxed mb-2 font-medium" style={{ color: "var(--brand-primary)" }}>
+                  "Transformamos nuestra clínica completamente. El soporte de Foster Stern es excepcional."
+                </p>
+                <div className="flex items-center gap-2 pt-1 border-t border-white/20">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0" style={{ backgroundColor: "var(--brand-primary)" }}>DM</div>
+                  <div>
+                    <p className="text-[10px] font-bold" style={{ color: "var(--brand-primary)" }}>Dr. Mendoza</p>
+                    <p className="text-[9px] opacity-70" style={{ color: "var(--brand-primary)" }}>Director Médico</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop only: vertical cards */}
+            <div className="hidden lg:flex flex-col gap-5 items-end">
+              <div
+                ref={heroCard1}
+                className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.4)",
+                  backdropFilter: "blur(16px) saturate(150%)",
+                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                  borderColor: "rgba(255, 255, 255, 0.4)",
+                }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/60 shadow-sm">
+                    <Users className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
+                  </div>
+                  <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>
+                    Conoce a nuestro equipo
+                  </span>
+                </div>
+                <div className="flex items-center gap-1">
+                  {["CM", "LP", "AT", "PR"].map((ini) => (
+                    <div
+                      key={ini}
+                      className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 first:ml-0 border-2 border-white/60 shadow-sm"
+                      style={{ backgroundColor: "var(--brand-green)" }}
+                    >
+                      {ini}
+                    </div>
+                  ))}
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 border-2 border-white/60 shadow-sm" style={{ backgroundColor: "var(--brand-primary)" }}>+</div>
+                </div>
+              </div>
+
+              <div
+                ref={heroCard2}
+                className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.4)",
+                  backdropFilter: "blur(16px) saturate(150%)",
+                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                  borderColor: "rgba(255, 255, 255, 0.4)",
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>Testimonio reciente</span>
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs shadow-sm" style={{ backgroundColor: "var(--brand-green)" }}>★</div>
+                </div>
+                <p className="text-xs leading-relaxed mb-3 font-medium" style={{ color: "var(--brand-primary)" }}>
+                  "Transformamos nuestra clínica completamente. El soporte de Foster Stern es excepcional."
+                </p>
+                <div className="flex items-center gap-2 pt-1 border-t border-white/20">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm" style={{ backgroundColor: "var(--brand-primary)" }}>DM</div>
+                  <div>
+                    <p className="text-xs font-bold" style={{ color: "var(--brand-primary)" }}>Dr. Mendoza</p>
+                    <p className="text-[10px] opacity-80" style={{ color: "var(--brand-primary)" }}>Director Médico</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Right Floating Cards */}
-          {/* Right Floating Cards */}
-<div className="hidden lg:flex flex-col gap-5 items-end">
-  
-  {/* Card 1: Conoce a nuestro equipo */}
-  <div 
-    ref={heroCard1} 
-    className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
-    style={{
-      backgroundColor: "rgba(255, 255, 255, 0.4)",
-      backdropFilter: "blur(16px) saturate(150%)",
-      WebkitBackdropFilter: "blur(16px) saturate(150%)",
-      borderColor: "rgba(255, 255, 255, 0.4)",
-    }}
-  >
-    <div className="flex items-center gap-3 mb-3">
-      <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/60 shadow-sm">
-        <Users className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
-      </div>
-      <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>
-        Conoce a nuestro equipo
-      </span>
-    </div>
-    <div className="flex items-center gap-1">
-      {["CM", "LP", "AT", "PR"].map((ini) => (
-        <div 
-          key={ini} 
-          className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 first:ml-0 border-2 border-white/60 shadow-sm" 
-          style={{ backgroundColor: "var(--brand-green)" }}
-        >
-          {ini}
-        </div>
-      ))}
-      <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 border-2 border-white/60 shadow-sm" style={{ backgroundColor: "var(--brand-primary)" }}>+</div>
-    </div>
-  </div>
-
-  {/* Card 2: Testimonio Reciente (Añadido justo abajo) */}
-  <div 
-    ref={heroCard2} 
-    className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
-    style={{
-      backgroundColor: "rgba(255, 255, 255, 0.4)",
-      backdropFilter: "blur(16px) saturate(150%)",
-      WebkitBackdropFilter: "blur(16px) saturate(150%)",
-      borderColor: "rgba(255, 255, 255, 0.4)",
-    }}
-  >
-    <div className="flex items-center justify-between mb-2">
-      <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>
-        Testimonio reciente
-      </span>
-      <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs shadow-sm" style={{ backgroundColor: "var(--brand-green)" }}>
-        ★
-      </div>
-    </div>
-    <p className="text-xs leading-relaxed mb-3 font-medium" style={{ color: "var(--brand-primary)" }}>
-      "Transformamos nuestra clínica completamente. El soporte de Foster Stern es excepcional."
-    </p>
-    <div className="flex items-center gap-2 pt-1 border-t border-white/20">
-      <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm" style={{ backgroundColor: "var(--brand-primary)" }}>
-        DM
-      </div>
-      <div>
-        <p className="text-xs font-bold" style={{ color: "var(--brand-primary)" }}>Dr. Mendoza</p>
-        <p className="text-[10px] opacity-80" style={{ color: "var(--brand-primary)" }}>Director Médico</p>
-      </div>
-    </div>
-  </div>
-
-</div>
         </div>
       </div>
 
@@ -319,7 +372,7 @@ export default function App() {
               { icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Soporte Especializado", desc: "Personal capacitado y protocolos clínicos incluidos." },
               { icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Atención Completa", desc: "Desde el diagnóstico hasta el tratamiento en tu consultorio." },
             ].map((item, i) => (
-              <div key={i} className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""}`}>
+              <div key={i} className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""} ${i > 0 ? "pt-4 md:pt-0 border-t md:border-t-0 border-gray-100" : ""}`}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
                   {item.icon}
                 </div>
@@ -335,18 +388,18 @@ export default function App() {
     </header>
 
             {/* ── SECCIÓN: FOCUSED ALLERGY SOLUTIONS ── */}
-            <section className="py-20 bg-white overflow-hidden">
+            <section className="py-16 md:py-20 bg-white overflow-hidden">
               <div className="max-w-7xl mx-auto px-6 md:px-10">
-                <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
-                  <div ref={focusedImg} className="fade-in w-full md:w-[420px] flex-shrink-0">
+                <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-12">
+                  <div ref={focusedImg} className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0">
                     <img
                       src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
                       alt="Médico revisando paciente con alergia"
-                      className="w-full h-[440px] object-cover rounded-3xl shadow-lg"
+                      className="w-full h-[280px] md:h-[380px] lg:h-[440px] object-cover rounded-3xl shadow-lg"
                     />
                   </div>
 
-                  <div className="flex-1 flex flex-col gap-6">
+                  <div className="flex-1 flex flex-col gap-5 md:gap-6">
                     <h2
                       ref={focusedTitle}
                       className="fade-in text-4xl md:text-5xl leading-tight"
@@ -384,11 +437,10 @@ export default function App() {
               </div>
             </section>
 
-            {/* ── SECCIÓN: CÓMO BRINDAMOS SOLUCIONES DURADERAS ── */}
-            <section className="py-20 bg-white">
-              <div className="max-w-7xl mx-auto px-8 md:px-12">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[480px]">
+            <section className="py-16 md:py-20 bg-white">
+              <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+                <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+                  <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[400px] lg:h-[480px]">
                     <img
                       src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
                       alt="Especialista en alergias con paciente"
@@ -458,19 +510,18 @@ export default function App() {
               </div>
             </section>
 
-            {/* ── SECCIÓN: SERVICIOS ── */}
-            <section id="servicios" className="py-20 bg-gradient-to-b from-white to-gray-50">
+            <section id="servicios" className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
               <div className="max-w-7xl mx-auto px-6">
-                <div ref={svcTitle} className="fade-in text-center mb-16">
-                  <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
+                <div ref={svcTitle} className="fade-in text-center mb-12 md:mb-16">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
                     Credibilidad Clínica y Operacional
                   </h2>
-                  <p className="text-xl" style={{ color: "var(--brand-muted)" }}>
+                  <p className="text-lg md:text-xl" style={{ color: "var(--brand-muted)" }}>
                     Operamos como una extensión de su práctica, no como una interrupción
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {[
                     { ref: svcCard1, icon: <Microscope className="w-8 h-8 text-white" />, title: "Protocolos Estandarizados", desc: "Protocolos clínicos estandarizados alineados con las mejores prácticas clínicas para garantizar resultados consistentes y seguros en cada paciente.", p1: "Alineados con las mejores prácticas clínicas", p2: "Fuerte énfasis en seguridad del paciente", p3: "Documentación clínica rigurosa" },
                     { ref: svcCard2, icon: <FlaskConical className="w-8 h-8 text-white" />, title: "Equipo Clínico Especializado", desc: "Equipo clínico con experiencia y enfoque exclusivo en alergias. Programación confiable y presencia profesional en el lugar, coordinada con su agenda.", p1: "Experiencia y enfoque en alergias", p2: "Presencia profesional en su consultorio", p3: "Programación confiable y puntual" },
@@ -479,7 +530,7 @@ export default function App() {
                     <div
                       key={idx}
                       ref={card.ref}
-                      className="fade-in delay-1 group relative overflow-hidden rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-600 hover:-translate-y-2"
+                      className={`fade-in delay-1 group relative overflow-hidden rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-600 hover:-translate-y-2 ${idx === 2 ? "md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto md:w-full lg:max-w-none" : ""}`}
                       style={{ backgroundColor: "#054A5B" }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -508,19 +559,18 @@ export default function App() {
               </div>
             </section>
 
-            {/* ── SECCIÓN: BENEFICIOS ── */}
-            <section id="beneficios" className="py-20 bg-white">
+            <section id="beneficios" className="py-16 md:py-20 bg-white">
               <div className="max-w-7xl mx-auto px-6">
-                <div ref={benefitsTitle} className="fade-in text-center mb-16">
-                  <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
+                <div ref={benefitsTitle} className="fade-in text-center mb-12 md:mb-16">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
                     ¿Por Qué Las Clínicas Se Asocian Con Nosotros?
                   </h2>
-                  <p className="text-xl" style={{ color: "var(--brand-muted)" }}>
+                  <p className="text-lg md:text-xl" style={{ color: "var(--brand-muted)" }}>
                     Expandimos sus servicios sin aumentar los costos operativos
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-12">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   <div ref={benefitsLeft} className="fade-in from-left space-y-6">
                     {[
                       { icon: <Shield className="w-6 h-6 text-[var(--brand-green)]" />, title: "Sin inversión de capital", desc: "No se requiere inversión de capital en equipos y suministros. Mejore su práctica sin riesgo financiero: sin costo inicial, sin costo de equipos, sin gastos adicionales." },

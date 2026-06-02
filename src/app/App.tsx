@@ -209,10 +209,10 @@ export default function App() {
               </div>
 
               <h1
-                className="hero-title-shimmer text-4xl md:text-5xl lg:text-7xl leading-tight"
+                className="hero-title-shimmer text-4xl md:text-5xl lg:text-4xl leading-tight"
                 style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800 }}
               >
-                Mejorando vidas, una prueba a la vez.
+                Transformando clínicas. Mejorando vidas. Revolucionando la atención de servicios de alergias e inmunoterapia.
               </h1>
 
               <p className="text-base md:text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0" style={{ color: "rgba(255,255,255,0.88)" }}>
@@ -225,7 +225,7 @@ export default function App() {
                   className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
                   style={{ backgroundColor: "var(--brand-green)" }}
                 >
-                  Comenzar Ahora
+                  Solicite una consulta
                 </a>
                 <a
                   href="#servicios"
@@ -638,29 +638,41 @@ export default function App() {
 
                 <div ref={faqItems} className="fade-in space-y-4">
                   <FAQItem
-                    question="¿Es necesario contratar o capacitar personal especializado en alergias?"
-                    answer="No. No es necesario contratar ni capacitar personal especializado en alergias. Nuestro equipo plenamente capacitado se integra perfectamente en el flujo de trabajo de su clínica, realizando las pruebas y administrando los tratamientos de manera profesional y sin interrumpir sus operaciones."
+                    question="¿Cómo funciona el modelo de alianza?"
+                    answer="Foster Stern ayuda a su práctica médica a integrar servicios de alergia de manera eficiente, incluyendo pruebas cutáneas de alergia por punción (skin prick test), tratamientos, documentación y apoyo administrativo. Nuestro modelo está diseñado para mejorar la atención al paciente y generar nuevas oportunidades de ingresos, sin añadir una carga operativa significativa para su clínica."
                   />
 
                   <FAQItem
-                    question="¿Se requiere inversión de capital en equipos o suministros?"
-                    answer="No se requiere ninguna inversión inicial. Proveemos todos los equipos y suministros necesarios sin costo para su práctica. Puede mejorar y expandir sus servicios de alergia sin riesgo financiero."
+                    question="¿Quién realiza las pruebas de alergia?"
+                    answer="Las pruebas de alergia son realizadas por personal clínico debidamente entrenado, siguiendo los protocolos establecidos y bajo la supervisión correspondiente de la práctica médica. Foster Stern apoya con capacitación, estructura operativa y guías para asegurar un proceso organizado y consistente.
+"
                   />
 
                   <FAQItem
-                    question="¿Cómo se maneja la facturación por los servicios de alergia?"
-                    answer="Podemos encargarnos completamente de la facturación por los servicios de alergia. Contamos con una estructura de precios transparente y fácil para clínicas, escalable según el volumen de pacientes. Los precios detallados están disponibles bajo solicitud o durante una conversación con nuestro equipo."
+                    question="¿Qué tipo de clínicas pueden participar?"
+                    answer="Pueden participar clínicas médicas que deseen expandir sus servicios mediante la integración de pruebas y tratamientos de alergia. Esto puede incluir prácticas de medicina primaria tales como medicina interna, pediatría, medicina familiar o general y otras especialidades que atiendan pacientes con síntomas alérgicos o respiratorios como pulmonólogos."
                   />
 
                   <FAQItem
-                    question="¿Qué resultados financieros puedo esperar?"
-                    answer="Con solo 1 paciente diario, las pruebas de alergia generan aproximadamente $4,113 al mes ($49,360 al año) con código CPT de $205.67 por paciente. La inmunoterapia con el mismo volumen genera $19,124 al mes ($229,488 al año) a $956.20 por paciente. En ambos casos, la inversión inicial es $0.00."
+                    question="¿Existe algún costo inicial para la práctica médica?"
+                    answer="Foster Stern ofrece un modelo flexible que puede variar según las necesidades de la práctica y el alcance de la implementación. "
                   />
 
                   <FAQItem
-                    question="¿Para qué tipo de clínicas es este modelo?"
-                    answer="Si su clínica busca expandir los servicios de alergia, mejorar el acceso a la atención para sus pacientes e incrementar los ingresos sin añadir complejidad operativa, este modelo es para usted. Estamos comprometidos con su éxito, porque solo tenemos éxito cuando usted lo tiene."
+                    question="¿Cuánto tiempo toma la implementación?"
+                    answer="El tiempo de implementación depende de la estructura actual de la clínica. Foster Stern trabaja para que la integración sea eficiente, organizada y adaptada al flujo operacional de cada práctica."
                   />
+
+                  <FAQItem
+                    question="¿Qué servicios de alergia se ofrecen?"
+                    answer="Los servicios pueden incluir pruebas de alergia, evaluación de sensibilidades ambientales, coordinación de inmunoterapia subcutánea y apoyo en el manejo operativo del programa de alergia. Los servicios específicos pueden variar según la práctica, el proveedor médico y las necesidades de los pacientes."
+                  />
+
+                  <FAQItem
+                    question="¿Cómo beneficia este programa financieramente a la clínica?"
+                    answer="El programa permite a la clínica ofrecer un servicio adicional dentro de su práctica, mejorar la retención de pacientes y crear una nueva fuente de ingresos. Al integrar servicios de alergia, la práctica puede ampliar su alcance clínico mientras genera oportunidades financieras sostenibles mediante servicios médicamente necesarios y debidamente documentados."
+                  />
+
                 </div>
               </div>
             </section>
@@ -690,7 +702,7 @@ export default function App() {
                         color: "var(--brand-primary)",
                       }}
                     >
-                      ¿Listo para Comenzar?
+                      ¿Está listo para expandir su práctica médica con servicios de alergia?
                     </h2>
 
                     {/* Badge empresa */}
@@ -714,8 +726,7 @@ export default function App() {
                       className="text-lg mb-8 leading-relaxed"
                       style={{ color: "var(--brand-muted)" }}
                     >
-                      Complete el formulario y uno de nuestros especialistas se
-                      pondrá en contacto con usted en menos de 24 horas.
+                      Asóciese con Foster Stern Allergy Division y ofrezca a sus pacientes un programa completo de pruebas de alergia e inmunoterapia, mientras crea una nueva oportunidad para su clínica.
                     </p>
 
                     {/* MAPA */}

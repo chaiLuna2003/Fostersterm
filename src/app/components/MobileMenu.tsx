@@ -13,9 +13,14 @@ const menuItems = [
   { name: "Blog", href: "/blog" },
   { name: "FAQ", href: "#faq" },
   { name: "Contactar", href: "#contacto" },
+  { name: "🇺🇸 English", href: "/english" },
 ];
 
-export function MobileMenu() {
+interface MobileMenuProps {
+  scrolled?: boolean;
+}
+
+export function MobileMenu({ scrolled = false }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   // Bloquear scroll del body cuando el menú está abierto
@@ -40,7 +45,6 @@ export function MobileMenu() {
         className="fixed top-0 right-0 bottom-0 w-72 bg-white shadow-2xl z-[9999] flex flex-col"
         style={{ animation: "slideIn 0.25s ease-out" }}
       >
-        {/* Header del menú */}
         {/* Header del menú */}
 <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
   <img
@@ -114,7 +118,7 @@ export function MobileMenu() {
         aria-label="Abrir menú"
         type="button"
       >
-        <Menu className="w-6 h-6" style={{ color: "var(--brand-primary)" }} />
+        <Menu className="w-6 h-6" style={{ color: scrolled ? "var(--brand-primary)" : "white" }} />
       </button>
 
       {/* Portal: renderiza fuera del header para evitar overflow-hidden */}

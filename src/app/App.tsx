@@ -20,6 +20,7 @@ import { CasosCarousel } from "./components/CasosCarousel";
 import { ProcessCarousel } from "./components/ProcessCarousel";
 import Blog from "./pages/blog";
 import Nosotros from "./pages/Nosotros";
+import English from "./pages/English";
 import { useEffect, useState, useRef } from "react";
 
 // Hook para fade-in al hacer scroll
@@ -95,16 +96,17 @@ export default function App() {
     <Routes>
       <Route path="/blog" element={<Blog />} />
       <Route path="/nosotros" element={<Nosotros />} />
+      <Route path="/english" element={<English />} />
       <Route
         path="/*"
         element = {
           <div
-            className="min-h-screen bg-white"
+            className="min-h-screen bg-white overflow-x-hidden"
             style={{ fontFamily: "'Nunito Sans', sans-serif" }}
           >
             {/* ── HERO SECTION ── */}
             
-    <header className="relative overflow-hidden min-h-screen flex flex-col">
+    <header className="relative overflow-hidden overflow-x-hidden min-h-screen flex flex-col">
       {/* Background Hero */}
       <div className="absolute inset-0 z-0">
         <img
@@ -112,12 +114,12 @@ export default function App() {
           alt="Familia Foster Stern"
           className="w-full h-full object-cover object-center"
         />
-    <div
-    className="absolute inset-0"
-    style={{
-      background: "linear-gradient(135deg, rgba(5, 74, 91, 0.85) 0%, rgba(5, 74, 91, 0.4) 45%, rgba(255, 255, 255, 0) 80%)"
-    }}
-  />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(135deg, rgba(5, 74, 91, 0.85) 0%, rgba(5, 74, 91, 0.4) 45%, rgba(255, 255, 255, 0) 80%)"
+          }}
+        />
       </div>
 
       {/* ── NAVBAR CON ESTILO GLASSMORPHISM (TIPO IPHONE) ── */}
@@ -140,7 +142,7 @@ export default function App() {
               src="/Fostersterm/LOGOFALLERGY.png"
               alt="Foster Stern Group"
               // Invertimos el color del logo a oscuro cuando el fondo del cristal es claro (scroll)
-              className={`h-16 md:h-20 w-auto object-contain transition-all duration-300 ${
+              className={`h-20 md:h-24 w-auto object-contain transition-all duration-300 ${
                 scrolled ? "brightness-0 opacity-90" : ""
               }`}
             />
@@ -160,7 +162,7 @@ export default function App() {
                 key={section}
                 href={`/#${section}`} 
                 className="nav-link text-base font-semibold transition-colors duration-300" 
-              style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
+                style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
               >
                 {section}
               </a>
@@ -179,6 +181,13 @@ export default function App() {
             >
               Contactar
             </a>
+            <Link
+              to="/english"
+              className="px-5 py-2.5 rounded-xl font-bold border-2 transition-all duration-300 hover:scale-105"
+              style={{ color: scrolled ? "#054A5B" : "white", borderColor: scrolled ? "#054A5B" : "rgba(255,255,255,0.7)" }}
+            >
+              🇺🇸 English
+            </Link>
           </div>
 
           <MobileMenu scrolled={scrolled} />
@@ -186,7 +195,7 @@ export default function App() {
       </nav>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-6 pb-6" style={{ paddingTop: "140px" }}>
+      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-6 pb-6 overflow-x-hidden" style={{ paddingTop: "140px" }}>
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           <div className="flex flex-col gap-6">
             <div
@@ -303,8 +312,8 @@ export default function App() {
 
       {/* Bottom Floating Info Bar */}
       <div className="relative z-10 w-full">
-        <div className="max-w-7xl mx-auto px-6 pb-8">
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl px-8 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xl">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 pb-8">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl px-4 md:px-8 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xl">
             {[
               { icon: <Shield className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Sin Inversión Inicial", desc: "Integramos el servicio sin riesgo financiero para tu clínica." },
               { icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Soporte Especializado", desc: "Personal capacitado y protocolos clínicos incluidos." },

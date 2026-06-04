@@ -4,27 +4,27 @@ const slides = [
   {
     id: 1,
     imagen: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80",
-    texto: "Nos integramos con el flujo de trabajo de tu clínica",
+    texto: "Evaluamos su práctica y diseñamos el programa de alergia a medida para su clínica.",
   },
   {
     id: 2,
     imagen: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80",
-    texto: "Nuestro equipo capacitado llega a tu ubicación.",
+    texto: "Asignamos personal entrenado en alergias que opera directamente en su consultorio.",
   },
   {
     id: 3,
     imagen: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80",
-    texto: "Capacitación completa del personal médico y administrativo.",
+    texto: "Implementamos protocolos clínicos, documentación y flujo de facturación desde el día uno.",
   },
   {
     id: 4,
     imagen: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&q=80",
-    texto: "Lanzamiento del servicio con soporte especializado continuo.",
+    texto: "Lanzamos el servicio de alergia con soporte operativo y clínico continuo.",
   },
   {
     id: 5,
     imagen: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=80",
-    texto: "Seguimiento mensual y optimización de resultados clínicos.",
+    texto: "Monitoreamos el rendimiento del programa con reportes mensuales y optimización de resultados.",
   },
 ];
 
@@ -64,7 +64,7 @@ export function ProcessCarousel() {
           className="text-3xl md:text-4xl mb-12"
           style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}
         >
-          Cómo Funciona Nuestro Proceso
+          Cómo Implementamos la Alianza en su Clínica
         </h2>
 
         {/* Track */}

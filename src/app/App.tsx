@@ -368,9 +368,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 pb-8">
           <div className="bg-white/95 backdrop-blur-md rounded-2xl px-4 md:px-8 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xl">
             {[
-              { icon: <Shield className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Sin Inversión Inicial", desc: "Integramos el servicio sin riesgo financiero para tu clínica." },
-              { icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Soporte Especializado", desc: "Personal capacitado y protocolos clínicos incluidos." },
-              { icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Atención Completa", desc: "Desde el diagnóstico hasta el tratamiento en tu consultorio." },
+              { icon: <Shield className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Nueva Fuente de Ingresos", desc: "Genere ingresos adicionales con servicios de alergia dentro de su práctica." },
+              { icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Personal Asignado a su Clínica", desc: "Ponemos personal entrenado en alergias directamente en su consultorio." },
+              { icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Soporte Operativo Completo", desc: "Facturación, documentación y protocolos clínicos incluidos." },
             ].map((item, i) => (
               <div key={i} className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""} ${i > 0 ? "pt-4 md:pt-0 border-t md:border-t-0 border-gray-100" : ""}`}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
@@ -405,19 +405,19 @@ export default function App() {
                       className="fade-in text-4xl md:text-5xl leading-tight"
                       style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 700, color: "var(--brand-green)" }}
                     >
-                      Soluciones Especializadas en Alergias
+                      Su Clínica Merece una Oportunidad de Crecimiento Real
                     </h2>
 
                     <p className="text-lg font-semibold" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
-                      La atención en alergias está en alta demanda, pero muchas prácticas enfrentan:
+                      Muchas prácticas médicas pierden ingresos significativos cada día por no ofrecer servicios de alergia in-house:
                     </p>
 
                     <ul ref={focusedList} className="fade-in space-y-4">
                       {[
-                        "Personal limitado capacitado en pruebas de alergia e inmunoterapia, barreras de espacio, equipo y cumplimiento normativo.",
-                        "Pérdida de ingresos por derivaciones enviadas fuera de la práctica.",
-                        "Mayor carga administrativa y operativa.",
-                        "Resultado: los pacientes esperan más tiempo, las clínicas pierden ingresos y la continuidad del cuidado se ve afectada.",
+                        "Cada derivación a un especialista externo es un ingreso que su clínica podría haber capturado.",
+                        "La demanda de pruebas de alergia e inmunoterapia crece año tras año, y sus pacientes ya la están buscando.",
+                        "Implementar estos servicios internamente parece complejo: personal, equipos, protocolos, facturación.",
+                        "Resultado: su práctica deja de crecer mientras el mercado de alergología avanza sin usted.",
                       ].map((item, i) => (
                         <li key={i} className="flex items-start gap-4">
                           <div
@@ -455,10 +455,10 @@ export default function App() {
                   <div ref={howContent} className="fade-in from-right flex flex-col gap-8">
                     <div>
                       <h2 className="text-3xl md:text-4xl mb-3" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
-                        ¿Cómo Funciona?
+                        ¿Cómo Funciona la Alianza?
                       </h2>
                       <p className="text-base font-semibold" style={{ color: "var(--brand-green)" }}>
-                        Mínima interrupción, máximo valor clínico.
+                        Su éxito en servicios de alergia es nuestro compromiso.
                       </p>
                     </div>
 
@@ -466,26 +466,26 @@ export default function App() {
                       {[
                         {
                           icon: <Network className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
-                          title: "Integración con su flujo de trabajo",
-                          desc: "Nos integramos con el flujo de trabajo de su clínica, sin interrumpir sus operaciones habituales.",
+                          title: "Integración sin fricciones",
+                          desc: "Nos adaptamos al flujo operativo de su clínica. Sin reestructuración, sin interrupciones. Solo crecimiento.",
                           link: "Conocer el proceso",
                         },
                         {
                           icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
-                          title: "Equipo capacitado en sitio",
-                          desc: "Nuestro equipo capacitado realiza las pruebas de alergia directamente en su clínica, sin que usted tenga que gestionar personal adicional.",
+                          title: "Personal entrenado en su clínica",
+                          desc: "Asignamos personal especializado en alergias directamente en sus instalaciones, coordinado con su agenda y equipo.",
                           link: "Nuestro equipo",
                         },
                         {
                           icon: <ClipboardList className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
-                          title: "Protocolos establecidos",
-                          desc: "Los tratamientos se administran bajo protocolos clínicos estandarizados, con énfasis en la seguridad del paciente y la documentación.",
+                          title: "Facturación y documentación incluidas",
+                          desc: "Gestionamos la documentación clínica y el proceso de facturación por los servicios de alergia, sin carga adicional para su práctica.",
                           link: "Ver protocolos",
                         },
                         {
                           icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
-                          title: "Apoyo continuo e informes",
-                          desc: "Se brinda apoyo continuo e informes periódicos a su práctica. Operamos como una extensión de su práctica, no como una interrupción.",
+                          title: "Reportes e informes periódicos",
+                          desc: "Reciba informes de rendimiento del programa. Monitoreamos el éxito de la alianza junto a usted, como verdaderos socios estratégicos.",
                           link: "Ver soporte",
                         },
                       ].map((item) => (
@@ -514,18 +514,18 @@ export default function App() {
               <div className="max-w-7xl mx-auto px-6">
                 <div ref={svcTitle} className="fade-in text-center mb-12 md:mb-16">
                   <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
-                    Credibilidad Clínica y Operacional
+                    Un Socio Estratégico, No Un Proveedor Más
                   </h2>
                   <p className="text-lg md:text-xl" style={{ color: "var(--brand-muted)" }}>
-                    Operamos como una extensión de su práctica, no como una interrupción
+                    Transformamos la atención al paciente en una oportunidad de crecimiento clínico y financiero para su práctica
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {[
-                    { ref: svcCard1, icon: <Microscope className="w-8 h-8 text-white" />, title: "Protocolos Estandarizados", desc: "Protocolos clínicos estandarizados alineados con las mejores prácticas clínicas para garantizar resultados consistentes y seguros en cada paciente.", p1: "Alineados con las mejores prácticas clínicas", p2: "Fuerte énfasis en seguridad del paciente", p3: "Documentación clínica rigurosa" },
-                    { ref: svcCard2, icon: <FlaskConical className="w-8 h-8 text-white" />, title: "Equipo Clínico Especializado", desc: "Equipo clínico con experiencia y enfoque exclusivo en alergias. Programación confiable y presencia profesional en el lugar, coordinada con su agenda.", p1: "Experiencia y enfoque en alergias", p2: "Presencia profesional en su consultorio", p3: "Programación confiable y puntual" },
-                    { ref: svcCard3, icon: <Syringe className="w-8 h-8 text-white" />, title: "Expansión Sin Complejidad", desc: "Expandimos sus servicios sin aumentar los costos operativos. No es necesario contratar ni capacitar personal especializado en alergias.", p1: "Sin contratación de personal especializado", p2: "Sin inversión de capital en equipos", p3: "Sin aumento de costos operativos" }
+                    { ref: svcCard1, icon: <Microscope className="w-8 h-8 text-white" />, title: "Implementación del Programa de Alergia", desc: "Diseñamos e implementamos el programa de pruebas e inmunoterapia dentro de su clínica, con protocolos clínicos alineados a las mejores prácticas del sector.", p1: "Pruebas de alergia e inmunoterapia in-house", p2: "Protocolos estandarizados y documentación rigurosa", p3: "Implementación rápida y sin fricción operativa" },
+                    { ref: svcCard2, icon: <FlaskConical className="w-8 h-8 text-white" />, title: "Personal Entrenado Asignado a su Clínica", desc: "Asignamos personal clínico especializado en alergias directamente en sus instalaciones, coordinado con su agenda. Usted no gestiona, usted crece.", p1: "Especialistas en alergias en su consultorio", p2: "Sin necesidad de contratar ni capacitar staff", p3: "Presencia puntual y profesional garantizada" },
+                    { ref: svcCard3, icon: <Syringe className="w-8 h-8 text-white" />, title: "Facturación y Soporte Operativo Total", desc: "Nos encargamos de la facturación y la documentación de los servicios de alergia. Su equipo se enfoca en la atención; nosotros en la operación.", p1: "Gestión completa del proceso de facturación", p2: "Documentación clínica y cumplimiento normativo", p3: "Reportes periódicos de rendimiento del programa" }
                   ].map((card, idx) => (
                     <div
                       key={idx}
@@ -563,18 +563,18 @@ export default function App() {
               <div className="max-w-7xl mx-auto px-6">
                 <div ref={benefitsTitle} className="fade-in text-center mb-12 md:mb-16">
                   <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
-                    ¿Por Qué Las Clínicas Se Asocian Con Nosotros?
+                    ¿Por Qué Las Clínicas Eligen Asociarse Con Nosotros?
                   </h2>
                   <p className="text-lg md:text-xl" style={{ color: "var(--brand-muted)" }}>
-                    Expandimos sus servicios sin aumentar los costos operativos
+                    Su éxito en servicios de alergia es nuestro compromiso
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   <div ref={benefitsLeft} className="fade-in from-left space-y-6">
                     {[
-                      { icon: <Shield className="w-6 h-6 text-[var(--brand-green)]" />, title: "Sin inversión de capital", desc: "No se requiere inversión de capital en equipos y suministros. Mejore su práctica sin riesgo financiero: sin costo inicial, sin costo de equipos, sin gastos adicionales." },
-                      { icon: <Users className="w-6 h-6 text-[var(--brand-green)]" />, title: "Sin contratar personal especializado", desc: "No es necesario contratar ni capacitar personal especializado en alergias. Recibe apoyo de profesionales plenamente capacitados que se integran perfectamente en su flujo de trabajo." }
+                      { icon: <Shield className="w-6 h-6 text-[var(--brand-green)]" />, title: "Nueva Oportunidad de Ingresos", desc: "Genere una nueva fuente de ingresos sostenible dentro de su clínica. Al integrar servicios de alergia, su práctica retiene pacientes y captura ingresos que antes se perdían en derivaciones externas." },
+                      { icon: <Users className="w-6 h-6 text-[var(--brand-green)]" />, title: "Personal Especializado, Sin Costos de Contratación", desc: "Foster Stern asigna personal entrenado en servicios de alergia directamente en su clínica. Usted amplía su capacidad clínica sin procesos de contratación, capacitación ni gestión de nuevo personal." }
                     ].map((b, i) => (
                       <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
                         <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
@@ -588,8 +588,8 @@ export default function App() {
 
                   <div ref={benefitsRight} className="fade-in from-right space-y-6">
                     {[
-                      { icon: <Clock className="w-6 h-6 text-[var(--brand-green)]" />, title: "Mayor retención y satisfacción", desc: "Incremente la retención y satisfacción de los pacientes. Expanda los servicios y aumente los ingresos al mantener las pruebas y tratamientos de alergia dentro de su práctica, evitando derivaciones externas." },
-                      { icon: <ArrowRight className="w-6 h-6 text-[var(--brand-green)]" />, title: "Facturación completa a su cargo", desc: "Podemos encargarnos completamente de la facturación por los servicios de alergia. Estructura de precios transparente y fácil para clínicas, escalable según el volumen de pacientes." }
+                      { icon: <Clock className="w-6 h-6 text-[var(--brand-green)]" />, title: "Retención de Pacientes y Mayor Lealtad", desc: "Ofrezca un servicio completo dentro de su práctica. Sus pacientes no necesitarán acudir a otro proveedor, lo que aumenta la satisfacción, la retención y la reputación de su clínica." },
+                      { icon: <ArrowRight className="w-6 h-6 text-[var(--brand-green)]" />, title: "Facturación y Documentación a Nuestro Cargo", desc: "Gestionamos el proceso completo de facturación y documentación clínica por los servicios de alergia. Estructura de precios transparente, escalable al volumen de su práctica y sin carga administrativa adicional para su equipo." }
                     ].map((b, i) => (
                       <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
                         <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
@@ -680,8 +680,8 @@ export default function App() {
             {/* ── SECCIÓN: CALL TO ACTION (CTA) ── */}
             <section ref={ctaBlock} className="fade-in py-16 bg-gradient-to-r from-[#054A5B] to-[#008154] text-white text-center">
               <div className="max-w-4xl mx-auto px-6">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Trabajemos Juntos</h2>
-                <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">Si su clínica busca expandir los servicios de alergia, mejorar el acceso a la atención para sus pacientes e incrementar los ingresos sin añadir complejidad — nos encantaría asociarnos con usted.</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Convierta su Clínica en un Centro de Referencia en Alergología</h2>
+                <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">Foster Stern es el socio estratégico que su práctica médica necesita para integrar servicios de alergia, generar nuevos ingresos y mejorar la atención a sus pacientes — sin complejidad operativa ni inversión inicial.</p>
                 <a href="#contacto" className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition-colors">Agendar una Consulta con nuestro Equipo</a>
               </div>
             </section>
@@ -702,7 +702,7 @@ export default function App() {
                         color: "var(--brand-primary)",
                       }}
                     >
-                      ¿Está listo para expandir su práctica médica con servicios de alergia?
+                      ¿Listo para Agregar Servicios de Alergia a su Práctica?
                     </h2>
 
                     {/* Badge empresa */}
@@ -718,7 +718,7 @@ export default function App() {
                         className="text-sm font-bold uppercase tracking-wide"
                         style={{ color: "var(--brand-green)" }}
                       >
-                        Somos el socio clínico de alergología líder en el sur de Florida
+                        Socio estratégico líder en alergología para prácticas médicas en el sur de Florida
                       </span>
                     </div>
 
@@ -726,7 +726,7 @@ export default function App() {
                       className="text-lg mb-8 leading-relaxed"
                       style={{ color: "var(--brand-muted)" }}
                     >
-                      Asóciese con Foster Stern Allergy Division y ofrezca a sus pacientes un programa completo de pruebas de alergia e inmunoterapia, mientras crea una nueva oportunidad para su clínica.
+                      Asóciese con Foster Stern Allergy Division y transforme su clínica en un centro de referencia en alergología. Implementamos el programa completo — personal, protocolos, facturación y documentación — para que usted solo se enfoque en crecer.
                     </p>
 
                     {/* MAPA */}

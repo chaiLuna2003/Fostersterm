@@ -447,12 +447,12 @@ export default function Nosotros() {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          {/* Overlay oscuro con gradiente — más denso abajo para los stats */}
+          {/* Overlay sutil solo en la parte inferior para los stats */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(160deg, rgba(5,74,91,0.82) 0%, rgba(5,74,91,0.55) 40%, rgba(5,74,91,0.72) 100%)",
+                "linear-gradient(to top, rgba(5,74,91,0.55) 0%, transparent 50%)",
             }}
           />
         </div>
@@ -486,9 +486,9 @@ export default function Nosotros() {
             <span
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
               style={{
-                backgroundColor: "rgba(255,255,255,0.1)",
-                borderColor: "rgba(255,255,255,0.25)",
-                color: "rgba(255,255,255,0.9)",
+                backgroundColor: "rgba(5,74,91,0.08)",
+                borderColor: "rgba(5,74,91,0.25)",
+                color: "#054A5B",
               }}
             >
               <span
@@ -507,18 +507,18 @@ export default function Nosotros() {
             >
               <span className="hero-title-shimmer">Transformando</span>
               <br />
-              <span className="text-white">la atención de </span>
-              <span style={{ color: "#5de8b0" }}>alergia</span>
+              <span style={{ color: "#054A5B" }}>la atención de </span>
+              <span style={{ color: "#008154" }}>alergia</span>
               <br />
-              <span className="text-white">en América.</span>
+              <span style={{ color: "#054A5B" }}>en América.</span>
             </h1>
           </div>
 
           {/* Description */}
           <div ref={heroSub} className="max-w-xl mb-10">
             <p
-              className="text-base md:text-lg leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.82)" }}
+              className="text-base md:text-lg leading-relaxed font-semibold"
+              style={{ color: "#054A5B" }}
             >
               Somos Foster Stern Group, una empresa dedicada a integrar
               servicios de alergia de clase mundial directamente en clínicas
@@ -537,8 +537,8 @@ export default function Nosotros() {
             </a>
             <a
               href="/#contacto"
-              className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all"
-              style={{ borderColor: "rgba(255,255,255,0.45)" }}
+              className="px-8 py-4 rounded-2xl text-center font-bold border-2 hover:bg-[#054A5B]/10 transition-all"
+              style={{ borderColor: "#054A5B", color: "#054A5B" }}
             >
               Contactar Equipo
             </a>
@@ -549,8 +549,8 @@ export default function Nosotros() {
             <div
               className="inline-grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border"
               style={{
-                borderColor: "rgba(255,255,255,0.15)",
-                backgroundColor: "rgba(255,255,255,0.06)",
+                borderColor: "rgba(5,74,91,0.2)",
+                backgroundColor: "rgba(5,74,91,0.08)",
               }}
             >
               {[
@@ -563,19 +563,19 @@ export default function Nosotros() {
                   key={i}
                   className="flex flex-col items-center justify-center px-6 py-5"
                   style={{
-                    backgroundColor: "rgba(255,255,255,0.07)",
+                    backgroundColor: "rgba(255,255,255,0.55)",
                     backdropFilter: "blur(12px)",
                   }}
                 >
                   <span
                     className="text-2xl md:text-3xl font-black mb-1"
-                    style={{ color: "#5de8b0" }}
+                    style={{ color: "var(--brand-green)" }}
                   >
                     {stat.value}
                   </span>
                   <span
                     className="text-xs text-center font-medium leading-tight"
-                    style={{ color: "rgba(255,255,255,0.7)" }}
+                    style={{ color: "#054A5B" }}
                   >
                     {stat.label}
                   </span>
@@ -588,8 +588,8 @@ export default function Nosotros() {
         {/* Scroll indicator */}
         <div className="relative z-10 flex justify-center pb-8">
           <div
-            className="flex flex-col items-center gap-1 opacity-50"
-            style={{ color: "white" }}
+            className="flex flex-col items-center gap-1 opacity-60"
+            style={{ color: "#054A5B" }}
           >
             <span className="text-[10px] uppercase tracking-widest">Scroll</span>
             <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

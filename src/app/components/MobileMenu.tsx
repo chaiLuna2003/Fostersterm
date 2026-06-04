@@ -118,7 +118,7 @@ export function MobileMenu({ scrolled = false }: MobileMenuProps) {
         aria-label="Abrir menú"
         type="button"
       >
-        <Menu className="w-6 h-6" style={{ color: scrolled ? "var(--brand-primary)" : "white" }} />
+        <Menu className="w-6 h-6" style={{ color: "white" }} />
       </button>
 
       {/* Portal: renderiza fuera del header para evitar overflow-hidden */}

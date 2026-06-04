@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { MobileMenu } from "../components/MobileMenu";
+import { Navbar } from "../components/Navbar";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 
 // ── Fade-in hook ──────────────────────────────────────────────────
@@ -32,93 +33,6 @@ function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
     return () => observer.disconnect();
   }, []);
   return ref;
-}
-
-// ── Navbar ────────────────────────────────────────────────────────
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
-      style={{
-        backgroundColor: scrolled ? "rgba(255,255,255,0.7)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.03)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.4)" : "1px solid transparent",
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-        <Link to="/">
-          <ImageWithFallback
-            src="/Fostersterm/LOGOFALLERGY.png"
-            alt="Foster Stern Group"
-            className={`h-16 md:h-18 lg:h-24 w-auto object-contain transition-all duration-300 ${
-              scrolled ? "brightness-0 opacity-90" : ""
-            }`}
-          />
-        </Link>
-
-        {/* Desktop links — lg+ only */}
-        <div className="hidden lg:flex items-center gap-5 xl:gap-7">
-          {[
-            { label: "Nosotros", to: "/nosotros" },
-            { label: "Servicios", href: "/#Servicios" },
-            { label: "Beneficios", href: "/#Beneficios" },
-            { label: "Proceso", href: "/#Proceso" },
-            { label: "FAQ", href: "/#FAQ" },
-            { label: "Blog", to: "/blog" },
-          ].map((item) =>
-            "to" in item ? (
-              <Link
-                key={item.label}
-                to={item.to!}
-                className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300"
-                style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                key={item.label}
-                href={item.href}
-                className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300"
-                style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
-              >
-                {item.label}
-              </a>
-            )
-          )}
-          <a
-            href="/#contacto"
-            className="nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold transition-all duration-300 hover:scale-105 text-sm xl:text-base"
-            style={{ backgroundColor: "var(--brand-green)" }}
-          >
-            Contactar
-          </a>
-          <Link
-            to="/english"
-            className="px-4 py-2 rounded-xl font-bold border-2 transition-all duration-300 hover:scale-105 text-sm xl:text-base"
-            style={{
-              color: scrolled ? "#054A5B" : "white",
-              borderColor: scrolled ? "#054A5B" : "rgba(255,255,255,0.7)",
-            }}
-          >
-            🇺🇸 English
-          </Link>
-        </div>
-
-        <MobileMenu scrolled={scrolled} />
-      </div>
-    </nav>
-  );
 }
 
 // ── Footer ────────────────────────────────────────────────────────

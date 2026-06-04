@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { MobileMenu } from "../components/MobileMenu";
+import { Navbar } from "../components/Navbar";
 
 // ── Fade-in hook ─────────────────────────────────────────────────
 function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
@@ -32,89 +33,6 @@ function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
 }
 
 // ── Navbar ────────────────────────────────────────────────────────
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  const base = "/Fostersterm";
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b transition-all duration-300"
-      style={{
-        borderBottomColor: scrolled
-          ? "rgba(186,198,216,0.3)"
-          : "transparent",
-        boxShadow: scrolled
-          ? "0 4px 24px rgba(5,74,91,0.08)"
-          : "none",
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
-        {/* LOGO */}
-        <Link to="/" className="flex items-center gap-3">
-          <ImageWithFallback
-            src={`${base}/LogoFS.png`}
-            alt="Foster Stern Group"
-            className="h-24 w-auto object-contain"
-          />
-        </Link>
-
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-7">
-          {[
-            { href: `${base}/nosotros`, label: "Nosotros" },
-            { href: `${base}/#servicios`, label: "Servicios" },
-            { href: `${base}/#beneficios`, label: "Beneficios" },
-            { href: `${base}/#proceso`, label: "Proceso" },
-            { href: `${base}/#faq`, label: "FAQ" },
-            { href: `${base}/blog`, label: "Blog" },
-          ].map(({ href, label }) =>
-            href.includes("#") ? (
-              <a
-                key={href}
-                href={href}
-                className="nav-link text-base"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                {label}
-              </a>
-            ) : (
-              <Link
-                key={href}
-                to={href.replace(base, "")}
-                className="nav-link text-base"
-                style={{ color: "var(--brand-muted)" }}
-              >
-                {label}
-              </Link>
-            ),
-          )}
-
-          {/* CTA */}
-          <a
-            href={`${base}/#contacto`}
-            className="nav-cta px-5 py-2.5 rounded-xl text-white shadow-md"
-            style={{ backgroundColor: "var(--brand-primary)" }}
-          >
-            Contactar
-          </a>
-        </div>
-
-        <MobileMenu />
-      </div>
-    </nav>
-  );
-}
-
 // ── Footer ────────────────────────────────────────────────────────
 function Footer() {
   return (

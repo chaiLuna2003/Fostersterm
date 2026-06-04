@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { Navbar } from "../components/Navbar";
 import { useEffect, useState, useRef } from "react";
 
 function useFadeIn(direction: "up" | "left" | "right" = "up") {
@@ -39,9 +40,6 @@ function useFadeIn(direction: "up" | "left" | "right" = "up") {
 }
 
 export default function English() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
   const heroCard1 = useFadeIn();
   const heroCard2 = useFadeIn();
   const svcTitle = useFadeIn();
@@ -58,26 +56,6 @@ export default function English() {
   const howContent = useFadeIn("right");
   const ctaBlock = useFadeIn();
   const contactLeft = useFadeIn("left");
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  const navLinks = [
-    { label: "About Us", href: "/nosotros" },
-    { label: "Services", href: "#services" },
-    { label: "Benefits", href: "#benefits" },
-    { label: "Process", href: "#process" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Blog", href: "/blog" },
-  ];
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden" style={{ fontFamily: "'Nunito Sans', sans-serif" }}>
@@ -97,107 +75,7 @@ export default function English() {
         </div>
 
         {/* ── NAVBAR ── */}
-        <nav
-          className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
-          style={{
-            backgroundColor: scrolled ? "rgba(255,255,255,0.7)" : "transparent",
-            backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-            WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-            boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.03)" : "none",
-            borderBottom: scrolled ? "1px solid rgba(255,255,255,0.4)" : "1px solid transparent",
-          }}
-        >
-          <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-            <Link to="/english">
-              <ImageWithFallback
-                src="/Fostersterm/LOGOFALLERGY.png"
-                alt="Foster Stern Group"
-                className={`h-16 md:h-18 lg:h-24 w-auto object-contain transition-all duration-300 ${scrolled ? "brightness-0 opacity-90" : ""}`}
-              />
-            </Link>
-
-            {/* Desktop links */}
-            <div className="hidden lg:flex items-center gap-5 xl:gap-7">
-              {navLinks.map(({ label, href }) => {
-                const isRoute = href.startsWith("/");
-                return isRoute ? (
-                  <Link
-                    key={label}
-                    to={href}
-                    className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300"
-                    style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
-                  >
-                    {label}
-                  </Link>
-                ) : (
-                  <a
-                    key={label}
-                    href={href}
-                    className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300"
-                    style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
-                  >
-                    {label}
-                  </a>
-                );
-              })}
-              <a
-                href="#contact"
-                className="nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold transition-all duration-300 hover:scale-105 text-sm xl:text-base"
-                style={{ backgroundColor: "var(--brand-green)" }}
-              >
-                Contact Us
-              </a>
-              <Link
-                to="/"
-                className="px-4 py-2 rounded-xl font-bold border-2 transition-all duration-300 hover:scale-105 text-sm xl:text-base"
-                style={{ color: scrolled ? "#054A5B" : "white", borderColor: scrolled ? "#054A5B" : "rgba(255,255,255,0.7)" }}
-              >
-                🇲🇽 Español
-              </Link>
-            </div>
-
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Open menu"
-              type="button"
-            >
-              <svg className="w-6 h-6" fill="none" stroke={scrolled ? "#054A5B" : "white"} strokeWidth={2} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile menu overlay */}
-        {mobileOpen && (
-          <>
-            <div className="fixed inset-0 bg-black/40 z-[9998]" onClick={() => setMobileOpen(false)} />
-            <div className="fixed top-0 right-0 bottom-0 w-72 bg-white shadow-2xl z-[9999] flex flex-col" style={{ animation: "slideIn 0.25s ease-out" }}>
-              <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-                <img src="/Fostersterm/LogoFS.png" alt="Foster Stern Group" className="h-14 w-auto object-contain" />
-                <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Close menu" type="button">
-                  <svg className="w-5 h-5" fill="none" stroke="#054A5B" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
-              </div>
-              <nav className="flex flex-col px-4 py-6 gap-1 flex-1">
-                {[...navLinks, { label: "Contact", href: "#contact" }, { label: "🇲🇽 Español", href: "/" }].map(({ label, href }) => {
-                  const isRoute = href.startsWith("/") && !href.startsWith("/#");
-                  const isContact = label === "Contact";
-                  const cls = isContact ? "mt-4 px-5 py-3 rounded-xl text-center text-white" : "px-5 py-3 rounded-xl hover:bg-gray-50";
-                  const sty = isContact ? { backgroundColor: "var(--brand-green)" } : { color: "#054A5B" };
-                  return isRoute ? (
-                    <Link key={label} to={href} onClick={() => setMobileOpen(false)} className={cls} style={sty}>{label}</Link>
-                  ) : (
-                    <a key={label} href={href} onClick={() => setMobileOpen(false)} className={cls} style={sty}>{label}</a>
-                  );
-                })}
-              </nav>
-            </div>
-            <style>{`@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }`}</style>
-          </>
-        )}
+        <Navbar lang="en" />
 
         {/* Hero Content */}
         <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-10 pb-6 overflow-x-hidden" style={{ paddingTop: "130px" }}>

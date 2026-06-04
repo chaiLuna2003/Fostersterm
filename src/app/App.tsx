@@ -16,6 +16,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { FAQItem } from "./components/FAQItem";
 import { MobileMenu } from "./components/MobileMenu";
+import { Navbar } from "./components/Navbar";
 import { CasosCarousel } from "./components/CasosCarousel";
 import { ProcessCarousel } from "./components/ProcessCarousel";
 import Blog from "./pages/blog";
@@ -48,8 +49,6 @@ function useFadeIn(direction: "up" | "left" | "right" = "up") {
 }
 
 export default function App() {
-  const [scrolled, setScrolled] = useState(false);
-
   // Hero cards
   const heroCard1 = useFadeIn();
   const heroCard2 = useFadeIn();
@@ -86,12 +85,6 @@ export default function App() {
   const contactLeft = useFadeIn("left");
   const contactRight = useFadeIn("right");
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <Routes>
       <Route path="/blog" element={<Blog />} />
@@ -122,77 +115,8 @@ export default function App() {
         />
       </div>
 
-      {/* ── NAVBAR CON ESTILO GLASSMORPHISM (TIPO IPHONE) ── */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
-        style={{
-          // Al hacer scroll cambia a blanco ultra-translúcido tipo iOS, si no se mantiene invisible
-          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.7)" : "transparent",
-          // El desenfoque característico de Apple
-          backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none", // Soporte para Safari/iOS
-          // Sombra suave y borde fino brillante que simula el grosor del cristal
-          boxShadow: scrolled ? "0 4px 30px rgba(0, 0, 0, 0.03)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.4)" : "1px solid transparent",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between transition-all duration-300">
-          <div className="flex items-center gap-3">
-            <ImageWithFallback
-              src="/Fostersterm/LOGOFALLERGY.png"
-              alt="Foster Stern Group"
-              className={`h-16 md:h-18 lg:h-24 w-auto object-contain transition-all duration-300 ${
-                scrolled ? "brightness-0 opacity-90" : ""
-              }`}
-            />
-          </div>
-
-          {/* Desktop nav links — only shown on lg+ */}
-          <div className="hidden lg:flex items-center gap-5 xl:gap-7">
-            <Link 
-              to="/nosotros" 
-              className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300" 
-              style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
-            >
-              Nosotros
-            </Link>
-            {["Servicios", "Beneficios", "Proceso", "FAQ"].map((section) => (
-              <a 
-                key={section}
-                href={`/#${section}`} 
-                className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300" 
-                style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
-              >
-                {section}
-              </a>
-            ))}
-            <Link 
-              to="/blog" 
-              className="nav-link text-sm xl:text-base font-semibold transition-colors duration-300" 
-              style={{ color: scrolled ? "#054A5B" : "rgba(255,255,255,0.92)" }}
-            >
-              Blog
-            </Link>
-            <a 
-              href="/#contacto" 
-              className="nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold transition-all duration-300 hover:scale-105 text-sm xl:text-base" 
-              style={{ backgroundColor: "var(--brand-green)" }}
-            >
-              Contactar
-            </a>
-            <Link
-              to="/english"
-              className="px-4 py-2 rounded-xl font-bold border-2 transition-all duration-300 hover:scale-105 text-sm xl:text-base"
-              style={{ color: scrolled ? "#054A5B" : "white", borderColor: scrolled ? "#054A5B" : "rgba(255,255,255,0.7)" }}
-            >
-              🇺🇸 English
-            </Link>
-          </div>
-
-          {/* Tablet + Mobile hamburger — shown below lg */}
-          <MobileMenu scrolled={scrolled} />
-        </div>
-      </nav>
+      {/* ── NAVBAR ── */}
+      <Navbar />
 
       {/* Hero Content */}
       <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-10 pb-6 overflow-x-hidden" style={{ paddingTop: "130px" }}>
@@ -605,15 +529,14 @@ export default function App() {
             </section>
 
             {/* ── SECCIÓN: CASOS DE ÉXITO (CAROUSEL) ── */}
-            
+            <section id="casos">
                 <CasosCarousel />
-              
+            </section>
 
             {/* ── SECCIÓN: NUESTRO PROCESO (CAROUSEL) ── */}
-            
-              
+            <section id="proceso">
                 <ProcessCarousel />
-              
+            </section>
 
             {/* ── SECCIÓN: FAQ ── */}
              <section id="faq" className="py-20 bg-white">

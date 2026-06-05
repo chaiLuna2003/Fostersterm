@@ -194,12 +194,13 @@ export default function English() {
       <section className="py-16 md:py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-12">
-            <div ref={focusedImg} className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0">
+            <div ref={focusedImg} className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg">
               <img
                 src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
                 alt="Doctor reviewing allergy patient"
-                className="w-full h-[280px] md:h-[380px] lg:h-[440px] object-cover rounded-3xl shadow-lg"
+                className="w-full h-[280px] md:h-[380px] lg:h-[440px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none rounded-3xl" />
             </div>
 
             <div className="flex-1 flex flex-col gap-5 md:gap-6">
@@ -239,12 +240,13 @@ export default function English() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-            <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[400px] lg:h-[480px]">
+            <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[400px] lg:h-[480px] group">
               <img
                 src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
                 alt="Allergy specialist with patient"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 h-24" style={{ background: "linear-gradient(to top, rgba(5,74,91,0.88), transparent)" }} />
             </div>
 
@@ -384,9 +386,10 @@ export default function English() {
               { img: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&q=80", text: "We launch the allergy service with ongoing operational and clinical support." },
               { img: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=80", text: "We monitor program performance with monthly reports and results optimization." },
             ].map((step, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-                <div className="relative" style={{ paddingBottom: "75%" }}>
-                  <img src={step.img} alt={step.text} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div key={i} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm group">
+                <div className="relative overflow-hidden" style={{ paddingBottom: "75%" }}>
+                  <img src={step.img} alt={step.text} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 loading-lazy" loading="lazy" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500 pointer-events-none" />
                   <div className="absolute top-3 left-3 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style={{ backgroundColor: "var(--brand-green)" }}>{i + 1}</div>
                 </div>
                 <div className="p-5">

@@ -779,11 +779,11 @@ export default function Nosotros() {
               style={{ borderColor: "var(--brand-secondary)" }}
             >
               {/* Foto */}
-              <div className="h-80 md:h-full overflow-hidden">
+              <div className="h-80 md:h-full overflow-hidden group/ceo">
                 <img
                   src="/Fostersterm/Carlitos-Solo.png"
                   alt="Dr. Carrasquillo — CEO Foster Stern Group"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover/ceo:scale-105"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =
                       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80";
@@ -975,7 +975,8 @@ export default function Nosotros() {
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-16 h-16 rounded-full object-cover"
+                      className="w-16 h-16 rounded-full object-cover transition-all duration-300 hover:scale-110 hover:ring-4 hover:ring-offset-2"
+                      style={{ "--tw-ring-color": "var(--brand-green)" } as React.CSSProperties}
                     />
 
                     <div>

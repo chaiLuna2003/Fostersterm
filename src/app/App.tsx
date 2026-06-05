@@ -315,12 +315,13 @@ export default function App() {
             <section className="py-16 md:py-20 bg-white overflow-hidden">
               <div className="max-w-7xl mx-auto px-6 md:px-10">
                 <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-12">
-                  <div ref={focusedImg} className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0">
+                  <div ref={focusedImg} className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg">
                     <img
                       src="/Fostersterm/chartUp.webp"
                       alt="Médico revisando paciente con alergia"
-                      className="w-full h-[280px] md:h-[380px] lg:h-[440px] object-cover rounded-3xl shadow-lg"
+                      className="w-full h-[280px] md:h-[380px] lg:h-[440px] object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none rounded-3xl" />
                   </div>
 
                   <div className="flex-1 flex flex-col gap-5 md:gap-6">
@@ -364,12 +365,13 @@ export default function App() {
             <section className="py-16 md:py-20 bg-white">
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-                  <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[400px] lg:h-[480px]">
+                  <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[400px] lg:h-[480px] group">
                     <img
                       src="/Fostersterm/ClinicalSpaceFSA.webp"
                       alt="Grafica con estadisticas altas."
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
                     <div
                       className="absolute bottom-0 left-0 right-0 h-24"
                       style={{ background: "linear-gradient(to top, rgba(5,74,91,0.88), transparent)" }}

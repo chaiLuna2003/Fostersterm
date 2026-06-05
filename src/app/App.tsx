@@ -332,16 +332,16 @@ export default function App() {
                       Su Clínica Merece una Oportunidad de Crecimiento Real
                     </h2>
 
-                    <p className="text-lg font-semibold" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
-                      Muchas prácticas médicas pierden ingresos significativos cada día por no ofrecer servicios de alergia in-house:
+                    <p className="text-xl font-semibold" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
+                      Muchas prácticas médicas pierden ingresos por no ofrecer servicios de alergia in-house:
                     </p>
 
                     <ul ref={focusedList} className="fade-in space-y-4">
                       {[
-                        "Cada derivación a un especialista externo es un ingreso que su clínica podría haber capturado.",
-                        "La demanda de pruebas de alergia e inmunoterapia crece año tras año, y sus pacientes ya la están buscando.",
-                        "Implementar estos servicios internamente parece complejo: personal, equipos, protocolos, facturación.",
-                        "Resultado: su práctica deja de crecer mientras el mercado de alergología avanza sin usted.",
+                        "Cada derivación externa es un ingreso que su clínica podría haber capturado.",
+                        "La demanda de pruebas e inmunoterapia crece año tras año.",
+                        "Implementar estos servicios parece complejo: personal, equipos, protocolos.",
+                        "Su práctica deja de crecer mientras el mercado avanza sin usted.",
                       ].map((item, i) => (
                         <li key={i} className="flex items-start gap-4">
                           <div
@@ -378,11 +378,11 @@ export default function App() {
 
                   <div ref={howContent} className="fade-in from-right flex flex-col gap-8">
                     <div>
-                      <h2 className="text-3xl md:text-4xl mb-3" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
+                      <h2 className="text-4xl md:text-5xl mb-3" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
                         ¿Cómo Funciona la Alianza?
                       </h2>
-                      <p className="text-base font-semibold" style={{ color: "var(--brand-green)" }}>
-                        Su éxito en servicios de alergia es nuestro compromiso.
+                      <p className="text-lg font-semibold" style={{ color: "var(--brand-green)" }}>
+                        Su éxito en alergología es nuestro compromiso.
                       </p>
                     </div>
 
@@ -391,25 +391,25 @@ export default function App() {
                         {
                           icon: <Network className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
                           title: "Integración sin fricciones",
-                          desc: "Nos adaptamos al flujo operativo de su clínica. Sin reestructuración, sin interrupciones. Solo crecimiento.",
+                          desc: "Nos adaptamos a su flujo operativo. Sin reestructuración ni interrupciones.",
                           link: "Conocer el proceso",
                         },
                         {
                           icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
-                          title: "Personal entrenado en su clínica",
-                          desc: "Asignamos personal especializado en alergias directamente en sus instalaciones, coordinado con su agenda y equipo.",
+                          title: "Personal especializado en su clínica",
+                          desc: "Asignamos especialistas directamente en sus instalaciones, coordinados con su agenda.",
                           link: "Nuestro equipo",
                         },
                         {
                           icon: <ClipboardList className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
                           title: "Facturación y documentación incluidas",
-                          desc: "Gestionamos la documentación clínica y el proceso de facturación por los servicios de alergia, sin carga adicional para su práctica.",
+                          desc: "Gestionamos la documentación clínica y la facturación sin carga adicional para su equipo.",
                           link: "Ver protocolos",
                         },
                         {
                           icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
-                          title: "Reportes e informes periódicos",
-                          desc: "Reciba informes de rendimiento del programa. Monitoreamos el éxito de la alianza junto a usted, como verdaderos socios estratégicos.",
+                          title: "Reportes periódicos de rendimiento",
+                          desc: "Informes de desempeño del programa. Monitoreamos el éxito juntos, como socios estratégicos.",
                           link: "Ver soporte",
                         },
                       ].map((item) => (
@@ -417,10 +417,10 @@ export default function App() {
                           <div className="w-12 h-12 rounded-full flex items-center justify-center mb-1" style={{ backgroundColor: "var(--brand-light)" }}>
                             {item.icon}
                           </div>
-                          <h3 className="text-base" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
+                          <h3 className="text-lg font-bold" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
                             {item.title}
                           </h3>
-                          <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)" }}>
+                          <p className="text-base leading-relaxed" style={{ color: "var(--brand-muted)" }}>
                             {item.desc}
                           </p>
                           <a href="#contacto" className="text-sm font-semibold underline underline-offset-2 mt-1 hover:opacity-70 transition-opacity" style={{ color: "var(--brand-green)" }}>
@@ -440,16 +440,16 @@ export default function App() {
                   <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
                     Un Socio Estratégico, No Un Proveedor Más
                   </h2>
-                  <p className="text-lg md:text-xl" style={{ color: "var(--brand-muted)" }}>
-                    Transformamos la atención al paciente en una oportunidad de crecimiento clínico y financiero para su práctica
+                  <p className="text-xl md:text-2xl" style={{ color: "var(--brand-muted)" }}>
+                    Transformamos la atención al paciente en una oportunidad de crecimiento para su práctica
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {[
-                    { ref: svcCard1, icon: <Microscope className="w-8 h-8 text-white" />, title: "Implementación del Programa de Alergia", desc: "Diseñamos e implementamos el programa de pruebas e inmunoterapia dentro de su clínica, con protocolos clínicos alineados a las mejores prácticas del sector.", p1: "Pruebas de alergia e inmunoterapia in-house", p2: "Protocolos estandarizados y documentación rigurosa", p3: "Implementación rápida y sin fricción operativa" },
-                    { ref: svcCard2, icon: <FlaskConical className="w-8 h-8 text-white" />, title: "Personal Entrenado Asignado a su Clínica", desc: "Asignamos personal clínico especializado en alergias directamente en sus instalaciones, coordinado con su agenda. Usted no gestiona, usted crece.", p1: "Especialistas en alergias en su consultorio", p2: "Sin necesidad de contratar ni capacitar staff", p3: "Presencia puntual y profesional garantizada" },
-                    { ref: svcCard3, icon: <Syringe className="w-8 h-8 text-white" />, title: "Facturación y Soporte Operativo Total", desc: "Nos encargamos de la facturación y la documentación de los servicios de alergia. Su equipo se enfoca en la atención; nosotros en la operación.", p1: "Gestión completa del proceso de facturación", p2: "Documentación clínica y cumplimiento normativo", p3: "Reportes periódicos de rendimiento del programa" }
+                    { ref: svcCard1, icon: <Microscope className="w-8 h-8 text-white" />, title: "Implementación del Programa de Alergia", desc: "Diseñamos e implementamos pruebas e inmunoterapia en su clínica, con protocolos alineados a las mejores prácticas.", p1: "Pruebas e inmunoterapia in-house", p2: "Protocolos estandarizados", p3: "Implementación rápida y sin fricción" },
+                    { ref: svcCard2, icon: <FlaskConical className="w-8 h-8 text-white" />, title: "Personal Especializado en su Clínica", desc: "Asignamos personal clínico en alergias directamente en sus instalaciones, coordinado con su agenda. Usted no gestiona, usted crece.", p1: "Especialistas en alergias en su consultorio", p2: "Sin contratar ni capacitar staff", p3: "Presencia puntual y profesional" },
+                    { ref: svcCard3, icon: <Syringe className="w-8 h-8 text-white" />, title: "Facturación y Soporte Operativo Total", desc: "Gestionamos la facturación y documentación de los servicios de alergia. Su equipo se enfoca en la atención; nosotros en la operación.", p1: "Gestión completa de facturación", p2: "Documentación y cumplimiento normativo", p3: "Reportes periódicos de rendimiento" }
                   ].map((card, idx) => (
                     <div
                       key={idx}
@@ -465,7 +465,7 @@ export default function App() {
                         <h3 className="text-2xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "#ffffff" }}>
                           {card.title}
                         </h3>
-                        <p className="mb-6 leading-relaxed text-white/85">
+                        <p className="mb-6 leading-relaxed text-lg text-white/85">
                           {card.desc}
                         </p>
                         <ul className="space-y-3">
@@ -489,7 +489,7 @@ export default function App() {
                   <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
                     ¿Por Qué Las Clínicas Eligen Asociarse Con Nosotros?
                   </h2>
-                  <p className="text-lg md:text-xl" style={{ color: "var(--brand-muted)" }}>
+                  <p className="text-xl md:text-2xl" style={{ color: "var(--brand-muted)" }}>
                     Su éxito en servicios de alergia es nuestro compromiso
                   </p>
                 </div>
@@ -497,14 +497,14 @@ export default function App() {
                 <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   <div ref={benefitsLeft} className="fade-in from-left space-y-6">
                     {[
-                      { icon: <Shield className="w-6 h-6 text-[var(--brand-green)]" />, title: "Nueva Oportunidad de Ingresos", desc: "Genere una nueva fuente de ingresos sostenible dentro de su clínica. Al integrar servicios de alergia, su práctica retiene pacientes y captura ingresos que antes se perdían en derivaciones externas." },
-                      { icon: <Users className="w-6 h-6 text-[var(--brand-green)]" />, title: "Personal Especializado, Sin Costos de Contratación", desc: "Foster Stern asigna personal entrenado en servicios de alergia directamente en su clínica. Usted amplía su capacidad clínica sin procesos de contratación, capacitación ni gestión de nuevo personal." }
+                      { icon: <Shield className="w-6 h-6 text-[var(--brand-green)]" />, title: "Nueva Fuente de Ingresos", desc: "Integre servicios de alergia y capture ingresos que antes se perdían en derivaciones externas." },
+                      { icon: <Users className="w-6 h-6 text-[var(--brand-green)]" />, title: "Personal Especializado, Sin Costo de Contratación", desc: "Foster Stern asigna personal entrenado en su clínica. Más capacidad clínica, sin gestión de nuevo personal." }
                     ].map((b, i) => (
                       <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
                         <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
                         <div>
-                          <h4 className="text-lg font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
-                          <p style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
+                          <h4 className="text-xl font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
+                          <p className="text-base" style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -512,14 +512,14 @@ export default function App() {
 
                   <div ref={benefitsRight} className="fade-in from-right space-y-6">
                     {[
-                      { icon: <Clock className="w-6 h-6 text-[var(--brand-green)]" />, title: "Retención de Pacientes y Mayor Lealtad", desc: "Ofrezca un servicio completo dentro de su práctica. Sus pacientes no necesitarán acudir a otro proveedor, lo que aumenta la satisfacción, la retención y la reputación de su clínica." },
-                      { icon: <ArrowRight className="w-6 h-6 text-[var(--brand-green)]" />, title: "Facturación y Documentación a Nuestro Cargo", desc: "Gestionamos el proceso completo de facturación y documentación clínica por los servicios de alergia. Estructura de precios transparente, escalable al volumen de su práctica y sin carga administrativa adicional para su equipo." }
+                      { icon: <Clock className="w-6 h-6 text-[var(--brand-green)]" />, title: "Mayor Retención de Pacientes", desc: "Ofrezca un servicio completo en su práctica. Sus pacientes no necesitan acudir a otro proveedor." },
+                      { icon: <ArrowRight className="w-6 h-6 text-[var(--brand-green)]" />, title: "Facturación y Documentación a Nuestro Cargo", desc: "Gestionamos el proceso completo de facturación y documentación. Estructura de precios transparente y sin carga administrativa." }
                     ].map((b, i) => (
                       <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
                         <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
                         <div>
-                          <h4 className="text-lg font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
-                          <p style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
+                          <h4 className="text-xl font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
+                          <p className="text-base" style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -603,8 +603,8 @@ export default function App() {
             {/* ── SECCIÓN: CALL TO ACTION (CTA) ── */}
             <section ref={ctaBlock} className="fade-in py-16 bg-gradient-to-r from-[#054A5B] to-[#008154] text-white text-center">
               <div className="max-w-4xl mx-auto px-6">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Convierta su Clínica en un Centro de Referencia en Alergología</h2>
-                <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">Foster Stern es el socio estratégico que su práctica médica necesita para integrar servicios de alergia, generar nuevos ingresos y mejorar la atención a sus pacientes — sin complejidad operativa ni inversión inicial.</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">Convierta su Clínica en un Centro de Referencia en Alergología</h2>
+                <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">Foster Stern es el socio estratégico que necesita para integrar servicios de alergia, generar nuevos ingresos y mejorar la atención a sus pacientes.</p>
                 <a href="#contacto" className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition-colors">Agendar una Consulta con nuestro Equipo</a>
               </div>
             </section>
@@ -730,20 +730,6 @@ export default function App() {
                           type="text"
                           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
                           placeholder="Escriba su nombre completo"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          className="block mb-1.5 text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Título
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
-                          placeholder="Escriba su título aquí"
                         />
                       </div>
 

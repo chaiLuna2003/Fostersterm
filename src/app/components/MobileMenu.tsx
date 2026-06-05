@@ -3,17 +3,16 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 
-
 const menuItems = [
-  { name: "Nosotros", href: "/nosotros" },
-  { name: "Servicios", href: "#servicios" },
-  { name: "Beneficios", href: "#beneficios" },
-  { name: "Casos de Éxito", href: "#casos" },
-  { name: "Proceso", href: "#proceso" },
-  { name: "Blog", href: "/blog" },
-  { name: "FAQ", href: "#faq" },
-  { name: "Contactar", href: "#contacto" },
-  { name: "🇺🇸 English", href: "/english" },
+  { name: "Nosotros",      href: "/nosotros"   },
+  { name: "Servicios",     href: "/#servicios"  },
+  { name: "Beneficios",    href: "/#beneficios" },
+  { name: "Casos de Éxito",href: "/#casos"      },
+  { name: "Proceso",       href: "/#proceso"    },
+  { name: "FAQ",           href: "/#faq"        },
+  { name: "Blog",          href: "/blog"        },
+  { name: "Contactar",     href: "/#contacto"   },
+  { name: "🇺🇸 English",  href: "/english"     },
 ];
 
 interface MobileMenuProps {
@@ -23,16 +22,22 @@ interface MobileMenuProps {
 export function MobileMenu({ scrolled = false }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Bloquear scroll del body cuando el menú está abierto
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
+  // Cerrar también si la pantalla se agranda a desktop
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 1024) setIsOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const close = () => setIsOpen(false);
 
   const menu = isOpen ? (
-    <div className="md:hidden">
+    <>
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/40 z-[9998]"
@@ -42,57 +47,44 @@ export function MobileMenu({ scrolled = false }: MobileMenuProps) {
 
       {/* Panel deslizante desde la derecha */}
       <div
-        className="fixed top-0 right-0 bottom-0 w-72 bg-white shadow-2xl z-[9999] flex flex-col"
+        className="fixed top-0 right-0 bottom-0 w-80 bg-white shadow-2xl z-[9999] flex flex-col"
         style={{ animation: "slideIn 0.25s ease-out" }}
       >
-        {/* Header del menú */}
-<div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-  <img
-    src="/Fostersterm/LogoFS.png"
-    alt="Foster Stern Group"
-    className="h-14 w-auto object-contain"
-  />
-
-  <button
-    onClick={close}
-    className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-    aria-label="Cerrar menú"
-    type="button"
-  >
-    <X className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
-  </button>
-</div>
+        {/* Header del panel */}
+        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+          <img
+            src="/Fostersterm/LogoFS.png"
+            alt="Foster Stern Group"
+            className="h-14 w-auto object-contain"
+          />
+          <button
+            onClick={close}
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label="Cerrar menú"
+            type="button"
+          >
+            <X className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
+          </button>
+        </div>
 
         {/* Links de navegación */}
-        <nav className="flex flex-col px-4 py-6 gap-1 flex-1">
+        <nav className="flex flex-col px-4 py-6 gap-1 flex-1 overflow-y-auto">
           {menuItems.map((item) => {
             const isContact = item.name === "Contactar";
             const isRoute = item.href.startsWith("/") && !item.href.startsWith("/#");
             const className = isContact
-              ? "mt-4 px-5 py-3 rounded-xl text-center text-white transition-colors"
-              : "px-5 py-3 rounded-xl transition-colors hover:bg-gray-50";
+              ? "mt-4 px-5 py-3 rounded-xl text-center text-white font-semibold transition-colors"
+              : "px-5 py-3 rounded-xl transition-colors hover:bg-gray-50 font-medium";
             const style = isContact
               ? { backgroundColor: "var(--brand-green)", fontFamily: "'Source Sans 3', sans-serif" }
               : { color: "var(--brand-primary)", fontFamily: "'Source Sans 3', sans-serif" };
 
             return isRoute ? (
-              <Link
-                key={item.name}
-                to={item.href}
-                onClick={close}
-                className={className}
-                style={style}
-              >
+              <Link key={item.name} to={item.href} onClick={close} className={className} style={style}>
                 {item.name}
               </Link>
             ) : (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={close}
-                className={className}
-                style={style}
-              >
+              <a key={item.name} href={item.href} onClick={close} className={className} style={style}>
                 {item.name}
               </a>
             );
@@ -103,25 +95,24 @@ export function MobileMenu({ scrolled = false }: MobileMenuProps) {
       <style>{`
         @keyframes slideIn {
           from { transform: translateX(100%); }
-          to { transform: translateX(0); }
+          to   { transform: translateX(0); }
         }
       `}</style>
-    </div>
+    </>
   ) : null;
 
   return (
     <>
-      {/* Botón hamburguesa */}
+      {/* Botón hamburguesa — visible en móvil Y tablet (debajo de lg = 1024px) */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
         aria-label="Abrir menú"
         type="button"
       >
         <Menu className="w-6 h-6" style={{ color: "white" }} />
       </button>
 
-      {/* Portal: renderiza fuera del header para evitar overflow-hidden */}
       {createPortal(menu, document.body)}
     </>
   );

@@ -361,31 +361,10 @@ export default function Nosotros() {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          {/* Overlay sutil solo en la parte inferior para los stats */}
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "linear-gradient(to top, rgba(5,74,91,0.55) 0%, transparent 50%)",
-            }}
-          />
-        </div>
-
-        {/* Imagen de referencia — dándole la composición: texto izq, imagen-collage der */}
-        {/* Columna derecha: la imagen subida por el usuario como decoración */}
-        <div className="absolute right-0 top-0 h-full w-1/2 z-[1] hidden lg:block">
-          <img
-            src="/Fostersterm/Gemini_Generated_Image_xxeyopxxeyopxxey.png"
-            alt=""
-            className="w-full h-full object-cover object-left"
-            style={{ opacity: 0.35 }}
-          />
-          {/* Fade hacia la izquierda para mezclar con el overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to right, rgba(5,74,91,0.95) 0%, rgba(5,74,91,0.3) 40%, transparent 100%)",
+              background: "linear-gradient(135deg, rgba(5,74,91,0.88) 0%, rgba(5,74,91,0.45) 50%, rgba(255,255,255,0) 80%)"
             }}
           />
         </div>
@@ -393,118 +372,124 @@ export default function Nosotros() {
         {/* Content */}
         <div
           className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-10"
-          style={{ paddingTop: "130px", paddingBottom: "48px" }}
+          style={{ paddingTop: "140px", paddingBottom: "60px" }}
         >
-          {/* Badge */}
-          <div className="mb-6">
-            <span
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
-              style={{
-                backgroundColor: "rgba(5,74,91,0.08)",
-                borderColor: "rgba(5,74,91,0.25)",
-                color: "#054A5B",
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: "var(--brand-green)" }}
-              />
-              Sobre Nosotros
-            </span>
-          </div>
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
 
-          {/* Title */}
-          <div ref={heroTitle} className="max-w-2xl">
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.08] mb-6"
-              style={{ fontWeight: 800, fontFamily: "'Nunito Sans', sans-serif" }}
-            >
-              <span className="hero-title-shimmer">Transformando</span>
-              <br />
-              <span style={{ color: "#054A5B" }}>la atención de </span>
-              <span style={{ color: "#008154" }}>alergia</span>
-              <br />
-              <span style={{ color: "#054A5B" }}>en América.</span>
-            </h1>
-          </div>
+            {/* ── IZQUIERDA: texto ── */}
+            <div ref={heroTitle} className="flex flex-col gap-5 max-w-2xl">
 
-          {/* Description */}
-          <div ref={heroSub} className="max-w-xl mb-10">
-            <p
-              className="text-base md:text-lg leading-relaxed font-semibold"
-              style={{ color: "#054A5B" }}
-            >
-              Somos Foster Stern Group, una empresa dedicada a integrar
-              servicios de alergia de clase mundial directamente en clínicas
-              médicas — sin inversión inicial y con soporte especializado continuo.
-            </p>
-          </div>
+              {/* Badge */}
+              <div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full self-start border"
+                style={{ backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.3)" }}
+              >
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--brand-green)" }} />
+                <span className="text-sm text-white font-medium">Sobre Nosotros</span>
+              </div>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16 md:mb-20">
-            <a
-              href="/#contacto"
-              className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
-              style={{ backgroundColor: "var(--brand-green)" }}
-            >
-              Conocer Servicios
-            </a>
-            <a
-              href="/#contacto"
-              className="px-8 py-4 rounded-2xl text-center font-bold border-2 hover:bg-[#054A5B]/10 transition-all"
-              style={{ borderColor: "#054A5B", color: "#054A5B" }}
-            >
-              Contactar Equipo
-            </a>
-          </div>
+              {/* Título */}
+              <h1
+                className="text-4xl md:text-5xl lg:text-5xl leading-tight text-white"
+                style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800 }}
+              >
+                Transformando clínicas.{" "}
+                <span style={{ color: "var(--brand-green)" }}>Mejorando vidas.</span>{" "}
+                Revolucionando la atención de alergias.
+              </h1>
 
-          {/* Stats bar — al fondo del hero, inspirado en la imagen */}
-          <div ref={heroStats}>
-            <div
-              className="inline-grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border"
-              style={{
-                borderColor: "rgba(5,74,91,0.2)",
-                backgroundColor: "rgba(5,74,91,0.08)",
-              }}
-            >
-              {[
-                { value: "500+", label: "Clínicas asociadas" },
-                { value: "98%", label: "Satisfacción clínica" },
-                { value: "$0", label: "Inversión inicial" },
-                { value: "10+", label: "Años de experiencia" },
-              ].map((stat, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col items-center justify-center px-6 py-5"
-                  style={{
-                    backgroundColor: "rgba(255,255,255,0.55)",
-                    backdropFilter: "blur(12px)",
-                  }}
+              {/* Descripción */}
+              <div ref={heroSub}>
+                <p className="text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
+                  Soluciones integrales, innovación y experiencia para el futuro de la medicina de alergias.
+                </p>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 mt-2">
+                <a
+                  href="/#contacto"
+                  className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
+                  style={{ backgroundColor: "var(--brand-green)" }}
                 >
-                  <span
-                    className="text-2xl md:text-3xl font-black mb-1"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    {stat.value}
-                  </span>
-                  <span
-                    className="text-xs text-center font-medium leading-tight"
-                    style={{ color: "#054A5B" }}
-                  >
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
+                  Conocer Servicios
+                </a>
+                <a
+                  href="/#contacto"
+                  className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all"
+                  style={{ borderColor: "rgba(255,255,255,0.5)" }}
+                >
+                  Contactar Equipo
+                </a>
+              </div>
             </div>
+
+            {/* ── DERECHA: cards stats ── */}
+            <div ref={heroStats} className="hidden lg:flex flex-col gap-4 items-end mt-0">
+
+              {/* Card B2B */}
+              <div
+                className="rounded-2xl p-5 w-80 border shadow-xl"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.18)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  borderColor: "rgba(255,255,255,0.35)",
+                }}
+              >
+                <div className="flex items-start gap-3">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "var(--brand-green)" }}
+                  >
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                      <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm" style={{ color: "var(--brand-green)" }}>Soluciones B2B</p>
+                    <p className="font-semibold text-sm text-white mb-1">para instituciones de salud</p>
+                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
+                      Trabajamos junto a clínicas, hospitales y profesionales para construir soluciones personalizadas que mejoran resultados y eficiencia.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Grid 4 stats oscuros */}
+              <div
+                className="grid grid-cols-2 gap-px rounded-2xl overflow-hidden w-80"
+                style={{ backgroundColor: "rgba(5,74,91,0.6)" }}
+              >
+                {[
+                  { icon: "🤝", title: "Alianzas estratégicas",  desc: "Colaboramos con instituciones líderes para generar soluciones de alto impacto." },
+                  { icon: "💡", title: "Innovación continua",     desc: "Tecnologías de vanguardia para transformar la atención de alergias." },
+                  { icon: "📊", title: "Resultados que importan", desc: "Impulsamos la eficiencia operativa y mejores resultados clínicos." },
+                  { icon: "🛡️", title: "Confianza y respaldo",   desc: "Más de 35 años comprometidos con la excelencia y el crecimiento." },
+                ].map((card, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col gap-1.5 p-4"
+                    style={{
+                      backgroundColor: "rgba(5,74,91,0.82)",
+                      backdropFilter: "blur(12px)",
+                      WebkitBackdropFilter: "blur(12px)",
+                    }}
+                  >
+                    <span className="text-xl">{card.icon}</span>
+                    <p className="text-xs font-bold text-white leading-tight">{card.title}</p>
+                    <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>{card.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="relative z-10 flex justify-center pb-8">
-          <div
-            className="flex flex-col items-center gap-1 opacity-60"
-            style={{ color: "#054A5B" }}
-          >
+          <div className="flex flex-col items-center gap-1 opacity-60 text-white">
             <span className="text-[10px] uppercase tracking-widest">Scroll</span>
             <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -512,7 +497,6 @@ export default function Nosotros() {
           </div>
         </div>
       </section>
-
       
       {/* ── MISIÓN & VISIÓN ───────────────────────────────────── */}
 <section className="py-28 bg-white overflow-hidden">

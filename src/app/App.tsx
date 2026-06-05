@@ -317,7 +317,7 @@ export default function App() {
                 <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-12">
                   <div ref={focusedImg} className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0">
                     <img
-                      src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
+                      src="/Fostersterm/chartUp.webp"
                       alt="Médico revisando paciente con alergia"
                       className="w-full h-[280px] md:h-[380px] lg:h-[440px] object-cover rounded-3xl shadow-lg"
                     />
@@ -366,8 +366,8 @@ export default function App() {
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
                   <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[400px] lg:h-[480px]">
                     <img
-                      src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
-                      alt="Especialista en alergias con paciente"
+                      src="/Fostersterm/ClinicalSpaceFSA.webp"
+                      alt="Grafica con estadisticas altas."
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div

@@ -351,155 +351,192 @@ export default function Nosotros() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-screen flex flex-col">
+      <section className="relative overflow-hidden flex flex-col" style={{ minHeight: "100vh" }}>
 
-        {/* Background — misma imagen que el home */}
+        {/* Background image from Unsplash — modern medical clinic */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/Fostersterm/heroSectionFooterImg.png"
+            src="/Fostersterm/HeroImgNosotros.webp"
             alt=""
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
+          {/* Overlay: white fade on the left so text is readable, subtle tint overall */}
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(135deg, rgba(5,74,91,0.88) 0%, rgba(5,74,91,0.45) 50%, rgba(255,255,255,0) 80%)"
+              background:
+                "linear-gradient(105deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.55) 5%, rgba(255,255,255,0.10) 0%)",
             }}
           />
         </div>
 
-        {/* Content */}
+        {/* Dandelion seeds — decorative, bottom-left */}
+        <div className="absolute left-0 bottom-20 z-0 pointer-events-none select-none opacity-10">
+          <svg viewBox="0 0 200 200" width="200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="7" fill="#008154"/>
+            {Array.from({ length: 20 }).map((_, i) => {
+              const angle = (i / 20) * 2 * Math.PI;
+              const x2 = 100 + Math.cos(angle) * 80;
+              const y2 = 100 + Math.sin(angle) * 80;
+              return (
+                <g key={i}>
+                  <line x1="100" y1="100" x2={x2} y2={y2} stroke="#008154" strokeWidth="1.2"/>
+                  <ellipse cx={x2} cy={y2} rx="5" ry="3" fill="#008154"
+                    transform={`rotate(${(i / 20) * 360},${x2},${y2})`}/>
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+
+        {/* Main content */}
         <div
-          className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-10"
-          style={{ paddingTop: "140px", paddingBottom: "60px" }}
+          className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-10"
+          style={{ paddingTop: "110px" }}
         >
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+          {/* Logo Allergy Division */}
+          
 
-            {/* ── IZQUIERDA: texto ── */}
-            <div ref={heroTitle} className="flex flex-col gap-5 max-w-2xl">
+          {/* Two-column — left: text, right: transparent (shows BG photo) */}
+          <div className="grid lg:grid-cols-2 gap-0 items-stretch flex-1">
 
-              {/* Badge */}
-              <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full self-start border"
-                style={{ backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.3)" }}
-              >
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--brand-green)" }} />
-                <span className="text-sm text-white font-medium">Sobre Nosotros</span>
-              </div>
+            {/* LEFT — text */}
+            <div className="flex flex-col justify-center gap-6 py-6 pr-0 lg:pr-16">
 
-              {/* Título */}
+              {/* Headline — exact copy from reference image */}
               <h1
-                className="text-4xl md:text-5xl lg:text-5xl leading-tight text-white"
+                className="text-4xl md:text-4xl leading-[1.18]"
                 style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800 }}
               >
-                Transformando clínicas.{" "}
-                <span style={{ color: "var(--brand-green)" }}>Mejorando vidas.</span>{" "}
-                Revolucionando la atención de alergias.
+                <span style={{ color: "#0D2647" }}>Transformando clínicas.</span>
+                <br />
+                <span style={{ color: "var(--brand-green)" }}>Mejorando vidas.</span>
+                <br />
+                <span style={{ color: "#4D3088" }}>Revolucionando la</span>
+                <br />
+                <span style={{ color: "#4D3088" }}>atencion de alergias.</span>
               </h1>
 
-              {/* Descripción */}
+              {/* Accent line */}
+              <div className="w-10 h-1 rounded-full" style={{ backgroundColor: "var(--brand-green)" }} />
+
+              {/* Subtitle */}
               <div ref={heroSub}>
-                <p className="text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
-                  Soluciones integrales, innovación y experiencia para el futuro de la medicina de alergias.
+                <p
+                  className="text-base leading-relaxed max-w-sm"
+                  style={{ color: "var(--brand-muted)" }}
+                >
+                  Soluciones integrales, innovación y experiencia<br />
+                  para el futuro de la medicina de alergias.
                 </p>
               </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                <a
-                  href="/#contacto"
-                  className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
-                  style={{ backgroundColor: "var(--brand-green)" }}
-                >
-                  Conocer Servicios
-                </a>
-                <a
-                  href="/#contacto"
-                  className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all"
-                  style={{ borderColor: "rgba(255,255,255,0.5)" }}
-                >
-                  Contactar Equipo
-                </a>
-              </div>
+              {/* B2B card — exactly as in the reference */}
+              <div 
+  ref={heroStats} 
+  className="flex items-start gap-4 mt-4 max-w-sm p-5 rounded-[24px] border backdrop-blur-md shadow-sm"
+  style={{ 
+    backgroundColor: "rgba(255, 255, 255, 0.45)", 
+    borderColor: "rgba(255, 255, 255, 0.4)" 
+  }}
+>
+  <div
+    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
+    style={{ backgroundColor: "var(--brand-green)" }}
+  >
+    <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white">
+      <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+    </svg>
+  </div>
+  <div>
+    <p className="text-sm font-bold" style={{ color: "var(--brand-green)" }}>
+      Soluciones B2B
+    </p>
+    <p className="text-sm font-semibold mb-1" style={{ color: "var(--brand-primary)" }}>
+      para instituciones de salud
+    </p>
+    <p className="text-xs leading-relaxed" style={{ color: "var(--brand-primary)", opacity: 0.85 }}>
+      Trabajamos junto a clínicas, hospitales y profesionales<br />
+      de la salud para construir soluciones personalizadas<br />
+      que mejoran resultados y eficiencia.
+    </p>
+  </div>
+</div>
             </div>
 
-            {/* ── DERECHA: cards stats ── */}
-            <div ref={heroStats} className="hidden lg:flex flex-col gap-4 items-end mt-0">
+            {/* RIGHT — intentionally empty; background photo shows through */}
+            <div className="hidden lg:block" />
+          </div>
 
-              {/* Card B2B */}
+          {/* ── Bottom dark stats bar — 4 columns ── */}
+          <div
+  className="relative z-10 -mx-6 md:-mx-10 mb-10 grid grid-cols-2 md:grid-cols-4 rounded-2xl md:rounded-[32px] overflow-hidden"
+  style={{ backgroundColor: "var(--brand-primary)" }}
+>
+            {[
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                  </svg>
+                ),
+                title: "Alianzas estratégicas",
+                desc: "Colaboramos con instituciones líderes para generar soluciones de alto impacto.",
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+                  </svg>
+                ),
+                title: "Innovación continua",
+                desc: "Desarrollamos e integramos tecnologías de vanguardia para transformar la atención de alergias.",
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                    <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
+                  </svg>
+                ),
+                title: "Resultados que importan",
+                desc: "Impulsamos la eficiencia operativa y mejores resultados clínicos para instituciones y pacientes.",
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                  </svg>
+                ),
+                title: "Confianza y respaldo",
+                desc: "Más de 35 años de experiencia comprometidos con la excelencia y el crecimiento de nuestros aliados.",
+              },
+            ].map((item, i) => (
               <div
-                className="rounded-2xl p-5 w-80 border shadow-xl"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.18)",
-                  backdropFilter: "blur(16px)",
-                  WebkitBackdropFilter: "blur(16px)",
-                  borderColor: "rgba(255,255,255,0.35)",
-                }}
+                key={i}
+                className="flex items-start gap-3 p-5 border-r last:border-r-0"
+                style={{ borderColor: "rgba(255,255,255,0.1)" }}
               >
-                <div className="flex items-start gap-3">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "var(--brand-green)" }}
-                  >
-                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
-                      <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm" style={{ color: "var(--brand-green)" }}>Soluciones B2B</p>
-                    <p className="font-semibold text-sm text-white mb-1">para instituciones de salud</p>
-                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
-                      Trabajamos junto a clínicas, hospitales y profesionales para construir soluciones personalizadas que mejoran resultados y eficiencia.
-                    </p>
-                  </div>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{ backgroundColor: "rgba(255,255,255,0.13)" }}
+                >
+                  {item.icon}
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white leading-tight mb-1">{item.title}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.62)" }}>
+                    {item.desc}
+                  </p>
                 </div>
               </div>
-
-              {/* Grid 4 stats oscuros */}
-              <div
-                className="grid grid-cols-2 gap-px rounded-2xl overflow-hidden w-80"
-                style={{ backgroundColor: "rgba(5,74,91,0.6)" }}
-              >
-                {[
-                  { icon: "🤝", title: "Alianzas estratégicas",  desc: "Colaboramos con instituciones líderes para generar soluciones de alto impacto." },
-                  { icon: "💡", title: "Innovación continua",     desc: "Tecnologías de vanguardia para transformar la atención de alergias." },
-                  { icon: "📊", title: "Resultados que importan", desc: "Impulsamos la eficiencia operativa y mejores resultados clínicos." },
-                  { icon: "🛡️", title: "Confianza y respaldo",   desc: "Más de 35 años comprometidos con la excelencia y el crecimiento." },
-                ].map((card, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col gap-1.5 p-4"
-                    style={{
-                      backgroundColor: "rgba(5,74,91,0.82)",
-                      backdropFilter: "blur(12px)",
-                      WebkitBackdropFilter: "blur(12px)",
-                    }}
-                  >
-                    <span className="text-xl">{card.icon}</span>
-                    <p className="text-xs font-bold text-white leading-tight">{card.title}</p>
-                    <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>{card.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="relative z-10 flex justify-center pb-8">
-          <div className="flex flex-col items-center gap-1 opacity-60 text-white">
-            <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-            <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            ))}
           </div>
         </div>
       </section>
       
       {/* ── MISIÓN & VISIÓN ───────────────────────────────────── */}
-<section className="py-28 bg-white overflow-hidden">
+    <section className="py-28 bg-white overflow-hidden">
   <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col gap-32">
 
     {/* ── MISIÓN ───────────────── */}
@@ -509,9 +546,9 @@ export default function Nosotros() {
       <div className="relative group">
         <div className="overflow-hidden rounded-[32px] shadow-2xl">
           <img
-            src="/Fostersterm/Medicos-Contentos-1408x768-1-e1778107355311.jpg"
+            src="/Fostersterm/happy child in field.jpg"
             alt="Misión Foster Stern"
-            className="w-full h-[320px] md:h-[450px] object-cover transition-all duration-700 group-hover:scale-105"
+            className="w-full h-[320px] md:h-[400px] object-cover transition-all duration-700 group-hover:scale-105"
           />
         </div>
 
@@ -600,9 +637,9 @@ export default function Nosotros() {
       <div className="order-1 lg:order-2 relative group">
         <div className="overflow-hidden rounded-[32px] shadow-2xl">
           <img
-            src="/Fostersterm/EstreChandoManos21339x784.jpg"
+            src="/Fostersterm/hands shaking.jpg"
             alt="Visión Foster Stern"
-            className="w-full h-[320px] md:h-[450px] object-cover transition-all duration-700 group-hover:scale-105"
+            className="w-full h-[500px] lg:h-[650px] object-cover transition-all duration-700 group-hover:scale-105"
           />
         </div>
 
@@ -614,7 +651,7 @@ export default function Nosotros() {
       </div>
     </div>
   </div>
-</section>
+      </section>
 
       {/* ── VALORES ──────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
@@ -854,86 +891,87 @@ export default function Nosotros() {
 
       {/* ── TESTIMONIOS ESTILO HOSTINGER ───────────────────────────── */}
       <section
-        className="py-24 overflow-hidden"
-        style={{ backgroundColor: "#f5f7fb" }}
+  className="py-16 md:py-24 overflow-hidden"
+  style={{ backgroundColor: "#f5f7fb" }}
+>
+  <div className="max-w-7xl mx-auto px-6 md:px-10">
+    {/* HEADER */}
+    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10 md:mb-14">
+      <div className="max-w-2xl">
+        <span
+          className="text-xs uppercase tracking-[0.25em]"
+          style={{ color: "var(--brand-green)" }}
+        >
+          Testimonios
+        </span>
+
+        <h2
+          className="text-2xl md:text-5xl leading-tight mt-4"
+          style={{
+            color: "var(--brand-primary)",
+            fontWeight: 700,
+          }}
+        >
+          Clínicas que ya transformaron su atención médica.
+        </h2>
+      </div>
+
+      {/* CONTROLES */}
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() =>
+            setTestimonialIndex((prev) =>
+              prev === 0 ? testimonials.length - 1 : prev - 1
+            )
+          }
+          className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white border transition-all duration-300 hover:scale-105 shadow-sm"
+          style={{
+            borderColor: "rgba(0,0,0,0.08)",
+          }}
+        >
+          <ChevronLeft
+            className="w-5 h-5 mx-auto"
+            style={{ color: "var(--brand-primary)" }}
+          />
+        </button>
+
+        <button
+          onClick={() =>
+            setTestimonialIndex((prev) =>
+              prev === testimonials.length - 1 ? 0 : prev + 1
+            )
+          }
+          className="w-12 h-12 md:w-14 md:h-14 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
+          style={{
+            backgroundColor: "var(--brand-green)",
+          }}
+        >
+          <ChevronRight className="w-5 h-5 mx-auto text-white" />
+        </button>
+      </div>
+    </div>
+
+    {/* CAROUSEL */}
+    {/* Agregamos p-2 para que las sombras de las tarjetas no se corten con el overflow */}
+    <div className="overflow-hidden p-2 -m-2"> 
+      <div
+        className="flex transition-transform duration-500 ease-out"
+        style={{
+          // Corregimos el cálculo: En mobile se mueve de 100% en 100%. 
+          // En desktop (md) cambia a 33.33% por tarjeta (asumiendo 3 visibles)
+          transform: `translateX(-${testimonialIndex * (typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 33.333)}%)`,
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          {/* HEADER */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-            <div className="max-w-2xl">
-              <span
-                className="text-xs uppercase tracking-[0.25em]"
-                style={{ color: "var(--brand-green)" }}
-              >
-                Testimonios
-              </span>
-
-              <h2
-                className="text-3xl md:text-5xl leading-tight mt-4"
-                style={{
-                  color: "var(--brand-primary)",
-                  fontWeight: 700,
-                }}
-              >
-                Clínicas que ya transformaron su atención médica.
-              </h2>
-            </div>
-
-            {/* CONTROLES */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() =>
-                  setTestimonialIndex((prev) =>
-                    prev === 0 ? testimonials.length - 1 : prev - 1,
-                  )
-                }
-                className="w-14 h-14 rounded-2xl bg-white border transition-all duration-300 hover:scale-105 shadow-sm"
-                style={{
-                  borderColor: "rgba(0,0,0,0.08)",
-                }}
-              >
-                <ChevronLeft
-                  className="w-5 h-5 mx-auto"
-                  style={{ color: "var(--brand-primary)" }}
-                />
-              </button>
-
-              <button
-                onClick={() =>
-                  setTestimonialIndex((prev) =>
-                    prev === testimonials.length - 1 ? 0 : prev + 1,
-                  )
-                }
-                className="w-14 h-14 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-                style={{
-                  backgroundColor: "var(--brand-green)",
-                }}
-              >
-                <ChevronRight className="w-5 h-5 mx-auto text-white" />
-              </button>
-            </div>
-          </div>
-
-          {/* CAROUSEL */}
-          <div className="overflow-hidden">
-            <div
-              className="flex gap-6 transition-transform duration-500 ease-out"
-              style={{
-                transform: `translateX(-${
-                  testimonialIndex * (window.innerWidth < 768 ? 100 : 34)
-                }%)`,
-              }}
-            >
-              {testimonials.map((item, index) => (
-                <div
-                  key={index}
-                  className="
-              min-w-full
-              md:min-w-[48%]
-              lg:min-w-[32%]
+        {testimonials.map((item, index) => (
+          <div
+            key={index}
+            className="
+              w-full min-w-full
+              md:w-[48%] md:min-w-[48%]
+              lg:w-[31.3%] lg:min-w-[31.3%]
               bg-white
-              rounded-[32px]
-              p-8
+              rounded-[24px] md:rounded-[32px]
+              p-6 md:p-8
               flex
               flex-col
               justify-between
@@ -942,93 +980,93 @@ export default function Nosotros() {
               hover:shadow-xl
               transition-all
               duration-300
+              mx-[1%] /* Manejamos el espaciado con porcentajes para evitar que rompa el translateX */
             "
+            style={{
+              borderColor: "rgba(0,0,0,0.06)",
+              minHeight: "380px", // Reducido un poco para mobile para evitar scroll excesivo
+            }}
+          >
+            {/* ICON */}
+            <div
+              className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-6 md:mb-8"
+              style={{
+                background:
+                  "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+              }}
+            >
+              <Quote className="w-6 h-6 md:w-7 md:h-7 text-white" />
+            </div>
+
+            {/* TEXTO */}
+            <p
+              className="text-base md:text-xl leading-relaxed mb-6 md:mb-10"
+              style={{
+                color: "var(--brand-primary)",
+                fontWeight: 400,
+              }}
+            >
+              “{item.text}”
+            </p>
+
+            {/* USER */}
+            <div className="flex items-center gap-4 mt-auto">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover transition-all duration-300 hover:scale-110 hover:ring-4 hover:ring-offset-2"
+                style={{ "--tw-ring-color": "var(--brand-green)" } as React.CSSProperties}
+              />
+
+              <div>
+                <h4
+                  className="text-lg md:text-2xl leading-none mb-1 md:mb-2"
                   style={{
-                    borderColor: "rgba(0,0,0,0.06)",
-                    minHeight: "420px",
+                    color: "var(--brand-primary)",
+                    fontWeight: 700,
                   }}
                 >
-                  {/* ICON */}
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
-                    }}
-                  >
-                    <Quote className="w-7 h-7 text-white" />
-                  </div>
+                  {item.name}
+                </h4>
 
-                  {/* TEXTO */}
-                  <p
-                    className="text-xl leading-relaxed mb-10"
-                    style={{
-                      color: "var(--brand-primary)",
-                      fontWeight: 400,
-                    }}
-                  >
-                    “{item.text}”
-                  </p>
-
-                  {/* USER */}
-                  <div className="flex items-center gap-4 mt-auto">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-16 h-16 rounded-full object-cover transition-all duration-300 hover:scale-110 hover:ring-4 hover:ring-offset-2"
-                      style={{ "--tw-ring-color": "var(--brand-green)" } as React.CSSProperties}
-                    />
-
-                    <div>
-                      <h4
-                        className="text-2xl leading-none mb-2"
-                        style={{
-                          color: "var(--brand-primary)",
-                          fontWeight: 700,
-                        }}
-                      >
-                        {item.name}
-                      </h4>
-
-                      <span
-                        className="text-lg"
-                        style={{
-                          color: "var(--brand-muted)",
-                        }}
-                      >
-                        {item.role}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                <span
+                  className="text-sm md:text-lg"
+                  style={{
+                    color: "var(--brand-muted)",
+                  }}
+                >
+                  {item.role}
+                </span>
+              </div>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
 
-          {/* DOTS */}
-          <div className="flex justify-center gap-3 mt-10">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setTestimonialIndex(index)}
-                className="transition-all duration-300 rounded-full"
-                style={{
-                  width: testimonialIndex === index ? "34px" : "10px",
-                  height: "10px",
-                  backgroundColor:
-                    testimonialIndex === index
-                      ? "var(--brand-green)"
-                      : "#cfd4dc",
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* DOTS */}
+    <div className="flex justify-center gap-3 mt-10">
+      {testimonials.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setTestimonialIndex(index)}
+          className="transition-all duration-300 rounded-full"
+          style={{
+            width: testimonialIndex === index ? "34px" : "10px",
+            height: "10px",
+            backgroundColor:
+              testimonialIndex === index
+                ? "var(--brand-green)"
+                : "#cfd4dc",
+          }}
+        />
+      ))}
+    </div>
+  </div>
+</section>
 
 {/* ── GALERÍA ESTILO EDITORIAL ───────────────────────────── */}
-{/* ── GALERÍA ───────────────────────────────────────────── */}
-{/* ── GALERÍA ───────────────────────────────────────────── */}
+
 <section className="relative py-24 bg-white overflow-hidden">
   <div className="max-w-7xl mx-auto px-6 md:px-10">
 

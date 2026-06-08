@@ -945,7 +945,7 @@ export default function App() {
                 </div>
               </div>
             </section>
-            ``` ```
+            
             {/* ── SECCIÓN: NUESTRO PROCESO (CAROUSEL) ── */}
             <section id="proceso">
               <ProcessCarousel />
@@ -1062,8 +1062,7 @@ export default function App() {
                         className="text-sm font-bold uppercase tracking-wide"
                         style={{ color: "var(--brand-green)" }}
                       >
-                        Socio estratégico líder en alergología para prácticas
-                        médicas en el sur de Florida
+                        Socio estratégico líder.
                       </span>
                     </div>
 
@@ -1087,7 +1086,7 @@ export default function App() {
                         title="Ubicación Foster Stern Group"
                         src="https://www.google.com/maps?q=7480+SW+40th+Street+Suite+850+Miami+FL+33155&output=embed"
                         width="100%"
-                        height="300"
+                        height="350"
                         loading="lazy"
                         className="w-full border-0"
                         referrerPolicy="no-referrer-when-downgrade"
@@ -1095,37 +1094,7 @@ export default function App() {
                     </div>
 
                     {/* DIRECCIÓN */}
-                    <div className="mt-5 flex items-start gap-3">
-                      <div
-                        className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ backgroundColor: "var(--brand-light)" }}
-                      >
-                        <svg
-                          viewBox="0 0 24 24"
-                          className="w-4 h-4"
-                          fill="currentColor"
-                          style={{ color: "var(--brand-green)" }}
-                        >
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                          className="text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Oficina Principal
-                        </p>
-                        <p
-                          className="text-sm leading-relaxed mt-1"
-                          style={{ color: "var(--brand-muted)" }}
-                        >
-                          7480 SW 40th Street Suite 850
-                          <br />
-                          Miami, FL 33155
-                        </p>
-                      </div>
-                    </div>
+                    
                   </div>
 
                   {/* Right Column - Form */}

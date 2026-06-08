@@ -3,17 +3,17 @@ import { useState, useRef, useEffect } from "react";
 const slides = [
   {
     id: 1,
-    imagen: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80",
+    imagen: "/Fostersterm/ClinicalSpaceFSA.webp",
     texto: "Evaluamos su práctica y diseñamos el programa de alergia a medida para su clínica.",
   },
   {
     id: 2,
-    imagen: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80",
+    imagen: "/Fostersterm/Image1.png",
     texto: "Asignamos personal entrenado en alergias que opera directamente en su consultorio.",
   },
   {
     id: 3,
-    imagen: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80",
+    imagen: "/Fostersterm/hands shaking.jpg",
     texto: "Implementamos protocolos clínicos, documentación y flujo de facturación desde el día uno.",
   },
   {
@@ -23,7 +23,7 @@ const slides = [
   },
   {
     id: 5,
-    imagen: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=80",
+    imagen: "/Fostersterm/charts.jpg",
     texto: "Monitoreamos el rendimiento del programa con reportes mensuales y optimización de resultados.",
   },
 ];

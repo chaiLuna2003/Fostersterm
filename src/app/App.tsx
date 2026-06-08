@@ -11,6 +11,7 @@ import {
   Network,
   HeartPulse,
   Sparkles,
+  ShieldCheck,
 } from "lucide-react";
 import { Routes, Route, Link } from "react-router-dom";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
@@ -92,230 +93,374 @@ export default function App() {
       <Route path="/english" element={<English />} />
       <Route
         path="/*"
-        element = {
+        element={
           <div
             className="min-h-screen bg-white overflow-x-hidden"
             style={{ fontFamily: "'Nunito Sans', sans-serif" }}
           >
             {/* ── HERO SECTION ── */}
-            
-    <header className="relative overflow-hidden overflow-x-hidden min-h-screen flex flex-col">
-      {/* Background Hero */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/Fostersterm/fam-foster-bg.png"
-          alt="Familia Foster Stern"
-          className="w-full h-full object-cover object-center"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(135deg, rgba(5, 74, 91, 0.85) 0%, rgba(5, 74, 91, 0.4) 45%, rgba(255, 255, 255, 0) 80%)"
-          }}
-        />
-      </div>
-
-      {/* ── NAVBAR ── */}
-      <Navbar />
-
-      {/* Hero Content */}
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-10 pb-6 overflow-x-hidden" style={{ paddingTop: "130px" }}>
-        <div className="w-full">
-          {/* Text content — centered on mobile/tablet, left on desktop */}
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-            <div className="flex flex-col gap-5 md:gap-6 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
-              <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full self-center lg:self-start border"
-                style={{ backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.3)" }}
-              >
-                <Sparkles className="w-4 h-4 text-white" />
-                <span className="text-sm text-white">Soluciones Médicas Innovadoras</span>
+            <header className="relative overflow-hidden overflow-x-hidden min-h-screen flex flex-col">
+              {/* Background Hero */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src="/Fostersterm/fam-foster-bg.png"
+                  alt="Familia Foster Stern"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(5, 74, 91, 0.85) 0%, rgba(5, 74, 91, 0.4) 45%, rgba(255, 255, 255, 0) 80%)",
+                  }}
+                />
               </div>
 
-              <h1
-                className="hero-title-shimmer text-4xl md:text-5xl lg:text-4xl leading-tight"
-                style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 800 }}
-              >
-                Transformando clínicas. Mejorando vidas. Revolucionando la atención de servicios de alergias e inmunoterapia.
-              </h1>
+              {/* ── NAVBAR ── */}
+              <Navbar />
 
-              <p className="text-base md:text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0" style={{ color: "rgba(255,255,255,0.88)" }}>
-                Ofrecemos soluciones integrales de alergología para tu clínica, encargándonos de todo para que puedas brindar atención integral directamente en tus instalaciones.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-start">
-                <a
-                  href="#contacto"
-                  className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
-                  style={{ backgroundColor: "var(--brand-green)" }}
-                >
-                  Solicite una consulta
-                </a>
-                <a
-                  href="#servicios"
-                  className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
-                  style={{ borderColor: "rgba(255,255,255,0.5)" }}
-                >
-                  <span className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-sm">▶</span>
-                  Ver Servicios
-                </a>
-              </div>
-            </div>
-
-            {/* Tablet: horizontal mini-cards row | Desktop: vertical cards column */}
-            <div className="hidden md:flex lg:hidden flex-row gap-4 mt-10 justify-center">
-              {/* Card 1 mini — equipo */}
+              {/* Hero Content */}
               <div
-                className="rounded-2xl p-4 flex-1 max-w-[220px] border shadow-lg"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.35)",
-                  backdropFilter: "blur(16px) saturate(150%)",
-                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
-                  borderColor: "rgba(255,255,255,0.4)",
-                }}
+                className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-10 pb-6 overflow-x-hidden"
+                style={{ paddingTop: "130px" }}
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/60 shadow-sm flex-shrink-0">
-                    <Users className="w-4 h-4" style={{ color: "var(--brand-primary)" }} />
-                  </div>
-                  <span className="text-xs font-bold leading-tight" style={{ color: "var(--brand-primary)" }}>
-                    Nuestro equipo
-                  </span>
-                </div>
-                <div className="flex items-center gap-0.5">
-                  {["CM", "LP", "AT", "PR"].map((ini) => (
-                    <div
-                      key={ini}
-                      className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold -ml-1 first:ml-0 border-2 border-white/60"
-                      style={{ backgroundColor: "var(--brand-green)" }}
-                    >
-                      {ini}
+                <div className="w-full">
+                  {/* Text content — centered on mobile/tablet, left on desktop */}
+                  <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+                    <div className="flex flex-col gap-5 md:gap-6 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+                      <div
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full self-center lg:self-start border"
+                        style={{
+                          backgroundColor: "rgba(255,255,255,0.12)",
+                          borderColor: "rgba(255,255,255,0.3)",
+                        }}
+                      >
+                        <Sparkles className="w-4 h-4 text-white" />
+                        <span className="text-sm text-white">
+                          Soluciones Médicas Innovadoras
+                        </span>
+                      </div>
+
+                      <h1
+                        className="hero-title-shimmer text-4xl md:text-5xl lg:text-4xl leading-tight"
+                        style={{
+                          fontFamily: "'Nunito Sans', sans-serif",
+                          fontWeight: 800,
+                        }}
+                      >
+                        Transformando clínicas. Mejorando vidas. Revolucionando
+                        la atención de servicios de alergias e inmunoterapia.
+                      </h1>
+
+                      <p
+                        className="text-base md:text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0"
+                        style={{ color: "rgba(255,255,255,0.88)" }}
+                      >
+                        Ofrecemos soluciones integrales de alergología para tu
+                        clínica, encargándonos de todo para que puedas brindar
+                        atención integral directamente en tus instalaciones.
+                      </p>
+
+                      <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-start">
+                        <a
+                          href="#contacto"
+                          className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
+                          style={{ backgroundColor: "var(--brand-green)" }}
+                        >
+                          Solicite una consulta
+                        </a>
+                        <a
+                          href="#servicios"
+                          className="px-8 py-4 rounded-2xl text-white text-center font-semibold border-2 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                          style={{ borderColor: "rgba(255,255,255,0.5)" }}
+                        >
+                          <span className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-sm">
+                            ▶
+                          </span>
+                          Ver Servicios
+                        </a>
+                      </div>
                     </div>
-                  ))}
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold -ml-1 border-2 border-white/60" style={{ backgroundColor: "var(--brand-primary)" }}>+</div>
-                </div>
-              </div>
 
-              {/* Card 2 mini — testimonio */}
-              <div
-                className="rounded-2xl p-4 flex-1 max-w-[260px] border shadow-lg"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.35)",
-                  backdropFilter: "blur(16px) saturate(150%)",
-                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
-                  borderColor: "rgba(255,255,255,0.4)",
-                }}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold" style={{ color: "var(--brand-primary)" }}>Testimonio reciente</span>
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs shadow-sm flex-shrink-0" style={{ backgroundColor: "var(--brand-green)" }}>★</div>
-                </div>
-                <p className="text-[11px] leading-relaxed mb-2 font-medium" style={{ color: "var(--brand-primary)" }}>
-                  "Transformamos nuestra clínica completamente. El soporte de Foster Stern es excepcional."
-                </p>
-                <div className="flex items-center gap-2 pt-1 border-t border-white/20">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0" style={{ backgroundColor: "var(--brand-primary)" }}>DM</div>
-                  <div>
-                    <p className="text-[10px] font-bold" style={{ color: "var(--brand-primary)" }}>Dr. Mendoza</p>
-                    <p className="text-[9px] opacity-70" style={{ color: "var(--brand-primary)" }}>Director Médico</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    {/* Tablet: horizontal mini-cards row | Desktop: vertical cards column */}
+                    <div className="hidden md:flex lg:hidden flex-row gap-4 mt-10 justify-center">
+                      {/* Card 1 mini — equipo */}
+                      <div
+                        className="rounded-2xl p-4 flex-1 max-w-[220px] border shadow-lg"
+                        style={{
+                          backgroundColor: "rgba(255,255,255,0.35)",
+                          backdropFilter: "blur(16px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                          borderColor: "rgba(255,255,255,0.4)",
+                        }}
+                      >
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/60 shadow-sm flex-shrink-0">
+                            <Users
+                              className="w-4 h-4"
+                              style={{ color: "var(--brand-primary)" }}
+                            />
+                          </div>
+                          <span
+                            className="text-xs font-bold leading-tight"
+                            style={{ color: "var(--brand-primary)" }}
+                          >
+                            Nuestro equipo
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-0.5">
+                          {["CM", "LP", "AT", "PR"].map((ini) => (
+                            <div
+                              key={ini}
+                              className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold -ml-1 first:ml-0 border-2 border-white/60"
+                              style={{ backgroundColor: "var(--brand-green)" }}
+                            >
+                              {ini}
+                            </div>
+                          ))}
+                          <div
+                            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold -ml-1 border-2 border-white/60"
+                            style={{ backgroundColor: "var(--brand-primary)" }}
+                          >
+                            +
+                          </div>
+                        </div>
+                      </div>
 
-            {/* Desktop only: vertical cards */}
-            <div className="hidden lg:flex flex-col gap-5 items-end">
-              <div
-                ref={heroCard1}
-                className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.4)",
-                  backdropFilter: "blur(16px) saturate(150%)",
-                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
-                  borderColor: "rgba(255, 255, 255, 0.4)",
-                }}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/60 shadow-sm">
-                    <Users className="w-5 h-5" style={{ color: "var(--brand-primary)" }} />
-                  </div>
-                  <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>
-                    Conoce a nuestro equipo
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  {["CM", "LP", "AT", "PR"].map((ini) => (
-                    <div
-                      key={ini}
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 first:ml-0 border-2 border-white/60 shadow-sm"
-                      style={{ backgroundColor: "var(--brand-green)" }}
-                    >
-                      {ini}
+                      {/* Card 2 mini — testimonio */}
+                      <div
+                        className="rounded-2xl p-4 flex-1 max-w-[260px] border shadow-lg"
+                        style={{
+                          backgroundColor: "rgba(255,255,255,0.35)",
+                          backdropFilter: "blur(16px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                          borderColor: "rgba(255,255,255,0.4)",
+                        }}
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <span
+                            className="text-xs font-bold"
+                            style={{ color: "var(--brand-primary)" }}
+                          >
+                            Testimonio reciente
+                          </span>
+                          <div
+                            className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs shadow-sm flex-shrink-0"
+                            style={{ backgroundColor: "var(--brand-green)" }}
+                          >
+                            ★
+                          </div>
+                        </div>
+                        <p
+                          className="text-[11px] leading-relaxed mb-2 font-medium"
+                          style={{ color: "var(--brand-primary)" }}
+                        >
+                          "Transformamos nuestra clínica completamente. El
+                          soporte de Foster Stern es excepcional."
+                        </p>
+                        <div className="flex items-center gap-2 pt-1 border-t border-white/20">
+                          <div
+                            className="w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0"
+                            style={{ backgroundColor: "var(--brand-primary)" }}
+                          >
+                            DM
+                          </div>
+                          <div>
+                            <p
+                              className="text-[10px] font-bold"
+                              style={{ color: "var(--brand-primary)" }}
+                            >
+                              Dr. Mendoza
+                            </p>
+                            <p
+                              className="text-[9px] opacity-70"
+                              style={{ color: "var(--brand-primary)" }}
+                            >
+                              Director Médico
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 border-2 border-white/60 shadow-sm" style={{ backgroundColor: "var(--brand-primary)" }}>+</div>
-                </div>
-              </div>
 
-              <div
-                ref={heroCard2}
-                className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.4)",
-                  backdropFilter: "blur(16px) saturate(150%)",
-                  WebkitBackdropFilter: "blur(16px) saturate(150%)",
-                  borderColor: "rgba(255, 255, 255, 0.4)",
-                }}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-bold" style={{ color: "var(--brand-primary)" }}>Testimonio reciente</span>
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs shadow-sm" style={{ backgroundColor: "var(--brand-green)" }}>★</div>
-                </div>
-                <p className="text-xs leading-relaxed mb-3 font-medium" style={{ color: "var(--brand-primary)" }}>
-                  "Transformamos nuestra clínica completamente. El soporte de Foster Stern es excepcional."
-                </p>
-                <div className="flex items-center gap-2 pt-1 border-t border-white/20">
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm" style={{ backgroundColor: "var(--brand-primary)" }}>DM</div>
-                  <div>
-                    <p className="text-xs font-bold" style={{ color: "var(--brand-primary)" }}>Dr. Mendoza</p>
-                    <p className="text-[10px] opacity-80" style={{ color: "var(--brand-primary)" }}>Director Médico</p>
+                    {/* Desktop only: vertical cards */}
+                    <div className="hidden lg:flex flex-col gap-5 items-end">
+                      <div
+                        ref={heroCard1}
+                        className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
+                        style={{
+                          backgroundColor: "rgba(255, 255, 255, 0.4)",
+                          backdropFilter: "blur(16px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                          borderColor: "rgba(255, 255, 255, 0.4)",
+                        }}
+                      >
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/60 shadow-sm">
+                            <Users
+                              className="w-5 h-5"
+                              style={{ color: "var(--brand-primary)" }}
+                            />
+                          </div>
+                          <span
+                            className="text-sm font-bold"
+                            style={{ color: "var(--brand-primary)" }}
+                          >
+                            Conoce a nuestro equipo
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          {["CM", "LP", "AT", "PR"].map((ini) => (
+                            <div
+                              key={ini}
+                              className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 first:ml-0 border-2 border-white/60 shadow-sm"
+                              style={{ backgroundColor: "var(--brand-green)" }}
+                            >
+                              {ini}
+                            </div>
+                          ))}
+                          <div
+                            className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -ml-1 border-2 border-white/60 shadow-sm"
+                            style={{ backgroundColor: "var(--brand-primary)" }}
+                          >
+                            +
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        ref={heroCard2}
+                        className="fade-in rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] w-72 border transition-all duration-300 hover:scale-[1.02]"
+                        style={{
+                          backgroundColor: "rgba(255, 255, 255, 0.4)",
+                          backdropFilter: "blur(16px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(16px) saturate(150%)",
+                          borderColor: "rgba(255, 255, 255, 0.4)",
+                        }}
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <span
+                            className="text-sm font-bold"
+                            style={{ color: "var(--brand-primary)" }}
+                          >
+                            Testimonio reciente
+                          </span>
+                          <div
+                            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs shadow-sm"
+                            style={{ backgroundColor: "var(--brand-green)" }}
+                          >
+                            ★
+                          </div>
+                        </div>
+                        <p
+                          className="text-xs leading-relaxed mb-3 font-medium"
+                          style={{ color: "var(--brand-primary)" }}
+                        >
+                          "Transformamos nuestra clínica completamente. El
+                          soporte de Foster Stern es excepcional."
+                        </p>
+                        <div className="flex items-center gap-2 pt-1 border-t border-white/20">
+                          <div
+                            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm"
+                            style={{ backgroundColor: "var(--brand-primary)" }}
+                          >
+                            DM
+                          </div>
+                          <div>
+                            <p
+                              className="text-xs font-bold"
+                              style={{ color: "var(--brand-primary)" }}
+                            >
+                              Dr. Mendoza
+                            </p>
+                            <p
+                              className="text-[10px] opacity-80"
+                              style={{ color: "var(--brand-primary)" }}
+                            >
+                              Director Médico
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Bottom Floating Info Bar */}
-      <div className="relative z-10 w-full">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 pb-8">
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl px-4 md:px-8 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xl">
-            {[
-              { icon: <Shield className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Nueva Fuente de Ingresos", desc: "Genere ingresos adicionales con servicios de alergia dentro de su práctica." },
-              { icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Personal Asignado a su Clínica", desc: "Ponemos personal entrenado en alergias directamente en su consultorio." },
-              { icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />, title: "Soporte Operativo Completo", desc: "Facturación, documentación y protocolos clínicos incluidos." },
-            ].map((item, i) => (
-              <div key={i} className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""} ${i > 0 ? "pt-4 md:pt-0 border-t md:border-t-0 border-gray-100" : ""}`}>
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
-                  {item.icon}
-                </div>
-                <div>
-                  <p className="font-bold text-sm mb-1" style={{ color: "var(--brand-primary)" }}>{item.title}</p>
-                  <p className="text-xs leading-relaxed" style={{ color: "var(--brand-muted)" }}>{item.desc}</p>
+              {/* Bottom Floating Info Bar */}
+              <div className="relative z-10 w-full">
+                <div className="max-w-7xl mx-auto px-4 md:px-6 pb-8">
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl px-4 md:px-8 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xl">
+                    {[
+                      {
+                        icon: (
+                          <Shield
+                            className="w-6 h-6"
+                            style={{ color: "var(--brand-green)" }}
+                          />
+                        ),
+                        title: "Nueva Fuente de Ingresos",
+                        desc: "Genere ingresos adicionales con servicios de alergia dentro de su práctica.",
+                      },
+                      {
+                        icon: (
+                          <Users
+                            className="w-6 h-6"
+                            style={{ color: "var(--brand-green)" }}
+                          />
+                        ),
+                        title: "Personal Asignado a su Clínica",
+                        desc: "Ponemos personal entrenado en alergias directamente en su consultorio.",
+                      },
+                      {
+                        icon: (
+                          <HeartPulse
+                            className="w-6 h-6"
+                            style={{ color: "var(--brand-green)" }}
+                          />
+                        ),
+                        title: "Soporte Operativo Completo",
+                        desc: "Facturación, documentación y protocolos clínicos incluidos.",
+                      },
+                    ].map((item, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""} ${i > 0 ? "pt-4 md:pt-0 border-t md:border-t-0 border-gray-100" : ""}`}
+                      >
+                        <div
+                          className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: "var(--brand-light)" }}
+                        >
+                          {item.icon}
+                        </div>
+                        <div>
+                          <p
+                            className="font-bold text-sm mb-1"
+                            style={{ color: "var(--brand-primary)" }}
+                          >
+                            {item.title}
+                          </p>
+                          <p
+                            className="text-xs leading-relaxed"
+                            style={{ color: "var(--brand-muted)" }}
+                          >
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </header>
-
+            </header>
             {/* ── SECCIÓN: FOCUSED ALLERGY SOLUTIONS ── */}
             <section className="py-16 md:py-20 bg-white overflow-hidden">
               <div className="max-w-7xl mx-auto px-6 md:px-10">
                 <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-12">
-                  <div ref={focusedImg} className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg">
+                  <div
+                    ref={focusedImg}
+                    className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
+                  >
                     <img
                       src="/Fostersterm/chartUp.webp"
                       alt="Médico revisando paciente con alergia"
@@ -328,13 +473,24 @@ export default function App() {
                     <h2
                       ref={focusedTitle}
                       className="fade-in text-4xl md:text-5xl leading-tight"
-                      style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 700, color: "var(--brand-green)" }}
+                      style={{
+                        fontFamily: "'Nunito Sans', sans-serif",
+                        fontWeight: 700,
+                        color: "var(--brand-green)",
+                      }}
                     >
                       Su Clínica Merece una Oportunidad de Crecimiento Real
                     </h2>
 
-                    <p className="text-xl font-semibold" style={{ color: "var(--brand-primary)", fontFamily: "'Nunito Sans', sans-serif" }}>
-                      Muchas prácticas médicas pierden ingresos por no ofrecer servicios de alergia in-house:
+                    <p
+                      className="text-xl font-semibold"
+                      style={{
+                        color: "var(--brand-primary)",
+                        fontFamily: "'Nunito Sans', sans-serif",
+                      }}
+                    >
+                      Muchas prácticas médicas pierden ingresos por no ofrecer
+                      servicios de alergia in-house:
                     </p>
 
                     <ul ref={focusedList} className="fade-in space-y-4">
@@ -347,11 +503,23 @@ export default function App() {
                         <li key={i} className="flex items-start gap-4">
                           <div
                             className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                            style={{ backgroundColor: "var(--brand-light)", border: "1.5px solid var(--brand-green)" }}
+                            style={{
+                              backgroundColor: "var(--brand-light)",
+                              border: "1.5px solid var(--brand-green)",
+                            }}
                           >
-                            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--brand-green)" }} />
+                            <span
+                              className="w-2 h-2 rounded-full"
+                              style={{ backgroundColor: "var(--brand-green)" }}
+                            />
                           </div>
-                          <span className="text-base leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Nunito Sans', sans-serif" }}>
+                          <span
+                            className="text-base leading-relaxed"
+                            style={{
+                              color: "var(--brand-muted)",
+                              fontFamily: "'Nunito Sans', sans-serif",
+                            }}
+                          >
                             {item}
                           </span>
                         </li>
@@ -361,71 +529,110 @@ export default function App() {
                 </div>
               </div>
             </section>
-
             <section className="py-16 md:py-20 bg-white">
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-                  <div ref={howImg} className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[400px] lg:h-[480px] group">
+                  <div
+                    ref={howImg}
+                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[300px] lg:h-[680px] group"
+                  >
                     <img
-                      src="/Fostersterm/ClinicalSpaceFSA.webp"
+                      src="/Fostersterm/image3.png"
                       alt="Grafica con estadisticas altas."
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
                     <div
                       className="absolute bottom-0 left-0 right-0 h-24"
-                      style={{ background: "linear-gradient(to top, rgba(5,74,91,0.88), transparent)" }}
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(5,74,91,0.88), transparent)",
+                      }}
                     />
                   </div>
 
-                  <div ref={howContent} className="fade-in from-right flex flex-col gap-8">
+                  <div
+                    ref={howContent}
+                    className="fade-in from-right flex flex-col gap-8"
+                  >
                     <div>
-                      <h2 className="text-4xl md:text-5xl mb-3" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
+                      <h2
+                        className="text-4xl md:text-5xl mb-3"
+                        style={{
+                          fontFamily: "'Nunito Sans', sans-serif",
+                          color: "var(--brand-primary)",
+                        }}
+                      >
                         ¿Cómo Funciona la Alianza?
                       </h2>
-                      <p className="text-lg font-semibold" style={{ color: "var(--brand-green)" }}>
+                      <p
+                        className="text-lg font-semibold"
+                        style={{ color: "var(--brand-green)" }}
+                      >
                         Su éxito en alergología es nuestro compromiso.
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {[
                         {
-                          icon: <Network className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
-                          title: "Integración sin fricciones",
-                          desc: "Nos adaptamos a su flujo operativo. Sin reestructuración ni interrupciones.",
-                          link: "Conocer el proceso",
-                        },
-                        {
-                          icon: <Users className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
+                          icon: (
+                            <Users
+                              className="w-6 h-6"
+                              style={{ color: "var(--brand-green)" }}
+                            />
+                          ),
                           title: "Personal especializado en su clínica",
                           desc: "Asignamos especialistas directamente en sus instalaciones, coordinados con su agenda.",
-                          link: "Nuestro equipo",
                         },
                         {
-                          icon: <ClipboardList className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
+                          icon: (
+                            <ClipboardList
+                              className="w-6 h-6"
+                              style={{ color: "var(--brand-green)" }}
+                            />
+                          ),
                           title: "Facturación y documentación incluidas",
                           desc: "Gestionamos la documentación clínica y la facturación sin carga adicional para su equipo.",
-                          link: "Ver protocolos",
                         },
                         {
-                          icon: <HeartPulse className="w-6 h-6" style={{ color: "var(--brand-green)" }} />,
+                          icon: (
+                            <HeartPulse
+                              className="w-6 h-6"
+                              style={{ color: "var(--brand-green)" }}
+                            />
+                          ),
                           title: "Reportes periódicos de rendimiento",
                           desc: "Informes de desempeño del programa. Monitoreamos el éxito juntos, como socios estratégicos.",
-                          link: "Ver soporte",
                         },
                       ].map((item) => (
                         <div key={item.title} className="flex flex-col gap-2">
-                          <div className="w-12 h-12 rounded-full flex items-center justify-center mb-1" style={{ backgroundColor: "var(--brand-light)" }}>
+                          <div
+                            className="w-12 h-12 rounded-full flex items-center justify-center mb-1"
+                            style={{ backgroundColor: "var(--brand-light)" }}
+                          >
                             {item.icon}
                           </div>
-                          <h3 className="text-lg font-bold" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
+                          <h3
+                            className="text-lg font-bold"
+                            style={{
+                              fontFamily: "'Nunito Sans', sans-serif",
+                              color: "var(--brand-primary)",
+                            }}
+                          >
                             {item.title}
                           </h3>
-                          <p className="text-base leading-relaxed" style={{ color: "var(--brand-muted)" }}>
+                          <p
+                            className="text-base leading-relaxed"
+                            style={{ color: "var(--brand-muted)" }}
+                          >
                             {item.desc}
                           </p>
-                          <a href="#contacto" className="text-sm font-semibold underline underline-offset-2 mt-1 hover:opacity-70 transition-opacity" style={{ color: "var(--brand-green)" }}>
+                          <a
+                            href="#contacto"
+                            className="text-sm font-semibold underline underline-offset-2 mt-1 hover:opacity-70 transition-opacity"
+                            style={{ color: "var(--brand-green)" }}
+                          >
                             {item.link}
                           </a>
                         </div>
@@ -435,23 +642,62 @@ export default function App() {
                 </div>
               </div>
             </section>
-
-            <section id="servicios" className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
+            <section
+              id="servicios"
+              className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50"
+            >
               <div className="max-w-7xl mx-auto px-6">
-                <div ref={svcTitle} className="fade-in text-center mb-12 md:mb-16">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
+                <div
+                  ref={svcTitle}
+                  className="fade-in text-center mb-12 md:mb-16"
+                >
+                  <h2
+                    className="text-3xl md:text-4xl lg:text-5xl mb-4"
+                    style={{
+                      fontFamily: "'Nunito Sans', sans-serif",
+                      color: "var(--brand-primary)",
+                    }}
+                  >
                     Un Socio Estratégico, No Un Proveedor Más
                   </h2>
-                  <p className="text-xl md:text-2xl" style={{ color: "var(--brand-muted)" }}>
-                    Transformamos la atención al paciente en una oportunidad de crecimiento para su práctica
+                  <p
+                    className="text-xl md:text-2xl"
+                    style={{ color: "var(--brand-muted)" }}
+                  >
+                    Transformamos la atención al paciente en una oportunidad de
+                    crecimiento para su práctica
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {[
-                    { ref: svcCard1, icon: <Microscope className="w-8 h-8 text-white" />, title: "Implementación del Programa de Alergia", desc: "Diseñamos e implementamos pruebas e inmunoterapia en su clínica, con protocolos alineados a las mejores prácticas.", p1: "Pruebas e inmunoterapia in-house", p2: "Protocolos estandarizados", p3: "Implementación rápida y sin fricción" },
-                    { ref: svcCard2, icon: <FlaskConical className="w-8 h-8 text-white" />, title: "Personal Especializado en su Clínica", desc: "Asignamos personal clínico en alergias directamente en sus instalaciones, coordinado con su agenda. Usted no gestiona, usted crece.", p1: "Especialistas en alergias en su consultorio", p2: "Sin contratar ni capacitar staff", p3: "Presencia puntual y profesional" },
-                    { ref: svcCard3, icon: <Syringe className="w-8 h-8 text-white" />, title: "Facturación y Soporte Operativo Total", desc: "Gestionamos la facturación y documentación de los servicios de alergia. Su equipo se enfoca en la atención; nosotros en la operación.", p1: "Gestión completa de facturación", p2: "Documentación y cumplimiento normativo", p3: "Reportes periódicos de rendimiento" }
+                    {
+                      ref: svcCard1,
+                      icon: <Microscope className="w-8 h-8 text-white" />,
+                      title: "Implementación del Programa de Alergia",
+                      desc: "Diseñamos e implementamos pruebas e inmunoterapia en su clínica, con protocolos alineados a las mejores prácticas.",
+                      p1: "Pruebas e inmunoterapia in-house",
+                      p2: "Protocolos estandarizados",
+                      p3: "Implementación rápida y sin fricción",
+                    },
+                    {
+                      ref: svcCard2,
+                      icon: <FlaskConical className="w-8 h-8 text-white" />,
+                      title: "Personal Especializado en su Clínica",
+                      desc: "Asignamos personal clínico en alergias directamente en sus instalaciones, coordinado con su agenda. Usted no gestiona, usted crece.",
+                      p1: "Especialistas en alergias en su consultorio",
+                      p2: "Sin contratar ni capacitar staff",
+                      p3: "Presencia puntual y profesional",
+                    },
+                    {
+                      ref: svcCard3,
+                      icon: <Syringe className="w-8 h-8 text-white" />,
+                      title: "Facturación y Soporte Operativo Total",
+                      desc: "Gestionamos la facturación y documentación de los servicios de alergia. Su equipo se enfoca en la atención; nosotros en la operación.",
+                      p1: "Gestión completa de facturación",
+                      p2: "Documentación y cumplimiento normativo",
+                      p3: "Reportes periódicos de rendimiento",
+                    },
                   ].map((card, idx) => (
                     <div
                       key={idx}
@@ -464,7 +710,13 @@ export default function App() {
                         <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
                           {card.icon}
                         </div>
-                        <h3 className="text-2xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "#ffffff" }}>
+                        <h3
+                          className="text-2xl mb-4"
+                          style={{
+                            fontFamily: "'Nunito Sans', sans-serif",
+                            color: "#ffffff",
+                          }}
+                        >
                           {card.title}
                         </h3>
                         <p className="mb-6 leading-relaxed text-lg text-white/85">
@@ -474,7 +726,9 @@ export default function App() {
                           {[card.p1, card.p2, card.p3].map((txt, i) => (
                             <li key={i} className="flex items-start gap-3">
                               <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
-                              <span className="font-semibold text-white/90">{txt}</span>
+                              <span className="font-semibold text-white/90">
+                                {txt}
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -484,64 +738,220 @@ export default function App() {
                 </div>
               </div>
             </section>
-
-            <section id="beneficios" className="py-16 md:py-20 bg-white">
+            {/* Beneficios*/}
+            <section id="beneficios" className="py-20 lg:py-28 bg-white">
               <div className="max-w-7xl mx-auto px-6">
-                <div ref={benefitsTitle} className="fade-in text-center mb-12 md:mb-16">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
-                    ¿Por Qué Las Clínicas Eligen Asociarse Con Nosotros?
+                {/* HEADER */}
+                <div
+                  ref={benefitsTitle}
+                  className="fade-in max-w-3xl mb-14 lg:mb-20"
+                >
+                  <span
+                    className="text-sm font-semibold tracking-[0.2em] uppercase"
+                    style={{ color: "var(--brand-green)" }}
+                  >
+                    Beneficios para clínicas
+                  </span>
+
+                  <h2
+                    className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
+                    style={{
+                      fontFamily: "'Nunito Sans', sans-serif",
+                      color: "var(--brand-primary)",
+                    }}
+                  >
+                    Un programa de alergias diseñado para hacer crecer su
+                    práctica médica.
                   </h2>
-                  <p className="text-xl md:text-2xl" style={{ color: "var(--brand-muted)" }}>
-                    Su éxito en servicios de alergia es nuestro compromiso
+
+                  <p
+                    className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed"
+                    style={{ color: "var(--brand-muted)" }}
+                  >
+                    Implementamos un sistema integral de servicios de alergia
+                    directamente en su clínica, sin complejidad operativa ni
+                    costos iniciales.
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-                  <div ref={benefitsLeft} className="fade-in from-left space-y-6">
-                    {[
-                      { icon: <Shield className="w-6 h-6 text-[var(--brand-green)]" />, title: "Nueva Fuente de Ingresos", desc: "Integre servicios de alergia y capture ingresos que antes se perdían en derivaciones externas." },
-                      { icon: <Users className="w-6 h-6 text-[var(--brand-green)]" />, title: "Personal Especializado, Sin Costo de Contratación", desc: "Foster Stern asigna personal entrenado en su clínica. Más capacidad clínica, sin gestión de nuevo personal." }
-                    ].map((b, i) => (
-                      <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
-                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
-                        <div>
-                          <h4 className="text-xl font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
-                          <p className="text-base" style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
+                {/* GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                  {[
+                    {
+                      number: "01",
+                      title: "Sin inversión inicial",
+                      desc: "No se requiere capital para implementar el programa de sensibilidad a alergias en su consultorio.",
+                    },
+                    {
+                      number: "02",
+                      title: "Sin carga adicional para su equipo",
+                      desc: "Nuestro personal especializado gestiona verificaciones de seguros, pruebas de alergia e inmunoterapia.",
+                    },
+                    {
+                      number: "03",
+                      title: "Ingresos adicionales mensuales",
+                      desc: "Integre nuevos servicios médicos y genere ingresos recurrentes para su práctica.",
+                    },
+                    {
+                      number: "04",
+                      title: "Mayor retención de pacientes",
+                      desc: "Evite derivaciones externas y mantenga más pacientes dentro de su propia clínica.",
+                    },
+                    {
+                      number: "05",
+                      title: "Cobertura respaldada por aseguradoras",
+                      desc: "Las compañías de seguros ya cubren este tipo de servicios, facilitando la implementación y rentabilidad.",
+                    },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="group border-b border-neutral-200 pb-8"
+                    >
+                      <div className="flex items-start gap-5">
+                        {/* NUMBER */}
+                        <div
+                          className="text-sm font-bold mt-1"
+                          style={{ color: "var(--brand-green)" }}
+                        >
+                          {item.number}
                         </div>
-                      </div>
-                    ))}
-                  </div>
 
-                  <div ref={benefitsRight} className="fade-in from-right space-y-6">
-                    {[
-                      { icon: <Clock className="w-6 h-6 text-[var(--brand-green)]" />, title: "Mayor Retención de Pacientes", desc: "Ofrezca un servicio completo en su práctica. Sus pacientes no necesitan acudir a otro proveedor." },
-                      { icon: <ArrowRight className="w-6 h-6 text-[var(--brand-green)]" />, title: "Facturación y Documentación a Nuestro Cargo", desc: "Gestionamos el proceso completo de facturación y documentación. Estructura de precios transparente y sin carga administrativa." }
-                    ].map((b, i) => (
-                      <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
-                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
+                        {/* CONTENT */}
                         <div>
-                          <h4 className="text-xl font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
-                          <p className="text-base" style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
+                          <h3
+                            className="text-2xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                            style={{ color: "var(--brand-primary)" }}
+                          >
+                            {item.title}
+                          </h3>
+
+                          <p
+                            className="text-base leading-relaxed max-w-lg"
+                            style={{ color: "var(--brand-muted)" }}
+                          >
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </section>
-
+            ```
             {/* ── SECCIÓN: CASOS DE ÉXITO (CAROUSEL) ── */}
             <section id="casos">
-                <CasosCarousel />
+              <CasosCarousel />
             </section>
+            <section
+              id="beneficios-pacientes"
+              className="py-20 lg:py-28 bg-white"
+            >
+              <div className="max-w-7xl mx-auto px-6">
+                {/* HEADER */}
+                <div
+                  ref={benefitsTitle}
+                  className="fade-in max-w-3xl ml-auto text-right mb-14 lg:mb-20"
+                >
+                  <span
+                    className="text-sm font-semibold tracking-widest uppercase"
+                    style={{ color: "var(--brand-green)" }}
+                  >
+                    Beneficios para los pacientes
+                  </span>
 
+                  <h2
+                    className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
+                    style={{
+                      fontFamily: "'Nunito Sans', sans-serif",
+                      color: "var(--brand-primary)",
+                    }}
+                  >
+                    Atención especializada en alergias, más accesible y
+                    efectiva.
+                  </h2>
+
+                  <p
+                    className="text-lg md:text-xl mt-6 max-w-2xl ml-auto leading-relaxed"
+                    style={{ color: "var(--brand-muted)" }}
+                  >
+                    Nuestro programa permite que los pacientes reciban pruebas y
+                    tratamientos de alergia directamente en la misma clínica
+                    donde ya reciben atención médica.
+                  </p>
+                </div>
+
+                {/* GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                  {[
+                    {
+                      number: "01",
+                      title: "Pruebas rápidas y seguras",
+                      desc: "La prueba de alergias es segura, rápida y práctica para los pacientes.",
+                    },
+                    {
+                      number: "02",
+                      title: "Mejor calidad de vida",
+                      desc: "La inmunoterapia fortalece la respuesta del sistema inmunológico frente a la mayoría de los alérgenos.",
+                    },
+                    {
+                      number: "03",
+                      title: "Tratamiento de la causa real",
+                      desc: "Se trata la causa específica de la enfermedad alérgica en lugar de solo ocultar los síntomas.",
+                    },
+                    {
+                      number: "04",
+                      title: "Más servicios en una sola clínica",
+                      desc: "Los pacientes reciben atención integral y más servicios médicos en el mismo lugar.",
+                    },
+                    {
+                      number: "05",
+                      title: "Cobertura por aseguradoras",
+                      desc: "La mayoría de las compañías de seguros cubren tratamientos de inmunoterapia.",
+                    },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="group border-b border-neutral-200 pb-8"
+                    >
+                      <div className="flex items-start gap-5">
+                        {/* NUMBER */}
+                        <div
+                          className="text-sm font-bold mt-1"
+                          style={{ color: "var(--brand-green)" }}
+                        >
+                          {item.number}
+                        </div>
+
+                        {/* CONTENT */}
+                        <div>
+                          <h3
+                            className="text-2xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                            style={{ color: "var(--brand-primary)" }}
+                          >
+                            {item.title}
+                          </h3>
+
+                          <p
+                            className="text-base leading-relaxed max-w-lg"
+                            style={{ color: "var(--brand-muted)" }}
+                          >
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+            ``` ```
             {/* ── SECCIÓN: NUESTRO PROCESO (CAROUSEL) ── */}
             <section id="proceso">
-                <ProcessCarousel />
+              <ProcessCarousel />
             </section>
-
             {/* ── SECCIÓN: FAQ ── */}
-             <section id="faq" className="py-20 bg-white">
+            <section id="faq" className="py-20 bg-white">
               <div className="max-w-4xl mx-auto px-6">
                 <div ref={faqTitle} className="fade-in text-center mb-16">
                   <h2
@@ -597,22 +1007,31 @@ export default function App() {
                     question="¿Cómo beneficia este programa financieramente a la clínica?"
                     answer="El programa permite a la clínica ofrecer un servicio adicional dentro de su práctica, mejorar la retención de pacientes y crear una nueva fuente de ingresos. Al integrar servicios de alergia, la práctica puede ampliar su alcance clínico mientras genera oportunidades financieras sostenibles mediante servicios médicamente necesarios y debidamente documentados."
                   />
-
                 </div>
               </div>
             </section>
-
             {/* ── SECCIÓN: CALL TO ACTION (CTA) ── */}
-            <section ref={ctaBlock} className="fade-in py-16 bg-gradient-to-r from-[#054A5B] to-[#008154] text-white text-center">
+            <section
+              ref={ctaBlock}
+              className="fade-in py-16 bg-gradient-to-r from-[#054A5B] to-[#008154] text-white text-center"
+            >
               <div className="max-w-4xl mx-auto px-6">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">Convierta su Clínica en un Centro de Referencia en Alergología</h2>
-                <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">Foster Stern es el socio estratégico que necesita para integrar servicios de alergia, generar nuevos ingresos y mejorar la atención a sus pacientes.</p>
-                <a href="#contacto" className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition-colors">Agendar una Consulta con nuestro Equipo</a>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                  Lleve servicios especializados de alergia directamente a su clínica.
+                </h2>
+                <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+                  Implementamos laboratorios completos de alergias, proporcionamos personal especializado y ayudamos a que su práctica ofrezca más servicios médicos en un solo lugar.
+                </p>
+                <a
+                  href="#contacto"
+                  className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition-colors"
+                >
+                  Agendar una Consulta con nuestro Equipo
+                </a>
               </div>
             </section>
-
             {/* ── SECCIÓN: CONTACTO ── */}
-             <section
+            <section
               id="contacto"
               className="py-20 bg-gradient-to-b from-gray-50 to-white"
             >
@@ -643,7 +1062,8 @@ export default function App() {
                         className="text-sm font-bold uppercase tracking-wide"
                         style={{ color: "var(--brand-green)" }}
                       >
-                        Socio estratégico líder en alergología para prácticas médicas en el sur de Florida
+                        Socio estratégico líder en alergología para prácticas
+                        médicas en el sur de Florida
                       </span>
                     </div>
 
@@ -651,7 +1071,11 @@ export default function App() {
                       className="text-lg mb-8 leading-relaxed"
                       style={{ color: "var(--brand-muted)" }}
                     >
-                      Asóciese con Foster Stern Allergy Division y transforme su clínica en un centro de referencia en alergología. Implementamos el programa completo — personal, protocolos, facturación y documentación — para que usted solo se enfoque en crecer.
+                      Asóciese con Foster Stern Allergy Division y transforme su
+                      clínica en un centro de referencia en alergología.
+                      Implementamos el programa completo — personal, protocolos,
+                      facturación y documentación — para que usted solo se
+                      enfoque en crecer.
                     </p>
 
                     {/* MAPA */}
@@ -820,7 +1244,6 @@ export default function App() {
                 </div>
               </div>
             </section>
-            
             <footer
               className="bg-white border-t"
               style={{ borderColor: "var(--brand-secondary)" }}

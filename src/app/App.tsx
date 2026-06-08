@@ -20,6 +20,7 @@ import { MobileMenu } from "./components/MobileMenu";
 import { Navbar } from "./components/Navbar";
 import { CasosCarousel } from "./components/CasosCarousel";
 import { ProcessCarousel } from "./components/ProcessCarousel";
+import { ContactForm } from "./components/ContactForm";
 import Blog from "./pages/blog";
 import Nosotros from "./pages/Nosotros";
 import English from "./pages/English";
@@ -66,10 +67,14 @@ export default function App() {
   const focusedTitle = useFadeIn("left");
   const focusedList = useFadeIn("left");
 
-  // Benefits
+  // Benefits — clínicas
   const benefitsTitle = useFadeIn();
   const benefitsLeft = useFadeIn("left");
   const benefitsRight = useFadeIn("right");
+
+  // Benefits — pacientes (needs its own ref — same ref causes observer.disconnect() to fire once)
+  const benefitsPatientsTitle = useFadeIn();
+  const benefitsPatientsGrid = useFadeIn();
 
   // FAQ
   const faqTitle = useFadeIn();
@@ -95,7 +100,7 @@ export default function App() {
         path="/*"
         element={
           <div
-            className="min-h-screen bg-white overflow-x-hidden"
+            className="min-h-screen bg-white overflow-x-hidden w-full"
             style={{ fontFamily: "'Nunito Sans', sans-serif" }}
           >
             {/* ── HERO SECTION ── */}
@@ -122,7 +127,7 @@ export default function App() {
               {/* Hero Content */}
               <div
                 className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto w-full px-4 md:px-10 pb-6 overflow-x-hidden"
-                style={{ paddingTop: "130px" }}
+                style={{ paddingTop: "clamp(100px, 15vw, 140px)" }}
               >
                 <div className="w-full">
                   {/* Text content — centered on mobile/tablet, left on desktop */}
@@ -142,7 +147,7 @@ export default function App() {
                       </div>
 
                       <h1
-                        className="hero-title-shimmer text-4xl md:text-5xl lg:text-4xl leading-tight"
+                        className="hero-title-shimmer text-4xl md:text-5xl lg:text-5xl leading-tight"
                         style={{
                           fontFamily: "'Nunito Sans', sans-serif",
                           fontWeight: 800,
@@ -425,7 +430,7 @@ export default function App() {
                     ].map((item, i) => (
                       <div
                         key={i}
-                        className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""} ${i > 0 ? "pt-4 md:pt-0 border-t md:border-t-0 border-gray-100" : ""}`}
+                        className={`flex items-start gap-4 ${i < 2 ? "md:border-r border-gray-200 md:pr-6" : ""} ${i > 0 ? "pt-5 md:pt-0 border-t md:border-t-0 border-gray-100" : ""}`}
                       >
                         <div
                           className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -456,7 +461,7 @@ export default function App() {
             {/* ── SECCIÓN: FOCUSED ALLERGY SOLUTIONS ── */}
             <section className="py-16 md:py-20 bg-white overflow-hidden">
               <div className="max-w-7xl mx-auto px-6 md:px-10">
-                <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-12">
+                <div className="flex flex-col md:flex-row-reverse items-start md:items-center gap-10 md:gap-12">
                   <div
                     ref={focusedImg}
                     className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
@@ -534,7 +539,7 @@ export default function App() {
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
                   <div
                     ref={howImg}
-                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[320px] md:h-[300px] lg:h-[680px] group"
+                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] md:h-[420px] lg:h-[560px] group"
                   >
                     <img
                       src="/Fostersterm/image3.png"
@@ -669,7 +674,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                   {[
                     {
                       ref: svcCard1,
@@ -702,7 +707,7 @@ export default function App() {
                     <div
                       key={idx}
                       ref={card.ref}
-                      className={`fade-in delay-1 group relative overflow-hidden rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-600 hover:-translate-y-2 ${idx === 2 ? "md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto md:w-full lg:max-w-none" : ""}`}
+                      className="fade-in delay-1 group relative overflow-hidden rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-600 hover:-translate-y-2"
                       style={{ backgroundColor: "#054A5B" }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -838,7 +843,6 @@ export default function App() {
                 </div>
               </div>
             </section>
-            ```
             {/* ── SECCIÓN: CASOS DE ÉXITO (CAROUSEL) ── */}
             <section id="casos">
               <CasosCarousel />
@@ -850,8 +854,8 @@ export default function App() {
               <div className="max-w-7xl mx-auto px-6">
                 {/* HEADER */}
                 <div
-                  ref={benefitsTitle}
-                  className="fade-in max-w-3xl ml-auto text-right mb-14 lg:mb-20"
+                  ref={benefitsPatientsTitle}
+                  className="fade-in max-w-3xl md:ml-auto md:text-right mb-14 lg:mb-20"
                 >
                   <span
                     className="text-sm font-semibold tracking-widest uppercase"
@@ -882,7 +886,7 @@ export default function App() {
                 </div>
 
                 {/* GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                <div ref={benefitsPatientsGrid} className="fade-in grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                   {[
                     {
                       number: "01",
@@ -1016,7 +1020,7 @@ export default function App() {
               className="fade-in py-16 bg-gradient-to-r from-[#054A5B] to-[#008154] text-white text-center"
             >
               <div className="max-w-4xl mx-auto px-6">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                   Lleve servicios especializados de alergia directamente a su clínica.
                 </h2>
                 <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
@@ -1036,7 +1040,7 @@ export default function App() {
               className="py-20 bg-gradient-to-b from-gray-50 to-white"
             >
               <div className="max-w-6xl mx-auto px-6">
-                <div className="grid md:grid-cols-2 gap-12 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
                   {/* Left Column - Info */}
                   <div>
                     <h2
@@ -1098,118 +1102,7 @@ export default function App() {
                   </div>
 
                   {/* Right Column - Form */}
-                  <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 border border-gray-200 shadow-lg">
-                    <form className="space-y-5">
-                      <div>
-                        <label
-                          className="block mb-1.5 text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Nombre de la Clínica
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
-                          placeholder="Escriba el nombre de su clínica"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          className="block mb-1.5 text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Nombre Completo del Contacto
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
-                          placeholder="Escriba su nombre completo"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          className="block mb-1.5 text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Teléfono Directo
-                        </label>
-                        <input
-                          type="tel"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
-                          placeholder="Escriba su teléfono directo"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          className="block mb-1.5 text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Correo Electrónico
-                        </label>
-                        <input
-                          type="email"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
-                          placeholder="Escriba su correo electrónico"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          className="block mb-1.5 text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Dirección
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
-                          placeholder="Escriba su dirección aquí"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          className="block mb-1.5 text-sm font-semibold"
-                          style={{ color: "var(--brand-primary)" }}
-                        >
-                          Especialidad
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50"
-                          placeholder="Escriba su especialidad aquí"
-                        />
-                      </div>
-
-                      {/* Checkbox */}
-                      <div className="flex items-start gap-3 pt-1">
-                        <input
-                          type="checkbox"
-                          id="consent"
-                          className="mt-1 w-4 h-4 flex-shrink-0 rounded border-gray-300 accent-[var(--brand-green)]"
-                        />
-                        <label
-                          htmlFor="consent"
-                          className="text-sm leading-relaxed cursor-pointer"
-                          style={{ color: "var(--brand-muted)" }}
-                        >
-                          Acepto ser contactado sobre servicios y oportunidades.
-                        </label>
-                      </div>
-
-                      <button
-                        type="submit"
-                        className="w-full px-8 py-4 text-white rounded-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg"
-                        style={{ backgroundColor: "var(--brand-green)" }}
-                      >
-                        Enviar Mensaje
-                        <ArrowRight className="w-5 h-5" />
-                      </button>
-                    </form>
-                  </div>
+                  <ContactForm />
                 </div>
               </div>
             </section>

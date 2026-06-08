@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { MobileMenu } from "../components/MobileMenu";
 import { Navbar } from "../components/Navbar";
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ContactForm } from "../components/ContactForm";
 
 // ── Fade-in hook ──────────────────────────────────────────────────
 function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
@@ -54,7 +55,7 @@ function Footer() {
               className="text-sm leading-relaxed"
               style={{
                 color: "var(--brand-muted)",
-                fontFamily: "'Source Sans 3', sans-serif",
+                fontFamily: "'Nunito Sans', sans-serif",
               }}
             >
               Tu éxito es nuestro éxito. Transforma tu clínica con servicios
@@ -346,7 +347,7 @@ export default function Nosotros() {
   return (
     <div
       className="min-h-screen bg-white"
-      style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+      style={{ fontFamily: "'Nunito Sans', sans-serif" }}
     >
       <Navbar />
 
@@ -951,92 +952,52 @@ export default function Nosotros() {
       </div>
     </div>
 
-    {/* CAROUSEL */}
-    {/* Agregamos p-2 para que las sombras de las tarjetas no se corten con el overflow */}
-    <div className="overflow-hidden p-2 -m-2"> 
+    {/* CAROUSEL — mobile-safe: 1 card por slide. No usa window.innerWidth en render */}
+    <div className="overflow-hidden">
       <div
         className="flex transition-transform duration-500 ease-out"
-        style={{
-          // Corregimos el cálculo: En mobile se mueve de 100% en 100%. 
-          // En desktop (md) cambia a 33.33% por tarjeta (asumiendo 3 visibles)
-          transform: `translateX(-${testimonialIndex * (typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 33.333)}%)`,
-        }}
+        style={{ transform: `translateX(calc(-${testimonialIndex} * 100%))` }}
       >
         {testimonials.map((item, index) => (
-          <div
-            key={index}
-            className="
-              w-full min-w-full
-              md:w-[48%] md:min-w-[48%]
-              lg:w-[31.3%] lg:min-w-[31.3%]
-              bg-white
-              rounded-[24px] md:rounded-[32px]
-              p-6 md:p-8
-              flex
-              flex-col
-              justify-between
-              border
-              shadow-sm
-              hover:shadow-xl
-              transition-all
-              duration-300
-              mx-[1%] /* Manejamos el espaciado con porcentajes para evitar que rompa el translateX */
-            "
-            style={{
-              borderColor: "rgba(0,0,0,0.06)",
-              minHeight: "380px", // Reducido un poco para mobile para evitar scroll excesivo
-            }}
-          >
-            {/* ICON */}
+          <div key={index} className="w-full flex-shrink-0">
             <div
-              className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-6 md:mb-8"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
-              }}
+              className="bg-white rounded-[24px] md:rounded-[32px] p-6 md:p-8 flex flex-col border shadow-sm mx-1"
+              style={{ borderColor: "rgba(0,0,0,0.06)", minHeight: "300px" }}
             >
-              <Quote className="w-6 h-6 md:w-7 md:h-7 text-white" />
-            </div>
+              {/* ICON */}
+              <div
+                className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
+                style={{ background: "linear-gradient(135deg, var(--brand-green), var(--brand-primary))" }}
+              >
+                <Quote className="w-6 h-6 text-white" />
+              </div>
 
-            {/* TEXTO */}
-            <p
-              className="text-base md:text-xl leading-relaxed mb-6 md:mb-10"
-              style={{
-                color: "var(--brand-primary)",
-                fontWeight: 400,
-              }}
-            >
-              “{item.text}”
-            </p>
+              {/* TEXTO */}
+              <p
+                className="text-base md:text-lg leading-relaxed flex-1 mb-6"
+                style={{ color: "var(--brand-primary)", fontWeight: 400 }}
+              >
+                "{item.text}"
+              </p>
 
-            {/* USER */}
-            <div className="flex items-center gap-4 mt-auto">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover transition-all duration-300 hover:scale-110 hover:ring-4 hover:ring-offset-2"
-                style={{ "--tw-ring-color": "var(--brand-green)" } as React.CSSProperties}
-              />
-
-              <div>
-                <h4
-                  className="text-lg md:text-2xl leading-none mb-1 md:mb-2"
-                  style={{
-                    color: "var(--brand-primary)",
-                    fontWeight: 700,
-                  }}
-                >
-                  {item.name}
-                </h4>
-
-                <span
-                  className="text-sm md:text-lg"
-                  style={{
-                    color: "var(--brand-muted)",
-                  }}
-                >
-                  {item.role}
-                </span>
+              {/* USER */}
+              <div
+                className="flex items-center gap-3 mt-auto pt-4 border-t"
+                style={{ borderColor: "rgba(0,0,0,0.06)" }}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-11 h-11 rounded-full object-cover flex-shrink-0"
+                />
+                <div>
+                  <p className="text-base font-bold leading-tight" style={{ color: "var(--brand-primary)" }}>
+                    {item.name}
+                  </p>
+                  <p className="text-sm mt-0.5" style={{ color: "var(--brand-muted)" }}>
+                    {item.role}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1045,19 +1006,17 @@ export default function Nosotros() {
     </div>
 
     {/* DOTS */}
-    <div className="flex justify-center gap-3 mt-10">
+    <div className="flex justify-center gap-2 mt-8">
       {testimonials.map((_, index) => (
         <button
           key={index}
           onClick={() => setTestimonialIndex(index)}
-          className="transition-all duration-300 rounded-full"
+          aria-label={`Testimonio ${index + 1}`}
+          className="rounded-full transition-all duration-300"
           style={{
-            width: testimonialIndex === index ? "34px" : "10px",
-            height: "10px",
-            backgroundColor:
-              testimonialIndex === index
-                ? "var(--brand-green)"
-                : "#cfd4dc",
+            width: testimonialIndex === index ? "28px" : "9px",
+            height: "9px",
+            backgroundColor: testimonialIndex === index ? "var(--brand-green)" : "#cfd4dc",
           }}
         />
       ))}
@@ -1065,160 +1024,139 @@ export default function Nosotros() {
   </div>
 </section>
 
-{/* ── GALERÍA ESTILO EDITORIAL ───────────────────────────── */}
+      {/* ── GALERÍA ─────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-<section className="relative py-24 bg-white overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-    {/* HEADER */}
-    <div className="text-center mb-16 relative z-10">
-
-      <span
-        className="block text-xs uppercase tracking-[0.3em] mb-4"
-        style={{
-          color: "var(--brand-green)",
-          fontWeight: 700,
-        }}
-      >
-        NUESTRA GALERÍA
-      </span>
-
-      <h2
-        className="text-4xl md:text-5xl leading-tight"
-        style={{
-          color: "var(--brand-primary)",
-          fontWeight: 700,
-        }}
-      >
-        Espacios médicos modernos y atención de primer nivel.
-      </h2>
-
-      <p
-        className="max-w-2xl mx-auto mt-6 text-lg leading-relaxed"
-        style={{
-          color: "var(--brand-muted)",
-        }}
-      >
-        Foster Stern Group impulsa clínicas con tecnología,
-        innovación médica y experiencias centradas en el paciente.
-      </p>
-    </div>
-
-    {/* MASONRY GRID */}
-    <div className="columns-1 sm:columns-2 lg:columns-4 gap-5 space-y-5">
-
-      {[
-        {
-          src: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200",
-          height: "h-[320px]",
-        },
-        {
-          src: "https://images.unsplash.com/photo-1580281657527-47f249e8f4df?q=80&w=1200",
-          height: "h-[220px]",
-        },
-        {
-          src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200",
-          height: "h-[400px]",
-        },
-        {
-          src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200",
-          height: "h-[260px]",
-        },
-        {
-          
-          src: "/Fostersterm/Carlitos-Solo.png",
-          height: "h-[350px]",
-        },
-        {
-          src: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1200",
-          height: "h-[250px]",
-        },
-        {
-          src: "/Fostersterm/image.jpg",
-          height: "h-[430px]",
-        },
-        {
-          src: "/Fostersterm/maxresdefault.jpg",
-          height: "h-[300px]",
-        },
-      ].map((img, index) => (
-        <div
-          key={index}
-          className="relative overflow-hidden rounded-[28px] mb-5 break-inside-avoid group cursor-pointer"
-        >
-          {/* IMAGE */}
-          <div className={`${img.height} overflow-hidden`}>
-            <img
-              src={img.src}
-              alt={`Galería Foster Stern ${index + 1}`}
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-            />
+          {/* HEADER */}
+          <div className="mb-12">
+            <span className="text-xs uppercase tracking-[0.3em] font-bold" style={{ color: "var(--brand-green)" }}>
+              Nuestra Galería
+            </span>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-3">
+              <h2 className="text-3xl md:text-4xl max-w-xl" style={{ fontWeight: 700, color: "var(--brand-primary)" }}>
+                Espacios médicos modernos y atención de primer nivel.
+              </h2>
+              <p className="text-sm md:text-base max-w-xs" style={{ color: "var(--brand-muted)" }}>
+                Clínicas con tecnología, innovación médica y experiencias centradas en el paciente.
+              </p>
+            </div>
           </div>
 
-          {/* OVERLAY */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-500"
-            style={{
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.05), transparent)",
-            }}
-          />
+          {/* BENTO GRID — auto-rows de 180px, sin heights fijos en mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
+               style={{ gridAutoRows: "180px" }}>
 
-          {/* CONTENT */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 z-10 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+            {/* 1 — Grande: 2 cols, 2 rows */}
+            <div className="col-span-2 row-span-2 relative overflow-hidden rounded-3xl group cursor-pointer">
+              <img
+                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1400&auto=format&fit=crop"
+                alt="Instalaciones Foster Stern"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              <div className="absolute bottom-0 left-0 p-5 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+                <p className="text-white/70 text-[10px] uppercase tracking-widest">Foster Stern</p>
+                <p className="text-white font-semibold text-base mt-0.5">Instalaciones de vanguardia</p>
+              </div>
+            </div>
 
-            <span className="text-white/80 text-xs uppercase tracking-[0.2em]">
-              Foster Stern
-            </span>
+            {/* 2 — Tall derecha: 1 col, 2 rows */}
+            <div className="col-span-1 row-span-2 relative overflow-hidden rounded-3xl group cursor-pointer">
+              <img
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=900&auto=format&fit=crop"
+                alt="Consulta médica especializada"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              <div className="absolute bottom-0 left-0 p-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+                <p className="text-white font-semibold text-sm">Consulta especializada</p>
+              </div>
+            </div>
 
-            <h3 className="text-white text-xl font-semibold mt-2">
-              Atención médica moderna
-            </h3>
+            {/* 3 — Small: 1 col, 1 row */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
+              <img
+                src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=700&auto=format&fit=crop"
+                alt="Equipamiento médico"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            </div>
+
+            {/* 4 — Small: 1 col, 1 row */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
+              <img
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=700&auto=format&fit=crop"
+                alt="Sala de espera"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            </div>
+
+            {/* 5 — Wide: 2 cols, 1 row */}
+            <div className="col-span-2 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
+              <img
+                src="/Fostersterm/hands shaking.jpg"
+                alt="Alianza médica Foster Stern"
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              <div className="absolute left-0 top-0 bottom-0 p-5 flex items-center translate-x-[-6px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-400">
+                <p className="text-white font-semibold text-base">Alianzas estratégicas</p>
+              </div>
+            </div>
+
+            {/* 6 — Small: 1 col, 1 row */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
+              <img
+                src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?q=80&w=700&auto=format&fit=crop"
+                alt="Tecnología médica"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            </div>
+
+            {/* 7 — Small: 1 col, 1 row */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
+              <img
+                src="/Fostersterm/image3.png"
+                alt="Atención al paciente"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            </div>
 
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
-      {/* ── CONTACTO + MAPA ──────────────────────────────────────── */}
-      <section className="py-20 bg-white" id="contacto-nosotros">
+      {/* ── CONTACTO ─────────────────────────────────────────────────── */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white" id="contacto-nosotros">
         <div className="max-w-6xl mx-auto px-6 md:px-10">
-          <div ref={ctaBlock} className="text-center mb-14">
-            <span
-              className="text-xs uppercase tracking-widest"
-              style={{ color: "var(--brand-green)" }}
-            >
+
+          <div className="text-center mb-14">
+            <span className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--brand-green)" }}>
               Hablemos
             </span>
-            <h2
-              className="text-3xl md:text-4xl mt-3"
-              style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-            >
+            <h2 className="text-3xl md:text-4xl mt-3" style={{ fontWeight: 700, color: "var(--brand-primary)" }}>
               ¿Listo para unirte a nuestra red?
             </h2>
-            <p
-              className="mt-4 max-w-xl mx-auto text-base"
-              style={{ color: "var(--brand-muted)" }}
-            >
-              Únete a las más de 500 clínicas que ya transformaron su práctica
-              médica con Foster Stern Group.
+            <p className="mt-4 max-w-xl mx-auto text-base" style={{ color: "var(--brand-muted)" }}>
+              Únete a las más de 500 clínicas que ya transformaron su práctica médica con Foster Stern Group.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Mapa + dirección */}
+
+            {/* Mapa + info de contacto */}
             <div>
-              <div
-                className="overflow-hidden rounded-3xl border shadow-md"
-                style={{ borderColor: "var(--brand-secondary)" }}
-              >
+              <div className="overflow-hidden rounded-3xl border shadow-xl" style={{ borderColor: "var(--brand-secondary)" }}>
                 <iframe
                   title="Ubicación Foster Stern Group"
-                  src="https://www.google.com/maps?q=7480+SW+40th+Street+Miami+FL&output=embed"
+                  src="https://www.google.com/maps?q=7480+SW+40th+Street+Suite+850+Miami+FL+33155&output=embed"
                   width="100%"
-                  height="320"
+                  height="300"
                   loading="lazy"
                   className="w-full border-0"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -1226,203 +1164,39 @@ export default function Nosotros() {
               </div>
               <div className="mt-6 flex flex-col gap-4">
                 <div className="flex items-start gap-3">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "var(--brand-light)" }}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      style={{ color: "var(--brand-green)" }}
-                    >
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" style={{ color: "var(--brand-green)" }}>
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
                   </div>
                   <div>
-                    <p
-                      className="text-sm font-semibold"
-                      style={{ color: "var(--brand-primary)" }}
-                    >
-                      Oficina Principal
-                    </p>
-                    <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: "var(--brand-muted)" }}
-                    >
-                      7480 SW 40th Street, Suite 850
-                      <br />
-                      Miami, FL 33155
+                    <p className="text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Oficina Principal</p>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)" }}>
+                      7480 SW 40th Street, Suite 850<br />Miami, FL 33155
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "var(--brand-light)" }}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      style={{ color: "var(--brand-green)" }}
-                    >
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" style={{ color: "var(--brand-green)" }}>
                       <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                     </svg>
                   </div>
-                  <p
-                    className="text-sm"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    +1 (786) 977-3733
-                  </p>
+                  <p className="text-sm" style={{ color: "var(--brand-muted)" }}>+1 (786) 977-3733</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "var(--brand-light)" }}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      style={{ color: "var(--brand-green)" }}
-                    >
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--brand-light)" }}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" style={{ color: "var(--brand-green)" }}>
                       <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
                   </div>
-                  <p
-                    className="text-sm"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    info@fosterstern.com
-                  </p>
+                  <p className="text-sm" style={{ color: "var(--brand-muted)" }}>info@fosterstern.com</p>
                 </div>
               </div>
             </div>
 
-            {/* Formulario */}
-            <div
-              className="rounded-3xl p-8 border shadow-md"
-              style={{
-                backgroundColor: "white",
-                borderColor: "var(--brand-secondary)",
-              }}
-            >
-              <form className="space-y-5">
-                <div>
-                  <label
-                    className="block mb-1.5 text-sm font-semibold"
-                    style={{ color: "var(--brand-primary)" }}
-                  >
-                    Nombre Completo *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm"
-                    style={{ borderColor: "var(--brand-secondary)" }}
-                    placeholder="Dr. Juan Pérez"
-                    onFocus={(e) =>
-                      (e.target.style.borderColor = "var(--brand-green)")
-                    }
-                    onBlur={(e) =>
-                      (e.target.style.borderColor = "var(--brand-secondary)")
-                    }
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block mb-1.5 text-sm font-semibold"
-                    style={{ color: "var(--brand-primary)" }}
-                  >
-                    Correo Electrónico *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm"
-                    style={{ borderColor: "var(--brand-secondary)" }}
-                    placeholder="correo@clinica.com"
-                    onFocus={(e) =>
-                      (e.target.style.borderColor = "var(--brand-green)")
-                    }
-                    onBlur={(e) =>
-                      (e.target.style.borderColor = "var(--brand-secondary)")
-                    }
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block mb-1.5 text-sm font-semibold"
-                    style={{ color: "var(--brand-primary)" }}
-                  >
-                    Teléfono *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm"
-                    style={{ borderColor: "var(--brand-secondary)" }}
-                    placeholder="+1 (555) 123-4567"
-                    onFocus={(e) =>
-                      (e.target.style.borderColor = "var(--brand-green)")
-                    }
-                    onBlur={(e) =>
-                      (e.target.style.borderColor = "var(--brand-secondary)")
-                    }
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block mb-1.5 text-sm font-semibold"
-                    style={{ color: "var(--brand-primary)" }}
-                  >
-                    Nombre de la Clínica *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border outline-none transition-all text-sm"
-                    style={{ borderColor: "var(--brand-secondary)" }}
-                    placeholder="Clínica Médica XYZ"
-                    onFocus={(e) =>
-                      (e.target.style.borderColor = "var(--brand-green)")
-                    }
-                    onBlur={(e) =>
-                      (e.target.style.borderColor = "var(--brand-secondary)")
-                    }
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block mb-1.5 text-sm font-semibold"
-                    style={{ color: "var(--brand-primary)" }}
-                  >
-                    Mensaje
-                  </label>
-                  <textarea
-                    rows={3}
-                    className="w-full px-4 py-3 rounded-xl border outline-none transition-all resize-none text-sm"
-                    style={{ borderColor: "var(--brand-secondary)" }}
-                    placeholder="Cuéntenos sobre su clínica..."
-                    onFocus={(e) =>
-                      (e.target.style.borderColor = "var(--brand-green)")
-                    }
-                    onBlur={(e) =>
-                      (e.target.style.borderColor = "var(--brand-secondary)")
-                    }
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-3.5 rounded-xl text-white font-semibold transition-all hover:opacity-90"
-                  style={{ backgroundColor: "var(--brand-green)" }}
-                >
-                  Enviar Mensaje
-                </button>
-              </form>
-            </div>
+            {/* Formulario compartido */}
+            <ContactForm />
           </div>
         </div>
       </section>

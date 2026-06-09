@@ -20,7 +20,7 @@ import { MobileMenu } from "./components/MobileMenu";
 import { Navbar } from "./components/Navbar";
 import { CasosCarousel } from "./components/CasosCarousel";
 import { ProcessCarousel } from "./components/ProcessCarousel";
-import { ContactForm } from "./components/ContactForm";
+import { ContactForm } from "./components/Contactform";
 import Blog from "./pages/blog";
 import Nosotros from "./pages/Nosotros";
 import English from "./pages/English";

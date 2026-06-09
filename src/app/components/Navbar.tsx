@@ -116,7 +116,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
             className="logo-fadein h-16 md:h-18 lg:h-24 w-auto object-contain"
             style={
               scrolled
-                ? { filter: "brightness(0) saturate(100%) invert(28%) sepia(61%) saturate(500%) hue-rotate(152deg) brightness(85%) contrast(95%)" }
+                ? { filter: "brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(600%) hue-rotate(122deg) brightness(92%)" }
                 : undefined
             }
           />

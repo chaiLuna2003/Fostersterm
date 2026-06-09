@@ -76,10 +76,7 @@ export default function PremiumGallery() {
               Galería
             </span>
 
-            <h2
-              className="text-3xl sm:text-4xl md:text-6xl leading-[1.05] mt-4 font-bold"
-              style={{ color: "var(--brand-primary)" }}
-            >
+            <h2 className="text-3xl md:text-4xl mt-3" style={{ fontWeight: 700, color: "var(--brand-primary)" }}>
               Galería de nuestras instalaciones
             </h2>
           </div>

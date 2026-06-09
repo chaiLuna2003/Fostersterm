@@ -105,13 +105,24 @@ export function MobileMenu({ scrolled = false }: MobileMenuProps) {
     <>
       {/* Botón hamburguesa — visible en móvil Y tablet (debajo de lg = 1024px) */}
       <button
-        onClick={() => setIsOpen(true)}
-        className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
-        aria-label="Abrir menú"
-        type="button"
-      >
-        <Menu className="w-6 h-6" style={{ color: "white" }} />
-      </button>
+  onClick={() => setIsOpen(true)}
+  className="
+    lg:hidden
+    flex items-center justify-center
+    w-12 h-12
+    rounded-full
+    bg-[#008154]
+    shadow-lg
+    transition-all duration-300
+    hover:scale-105
+    hover:shadow-xl
+    active:scale-95
+  "
+  aria-label="Abrir menú"
+  type="button"
+>
+  <Menu className="w-6 h-6 text-white" />
+</button>
 
       {createPortal(menu, document.body)}
     </>

@@ -5,6 +5,7 @@ import { MobileMenu } from "../components/MobileMenu";
 import { Navbar } from "../components/Navbar";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { ContactForm } from "../components/ContactForm";
+import PremiumGallery from "../components/PremiumGallery";
 
 // ── Fade-in hook ──────────────────────────────────────────────────
 function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
@@ -791,113 +792,393 @@ export default function Nosotros() {
       </section>
 
       {/* ── EQUIPO ───────────────────────────────────────────────── */}
-      <section
-        className="py-24 overflow-hidden"
-        style={{ backgroundColor: "var(--brand-bg)" }}
+      {/* ── CEO SECTION PREMIUM ───────────────────────── */}
+<section
+  className="relative py-24 md:py-32 overflow-hidden"
+  style={{ backgroundColor: "var(--brand-bg)" }}
+>
+
+  {/* BACKGROUND GLOW */}
+  <div
+    className="
+      absolute
+      top-[-200px]
+      right-[-120px]
+      w-[500px]
+      h-[500px]
+      rounded-full
+      blur-3xl
+      opacity-20
+      pointer-events-none
+    "
+    style={{
+      background:
+        "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+    }}
+  />
+
+  <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+
+    {/* TITLE */}
+    <div className="text-center mb-16">
+
+      <span
+        className="
+          text-xs
+          uppercase
+          tracking-[0.35em]
+          font-semibold
+        "
+        style={{ color: "var(--brand-green)" }}
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div ref={teamTitle} className="text-center mb-16">
-            <span
-              className="text-xs uppercase tracking-widest"
-              style={{ color: "var(--brand-green)" }}
-            >
-              Liderazgo
-            </span>
-            <h2
-              className="text-3xl md:text-4xl mt-3"
-              style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-            >
-              Nuestro CEO
-            </h2>
-          </div>
+        Liderazgo Ejecutivo
+      </span>
 
-          <div ref={team1} className="max-w-4xl mx-auto">
-            <div
-              className="bg-white rounded-3xl overflow-hidden border shadow-sm grid md:grid-cols-2"
-              style={{ borderColor: "var(--brand-secondary)" }}
-            >
-              {/* Foto */}
-              <div className="h-80 md:h-full overflow-hidden group/ceo">
-                <img
-                  src="/Fostersterm/Carlitos-Solo.png"
-                  alt="Dr. Carrasquillo — CEO Foster Stern Group"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover/ceo:scale-105"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80";
-                  }}
-                />
-              </div>
+      <h2
+        className="
+          text-3xl
+          md:text-5xl
+          mt-5
+          leading-tight
+        "
+        style={{
+          fontWeight: 700,
+          color: "var(--brand-primary)",
+        }}
+      >
+        El liderazgo detrás de la innovación clínica.
+      </h2>
 
-              {/* Info */}
-              <div className="p-10 flex flex-col justify-center gap-5">
-                <div>
-                  <span
-                    className="text-xs uppercase tracking-widest"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    CEO & Fundador
-                  </span>
-                  <h3
-                    className="text-3xl mt-2 mb-1"
-                    style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-                  >
-                    Dr. Carrasquillo
-                  </h3>
-                  <span
-                    className="text-sm font-semibold"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    Foster Stern Group
-                  </span>
-                </div>
+    </div>
 
-                <p
-                  className="text-base leading-relaxed"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Con una trayectoria distinguida en el campo de la alergología
-                  y la medicina clínica, el Dr. Carrasquillo fundó Foster Stern
-                  Group con la visión de democratizar el acceso a servicios de
-                  alergia de clase mundial en clínicas médicas de toda América.
-                </p>
-                <p
-                  className="text-base leading-relaxed"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  Su liderazgo ha impulsado la expansión de la red a más de 500
-                  clínicas aliadas, consolidando a Foster Stern Group como
-                  referente en innovación clínica y atención especializada en
-                  alergia.
-                </p>
+    {/* MAIN CARD */}
+    <div
+      className="
+        group
+        relative
+        rounded-[36px]
+        overflow-hidden
+        border
+        bg-white/80
+        backdrop-blur-xl
+        shadow-[0_20px_80px_rgba(0,0,0,0.08)]
+      "
+      style={{
+        borderColor: "rgba(0,0,0,0.06)",
+      }}
+    >
 
-                {/* Redes o contacto */}
-                <div className="flex items-center gap-3 mt-2">
-                  <a
-                    href="/#contacto"
-                    className="px-6 py-2.5 rounded-xl text-white text-sm transition-all hover:opacity-90"
-                    style={{
-                      backgroundColor: "var(--brand-green)",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Contactar
-                  </a>
-                </div>
-              </div>
-            </div>
+      {/* GRID */}
+      <div className="grid lg:grid-cols-[1fr_1.1fr]">
+
+        {/* IMAGE SIDE */}
+        <div
+          className="
+            relative
+            min-h-[500px]
+            md:min-h-[650px]
+            overflow-hidden
+          "
+        >
+
+          {/* IMAGE */}
+          <img
+            src="/Fostersterm/Carlitos-Solo.png"
+            alt="Dr. Carrasquillo — CEO Foster Stern Group"
+            loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src =
+                "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1200&q=80";
+            }}
+            className="
+              absolute
+              inset-0
+              w-full
+              h-full
+              object-cover
+              object-top
+              transition-transform
+              duration-1000
+              group-hover:scale-[1.04]
+            "
+            style={{
+              backfaceVisibility: "hidden",
+            }}
+          />
+
+          {/* DARK OVERLAY */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-black/60
+              via-black/10
+              to-transparent
+            "
+          />
+
+          {/* FLOATING BADGE */}
+          <div
+            className="
+              absolute
+              bottom-6
+              left-6
+              right-6
+              backdrop-blur-md
+              rounded-3xl
+              border
+              p-5
+              transition-all
+              duration-500
+              group-hover:-translate-y-1
+            "
+            style={{
+              background: "rgba(255,255,255,0.12)",
+              borderColor: "rgba(255,255,255,0.18)",
+            }}
+          >
+
+            <p className="text-white/70 text-xs uppercase tracking-[0.25em]">
+              CEO & Founder
+            </p>
+
+            <h3 className="text-white text-2xl md:text-3xl font-bold mt-2">
+              Dr. Carrasquillo
+            </h3>
+
+            <p className="text-white/80 text-sm mt-2">
+              Foster Stern Allergy Division
+            </p>
+
           </div>
         </div>
-      </section>
+
+        {/* CONTENT SIDE */}
+        <div
+          className="
+            p-8
+            md:p-12
+            lg:p-16
+            flex
+            flex-col
+            justify-center
+          "
+        >
+
+          {/* TOP */}
+          <div className="mb-8">
+
+            <div
+              className="
+                inline-flex
+                items-center
+                gap-2
+                px-4
+                py-2
+                rounded-full
+                text-sm
+                font-medium
+                mb-6
+              "
+              style={{
+                backgroundColor: "rgba(0,128,96,0.08)",
+                color: "var(--brand-green)",
+              }}
+            >
+              Visionario Clínico
+            </div>
+
+            <h3
+              className="
+                text-3xl
+                md:text-5xl
+                leading-tight
+                mb-6
+              "
+              style={{
+                fontWeight: 700,
+                color: "var(--brand-primary)",
+              }}
+            >
+              Construyendo el futuro de la atención en alergología.
+            </h3>
+
+            <p
+              className="
+                text-base
+                md:text-lg
+                leading-relaxed
+                mb-6
+              "
+              style={{ color: "var(--brand-muted)" }}
+            >
+              Con una trayectoria distinguida en alergología y medicina clínica,
+              el Dr. Carrasquillo fundó Foster Stern Group con una misión clara:
+              transformar el acceso a servicios especializados de alergia en
+              clínicas médicas de toda América.
+            </p>
+
+            <p
+              className="
+                text-base
+                md:text-lg
+                leading-relaxed
+              "
+              style={{ color: "var(--brand-muted)" }}
+            >
+              Bajo su liderazgo, la compañía ha expandido su presencia a cientos
+              de clínicas afiliadas, consolidándose como referente en innovación
+              médica, excelencia operativa y atención especializada centrada en
+              el paciente.
+            </p>
+
+          </div>
+
+          {/* STATS */}
+          <div
+            className="
+              grid
+              grid-cols-2
+              md:grid-cols-3
+              gap-4
+              mb-10
+            "
+          >
+
+            {[
+              {
+                value: "500+",
+                label: "Clínicas Aliadas",
+              },
+              {
+                value: "15+",
+                label: "Años de Experiencia",
+              },
+              {
+                value: "98%",
+                label: "Satisfacción Clínica",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="
+                  rounded-2xl
+                  border
+                  p-5
+                  bg-white
+                  transition-all
+                  duration-500
+                  hover:-translate-y-1
+                  hover:shadow-lg
+                "
+                style={{
+                  borderColor: "rgba(0,0,0,0.06)",
+                }}
+              >
+
+                <h4
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ color: "var(--brand-primary)" }}
+                >
+                  {item.value}
+                </h4>
+
+                <p
+                  className="text-sm mt-2"
+                  style={{ color: "var(--brand-muted)" }}
+                >
+                  {item.label}
+                </p>
+
+              </div>
+            ))}
+
+          </div>
+
+          {/* BUTTONS */}
+          <div className="flex flex-wrap items-center gap-4">
+
+            <a
+              href="/#contacto"
+              className="
+                group/button
+                inline-flex
+                items-center
+                gap-3
+                px-7
+                py-4
+                rounded-2xl
+                text-white
+                text-sm
+                md:text-base
+                font-semibold
+                shadow-lg
+                transition-all
+                duration-300
+                hover:scale-[1.03]
+                hover:-translate-y-1
+                active:scale-95
+              "
+              style={{
+                background:
+                  "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+              }}
+            >
+              Contactar
+
+              <span
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover/button:translate-x-1
+                "
+              >
+                →
+              </span>
+            </a>
+
+            <button
+              className="
+                px-7
+                py-4
+                rounded-2xl
+                border
+                text-sm
+                md:text-base
+                font-semibold
+                transition-all
+                duration-300
+                hover:bg-black/5
+                hover:-translate-y-1
+              "
+              style={{
+                borderColor: "rgba(0,0,0,0.08)",
+                color: "var(--brand-primary)",
+              }}
+            >
+              Ver trayectoria
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ── TESTIMONIOS ESTILO HOSTINGER ───────────────────────────── */}
-      <section
+      {/* ── TESTIMONIALS SECTION ───────────────────────── */}
+<section
   className="py-16 md:py-24 overflow-hidden"
   style={{ backgroundColor: "#f5f7fb" }}
 >
   <div className="max-w-7xl mx-auto px-6 md:px-10">
+
     {/* HEADER */}
     <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10 md:mb-14">
+
       <div className="max-w-2xl">
         <span
           className="text-xs uppercase tracking-[0.25em]"
@@ -919,19 +1200,42 @@ export default function Nosotros() {
 
       {/* CONTROLES */}
       <div className="flex items-center gap-3">
+
         <button
           onClick={() =>
             setTestimonialIndex((prev) =>
               prev === 0 ? testimonials.length - 1 : prev - 1
             )
           }
-          className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white border transition-all duration-300 hover:scale-105 shadow-sm"
+          className="
+            group
+            w-12
+            h-12
+            md:w-14
+            md:h-14
+            rounded-2xl
+            bg-white
+            border
+            transition-all
+            duration-300
+            hover:scale-110
+            hover:-translate-y-1
+            active:scale-95
+            shadow-sm
+          "
           style={{
             borderColor: "rgba(0,0,0,0.08)",
           }}
         >
           <ChevronLeft
-            className="w-5 h-5 mx-auto"
+            className="
+              w-5
+              h-5
+              mx-auto
+              transition-transform
+              duration-300
+              group-hover:-translate-x-1
+            "
             style={{ color: "var(--brand-primary)" }}
           />
         </button>
@@ -942,62 +1246,188 @@ export default function Nosotros() {
               prev === testimonials.length - 1 ? 0 : prev + 1
             )
           }
-          className="w-12 h-12 md:w-14 md:h-14 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
+          className="
+            group
+            w-12
+            h-12
+            md:w-14
+            md:h-14
+            rounded-2xl
+            transition-all
+            duration-300
+            hover:scale-110
+            hover:-translate-y-1
+            active:scale-95
+            shadow-lg
+          "
           style={{
             backgroundColor: "var(--brand-green)",
           }}
         >
-          <ChevronRight className="w-5 h-5 mx-auto text-white" />
+          <ChevronRight
+            className="
+              w-5
+              h-5
+              mx-auto
+              text-white
+              transition-transform
+              duration-300
+              group-hover:translate-x-1
+            "
+          />
         </button>
+
       </div>
     </div>
 
-    {/* CAROUSEL — mobile-safe: 1 card por slide. No usa window.innerWidth en render */}
+    {/* HELPER */}
+    {/*
+      MOBILE = 1 card
+      TABLET = 2 cards
+      DESKTOP = 3 cards
+    */}
+
+    {/* CAROUSEL */}
     <div className="overflow-hidden">
+
       <div
-        className="flex transition-transform duration-500 ease-out"
-        style={{ transform: `translateX(calc(-${testimonialIndex} * 100%))` }}
+        className="flex transition-transform duration-700 ease-out"
+        style={{
+          transform: `
+            translateX(
+              -${
+                testimonialIndex *
+                (typeof window !== "undefined"
+                  ? window.innerWidth >= 1024
+                    ? 33.333
+                    : window.innerWidth >= 768
+                    ? 50
+                    : 100
+                  : 100)
+              }%
+            )
+          `,
+        }}
       >
+
         {testimonials.map((item, index) => (
-          <div key={index} className="w-full flex-shrink-0">
+
+          <div
+            key={index}
+            className="
+              w-full
+              md:w-1/2
+              lg:w-1/3
+              flex-shrink-0
+              px-2
+            "
+          >
+
             <div
-              className="bg-white rounded-[24px] md:rounded-[32px] p-6 md:p-8 flex flex-col border shadow-sm mx-1"
-              style={{ borderColor: "rgba(0,0,0,0.06)", minHeight: "300px" }}
+              className="
+                bg-white
+                rounded-[24px]
+                md:rounded-[32px]
+                p-6
+                md:p-8
+                flex
+                flex-col
+                border
+                shadow-sm
+                h-full
+                min-h-[320px]
+                transition-all
+                duration-500
+                hover:-translate-y-2
+                hover:shadow-xl
+              "
+              style={{
+                borderColor: "rgba(0,0,0,0.06)",
+              }}
             >
+
               {/* ICON */}
               <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-                style={{ background: "linear-gradient(135deg, var(--brand-green), var(--brand-primary))" }}
+                className="
+                  w-12
+                  h-12
+                  rounded-2xl
+                  flex
+                  items-center
+                  justify-center
+                  mb-5
+                  shadow-md
+                "
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--brand-green), var(--brand-primary))",
+                }}
               >
                 <Quote className="w-6 h-6 text-white" />
               </div>
 
               {/* TEXTO */}
               <p
-                className="text-base md:text-lg leading-relaxed flex-1 mb-6"
-                style={{ color: "var(--brand-primary)", fontWeight: 400 }}
+                className="
+                  text-base
+                  md:text-lg
+                  leading-relaxed
+                  flex-1
+                  mb-6
+                "
+                style={{
+                  color: "var(--brand-primary)",
+                  fontWeight: 400,
+                }}
               >
                 "{item.text}"
               </p>
 
               {/* USER */}
               <div
-                className="flex items-center gap-3 mt-auto pt-4 border-t"
-                style={{ borderColor: "rgba(0,0,0,0.06)" }}
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  mt-auto
+                  pt-4
+                  border-t
+                "
+                style={{
+                  borderColor: "rgba(0,0,0,0.06)",
+                }}
               >
+
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-11 h-11 rounded-full object-cover flex-shrink-0"
+                  loading="lazy"
+                  decoding="async"
+                  className="
+                    w-11
+                    h-11
+                    rounded-full
+                    object-cover
+                    flex-shrink-0
+                  "
                 />
+
                 <div>
-                  <p className="text-base font-bold leading-tight" style={{ color: "var(--brand-primary)" }}>
+                  <p
+                    className="text-base font-bold leading-tight"
+                    style={{ color: "var(--brand-primary)" }}
+                  >
                     {item.name}
                   </p>
-                  <p className="text-sm mt-0.5" style={{ color: "var(--brand-muted)" }}>
+
+                  <p
+                    className="text-sm mt-0.5"
+                    style={{ color: "var(--brand-muted)" }}
+                  >
                     {item.role}
                   </p>
                 </div>
+
               </div>
             </div>
           </div>
@@ -1007,130 +1437,37 @@ export default function Nosotros() {
 
     {/* DOTS */}
     <div className="flex justify-center gap-2 mt-8">
+
       {testimonials.map((_, index) => (
         <button
           key={index}
           onClick={() => setTestimonialIndex(index)}
           aria-label={`Testimonio ${index + 1}`}
-          className="rounded-full transition-all duration-300"
+          className="
+            rounded-full
+            transition-all
+            duration-300
+            hover:scale-110
+          "
           style={{
             width: testimonialIndex === index ? "28px" : "9px",
             height: "9px",
-            backgroundColor: testimonialIndex === index ? "var(--brand-green)" : "#cfd4dc",
+            backgroundColor:
+              testimonialIndex === index
+                ? "var(--brand-green)"
+                : "#cfd4dc",
           }}
         />
       ))}
+
     </div>
   </div>
 </section>
 
-      {/* ── GALERÍA ─────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-          {/* HEADER */}
-          <div className="mb-12">
-            <span className="text-xs uppercase tracking-[0.3em] font-bold" style={{ color: "var(--brand-green)" }}>
-              Nuestra Galería
-            </span>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-3">
-              <h2 className="text-3xl md:text-4xl max-w-xl" style={{ fontWeight: 700, color: "var(--brand-primary)" }}>
-                Espacios médicos modernos y atención de primer nivel.
-              </h2>
-              <p className="text-sm md:text-base max-w-xs" style={{ color: "var(--brand-muted)" }}>
-                Clínicas con tecnología, innovación médica y experiencias centradas en el paciente.
-              </p>
-            </div>
-          </div>
-
-          {/* BENTO GRID — auto-rows de 180px, sin heights fijos en mobile */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
-               style={{ gridAutoRows: "180px" }}>
-
-            {/* 1 — Grande: 2 cols, 2 rows */}
-            <div className="col-span-2 row-span-2 relative overflow-hidden rounded-3xl group cursor-pointer">
-              <img
-                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1400&auto=format&fit=crop"
-                alt="Instalaciones Foster Stern"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-              <div className="absolute bottom-0 left-0 p-5 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                <p className="text-white/70 text-[10px] uppercase tracking-widest">Foster Stern</p>
-                <p className="text-white font-semibold text-base mt-0.5">Instalaciones de vanguardia</p>
-              </div>
-            </div>
-
-            {/* 2 — Tall derecha: 1 col, 2 rows */}
-            <div className="col-span-1 row-span-2 relative overflow-hidden rounded-3xl group cursor-pointer">
-              <img
-                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=900&auto=format&fit=crop"
-                alt="Consulta médica especializada"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-              <div className="absolute bottom-0 left-0 p-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                <p className="text-white font-semibold text-sm">Consulta especializada</p>
-              </div>
-            </div>
-
-            {/* 3 — Small: 1 col, 1 row */}
-            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
-              <img
-                src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=700&auto=format&fit=crop"
-                alt="Equipamiento médico"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-            </div>
-
-            {/* 4 — Small: 1 col, 1 row */}
-            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
-              <img
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=700&auto=format&fit=crop"
-                alt="Sala de espera"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-            </div>
-
-            {/* 5 — Wide: 2 cols, 1 row */}
-            <div className="col-span-2 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
-              <img
-                src="/Fostersterm/hands shaking.jpg"
-                alt="Alianza médica Foster Stern"
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-              <div className="absolute left-0 top-0 bottom-0 p-5 flex items-center translate-x-[-6px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-400">
-                <p className="text-white font-semibold text-base">Alianzas estratégicas</p>
-              </div>
-            </div>
-
-            {/* 6 — Small: 1 col, 1 row */}
-            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
-              <img
-                src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?q=80&w=700&auto=format&fit=crop"
-                alt="Tecnología médica"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-            </div>
-
-            {/* 7 — Small: 1 col, 1 row */}
-            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-3xl group cursor-pointer">
-              <img
-                src="/Fostersterm/image3.png"
-                alt="Atención al paciente"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-            </div>
-
-          </div>
-        </div>
-      </section>
-
+  
+ 
+{/* ── MODERN CORPORATE GALLERY ───────────────────────── */}
+<PremiumGallery />
       {/* ── CONTACTO ─────────────────────────────────────────────────── */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white" id="contacto-nosotros">
         <div className="max-w-6xl mx-auto px-6 md:px-10">

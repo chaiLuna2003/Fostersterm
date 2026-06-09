@@ -166,7 +166,18 @@ Please change the parent <Route path="${b}"> to <Route path="${b==="/"?"*":`${b}
           from { transform: translateX(100%); }
           to   { transform: translateX(0); }
         }
-      `})]}):null;return l.jsxs(l.Fragment,{children:[l.jsx("button",{onClick:()=>s(!0),className:"lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors","aria-label":"Abrir menú",type:"button",children:l.jsx(A1,{className:"w-6 h-6",style:{color:"white"}})}),x1.createPortal(c,document.body)]})}const Gj=`
+      `})]}):null;return l.jsxs(l.Fragment,{children:[l.jsx("button",{onClick:()=>s(!0),className:`\r
+    lg:hidden\r
+    flex items-center justify-center\r
+    w-12 h-12\r
+    rounded-full\r
+    bg-[#008154]\r
+    shadow-lg\r
+    transition-all duration-300\r
+    hover:scale-105\r
+    hover:shadow-xl\r
+    active:scale-95\r
+  `,"aria-label":"Abrir menú",type:"button",children:l.jsx(A1,{className:"w-6 h-6 text-white"})}),x1.createPortal(c,document.body)]})}const Gj=`
   @keyframes logoFadeIn {
     0%   { opacity: 0; transform: translateY(-8px) scale(0.95); }
     100% { opacity: 1; transform: translateY(0) scale(1); }

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 
-const menuItems = [
+const menuItemsEs = [
   { name: "Nosotros",      href: "/nosotros"   },
   { name: "Servicios",     href: "/#servicios"  },
   { name: "Beneficios",    href: "/#beneficios" },
@@ -15,12 +15,26 @@ const menuItems = [
   { name: "🇺🇸 English",  href: "/english"     },
 ];
 
+const menuItemsEn = [
+  { name: "Home",          href: "/english"       },
+  { name: "About Us",      href: "/english/about" },
+  { name: "Services",      href: "/english#servicios"  },
+  { name: "Benefits",      href: "/english#beneficios" },
+  { name: "Process",       href: "/english#proceso"    },
+  { name: "FAQ",           href: "/english#faq"        },
+  { name: "Blog",          href: "/english/blog"       },
+  { name: "Contact Us",    href: "/english#contacto"   },
+  { name: "🇲🇽 Español",  href: "/"                   },
+];
+
 interface MobileMenuProps {
   scrolled?: boolean;
+  lang?: "es" | "en";
 }
 
-export function MobileMenu({ scrolled = false }: MobileMenuProps) {
+export function MobileMenu({ scrolled = false, lang = "es" }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const menuItems = lang === "en" ? menuItemsEn : menuItemsEs;
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";

@@ -66,12 +66,12 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
   // Navega a home y luego hace scroll a la sección
   const goToSection = (sectionId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location.pathname === "/" || location.pathname === "/Fostersterm/") {
-      // Ya estamos en home: scroll directo
+    const homePath = isEn ? "/english" : "/";
+    const isHome = location.pathname === homePath || location.pathname === "/Fostersterm/";
+    if (isHome) {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Desde otra página: ir a home y luego scroll
-      navigate("/");
+      navigate(homePath);
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
       }, 350);
@@ -80,10 +80,12 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
 
   const mainSections = isEn
     ? [
-        { label: "Services",   id: "servicios"  },
-        { label: "Benefits",   id: "beneficios" },
-        { label: "Process",    id: "proceso"    },
-        { label: "FAQ",        id: "faq"        },
+        { label: "Home",       id: "",  to: "/english"       },
+        { label: "About Us",   id: "",  to: "/english/about" },
+        { label: "Services",   id: "servicios"               },
+        { label: "Benefits",   id: "beneficios"              },
+        { label: "Process",    id: "proceso"                 },
+        { label: "FAQ",        id: "faq"                     },
       ]
     : [
         { label: "Nosotros",   id: "",           to: "/nosotros" },
@@ -159,7 +161,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
 
           {/* Blog */}
           <Link
-            to="/blog"
+            to={isEn ? "/english/blog" : "/blog"}
             className="nav-item-zoom nav-link text-sm xl:text-base font-semibold"
             style={{ color: textColor, animationDelay: `${mainSections.length * 0.07 + 0.15}s` }}
           >
@@ -168,7 +170,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
 
           {/* CTA Contactar */}
           <a
-            href="/#contacto"
+            href={isEn ? "/english#contacto" : "/#contacto"}
             onClick={goToSection("contacto")}
             className="nav-item-zoom nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold text-sm xl:text-base"
             style={{
@@ -208,7 +210,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
         </div>
 
         {/* Hamburguesa — móvil y tablet */}
-        <MobileMenu scrolled={scrolled} />
+        <MobileMenu scrolled={scrolled} lang={lang} />
       </div>
     </nav>
   );

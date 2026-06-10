@@ -24,6 +24,8 @@ import { ContactForm } from "./components/Contactform";
 import Blog from "./pages/blog";
 import Nosotros from "./pages/Nosotros";
 import English from "./pages/English";
+import AboutUs from "./pages/AboutUs";
+import BlogEn from "./pages/BlogEn";
 import { useEffect, useState, useRef } from "react";
 
 // Hook para fade-in al hacer scroll
@@ -96,6 +98,8 @@ export default function App() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/nosotros" element={<Nosotros />} />
       <Route path="/english" element={<English />} />
+      <Route path="/english/about" element={<AboutUs />} />
+      <Route path="/english/blog" element={<BlogEn />} />
       <Route
         path="/*"
         element={

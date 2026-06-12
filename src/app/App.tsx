@@ -21,6 +21,7 @@ import { Navbar } from "./components/Navbar";
 import { CasosCarousel } from "./components/CasosCarousel";
 import { ProcessCarousel } from "./components/ProcessCarousel";
 import { AlianzaImplementacion } from "./components/AlianzaImplementacion";
+import { ServiciosSection } from "./components/ServiciosSection";
 import { ContactForm } from "./components/Contactform";
 import Blog from "./pages/blog";
 import Nosotros from "./pages/Nosotros";
@@ -58,12 +59,6 @@ export default function App() {
   const heroCard1 = useFadeIn();
   const heroCard2 = useFadeIn();
   const heroCard3 = useFadeIn();
-
-  // Servicios
-  const svcTitle = useFadeIn();
-  const svcCard1 = useFadeIn();
-  const svcCard2 = useFadeIn();
-  const svcCard3 = useFadeIn();
 
   // Focused Allergy
   const focusedImg = useFadeIn("right");
@@ -652,102 +647,7 @@ export default function App() {
                 </div>
               </div>
             </section>
-            <section
-              id="servicios"
-              className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50"
-            >
-              <div className="max-w-7xl mx-auto px-6">
-                <div
-                  ref={svcTitle}
-                  className="fade-in text-center mb-12 md:mb-16"
-                >
-                  <h2
-                    className="text-3xl md:text-4xl lg:text-5xl mb-4"
-                    style={{
-                      fontFamily: "'Nunito Sans', sans-serif",
-                      color: "var(--brand-primary)",
-                    }}
-                  >
-                    Un Socio Estratégico, No Un Proveedor Más
-                  </h2>
-                  <p
-                    className="text-xl md:text-2xl"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    Transformamos la atención al paciente en una oportunidad de
-                    crecimiento para su práctica
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                  {[
-                    {
-                      ref: svcCard1,
-                      icon: <Microscope className="w-8 h-8 text-white" />,
-                      title: "Implementación del Programa de Alergia",
-                      desc: "Diseñamos e implementamos pruebas e inmunoterapia en su clínica, con protocolos alineados a las mejores prácticas.",
-                      p1: "Pruebas e inmunoterapia in-house",
-                      p2: "Protocolos estandarizados",
-                      p3: "Implementación rápida y sin fricción",
-                    },
-                    {
-                      ref: svcCard2,
-                      icon: <FlaskConical className="w-8 h-8 text-white" />,
-                      title: "Personal Especializado en su Clínica",
-                      desc: "Asignamos personal clínico en alergias directamente en sus instalaciones, coordinado con su agenda. Usted no gestiona, usted crece.",
-                      p1: "Personal entrenado en servicios de alergia",
-                      p2: "Sin contratar ni capacitar staff",
-                      p3: "Presencia puntual y profesional",
-                    },
-                    {
-                      ref: svcCard3,
-                      icon: <Syringe className="w-8 h-8 text-white" />,
-                      title: "Facturación y Soporte Operativo Total",
-                      desc: "Gestionamos la facturación y documentación de los servicios de alergia. Su equipo se enfoca en la atención; nosotros en la operación.",
-                      p1: "Gestión completa de facturación",
-                      p2: "Documentación y cumplimiento normativo",
-                      p3: "Reportes periódicos de rendimiento",
-                    },
-                  ].map((card, idx) => (
-                    <div
-                      key={idx}
-                      ref={card.ref}
-                      className="fade-in delay-1 group relative overflow-hidden rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-600 hover:-translate-y-2"
-                      style={{ backgroundColor: "#054A5B" }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative z-10">
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
-                          {card.icon}
-                        </div>
-                        <h3
-                          className="text-2xl mb-4"
-                          style={{
-                            fontFamily: "'Nunito Sans', sans-serif",
-                            color: "#ffffff",
-                          }}
-                        >
-                          {card.title}
-                        </h3>
-                        <p className="mb-6 leading-relaxed text-lg text-white/85">
-                          {card.desc}
-                        </p>
-                        <ul className="space-y-3">
-                          {[card.p1, card.p2, card.p3].map((txt, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                              <CheckCircle2 className="w-5 h-5 text-[var(--brand-green)] mt-0.5 flex-shrink-0" />
-                              <span className="font-semibold text-white/90">
-                                {txt}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
+            <ServiciosSection />
             {/* Beneficios*/}
             <section id="beneficios" className="py-20 lg:py-28 bg-white">
               <div className="max-w-7xl mx-auto px-6">
@@ -976,85 +876,185 @@ export default function App() {
               <ProcessCarousel />
             </section>
             {/* ── SECCIÓN: FAQ ── */}
-            <section id="faq" className="py-20 bg-white">
-              <div className="max-w-4xl mx-auto px-6">
-                <div ref={faqTitle} className="fade-in text-center mb-16">
-                  <h2
-                    className="text-4xl md:text-5xl mb-4"
-                    style={{
-                      fontFamily: "'Nunito Sans', sans-serif",
-                      color: "var(--brand-primary)",
-                    }}
-                  >
-                    Preguntas Frecuentes
-                  </h2>
-                  <p
-                    className="text-xl"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    Resolvemos las dudas más comunes sobre nuestros servicios
-                  </p>
-                </div>
+            <section
+              id="faq"
+              className="py-20 lg:py-28 overflow-hidden relative"
+              style={{
+                background:
+                  "linear-gradient(160deg, #f0f7f9 0%, #ffffff 50%, #eaf5f0 100%)",
+              }}
+            >
+              {/* Blobs decorativos */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
+                style={{
+                  background:
+                    "radial-gradient(circle, #054A5B 0%, transparent 70%)",
+                }}
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -bottom-28 -left-28 w-80 h-80 rounded-full opacity-15 blur-3xl"
+                style={{
+                  background:
+                    "radial-gradient(circle, var(--brand-green) 0%, transparent 70%)",
+                }}
+              />
 
-                <div ref={faqItems} className="fade-in space-y-4">
-                  <FAQItem
-                    question="¿Cómo funciona el modelo de alianza?"
-                    answer="Foster Stern ayuda a su práctica médica a integrar servicios de alergia de manera eficiente, incluyendo pruebas cutáneas de alergia por punción (skin prick test), tratamientos, documentación y apoyo administrativo. Nuestro modelo está diseñado para mejorar la atención al paciente y generar nuevas oportunidades de ingresos, sin añadir una carga operativa significativa para su clínica."
-                  />
+              <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-14 lg:gap-20 items-start">
 
-                  <FAQItem
-                    question="¿Quién realiza las pruebas de alergia?"
-                    answer="Las pruebas de alergia son realizadas por personal clínico debidamente entrenado, siguiendo los protocolos establecidos y bajo la supervisión correspondiente de la práctica médica. Foster Stern apoya con capacitación, estructura operativa y guías para asegurar un proceso organizado y consistente.
-"
-                  />
+                  {/* ── Columna imagen sticky ── */}
+                  <div className="lg:w-5/12 flex-shrink-0 lg:sticky lg:top-10">
 
-                  <FAQItem
-                    question="¿Qué tipo de clínicas pueden participar?"
-                    answer="Pueden participar clínicas médicas que deseen expandir sus servicios mediante la integración de pruebas y tratamientos de alergia. Esto puede incluir prácticas de medicina primaria tales como medicina interna, pediatría, medicina familiar o general y otras especialidades que atiendan pacientes con síntomas alérgicos o respiratorios como pulmonólogos."
-                  />
+                    {/* Header encima de la imagen */}
+                    <div
+                      ref={faqTitle}
+                      className="fade-in mb-8"
+                    >
+                      <span
+                        className="inline-block text-xs font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-4"
+                        style={{
+                          color: "var(--brand-green)",
+                          backgroundColor: "rgba(0,129,84,0.09)",
+                          border: "1px solid rgba(0,129,84,0.18)",
+                        }}
+                      >
+                        Preguntas Frecuentes
+                      </span>
 
-                  <FAQItem
-                    question="¿Existe algún costo inicial para la práctica médica?"
-                    answer="Foster Stern ofrece un modelo flexible que puede variar según las necesidades de la práctica y el alcance de la implementación. "
-                  />
+                      <h2
+                        className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3"
+                        style={{
+                          fontFamily: "'Nunito Sans', sans-serif",
+                          color: "var(--brand-primary)",
+                        }}
+                      >
+                        Resolvemos sus{" "}
+                        <span style={{ color: "var(--brand-green)" }}>
+                          dudas
+                        </span>
+                      </h2>
 
-                  <FAQItem
-                    question="¿Cuánto tiempo toma la implementación?"
-                    answer="El tiempo de implementación depende de la estructura actual de la clínica. Foster Stern trabaja para que la integración sea eficiente, organizada y adaptada al flujo operacional de cada práctica."
-                  />
+                      <p
+                        className="text-base leading-relaxed"
+                        style={{ color: "var(--brand-muted)" }}
+                      >
+                        Todo lo que necesita saber sobre nuestro modelo de
+                        alianza y servicios de alergia.
+                      </p>
+                    </div>
 
-                  <FAQItem
-                    question="¿Qué servicios de alergia se ofrecen?"
-                    answer="Los servicios pueden incluir pruebas de alergia, evaluación de sensibilidades ambientales, coordinación de inmunoterapia subcutánea y apoyo en el manejo operativo del programa de alergia. Los servicios específicos pueden variar según la práctica, el proveedor médico y las necesidades de los pacientes."
-                  />
+                    {/* Imagen */}
+                    <div
+                      ref={faqItems}
+                      className="fade-in from-left relative rounded-3xl overflow-hidden shadow-xl"
+                      style={{ height: "380px" }}
+                    >
+                      <ImageWithFallback
+                        src="/Fostersterm/1.3.png"
+                        alt="Foster Stern Allergy — equipo médico"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
 
-                  <FAQItem
-                    question="¿Cómo beneficia este programa financieramente a la clínica?"
-                    answer="El programa permite a la clínica ofrecer un servicio adicional dentro de su práctica, mejorar la retención de pacientes y crear una nueva fuente de ingresos. Al integrar servicios de alergia, la práctica puede ampliar su alcance clínico mientras genera oportunidades financieras sostenibles mediante servicios médicamente necesarios y debidamente documentados."
-                  />
+                      {/* Overlay */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            "linear-gradient(to top, rgba(5,74,91,0.82) 0%, rgba(5,74,91,0.08) 60%, transparent 100%)",
+                        }}
+                      />
+
+                     
+                    </div>
+                  </div>
+
+                  {/* ── Columna acordeón ── */}
+                  <div className="flex-1 min-w-0 flex flex-col gap-3">
+                    {[
+                      {
+                        question: "¿Cómo funciona el modelo de alianza?",
+                        answer:
+                          "Foster Stern ayuda a su práctica médica a integrar servicios de alergia de manera eficiente, incluyendo pruebas cutáneas de alergia por punción (skin prick test), tratamientos, documentación y apoyo administrativo. Nuestro modelo está diseñado para mejorar la atención al paciente y generar nuevas oportunidades de ingresos, sin añadir una carga operativa significativa para su clínica.",
+                      },
+                      {
+                        question: "¿Quién realiza las pruebas de alergia?",
+                        answer:
+                          "Las pruebas de alergia son realizadas por personal clínico debidamente entrenado, siguiendo los protocolos establecidos y bajo la supervisión correspondiente de la práctica médica. Foster Stern apoya con capacitación, estructura operativa y guías para asegurar un proceso organizado y consistente.",
+                      },
+                      {
+                        question: "¿Qué tipo de clínicas pueden participar?",
+                        answer:
+                          "Pueden participar clínicas médicas que deseen expandir sus servicios mediante la integración de pruebas y tratamientos de alergia. Esto puede incluir prácticas de medicina primaria tales como medicina interna, pediatría, medicina familiar o general y otras especialidades que atiendan pacientes con síntomas alérgicos o respiratorios como pulmonólogos.",
+                      },
+                      {
+                        question:
+                          "¿Existe algún costo inicial para la práctica médica?",
+                        answer:
+                          "Foster Stern ofrece un modelo flexible que puede variar según las necesidades de la práctica y el alcance de la implementación.",
+                      },
+                      {
+                        question: "¿Cuánto tiempo toma la implementación?",
+                        answer:
+                          "El tiempo de implementación depende de la estructura actual de la clínica. Foster Stern trabaja para que la integración sea eficiente, organizada y adaptada al flujo operacional de cada práctica.",
+                      },
+                      {
+                        question: "¿Qué servicios de alergia se ofrecen?",
+                        answer:
+                          "Los servicios pueden incluir pruebas de alergia, evaluación de sensibilidades ambientales, coordinación de inmunoterapia subcutánea y apoyo en el manejo operativo del programa de alergia. Los servicios específicos pueden variar según la práctica, el proveedor médico y las necesidades de los pacientes.",
+                      },
+                      {
+                        question:
+                          "¿Cómo beneficia este programa financieramente a la clínica?",
+                        answer:
+                          "El programa permite a la clínica ofrecer un servicio adicional dentro de su práctica, mejorar la retención de pacientes y crear una nueva fuente de ingresos. Al integrar servicios de alergia, la práctica puede ampliar su alcance clínico mientras genera oportunidades financieras sostenibles mediante servicios médicamente necesarios y debidamente documentados.",
+                      },
+                    ].map((item, i) => (
+                      <FAQItem
+                        key={i}
+                        index={i}
+                        question={item.question}
+                        answer={item.answer}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </section>
             {/* ── SECCIÓN: CALL TO ACTION (CTA) ── */}
-            <section
-              ref={ctaBlock}
-              className="fade-in py-16 bg-gradient-to-r from-[#054A5B] to-[#008154] text-white text-center"
-            >
-              <div className="max-w-4xl mx-auto px-6">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                  Lleve servicios especializados de alergia directamente a su clínica.
-                </h2>
-                <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                  Implementamos programas de servicios de alergia, proporcionamos personal especializado y ayudamos a que su práctica ofrezca más servicios médicos en un solo lugar.
-                </p>
-                <a
-                  href="#contacto"
-                  className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition-colors"
-                >
-                  Agendar una Consulta con nuestro Equipo
-                </a>
-              </div>
-            </section>
+<section
+  ref={ctaBlock}
+  className="fade-in relative py-24 overflow-hidden"
+  style={{
+    backgroundImage: "url('/Fostersterm/maxresdefault.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50" />
+
+  <div className="relative max-w-7xl mx-auto px-6 flex justify-end">
+    <div className="max-w-2xl text-white text-right">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+        Lleve servicios especializados de alergia directamente a su clínica.
+      </h2>
+
+      <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
+        Implementamos programas de servicios de alergia, proporcionamos personal especializado y ayudamos a que su práctica ofrezca más servicios médicos en un solo lugar.
+      </p>
+
+      <a
+        href="#contacto"
+        className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105"
+      >
+        Agendar una Consulta con nuestro Equipo
+      </a>
+    </div>
+  </div>
+</section>
             {/* ── SECCIÓN: CONTACTO ── */}
             <section
               id="contacto"

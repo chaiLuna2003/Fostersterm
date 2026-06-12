@@ -1,63 +1,101 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { Plus } from "lucide-react";
 
 interface FAQItemProps {
   question: string;
   answer: string;
+  index?: number;
 }
 
-export function FAQItem({ question, answer }: FAQItemProps) {
+export function FAQItem({ question, answer, index = 0 }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-[var(--brand-green)] transition-all hover:shadow-md"
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, delay: index * 0.07, ease: "easeOut" }}
     >
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full cursor-pointer flex items-center justify-between p-6 text-left"
+      <motion.div
+        animate={{
+          boxShadow: isOpen
+            ? "0 8px 32px rgba(5,74,91,0.10)"
+            : "0 2px 8px rgba(5,74,91,0.04)",
+        }}
+        transition={{ duration: 0.3 }}
+        className="rounded-2xl overflow-hidden"
         style={{
-          fontFamily: "'Source Sans 3', sans-serif",
-          color: "var(--brand-primary)",
+          background: isOpen ? "#ffffff" : "rgba(255,255,255,0.70)",
+          border: isOpen
+            ? "1px solid rgba(0,129,84,0.30)"
+            : "1px solid rgba(5,74,91,0.10)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          transition: "background 0.3s, border-color 0.3s",
         }}
       >
-        <span className="text-lg pr-4">{question}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 90 : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full cursor-pointer flex items-center justify-between gap-4 text-left"
+          style={{ padding: "20px 24px" }}
         >
-          <ArrowRight className="w-5 h-5 flex-shrink-0" style={{ color: "var(--brand-green)" }} />
-        </motion.div>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
+          <span
+            className="text-base font-semibold leading-snug"
+            style={{
+              fontFamily: "'Nunito Sans', sans-serif",
+              color: isOpen ? "var(--brand-primary)" : "var(--brand-primary)",
+            }}
           >
-            <motion.div
-              initial={{ y: -10 }}
-              animate={{ y: 0 }}
-              exit={{ y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="px-6 pb-6"
-            >
-              <p className="leading-relaxed" style={{ color: "#898989" }}>
-                {answer}
-              </p>
-            </motion.div>
+            {question}
+          </span>
+
+          <motion.div
+            animate={{ rotate: isOpen ? 45 : 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
+            style={{
+              background: isOpen
+                ? "var(--brand-green)"
+                : "rgba(5,74,91,0.07)",
+              transition: "background 0.3s",
+            }}
+          >
+            <Plus
+              className="w-4 h-4"
+              style={{ color: isOpen ? "#ffffff" : "var(--brand-primary)" }}
+            />
           </motion.div>
-        )}
-      </AnimatePresence>
+        </button>
+
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.32, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div
+                style={{
+                  padding: "0 24px 22px",
+                  borderTop: "1px solid rgba(5,74,91,0.07)",
+                  paddingTop: "16px",
+                }}
+              >
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "var(--brand-muted)" }}
+                >
+                  {answer}
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </motion.div>
   );
 }

@@ -8,22 +8,22 @@ const slides = [
   },
   {
     id: 2,
-    imagen: "/Fostersterm/Image1.png",
+    imagen: "/Fostersterm/2.png",
     texto: "Asignamos personal entrenado en alergias que opera directamente en su consultorio.",
   },
   {
     id: 3,
-    imagen: "/Fostersterm/hands shaking.jpg",
+    imagen: "/Fostersterm/1.png",
     texto: "Implementamos protocolos clínicos, documentación y flujo de facturación desde el día uno.",
   },
   {
     id: 4,
-    imagen: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&q=80",
+    imagen: "/Fostersterm/4.png",
     texto: "Lanzamos el servicio de alergia con soporte operativo y clínico continuo.",
   },
   {
     id: 5,
-    imagen: "/Fostersterm/charts.jpg",
+    imagen: "/Fostersterm/5.png",
     texto: "Monitoreamos el rendimiento del programa con reportes mensuales y optimización de resultados.",
   },
 ];
@@ -64,7 +64,7 @@ export function ProcessCarousel() {
           className="text-3xl md:text-4xl mb-12"
           style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}
         >
-          Cómo Implementamos la Alianza en su Clínica
+          El proceso de integración de la alianza en su clínica
         </h2>
 
         {/* Track */}

@@ -20,6 +20,7 @@ import { MobileMenu } from "./components/MobileMenu";
 import { Navbar } from "./components/Navbar";
 import { CasosCarousel } from "./components/CasosCarousel";
 import { ProcessCarousel } from "./components/ProcessCarousel";
+import { AlianzaImplementacion } from "./components/AlianzaImplementacion";
 import { ContactForm } from "./components/Contactform";
 import Blog from "./pages/blog";
 import Nosotros from "./pages/Nosotros";
@@ -543,7 +544,7 @@ export default function App() {
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
                   <div
                     ref={howImg}
-                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] md:h-[420px] lg:h-[560px] group"
+                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] md:h-[420px] lg:h-[650px] group"
                   >
                     <img
                       src="/Fostersterm/image3.png"
@@ -591,8 +592,8 @@ export default function App() {
                               style={{ color: "var(--brand-green)" }}
                             />
                           ),
-                          title: "Personal especializado en su clínica",
-                          desc: "Asignamos especialistas directamente en sus instalaciones, coordinados con su agenda.",
+                          title: "Personal entrenado y asignado a su clínica",
+                          desc: "Asignamos personal capacitado en brindar los servicios que ofrecemos, integrado a su clínica.",
                         },
                         {
                           icon: (
@@ -602,7 +603,7 @@ export default function App() {
                             />
                           ),
                           title: "Facturación y documentación incluidas",
-                          desc: "Gestionamos la documentación clínica y la facturación sin carga adicional para su equipo.",
+                          desc: "Nos encargamos de la documentación clínica y la facturación, reduciendo la carga operativa de su equipo.",
                         },
                         {
                           icon: (
@@ -612,7 +613,7 @@ export default function App() {
                             />
                           ),
                           title: "Reportes periódicos de rendimiento",
-                          desc: "Informes de desempeño del programa. Monitoreamos el éxito juntos, como socios estratégicos.",
+                          desc: "Entregamos reportes claros sobre el desempeño del programa y damos seguimiento continuo como aliados estratégicos.",
                         },
                       ].map((item) => (
                         <div key={item.title} className="flex flex-col gap-2">
@@ -694,7 +695,7 @@ export default function App() {
                       icon: <FlaskConical className="w-8 h-8 text-white" />,
                       title: "Personal Especializado en su Clínica",
                       desc: "Asignamos personal clínico en alergias directamente en sus instalaciones, coordinado con su agenda. Usted no gestiona, usted crece.",
-                      p1: "Especialistas en alergias en su consultorio",
+                      p1: "Personal entrenado en servicios de alergia",
                       p2: "Sin contratar ni capacitar staff",
                       p3: "Presencia puntual y profesional",
                     },
@@ -811,6 +812,7 @@ export default function App() {
                       title: "Cobertura respaldada por aseguradoras",
                       desc: "Las compañías de seguros ya cubren este tipo de servicios, facilitando la implementación y rentabilidad.",
                     },
+                    
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -917,6 +919,16 @@ export default function App() {
                       title: "Cobertura por aseguradoras",
                       desc: "La mayoría de las compañías de seguros cubren tratamientos de inmunoterapia.",
                     },
+                     {
+                      number: "06",
+                      title: "Pruebas de alergia",
+                      desc: "Identificamos de forma rápida y precisa los factores específicos que desencadenan las reacciones para actuar con certeza.",
+                    },
+                    {
+                      number: "07",
+                      title: "Tratamiento de inmunoterapia",
+                      desc: "Fortalecemos el sistema inmunológico de manera progresiva, logrando que el cuerpo tolere los alérgenos a largo plazo.",
+                    },
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -954,6 +966,11 @@ export default function App() {
               </div>
             </section>
             
+            {/* ── SECCIÓN: CÓMO IMPLEMENTAMOS LA ALIANZA ── */}
+            <section id="alianza-implementacion">
+              <AlianzaImplementacion />
+            </section>
+
             {/* ── SECCIÓN: NUESTRO PROCESO (CAROUSEL) ── */}
             <section id="proceso">
               <ProcessCarousel />
@@ -1028,7 +1045,7 @@ export default function App() {
                   Lleve servicios especializados de alergia directamente a su clínica.
                 </h2>
                 <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                  Implementamos laboratorios completos de alergias, proporcionamos personal especializado y ayudamos a que su práctica ofrezca más servicios médicos en un solo lugar.
+                  Implementamos programas de servicios de alergia, proporcionamos personal especializado y ayudamos a que su práctica ofrezca más servicios médicos en un solo lugar.
                 </p>
                 <a
                   href="#contacto"
@@ -1079,7 +1096,7 @@ export default function App() {
                       style={{ color: "var(--brand-muted)" }}
                     >
                       Asóciese con Foster Stern Allergy Division y transforme su
-                      clínica en un centro de referencia en alergología.
+                      clínica en un centro de referencia en servicios de alergia.
                       Implementamos el programa completo — personal, protocolos,
                       facturación y documentación — para que usted solo se
                       enfoque en crecer.

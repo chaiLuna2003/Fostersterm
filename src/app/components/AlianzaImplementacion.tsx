@@ -98,7 +98,7 @@ export function AlianzaImplementacion() {
           {/* FOTO */}
           <div style={{ position: "relative", width: "100%", paddingBottom: "56%" }}>
             <img
-              src="/Fostersterm/ClinicalSpaceFSA.webp"
+              src="/Fostersterm/1.5.png"
               alt="Clínica"
               style={{
                 position: "absolute", inset: 0,
@@ -106,31 +106,8 @@ export function AlianzaImplementacion() {
                 objectFit: "cover", display: "block",
               }}
             />
-            {/* BADGE */}
-            <div style={{
-              position: "absolute", top: 13, left: 13,
-              display: "flex", alignItems: "center", gap: 7,
-              background: "rgba(255,255,255,0.97)",
-              borderRadius: 999,
-              padding: "4px 13px 4px 4px",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-            }}>
-              <div style={{
-                width: 28, height: 28, borderRadius: "50%",
-                background: "#008154", color: "#fff",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontFamily: "'Source Sans 3',sans-serif",
-                fontWeight: 800, fontSize: 14, flexShrink: 0,
-              }}>
-                1
-              </div>
-              <span style={{
-                fontFamily: "'Source Sans 3',sans-serif",
-                fontWeight: 600, fontSize: 13, color: "#054A5B",
-              }}>
-                Evaluación inicial
-              </span>
-            </div>
+            
+            
           </div>
 
           {/* FRANJA DESCRIPCIÓN */}

@@ -43,7 +43,7 @@ function Footer() {
           <div className="flex flex-col gap-5">
             <ImageWithFallback src="/Fostersterm/LogoFS.png" alt="Foster Stern Group" className="h-24 w-auto object-contain" />
             <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Tu éxito es nuestro éxito. Transforma tu clínica con servicios integrados de alergia: sin inversión inicial, sin riesgo y con el respaldo de profesionales expertos.
+              Su éxito es nuestro éxito. Transforme su clínica con nuestros servicios integrados de alergia, sin inversión inicial y con el respaldo de nuestro equipo experto, generando ingresos adicionales dentro de su práctica mientras crecemos juntos.
             </p>
             <div className="flex items-center gap-3 mt-1">
               {[

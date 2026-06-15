@@ -16,6 +16,9 @@ import {
   Stethoscope,
   Lightbulb,
   Heart,
+  UserRound,
+  ShieldCheck,
+  Handshake,
 } from "lucide-react";
 import { ContactForm } from "../components/Contactform";
 
@@ -322,6 +325,7 @@ export default function Nosotros() {
   const val2 = useFade("up", 0.15);
   const val3 = useFade("up", 0.3);
   const val4 = useFade("up", 0.45);
+  const val5 = useFade("up", 0.6);
   const teamTitle = useFade("up");
   const team1 = useFade("up", 0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -375,7 +379,7 @@ export default function Nosotros() {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden flex flex-col"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "100dvh" }}
       >
         <div className="absolute inset-0 z-0">
           <img
@@ -453,7 +457,7 @@ export default function Nosotros() {
                 <br />
                 <span style={{ color: "#4D3088" }}>Revolucionando la</span>
                 <br />
-                <span style={{ color: "#4D3088" }}>atencion de alergias.</span>
+                <span style={{ color: "#4D3088" }}>atención de alergias.</span>
               </h1>
 
               <div
@@ -478,8 +482,9 @@ export default function Nosotros() {
                 style={{
                   background: "rgba(255, 255, 255, 0.18)",
                   backdropFilter: "blur(18px)",
-                  WebkitBackdropFilter: "blur(18px)",
+                  
                   border: "1px solid rgba(255, 255, 255, 0.22)",
+                  WebkitBackdropFilter: "blur(18px)",
                 }}
               >
                 <div
@@ -814,111 +819,157 @@ export default function Nosotros() {
       </section>
 
       {/* ── VALORES ──────────────────────────────────────────────── */}
-      <section className="py-28 bg-white overflow-hidden" id="valores">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div
-            ref={valTitle}
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
-          >
-            <div>
-              <span
-                className="text-xs uppercase tracking-[0.35em] font-bold"
-                style={{ color: "var(--brand-green)" }}
-              >
-                Lo que nos define
+      <section
+        className="relative py-28 overflow-hidden"
+        id="valores"
+        style={{ backgroundColor: "#fafbfc" }}
+      >
+        {/* DECOR — hojas, esquina superior izquierda */}
+        <div
+          className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none select-none"
+          style={{ backgroundColor: "rgba(0,149,84,0.05)" }}
+        />
+        <svg
+          className="absolute top-10 left-6 w-40 h-40 pointer-events-none select-none opacity-40"
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 190 C 40 140, 60 100, 100 60 C 130 30, 160 20, 190 10"
+            stroke="var(--brand-green)"
+            strokeWidth="2"
+            opacity="0.5"
+          />
+          {[
+            [40, 150],
+            [65, 120],
+            [90, 95],
+            [115, 70],
+            [145, 45],
+          ].map(([x, y], i) => (
+            <ellipse
+              key={i}
+              cx={x}
+              cy={y}
+              rx="14"
+              ry="7"
+              fill="var(--brand-green)"
+              opacity="0.18"
+              transform={`rotate(-45 ${x} ${y})`}
+            />
+          ))}
+        </svg>
+
+        {/* DECOR — grid de puntos, esquina superior derecha */}
+        <div className="absolute top-16 right-10 grid grid-cols-6 gap-3 pointer-events-none select-none opacity-60">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <span
+              key={i}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: "var(--brand-green)" }}
+            />
+          ))}
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+          {/* Header centrado */}
+          <div ref={valTitle} className="text-center max-w-3xl mx-auto mb-16">
+            <span
+              className="text-xs uppercase tracking-[0.35em] font-bold"
+              style={{ color: "var(--brand-green)" }}
+            >
+              Nuestros Valores
+            </span>
+            <div
+              className="w-10 h-1 rounded-full mx-auto mt-3 mb-6"
+              style={{ backgroundColor: "var(--brand-green)" }}
+            />
+            <h2
+              className="text-3xl md:text-5xl leading-tight"
+              style={{ fontWeight: 800, color: "var(--brand-primary)" }}
+            >
+              Lo que nos guía,
+              <br />
+              lo que{" "}
+              <span style={{ color: "var(--brand-green)" }}>
+                te impulsará.
               </span>
-              <h2
-                className="text-3xl md:text-4xl mt-3"
-                style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-              >
-                Nuestros
-                <br />
-                Valores
-              </h2>
-            </div>
+            </h2>
             <p
-              className="text-base max-w-xs leading-relaxed md:text-right"
+              className="mt-6 text-base leading-relaxed"
               style={{ color: "var(--brand-muted)" }}
             >
-              Los principios que guían cada decisión y cada alianza que
-              construimos.
+              Nuestros valores son la base de todo lo que hacemos. Guían
+              nuestras decisiones y la forma en que trabajamos contigo.
             </p>
           </div>
 
-          <div
-            className="divide-y"
-            style={{ borderColor: "var(--brand-secondary)" }}
-          >
+          {/* Tarjetas de valores */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
               {
                 ref: val1,
-                num: "01",
-                titulo: "Alianza",
-                desc: "Somos socios de nuestras clínicas. Su éxito es nuestro éxito y trabajamos juntos para lograrlo.",
-                tag: "Partnership",
+                icon: <Heart className="w-7 h-7" />,
+                titulo: "Pasión",
+                desc: "Nos mueve lo que hacemos y ponemos energía y dedicación en cada detalle para generar impacto.",
               },
               {
                 ref: val2,
-                num: "02",
-                titulo: "Excelencia Clinical",
-                desc: "Todos nuestros protocolos están basados en evidencia científica y actualizados constantemente.",
-                tag: "Evidence-based",
+                icon: <UserRound className="w-7 h-7" />,
+                titulo: "Compromiso",
+                desc: "Nos comprometemos a dar siempre lo mejor de nosotros.",
               },
               {
                 ref: val3,
-                num: "03",
+                icon: <Lightbulb className="w-7 h-7" />,
                 titulo: "Innovación",
-                desc: "Buscamos continuamente nuevas formas de mejorar la atención al paciente y la eficiencia clínica.",
-                tag: "Technology",
+                desc: "Buscamos soluciones creativas que generen impacto y valor.",
               },
               {
                 ref: val4,
-                num: "04",
-                titulo: "Compromiso",
-                desc: "Nos comprometemos con cada clínica y cada paciente como si fueran los únicos que atendemos.",
-                tag: "Dedication",
+                icon: <ShieldCheck className="w-7 h-7" />,
+                titulo: "Transparencia",
+                desc: "Actuamos con honestidad y claridad en cada paso del camino.",
               },
-            ].map(({ ref, num, titulo, desc, tag }) => (
+              {
+                ref: val5,
+                icon: <Handshake className="w-7 h-7" />,
+                titulo: "Colaboración",
+                desc: "Creemos en el poder del trabajo en equipo para lograr más juntos.",
+              },
+            ].map(({ ref, icon, titulo, desc }) => (
               <div
                 key={titulo}
                 ref={ref}
-                className="group grid grid-cols-12 gap-4 py-10 md:py-12 items-center -mx-4 px-4 rounded-xl transition-colors duration-300 hover:bg-gray-50/70"
+                className="group bg-white rounded-3xl border p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                style={{ borderColor: "rgba(0,0,0,0.06)" }}
               >
-                <div className="col-span-2 md:col-span-1">
-                  <span
-                    className="text-4xl md:text-5xl font-black leading-none"
-                    style={{ color: "var(--brand-secondary)" }}
-                  >
-                    {num}
-                  </span>
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-colors duration-300"
+                  style={{
+                    backgroundColor: "var(--brand-light)",
+                    color: "var(--brand-green)",
+                  }}
+                >
+                  {icon}
                 </div>
-                <div className="col-span-10 md:col-span-3">
-                  <h3
-                    className="text-2xl md:text-3xl transition-colors duration-300 group-hover:text-[var(--brand-green)]"
-                    style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-                  >
-                    {titulo}
-                  </h3>
-                </div>
-                <div className="col-span-12 md:col-span-6 md:col-start-5">
-                  <p
-                    className="text-base leading-relaxed"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    {desc}
-                  </p>
-                </div>
-                <div className="col-span-12 md:col-span-2 flex md:justify-end">
-                  <span
-                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase"
-                    style={{
-                      backgroundColor: "var(--brand-light)",
-                      color: "var(--brand-green)",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                </div>
+                <h3
+                  className="text-xl"
+                  style={{ fontWeight: 700, color: "var(--brand-primary)" }}
+                >
+                  {titulo}
+                </h3>
+                <div
+                  className="w-8 h-[3px] rounded-full mt-3 mb-4"
+                  style={{ backgroundColor: "var(--brand-green)" }}
+                />
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "var(--brand-muted)" }}
+                >
+                  {desc}
+                </p>
               </div>
             ))}
           </div>

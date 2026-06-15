@@ -3,6 +3,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { MobileMenu } from "../components/MobileMenu";
 import PremiumGallery from "../components/PremiumGallery";
 import { Navbar } from "../components/Navbar";
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -11,6 +12,10 @@ import {
   Activity,
   Headset,
   HeartHandshake,
+  Globe,
+  Stethoscope,
+  Lightbulb,
+  Heart,
 } from "lucide-react";
 import { ContactForm } from "../components/Contactform";
 
@@ -40,7 +45,7 @@ function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [direction, delay]);
   return ref;
 }
 
@@ -276,7 +281,7 @@ function Footer() {
           style={{ borderColor: "var(--brand-secondary)" }}
         >
           <p className="text-sm" style={{ color: "var(--brand-muted)" }}>
-            &copy; 2026 Foster Stern Group. Todos los derechos reservados.
+            © 2026 Foster Stern Group. Todos los derechos reservados.
           </p>
           <div className="flex gap-4">
             <a
@@ -307,12 +312,10 @@ export default function Nosotros() {
   }, []);
 
   // Refs por sección
-  const heroTitle = useFade("up", 0.1);
   const heroSub = useFade("up", 0.25);
   const heroStats = useFade("up", 0.4);
   const misionImg = useFade("left");
   const misionTxt = useFade("right");
-  const visionImg = useFade("right");
   const visionTxt = useFade("left");
   const valTitle = useFade("up");
   const val1 = useFade("up", 0);
@@ -321,12 +324,6 @@ export default function Nosotros() {
   const val4 = useFade("up", 0.45);
   const teamTitle = useFade("up");
   const team1 = useFade("up", 0);
-  const numTitle = useFade("up");
-  const num1 = useFade("up", 0);
-  const num2 = useFade("up", 0.15);
-  const num3 = useFade("up", 0.3);
-  const num4 = useFade("up", 0.45);
-  const ctaBlock = useFade("up");
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const visibleCols = useVisibleCols();
 
@@ -380,7 +377,6 @@ export default function Nosotros() {
         className="relative overflow-hidden flex flex-col"
         style={{ minHeight: "100vh" }}
       >
-        {/* Background image from Unsplash — modern medical clinic */}
         <div className="absolute inset-0 z-0">
           <img
             src="/Fostersterm/HeroImgNosotros.webp"
@@ -388,7 +384,6 @@ export default function Nosotros() {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          {/* Overlay: white fade on the left so text is readable, subtle tint overall */}
           <div
             className="absolute inset-0"
             style={{
@@ -398,7 +393,7 @@ export default function Nosotros() {
           />
         </div>
 
-        {/* Dandelion seeds — decorative, bottom-left */}
+        {/* Dandelion seeds */}
         <div className="absolute left-0 bottom-20 z-0 pointer-events-none select-none opacity-10">
           <svg
             viewBox="0 0 200 200"
@@ -435,18 +430,12 @@ export default function Nosotros() {
           </svg>
         </div>
 
-        {/* Main content */}
         <div
           className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-10"
           style={{ paddingTop: "110px" }}
         >
-          {/* Logo Allergy Division */}
-
-          {/* Two-column — left: text, right: transparent (shows BG photo) */}
           <div className="grid lg:grid-cols-2 gap-0 items-stretch flex-1">
-            {/* LEFT — text */}
             <div className="flex flex-col justify-center gap-6 py-6 pr-0 lg:pr-16">
-              {/* Headline — exact copy from reference image */}
               <h1
                 className="text-4xl md:text-4xl leading-[1.18]"
                 style={{
@@ -467,13 +456,11 @@ export default function Nosotros() {
                 <span style={{ color: "#4D3088" }}>atencion de alergias.</span>
               </h1>
 
-              {/* Accent line */}
               <div
                 className="w-10 h-1 rounded-full"
                 style={{ backgroundColor: "var(--brand-green)" }}
               />
 
-              {/* Subtitle */}
               <div ref={heroSub}>
                 <p
                   className="text-base leading-relaxed max-w-sm"
@@ -485,119 +472,60 @@ export default function Nosotros() {
                 </p>
               </div>
 
-              {/* B2B card — exactly as in the reference */}
-   
-<div
-  ref={heroStats}
-  className="
-    flex items-start gap-4
-    mt-4
-    w-full max-w-sm
-    p-5
-    rounded-[28px]
-    border
-    backdrop-blur-xl
-    shadow-[0_8px_32px_rgba(31,38,135,0.12)]
-    transition-all duration-300
-    hover:-translate-y-1
-  "
-  style={{
-    background: "rgba(255, 255, 255, 0.18)",
-    backdropFilter: "blur(18px)",
-    WebkitBackdropFilter: "blur(18px)",
-    border: "1px solid rgba(255, 255, 255, 0.22)",
-  }}
->
-  {/* ICON */}
-  <div
-    className="
-      w-14 h-14
-      rounded-2xl
-      flex items-center justify-center
-      flex-shrink-0
-      shadow-sm
-    "
-    style={{
-      background:
-        "linear-gradient(135deg, var(--brand-green), #1ca57a)",
-    }}
-  >
-    <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white">
-      <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
-    </svg>
-  </div>
+              <div
+                ref={heroStats}
+                className="flex items-start gap-4 mt-4 w-full max-w-sm p-5 rounded-[28px] border backdrop-blur-xl shadow-[0_8px_32px_rgba(31,38,135,0.12)] transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "rgba(255, 255, 255, 0.18)",
+                  backdropFilter: "blur(18px)",
+                  WebkitBackdropFilter: "blur(18px)",
+                  border: "1px solid rgba(255, 255, 255, 0.22)",
+                }}
+              >
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--brand-green), #1ca57a)",
+                  }}
+                >
+                  <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white">
+                    <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
+                  </svg>
+                </div>
 
-  {/* CONTENT */}
-  <div className="min-w-0">
-    <p
-      className="
-        text-sm
-        font-bold
-        tracking-[0.02em]
-        mb-1
-      "
-      style={{ color: "var(--brand-green)" }}
-    >
-      Soluciones B2B
-    </p>
-
-    <p
-      className="
-        text-[15px]
-        font-bold
-        leading-snug
-        mb-2
-      "
-      style={{ color: "var(--brand-primary)" }}
-    >
-      para instituciones de salud
-    </p>
-
-    <p
-      className="
-        text-[13px]
-        leading-relaxed
-      "
-      style={{
-        color: "var(--brand-primary)",
-        opacity: 0.78,
-      }}
-    >
-      Trabajamos junto a clínicas, hospitales y profesionales
-      de la salud para construir soluciones personalizadas
-      que mejoran resultados y eficiencia.
-    </p>
-  </div>
-</div>
-
-
-
+                <div className="min-w-0">
+                  <p
+                    className="text-sm font-bold tracking-[0.02em] mb-1"
+                    style={{ color: "var(--brand-green)" }}
+                  >
+                    Soluciones B2B
+                  </p>
+                  <p
+                    className="text-[15px] font-bold leading-snug mb-2"
+                    style={{ color: "var(--brand-primary)" }}
+                  >
+                    para instituciones de salud
+                  </p>
+                  <p
+                    className="text-[13px] leading-relaxed"
+                    style={{
+                      color: "var(--brand-primary)",
+                      opacity: 0.78,
+                    }}
+                  >
+                    Trabajamos junto a clínicas, hospitales y profesionales de
+                    la salud para construir soluciones personalizadas que
+                    mejoran resultados y eficiencia.
+                  </p>
+                </div>
+              </div>
             </div>
-
-            {/* RIGHT — intentionally empty; background photo shows through */}
             <div className="hidden lg:block" />
           </div>
 
-          {/* ── Bottom dark stats bar — 4 columns ── */}
-
-          <div
-            className="
-    relative z-10
-    -mx-4 md:-mx-10
-    mb-10
-    overflow-x-auto
-    scrollbar-hide
-  "
-          >
-            <div
-              className="
-      flex lg:grid
-      lg:grid-cols-4
-      gap-4
-      px-4 md:px-0
-      lg:gap-0
-    "
-            >
+          <div className="relative z-10 -mx-4 md:-mx-10 mb-10 overflow-x-auto scrollbar-hide">
+            <div className="flex lg:grid lg:grid-cols-4 gap-4 px-4 md:px-0 lg:gap-0">
               {[
                 {
                   icon: (
@@ -638,44 +566,24 @@ export default function Nosotros() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="
-          min-w-[290px]
-          lg:min-w-0
-          flex items-start gap-4
-          p-5
-          rounded-[24px]
-          border
-          backdrop-blur-md
-          shadow-sm
-          lg:rounded-none
-          lg:border-r
-          lg:last:border-r-0
-        "
+                  className="min-w-[290px] lg:min-w-0 flex items-start gap-4 p-5 rounded-[24px] border backdrop-blur-md shadow-sm lg:rounded-none lg:border-r lg:last:border-r-0"
                   style={{
                     backgroundColor: "rgba(255,255,255,0.08)",
                     borderColor: "rgba(255,255,255,0.12)",
                   }}
                 >
                   <div
-                    className="
-            w-14 h-14
-            rounded-2xl
-            flex items-center justify-center
-            flex-shrink-0
-            shadow-sm
-          "
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
                     style={{
                       backgroundColor: "var(--brand-green)",
                     }}
                   >
                     {item.icon}
                   </div>
-
                   <div>
                     <p className="text-sm font-bold" style={{ color: "white" }}>
                       {item.title}
                     </p>
-
                     <p
                       className="text-xs leading-relaxed mt-1"
                       style={{
@@ -692,300 +600,222 @@ export default function Nosotros() {
         </div>
       </section>
 
-      
-
+      {/* ── MISIÓN ───────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 bg-white overflow-hidden w-full">
-      <div className="flex flex-col gap-24 md:gap-32">
-        
-        {/* ── MISIÓN (Imagen a la derecha, va hasta el borde derecho) ───────────────── */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-0 items-center">
-          
-          {/* CONTENT (Ocupa 5 columnas en desktop y mantiene el padding izquierdo alineado) */}
-          <div 
-            ref={misionTxt} 
-            className="order-2 lg:order-1 px-6 md:px-10 lg:pl-[calc((100vw-1280px)/2+40px)] lg:pr-12 lg:col-span-5"
-          >
-            <span
-              className="text-xs uppercase tracking-[0.3em] block"
-              style={{
-                color: "var(--brand-green)",
-                fontWeight: 700,
-              }}
-            >
-              Nuestra Misión
-            </span>
-
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl mt-5 leading-tight"
-              style={{
-                color: "var(--brand-primary)",
-                fontWeight: 700,
-              }}
-            >
-              Transformar la atención médica moderna.
-            </h2>
-
-            <p
-              className="mt-6 md:mt-8 text-base md:text-lg leading-relaxed max-w-xl"
-              style={{
-                color: "var(--brand-muted)",
-              }}
-            >
-              En Foster Stern Group impulsamos clínicas médicas mediante
-              soluciones integrales de alergia, tecnología clínica y soporte
-              especializado, permitiendo ofrecer atención de clase mundial sin
-              inversión inicial y con un enfoque centrado en el paciente.
-            </p>
-
-            {/* FEATURES */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 mt-12 max-w-xl">
-              {[
-                { icon: <ShieldPlus className="w-6 h-6" />, title: "Soluciones Integrales" },
-                { icon: <Activity className="w-6 h-6" />, title: "Tecnología Clínica" },
-                { icon: <Headset className="w-6 h-6" />, title: "Soporte Especializado" },
-                { icon: <HeartHandshake className="w-6 h-6" />, title: "Enfoque Centrado en el Paciente" },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col">
-                  <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4"
-                    style={{
-                      backgroundColor: "rgba(0,95,86,0.08)",
-                      color: "var(--brand-green)",
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-
-                  <p
-                    className="text-xs font-bold uppercase tracking-wide leading-snug min-h-[2.5rem]"
-                    style={{ color: "var(--brand-primary)" }}
-                  >
-                    {item.title}
-                  </p>
-
-                  <div
-                    className="w-8 h-[2px] mt-4"
-                    style={{ backgroundColor: "var(--brand-green)" }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* IMAGE (Ocupa 7 columnas y va pegada al extremo derecho) */}
-          <div ref={misionImg} className="relative group order-1 lg:order-2 lg:col-span-7 w-full">
-            <div className="overflow-hidden rounded-t-[32px] sm:rounded-[32px] lg:rounded-l-[32px] lg:rounded-r-none shadow-2xl">
-              <img
-                src="/Fostersterm/Medicos-Contentos-1408x768-1-e1778107355311.jpg"
-                alt="Misión Foster Stern"
-                className="w-full h-[350px] md:h-[500px] lg:h-[620px] object-cover transition-all duration-700 group-hover:scale-105"
-              />
-            </div>
-            {/* DECOR */}
+        <div className="flex flex-col gap-24 md:gap-32">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-0 lg:items-center w-full">
+            {/* COLUMNA IZQUIERDA: TEXTO */}
             <div
-              className="absolute -bottom-6 -left-6 w-40 h-40 rounded-full opacity-10 blur-3xl hidden lg:block"
-              style={{ backgroundColor: "var(--brand-green)" }}
-            />
+              ref={misionTxt}
+              className="order-2 lg:order-1 px-6 md:px-10 lg:pl-[calc((100vw-1280px)/2+40px)] lg:pr-16 flex flex-col justify-center w-full"
+            >
+              <div className="max-w-xl w-full">
+                <span
+                  className="text-xs uppercase tracking-[0.3em] block"
+                  style={{
+                    color: "var(--brand-green)",
+                    fontWeight: 700,
+                  }}
+                >
+                  Nuestra Misión
+                </span>
+
+                <h2
+                  className="text-4xl md:text-5xl lg:text-6xl mt-5 leading-tight"
+                  style={{
+                    color: "var(--brand-primary)",
+                    fontWeight: 700,
+                  }}
+                >
+                  Transformar la atención médica moderna.
+                </h2>
+
+                <p
+                  className="mt-6 md:mt-8 text-base md:text-lg leading-relaxed"
+                  style={{
+                    color: "var(--brand-muted)",
+                  }}
+                >
+                  En Foster Stern Group impulsamos clínicas médicas mediante
+                  soluciones integrales de alergia, tecnología clínica y soporte
+                  especializado, permitiendo ofrecer atención de clase mundial
+                  sin inversión inicial y con un enfoque centrado en el
+                  paciente.
+                </p>
+
+                {/* FEATURES */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 mt-12">
+                  {[
+                    {
+                      icon: <ShieldPlus className="w-6 h-6" />,
+                      title: "Soluciones Integrales",
+                    },
+                    {
+                      icon: <Activity className="w-6 h-6" />,
+                      title: "Tecnología Clínica",
+                    },
+                    {
+                      icon: <Headset className="w-6 h-6" />,
+                      title: "Soporte Especializado",
+                    },
+                    {
+                      icon: <HeartHandshake className="w-6 h-6" />,
+                      title: "Enfoque Centrado en el Paciente",
+                    },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex flex-col items-center text-center"
+                    >
+                      <div
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4"
+                        style={{
+                          backgroundColor: "rgba(0,95,86,0.08)",
+                          color: "var(--brand-green)",
+                        }}
+                      >
+                        {item.icon}
+                      </div>
+
+                      <p
+                        className="text-xs font-bold uppercase tracking-wide leading-snug min-h-[2.5rem]"
+                        style={{ color: "var(--brand-primary)" }}
+                      >
+                        {item.title}
+                      </p>
+
+                      <div
+                        className="w-8 h-[2px] mt-4 mx-auto"
+                        style={{ backgroundColor: "var(--brand-green)" }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* COLUMNA DERECHA: IMAGEN */}
+            <div
+              ref={misionImg}
+              className="relative group order-1 lg:order-2 w-full flex justify-end"
+            >
+              <div className="overflow-hidden w-full h-[280px] sm:h-[400px] lg:h-[600px] rounded-none shadow-2xl">
+                <img
+                  src="/Fostersterm/MISIONIMG.png"
+                  alt="Misión Foster Stern"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* ── VISIÓN (Imagen a la derecha, va hasta el borde derecho) ───────────────── */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-0 items-center">
+      {/* ── VISIÓN (CORREGIDA E INTEGRADA CORRECTAMENTE) ───────────────── */}
+      <section className="relative min-h-screen w-full bg-white overflow-hidden flex flex-col justify-between">
+        
+        {/* ── IMAGEN DE FONDO DECORATIVO ── */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img 
+            src="/Fostersterm/VISIONIMG.png" 
+            alt="Background Decor" 
+            className="w-full h-full object-cover object-left-top lg:object-fill"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-white via-white/90 to-transparent lg:hidden" />
+        </div>
+
+        {/* ── CONTENIDO PRINCIPAL ── */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-20 pb-16 lg:pt-28 lg:pb-24 grid lg:grid-cols-12 gap-12 items-center flex-grow">
           
-          {/* CONTENT (Ocupa 5 columnas en desktop) */}
-          <div className="order-2 lg:order-1 px-6 md:px-10 lg:pl-[calc((100vw-1280px)/2+40px)] lg:pr-12 lg:col-span-5 relative">
-            <span
-              className="text-xs uppercase tracking-[0.3em] block"
-              style={{
-                color: "var(--brand-green)",
-                fontWeight: 700,
-              }}
-            >
-              Nuestra Visión
-            </span>
+          {/* COLUMNA IZQUIERDA: Logo centrado */}
+          <div className="order-1 lg:col-span-7 flex flex-col items-center lg:items-start justify-center relative w-full min-h-[250px] lg:min-h-[400px]">
+            <div className="lg:ml-16 transform lg:-translate-y-6">
+              <img 
+                src="/Fostersterm/LogoFS.png" 
+                alt="Foster Stern Allergy Division" 
+                className="w-72 md:w-96 h-auto object-contain"
+              />
+            </div>
+          </div>
 
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl mt-5 leading-tight"
-              style={{
-                color: "var(--brand-primary)",
-                fontWeight: 700,
-              }}
-            >
+          {/* COLUMNA DERECHA: Textos principales */}
+          <div ref={visionTxt} className="order-2 lg:col-span-5 flex flex-col justify-center">
+            <div className="flex flex-col items-start mb-6">
+              <span className="text-xs uppercase tracking-[0.3em] font-bold text-[var(--brand-green)]">
+                Nuestra Visión
+              </span>
+              <div className="w-12 h-[2px] bg-[var(--brand-green)] mt-2" />
+            </div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1] text-[var(--brand-primary)] tracking-tight">
               Liderar el futuro de la alergología.
             </h2>
 
-            <p
-              className="mt-6 md:mt-8 text-base md:text-lg leading-relaxed max-w-xl"
-              style={{
-                color: "var(--brand-muted)",
-              }}
-            >
-              Aspiramos a convertirnos en la red médica de alergia más
-              confiable e innovadora de América, conectando clínicas,
-              especialistas y pacientes mediante un ecosistema moderno,
-              accesible y altamente eficiente.
+            <p className="mt-8 text-base md:text-lg leading-relaxed text-[var(--brand-muted)] font-medium max-w-xl">
+              Aspiramos a convertirnos en la red médica de alergia más confiable e
+              innovadora de América, conectando clínicas, especialistas y pacientes
+              mediante un ecosistema moderno, accesible y altamente eficiente.
             </p>
           </div>
 
-          {/* IMAGE (Ocupa 7 columnas y va pegada al extremo derecho) */}
-          <div className="order-1 lg:order-2 lg:col-span-7 w-full relative group">
-            <div className="overflow-hidden rounded-t-[32px] sm:rounded-[32px] lg:rounded-l-[32px] lg:rounded-r-none shadow-2xl">
-              <img
-                src="/Fostersterm/hands shaking.jpg"
-                alt="Visión Foster Stern"
-                className="w-full h-[350px] md:h-[500px] lg:h-[620px] object-cover transition-all duration-700 group-hover:scale-105"
-              />
-            </div>
-            {/* DECOR */}
-            <div
-              className="absolute -top-6 -left-6 w-40 h-40 rounded-full opacity-10 blur-3xl hidden lg:block"
-              style={{ backgroundColor: "var(--brand-primary)" }}
-            />
-          </div>
         </div>
 
-      </div>
-    </section>
-
-    <section className="relative min-h-screen w-full bg-white overflow-hidden flex flex-col justify-between">
-      
-      {/* ── CAPA DE FONDO DECORATIVO (Ondas y Mapa Mundial) ───────────────── */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Aquí puedes colocar tu imagen de fondo combinada (mapa + ondas) */}
-        <img 
-          src="/Fostersterm/bg-vision-network.jpg" 
-          alt="Background Decor" 
-          className="w-full h-full object-cover object-right-top lg:object-fill"
-        />
-        {/* Capa de gradiente sutil para suavizar la integración del texto en móviles */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent lg:hidden" />
-      </div>
-
-      {/* ── CONTENIDO PRINCIPAL ───────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-20 pb-16 lg:pt-28 lg:pb-24 grid lg:grid-cols-12 gap-12 items-center flex-grow">
-        
-        {/* COLUMNA IZQUIERDA: Textos principales */}
-        <div className="lg:col-span-5 flex flex-col justify-center">
-          <div className="flex flex-col items-start mb-6">
-            <span className="text-sm uppercase tracking-[0.3em] font-bold text-[#009556]">
-              Nuestra Visión
-            </span>
-            <div className="w-12 h-[2px] bg-[#009556] mt-2" />
-          </div>
-
-          <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1] text-[#002B49] tracking-tight">
-            Liderar el futuro de la alergología.
-          </h2>
-
-          <p className="mt-8 text-base md:text-lg leading-relaxed text-[#546E7A] font-medium max-w-xl">
-            Aspiramos a convertirnos en la red médica de alergia más confiable e
-            innovadora de América, conectando clínicas, especialistas y pacientes
-            mediante un ecosistema moderno, accesible y altamente eficiente.
-          </p>
-        </div>
-
-        {/* COLUMNA DERECHA: Logo e Iconos Flotantes Glassmorphism */}
-        <div className="lg:col-span-7 flex flex-col items-center lg:items-end justify-center relative w-full h-full min-h-[350px] lg:min-h-[450px]">
-          
-          {/* Contenedor del Logo Principal */}
-          <div className="lg:mr-16 mb-8 lg:mb-0 transform lg:-translate-y-12">
-            <img 
-              src="/Fostersterm/foster-stern-allergy-division-logo.png" 
-              alt="Foster Stern Allergy Division" 
-              className="w-72 md:w-96 h-auto object-contain"
-            />
-          </div>
-
-          {/* Iconos Flotantes con estilo Glassmorphism / Degradado sutil */}
-          <div className="absolute bottom-4 lg:bottom-12 left-1/2 lg:left-auto lg:right-24 transform -translate-x-1/2 lg:translate-x-0 flex gap-6 md:gap-8 items-center">
+        {/* ── FRANJA INFERIOR OSCURA (4 Pilares Informativos) ── */}
+        <div className="relative z-10 w-full bg-[#076677] border-t border-white/10 py-6 md:py-8 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-8 items-center divide-y sm:divide-y-0 lg:divide-x divide-white/10">
             
-            {/* Icono Red Médica (Verde) */}
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-gradient-to-br from-[#87D37C]/20 to-[#009556]/10 border border-[#009556]/30 shadow-lg backdrop-blur-sm shadow-[#009556]/10">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#87D37C] to-[#009556] flex items-center justify-center text-white shadow-inner">
-                {/* Reemplaza con tu SVG o Icono */}
-                <span className="text-xl md:text-2xl">👥</span> 
+            {/* Pilar 1 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-0 lg:pl-0">
+              <div className="text-[var(--brand-green)] flex-shrink-0">
+                <Globe className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Red conectada</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">Unimos clínicas y especialistas.</p>
               </div>
             </div>
 
-            {/* Icono Monitor/Métricas (Azul) */}
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-gradient-to-br from-[#4EA1D3]/20 to-[#002B49]/10 border border-[#4EA1D3]/30 shadow-lg backdrop-blur-sm shadow-[#002B49]/10 transform -translate-y-4">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#4EA1D3] to-[#002B49] flex items-center justify-center text-white shadow-inner">
-                <span className="text-xl md:text-2xl">📊</span>
+            {/* Pilar 2 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-0 lg:pl-8">
+              <div className="text-[var(--brand-green)] flex-shrink-0">
+                <Stethoscope className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Excelencia médica</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">Impulsamos el conocimiento y la especialización.</p>
               </div>
             </div>
 
-            {/* Icono Escudo/Seguridad (Verde Agua) */}
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-gradient-to-br from-[#26A69A]/20 to-[#00796B]/10 border border-[#26A69A]/30 shadow-lg backdrop-blur-sm shadow-[#00796B]/10">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#26A69A] to-[#00796B] flex items-center justify-center text-white shadow-inner">
-                <span className="text-xl md:text-2xl">🛡️</span>
+            {/* Pilar 3 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-4 lg:pt-0 lg:pl-8">
+              <div className="text-[var(--brand-green)] flex-shrink-0">
+                <Lightbulb className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Innovación constante</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">Tecnología y ciencia al servicio de la alergología.</p>
+              </div>
+            </div>
+
+            {/* Pilar 4 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-4 lg:pt-0 lg:pl-8">
+              <div className="text-[var(--brand-green)] flex-shrink-0">
+                <Heart className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Centrados en el paciente</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">Mejoramos vidas con acceso y atención de calidad.</p>
               </div>
             </div>
 
           </div>
         </div>
-      </div>
 
-      {/* ── FRANJA INFERIOR OSCURA (4 Pilares) ───────────────── */}
-      <div className="relative z-10 w-full bg-[#001E33] border-t border-white/10 py-6 md:py-8 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-8 items-center divide-y sm:divide-y-0 lg:divide-x divide-white/10">
-          
-          {/* Pilar 1 */}
-          <div className="flex items-center gap-4 pt-4 sm:pt-0 lg:pl-0">
-            <div className="text-[#009556] flex-shrink-0">
-              {/* <Globe className="w-8 h-8" /> */}
-              <span className="text-3xl">🌐</span>
-            </div>
-            <div className="flex flex-col">
-              <h4 className="text-white text-xs font-bold uppercase tracking-wide">Red conectada</h4>
-              <p className="text-white/60 text-xs mt-0.5 leading-snug">Unimos clínicas y especialistas.</p>
-            </div>
-          </div>
-
-          {/* Pilar 2 */}
-          <div className="flex items-center gap-4 pt-4 sm:pt-0 lg:pl-8">
-            <div className="text-[#009556] flex-shrink-0">
-              {/* <Award className="w-8 h-8" /> */}
-              <span className="text-3xl">🩺</span>
-            </div>
-            <div className="flex flex-col">
-              <h4 className="text-white text-xs font-bold uppercase tracking-wide">Excelencia médica</h4>
-              <p className="text-white/60 text-xs mt-0.5 leading-snug">Impulsamos el conocimiento y la especialización.</p>
-            </div>
-          </div>
-
-          {/* Pilar 3 */}
-          <div className="flex items-center gap-4 pt-4 sm:pt-4 lg:pt-0 lg:pl-8">
-            <div className="text-[#009556] flex-shrink-0">
-              {/* <Lightbulb className="w-8 h-8" /> */}
-              <span className="text-3xl">💡</span>
-            </div>
-            <div className="flex flex-col">
-              <h4 className="text-white text-xs font-bold uppercase tracking-wide">Innovación constante</h4>
-              <p className="text-white/60 text-xs mt-0.5 leading-snug">Tecnología y ciencia al servicio de la alergología.</p>
-            </div>
-          </div>
-
-          {/* Pilar 4 */}
-          <div className="flex items-center gap-4 pt-4 sm:pt-4 lg:pt-0 lg:pl-8">
-            <div className="text-[#009556] flex-shrink-0">
-              {/* <Heart className="w-8 h-8" /> */}
-              <span className="text-3xl">❤️</span>
-            </div>
-            <div className="flex flex-col">
-              <h4 className="text-white text-xs font-bold uppercase tracking-wide">Centrados en el paciente</h4>
-              <p className="text-white/60 text-xs mt-0.5 leading-snug">Mejoramos vidas con acceso y atención de calidad.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
+      </section>
 
       {/* ── VALORES ──────────────────────────────────────────────── */}
       <section className="py-28 bg-white overflow-hidden" id="valores">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          {/* Header editorial */}
           <div
             ref={valTitle}
             className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
@@ -1015,7 +845,6 @@ export default function Nosotros() {
             </p>
           </div>
 
-          {/* Valores — lista editorial con número grande */}
           <div
             className="divide-y"
             style={{ borderColor: "var(--brand-secondary)" }}
@@ -1031,7 +860,7 @@ export default function Nosotros() {
               {
                 ref: val2,
                 num: "02",
-                titulo: "Excelencia Clínica",
+                titulo: "Excelencia Clinical",
                 desc: "Todos nuestros protocolos están basados en evidencia científica y actualizados constantemente.",
                 tag: "Evidence-based",
               },
@@ -1122,7 +951,6 @@ export default function Nosotros() {
               className="grid lg:grid-cols-2 gap-0 overflow-hidden rounded-3xl border shadow-lg"
               style={{ borderColor: "var(--brand-secondary)" }}
             >
-              {/* Foto */}
               <div className="relative h-72 md:h-[520px] overflow-hidden group/ceo">
                 <img
                   src="/Fostersterm/Carlitos-Solo.png"
@@ -1133,11 +961,9 @@ export default function Nosotros() {
                       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80";
                   }}
                 />
-                {/* Overlay gradient bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
 
-              {/* Info */}
               <div className="bg-white p-10 md:p-14 flex flex-col justify-center gap-6">
                 <div>
                   <span
@@ -1198,7 +1024,6 @@ export default function Nosotros() {
         style={{ backgroundColor: "#f5f7fb" }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          {/* HEADER */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
             <div className="max-w-2xl">
               <span
@@ -1246,9 +1071,6 @@ export default function Nosotros() {
             </div>
           </div>
 
-          {/* CAROUSEL — 1 col mobile · 2 tablet · 3 desktop
-               El track se desplaza de a 1 item en móvil, 2 en tablet y 3 en desktop.
-               Usamos CSS custom property --cols para calcular el translateX. */}
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-out"
@@ -1314,7 +1136,6 @@ export default function Nosotros() {
             </div>
           </div>
 
-          {/* DOTS — un dot por cada posición de scroll posible */}
           {(() => {
             const totalDots = testimonials.length - visibleCols + 1;
             return (
@@ -1341,7 +1162,6 @@ export default function Nosotros() {
         </div>
       </section>
 
-      {/* ── GALERÍA ─────────────────────────────────────────────────── */}
       <PremiumGallery />
 
       {/* ── CONTACTO ─────────────────────────────────────────────────── */}
@@ -1373,7 +1193,6 @@ export default function Nosotros() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Mapa + info de contacto */}
             <div>
               <div
                 className="overflow-hidden rounded-3xl border shadow-xl"
@@ -1466,7 +1285,6 @@ export default function Nosotros() {
               </div>
             </div>
 
-            {/* Formulario compartido */}
             <ContactForm />
           </div>
         </div>

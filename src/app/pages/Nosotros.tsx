@@ -382,11 +382,15 @@ export default function Nosotros() {
       >
         <div className="absolute inset-0 z-0">
           <img
-            src="/Fostersterm/HeroImgNosotros.webp"
-            alt=""
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-          />
+  src="/Fostersterm/HeroImgNosotros.webp"
+  alt=""
+  className="
+    w-full h-full object-cover
+    object-[60%_center]
+    md:object-center
+  "
+  loading="eager"
+/>
           <div
             className="absolute inset-0"
             style={{
@@ -552,7 +556,7 @@ export default function Nosotros() {
 
       {/* ── MISIÓN ───────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 bg-white overflow-hidden w-full">
-        <div className="flex flex-col gap-24 md:gap-32">
+        <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-0 lg:items-center w-full">
             {/* COLUMNA IZQUIERDA: TEXTO */}
             <div
@@ -561,7 +565,13 @@ export default function Nosotros() {
             >
               <div className="max-w-xl w-full">
                 <span
-                  className="text-xs uppercase tracking-[0.3em] block"
+                  className="
+  text-sm
+  md:text-xs
+  uppercase
+  tracking-[0.28em]
+  block
+"
                   style={{
                     color: "var(--brand-green)",
                     fontWeight: 700,
@@ -571,7 +581,14 @@ export default function Nosotros() {
                 </span>
 
                 <h2
-                  className="text-4xl md:text-5xl lg:text-6xl mt-5 leading-tight"
+                  className="
+  text-[2.3rem]
+  sm:text-5xl
+  md:text-6xl
+  lg:text-[4.2rem]
+  mt-5
+  leading-[1.08]
+"
                   style={{
                     color: "var(--brand-primary)",
                     fontWeight: 700,
@@ -581,7 +598,13 @@ export default function Nosotros() {
                 </h2>
 
                 <p
-                  className="mt-6 md:mt-8 text-base md:text-lg leading-relaxed"
+                  className="
+  mt-6 md:mt-8
+  text-[17px]
+  sm:text-lg
+  md:text-xl
+  leading-[1.9]
+"
                   style={{
                     color: "var(--brand-muted)",
                   }}
@@ -603,7 +626,7 @@ export default function Nosotros() {
               ref={misionImg}
               className="relative group order-1 lg:order-2 w-full flex justify-end"
             >
-              <div className="overflow-hidden w-full h-[280px] sm:h-[400px] lg:h-[600px] rounded-none shadow-2xl">
+              <div className="overflow-hidden w-full h-[340px] sm:h-[460px] lg:h-[600px] rounded-none shadow-2xl">
                 <img
                   src="/Fostersterm/MISIONIMG.png"
                   alt="Misión Foster Stern"

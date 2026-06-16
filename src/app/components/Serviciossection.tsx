@@ -121,7 +121,7 @@ export function ServiciosSection() {
           </h2>
 
           <p
-            className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             style={{ color: "var(--brand-muted)" }}
           >
             Transformamos la atención al paciente en una oportunidad de
@@ -174,7 +174,7 @@ export function ServiciosSection() {
           </div>
 
           {/* Tarjetas con Glassmorphism Optimizado */}
-          <div className="lg:w-7/12 flex flex-col gap-5">
+          <div className="lg:w-7/12 flex flex-col gap-7 md:gap-5">
             {CARDS.map((card, idx) => {
               const Icon = card.icon;
               return (
@@ -207,14 +207,11 @@ export function ServiciosSection() {
                     style={{ backgroundColor: "var(--brand-green)" }}
                   />
 
-                  <div className="relative z-10 flex gap-5 p-6 md:p-7">
-                    {/* Contenedor del Icono */}
+                  <div className="relative z-10 flex gap-6 p-[34px] md:p-9">
                     
-
-                    {/* Contenido */}
                     <div className="flex-1 min-w-0">
                       <h3
-                        className="text-lg md:text-xl font-bold mb-2"
+                        className="text-2xl md:text-2xl font-bold mb-4 leading-tight"
                         style={{ 
                           fontFamily: "'Nunito Sans', sans-serif",
                           color: "var(--brand-primary)" 
@@ -224,7 +221,7 @@ export function ServiciosSection() {
                       </h3>
 
                       <p 
-                        className="text-sm leading-relaxed mb-4 font-medium"
+                        className="text-[22px] md:text-[17px] leading-[1.85] mb-6 font-medium"
                         style={{ color: "var(--brand-muted)" }}
                       >
                         {card.desc}
@@ -235,7 +232,7 @@ export function ServiciosSection() {
   {card.points.map((txt, i) => (
     <li
       key={i}
-      className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full"
+      className="flex items-center gap-2 text-lg font-semibold px-4 py-2 rounded-full"
       style={{
         background: "rgba(5, 74, 91, 0.04)",
         border: "1px solid rgba(5, 74, 91, 0.07)",

@@ -30,26 +30,33 @@ import AboutUs from "./pages/AboutUs";
 import BlogEn from "./pages/BlogEn";
 import { useEffect, useState, useRef } from "react";
 
-// Hook para fade-in al hacer scroll
+// Hook para fade-in al hacer scroll - MEJORADO para manejar navegación
 function useFadeIn(direction: "up" | "left" | "right" = "up") {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    
+    // Reset inicial - asegurar que el elemento esté visible de inmediato en algunos casos
     if (direction === "left") el.classList.add("from-left");
     if (direction === "right") el.classList.add("from-right");
+    
+    // Crear observer para animación al scroll
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add("visible");
-          observer.disconnect();
+          observer.unobserve(el);
         }
       },
       { threshold: 0.12 },
     );
-    const cursor = observer;
-    cursor.observe(el);
-    return () => cursor.disconnect();
+    
+    observer.observe(el);
+    
+    return () => {
+      observer.disconnect();
+    };
   }, [direction]);
   return ref;
 }
@@ -116,7 +123,7 @@ export default function App() {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(135deg, rgba(5, 74, 91, 0.85) 0%, rgba(5, 74, 91, 0.4) 45%, rgba(255, 255, 255, 0) 80%)",
+                      "linear-gradient(315deg, rgba(5, 74, 91, 0.85) 0%, rgba(5, 74, 91, 0.4) 45%, rgba(255, 255, 255, 0) 80%)",
                   }}
                 />
               </div>
@@ -130,16 +137,18 @@ export default function App() {
                 style={{ paddingTop: "clamp(100px, 15vw, 140px)" }}
               >
                 <div className="w-full">
-                  {/* Text content — centered on mobile/tablet, left on desktop */}
-                  <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-                    <div className="flex flex-col gap-5 md:gap-6 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+                  {/* Text content — centered on mobile/tablet, RIGHT on desktop */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 lg:items-center">
+                    <div className="lg:col-start-2 flex flex-col gap-5 md:gap-6 max-w-2xl text-center lg:text-right">
                       
 
                       <h1
-                        className="hero-title-shimmer text-2xl md:text-2xl lg:text-3xl leading-tight"
+                        className="hero-title-shimmer text-3xl md:text-4xl lg:text-4xl leading-tight"
+                        
                         style={{
                           fontFamily: "'Nunito Sans', sans-serif",
                           fontWeight: 800,
+                          WebkitTextStroke: "0.35px rgba(0,0,0,0.18)",
                         }}
                       >
                         Su éxito es nuestro éxito. Transforme su clínica con nuestros servicios integrados de alergia, sin inversión inicial y con el respaldo de nuestro equipo experto, generando ingresos adicionales dentro de su práctica mientras crecemos juntos.
@@ -147,7 +156,7 @@ export default function App() {
 
                       
 
-                      <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-start">
+                      <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-end">
                         <a
                           href="#contacto"
                           className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
@@ -157,18 +166,10 @@ export default function App() {
                         </a>
                         
                       </div>
-                    </div>
-
-                    {/* Tablet: horizontal mini-cards row | Desktop: vertical cards column */}
-                    
-
-                    {/* Desktop only: vertical cards */}
-                    
+                    </div>                    
                   </div>
                 </div>
               </div>
-
-              {/* Bottom Floating Info Bar */}
               
             </header>
             {/* ── SECCIÓN: FOCUSED ALLERGY SOLUTIONS ── */}
@@ -182,7 +183,7 @@ export default function App() {
                     <img
                       src="/Fostersterm/chartUp.webp"
                       alt="Médico revisando paciente con alergia"
-                      className="w-full h-[280px] md:h-[380px] lg:h-[440px] object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-[280px] md:h-[380px] lg:h-[540px] object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none rounded-3xl" />
                   </div>
@@ -201,7 +202,7 @@ export default function App() {
                     </h2>
 
                     <p
-                      className="text-xl font-semibold"
+                      className="text-lg md:text-xl lg:text-2xl font-semibold"
                       style={{
                         color: "var(--brand-primary)",
                         fontFamily: "'Nunito Sans', sans-serif",
@@ -211,7 +212,7 @@ export default function App() {
                       servicios de alergia in-house:
                     </p>
 
-                    <ul ref={focusedList} className="fade-in space-y-4">
+                    <ul ref={focusedList} className="fade-in space-y-6">
                       {[
                         "Cada derivación externa es un ingreso que su clínica podría haber capturado.",
                         "La demanda de pruebas e inmunoterapia crece año tras año.",
@@ -232,7 +233,7 @@ export default function App() {
                             />
                           </div>
                           <span
-                            className="text-base leading-relaxed"
+                            className="text-xl leading-relaxed"
                             style={{
                               color: "var(--brand-muted)",
                               fontFamily: "'Nunito Sans', sans-serif",
@@ -247,6 +248,7 @@ export default function App() {
                 </div>
               </div>
             </section>
+            
             <section className="py-16 md:py-20 bg-white">
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
@@ -286,7 +288,7 @@ export default function App() {
                       
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                       {[
                         {
                           icon: (
@@ -327,7 +329,7 @@ export default function App() {
                             {item.icon}
                           </div>
                           <h3
-                            className="text-lg font-bold"
+                            className="text-xl font-bold"
                             style={{
                               fontFamily: "'Nunito Sans', sans-serif",
                               color: "var(--brand-primary)",
@@ -336,7 +338,7 @@ export default function App() {
                             {item.title}
                           </h3>
                           <p
-                            className="text-base leading-relaxed"
+                            className="text-lg leading-relaxed"
                             style={{ color: "var(--brand-muted)" }}
                           >
                             {item.desc}
@@ -355,6 +357,7 @@ export default function App() {
                 </div>
               </div>
             </section>
+            
             <ServiciosSection />
             {/* Beneficios*/}
             <section id="beneficios" className="py-20 lg:py-28 bg-white">
@@ -378,8 +381,7 @@ export default function App() {
                       color: "var(--brand-primary)",
                     }}
                   >
-                    Un programa de alergias diseñado para hacer crecer su
-                    práctica médica.
+                    Transformando clínicas. Mejorando vidas. Revolucionando la atención de servicios de alergias e inmunoterapia.
                   </h2>
 
                   <p
@@ -438,14 +440,14 @@ export default function App() {
                         {/* CONTENT */}
                         <div>
                           <h3
-                            className="text-2xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                            className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
                             style={{ color: "var(--brand-primary)" }}
                           >
                             {item.title}
                           </h3>
 
                           <p
-                            className="text-base leading-relaxed max-w-lg"
+                            className="text-base md:text-lg leading-relaxed max-w-lg"
                             style={{ color: "var(--brand-muted)" }}
                           >
                             {item.desc}
@@ -553,14 +555,14 @@ export default function App() {
                         {/* CONTENT */}
                         <div>
                           <h3
-                            className="text-2xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                            className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
                             style={{ color: "var(--brand-primary)" }}
                           >
                             {item.title}
                           </h3>
 
                           <p
-                            className="text-base leading-relaxed max-w-lg"
+                            className="text-base md:text-lg leading-relaxed max-w-lg"
                             style={{ color: "var(--brand-muted)" }}
                           >
                             {item.desc}
@@ -645,7 +647,7 @@ export default function App() {
                       </h2>
 
                       <p
-                        className="text-base leading-relaxed"
+                        className="text-xl leading-relaxed"
                         style={{ color: "var(--brand-muted)" }}
                       >
                         Todo lo que necesita saber sobre nuestro modelo de
@@ -757,7 +759,7 @@ export default function App() {
         href="#contacto"
         className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105"
       >
-        Agendar una Consulta con nuestro Equipo
+        Agendar una Reunión
       </a>
     </div>
   </div>

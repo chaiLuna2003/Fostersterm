@@ -16,7 +16,7 @@ export function FAQItem({ question, answer, index = 0 }: FAQItemProps) {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay: index * 0.07, ease: "easeOut" }}
+      transition={{ duration: 0.35, delay: index * 0.07, ease: "easeOut" }}
     >
       <motion.div
         animate={{
@@ -31,7 +31,7 @@ export function FAQItem({ question, answer, index = 0 }: FAQItemProps) {
           border: isOpen
             ? "1px solid rgba(0,129,84,0.30)"
             : "1px solid rgba(5,74,91,0.10)",
-          backdropFilter: "blur(10px)",
+          backdropFilter: "blur(6px)",
           WebkitBackdropFilter: "blur(10px)",
           transition: "background 0.3s, border-color 0.3s",
         }}
@@ -42,7 +42,7 @@ export function FAQItem({ question, answer, index = 0 }: FAQItemProps) {
           style={{ padding: "20px 24px" }}
         >
           <span
-            className="text-base font-semibold leading-snug"
+            className="text-2xl md:text-xl font-semibold leading-[1.45]"
             style={{
               fontFamily: "'Nunito Sans', sans-serif",
               color: isOpen ? "var(--brand-primary)" : "var(--brand-primary)",
@@ -69,32 +69,39 @@ export function FAQItem({ question, answer, index = 0 }: FAQItemProps) {
           </motion.div>
         </button>
 
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.32, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <div
-                style={{
-                  padding: "0 24px 22px",
-                  borderTop: "1px solid rgba(5,74,91,0.07)",
-                  paddingTop: "16px",
-                }}
-              >
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  {answer}
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+ <motion.div
+  initial={false}
+  animate={{
+    opacity: isOpen ? 1 : 0,
+    scaleY: isOpen ? 1 : 0.96,
+  }}
+  transition={{
+    duration: 0.22,
+    ease: "easeOut",
+  }}
+  style={{
+    transformOrigin: "top",
+    display: isOpen ? "block" : "none",
+  }}
+>
+  <div
+    style={{
+      padding: "0 24px 22px",
+      borderTop: "1px solid rgba(5,74,91,0.07)",
+      paddingTop: "16px",
+    }}
+  >
+    <p
+      className="text-xl md:text-xl leading-[1.9]"
+      style={{
+        color: "var(--brand-muted)",
+        lineHeight: 1.8,
+      }}
+    >
+      {answer}
+    </p>
+  </div>
+</motion.div>
       </motion.div>
     </motion.div>
   );

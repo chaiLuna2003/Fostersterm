@@ -3,7 +3,7 @@ const features = [
     title: "Enfoque personalizado",
     desc: "Adaptado a las necesidades de su clínica y pacientes.",
     svg: (
-      <svg viewBox="0 0 40 36" fill="none" width="40" height="36">
+      <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <circle cx="13" cy="10" r="6" stroke="#054A5B" strokeWidth="1.8"/>
         <circle cx="27" cy="10" r="6" stroke="#054A5B" strokeWidth="1.8"/>
         <path d="M2 34c0-6.627 4.925-12 11-12h3" stroke="#054A5B" strokeWidth="1.8" strokeLinecap="round"/>
@@ -15,7 +15,7 @@ const features = [
     title: "Resultados medibles",
     desc: "Mejoramos la eficiencia y la experiencia del paciente.",
     svg: (
-      <svg viewBox="0 0 40 36" fill="none" width="40" height="36">
+      <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <path d="M5 26l7-9 7 5 8-12 7-6" stroke="#054A5B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
         <rect x="4" y="28" width="5" height="6" rx="1" stroke="#054A5B" strokeWidth="1.5"/>
         <rect x="15" y="22" width="5" height="12" rx="1" stroke="#054A5B" strokeWidth="1.5"/>
@@ -27,7 +27,7 @@ const features = [
     title: "Acompañamiento continuo",
     desc: "Soporte experto en cada etapa del proceso.",
     svg: (
-      <svg viewBox="0 0 40 36" fill="none" width="40" height="36">
+      <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <circle cx="14" cy="18" r="9" stroke="#054A5B" strokeWidth="1.8"/>
         <path d="M14 12v6l4 4" stroke="#054A5B" strokeWidth="1.8" strokeLinecap="round"/>
         <path d="M27 10l6-4M27 10l-2 6M27 10l6 3" stroke="#054A5B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -38,7 +38,7 @@ const features = [
     title: "Calidad y confianza",
     desc: "Protocolos basados en evidencia y mejores prácticas.",
     svg: (
-      <svg viewBox="0 0 40 36" fill="none" width="40" height="36">
+      <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <path d="M20 3L8 8v10c0 8 5.5 14 12 16 6.5-2 12-8 12-16V8L20 3z" stroke="#054A5B" strokeWidth="1.8" strokeLinejoin="round"/>
         <path d="M14 18l4 4 8-8" stroke="#054A5B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
@@ -153,20 +153,28 @@ export function AlianzaImplementacion() {
               <div key={title} style={{
                 display: "flex", flexDirection: "column",
                 alignItems: "center", textAlign: "center",
-                padding: "4px 6px", gap: 5,
+                padding: "12px 10px",
+gap: 10,
               }}>
                 {svg}
                 <p style={{
                   fontFamily: "'Source Sans 3',sans-serif",
-                  fontWeight: 700, fontSize: 10.5,
-                  color: "#054A5B", margin: 0, lineHeight: 1.3,
+                  fontWeight: 800,
+fontSize: "clamp(14px, 1.4vw, 18px)",
+color: "#054A5B",
+margin: 0,
+lineHeight: 1.35,
+letterSpacing: "-0.01em",
                 }}>
                   {title}
                 </p>
                 <p style={{
                   fontFamily: "'Source Sans 3',sans-serif",
-                  fontSize: 9.5, color: "#5a7a84",
-                  margin: 0, lineHeight: 1.4,
+                  fontSize: "clamp(12px, 1.1vw, 15px)",
+color: "#5a7a84",
+margin: 0,
+lineHeight: 1.55,
+maxWidth: 180,
                 }}>
                   {desc}
                 </p>

@@ -76,16 +76,18 @@ export function AlianzaImplementacion() {
             en su Clínica
           </h2>
         </div>
-        <p style={{
-          fontFamily: "'Source Sans 3',sans-serif",
-          fontSize: 13.5,
-          color: "#5a7a84",
-          lineHeight: 1.55,
-          margin: "0 0 18px 0",
-        }}>
-          Un proceso colaborativo, estratégico y enfocado en resultados
-          para el bienestar de sus pacientes y el crecimiento de su clínica.
-        </p>
+        <p
+  style={{
+    fontFamily: "'Source Sans 3',sans-serif",
+    fontSize: "clamp(1rem, 1.4vw, 1.35rem)",
+    color: "#5a7a84",
+    lineHeight: 1.65,
+    margin: "0 0 18px 0",
+  }}
+>
+  Un proceso colaborativo, estratégico y enfocado en resultados
+  para el bienestar de sus pacientes y el crecimiento de su clínica.
+</p>
 
         {/* TARJETA ÚNICA */}
         <div style={{

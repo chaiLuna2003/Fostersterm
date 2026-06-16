@@ -98,14 +98,14 @@ export function ServiciosSection() {
         {/* ── Header ── */}
         <div ref={titleRef} className="fade-in text-center mb-14 md:mb-20">
           <span
-            className="inline-block text-xs font-bold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full"
-            style={{
-              color: "var(--brand-green)",
-              backgroundColor: "rgba(0,160,110,0.09)",
-            }}
-          >
-            Nuestros Servicios
-          </span>
+  className="inline-block text-sm md:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full"
+  style={{
+    color: "var(--brand-green)",
+    backgroundColor: "rgba(0,160,110,0.09)",
+  }}
+>
+  Nuestros Servicios
+</span>
 
           <h2
             className="text-3xl md:text-4xl lg:text-5xl mb-5 leading-tight"

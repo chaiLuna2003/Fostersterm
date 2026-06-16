@@ -174,12 +174,11 @@ export default function App() {
             </header>
             {/* ── SECCIÓN: FOCUSED ALLERGY SOLUTIONS ── */}
             <section className="py-16 md:py-20 bg-white overflow-hidden">
-              <div className="max-w-7xl mx-auto px-6 md:px-10">
-                <div className="flex flex-col md:flex-row-reverse items-start md:items-center gap-10 md:gap-12">
+              <div className="max-w-7xl mx-auto px-6 md:px-10"><div className="flex flex-col lg:flex-row-reverse items-start lg:items-center gap-10 lg:gap-12">
                   <div
-                    ref={focusedImg}
-                    className="fade-in w-full md:w-[320px] lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
-                  >
+  ref={focusedImg}
+  className="fade-in w-full lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
+>
                     <img
                       src="/Fostersterm/chartUp.webp"
                       alt="Médico revisando paciente con alergia"
@@ -251,10 +250,10 @@ export default function App() {
             
             <section className="py-16 md:py-20 bg-white">
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-                <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                   <div
                     ref={howImg}
-                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] md:h-[420px] lg:h-[650px] group"
+                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] sm:h-[360px] md:h-[460px] lg:h-[650px] group"
                   >
                     <img
                       src="/Fostersterm/image3.png"
@@ -367,12 +366,12 @@ export default function App() {
                   ref={benefitsTitle}
                   className="fade-in max-w-3xl mb-14 lg:mb-20"
                 >
-                  <span
-                    className="text-sm font-semibold tracking-[0.2em] uppercase"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    Beneficios para clínicas
-                  </span>
+                <span
+  className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
+  style={{ color: "var(--brand-green)" }}
+>
+  Beneficios para clínicas
+</span>
 
                   <h2
                     className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
@@ -472,12 +471,12 @@ export default function App() {
                   ref={benefitsPatientsTitle}
                   className="fade-in max-w-3xl md:ml-auto md:text-right mb-14 lg:mb-20"
                 >
-                  <span
-                    className="text-sm font-semibold tracking-widest uppercase"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    Beneficios para los pacientes
-                  </span>
+                <span
+  className="text-base md:text-lg lg:text-xl font-bold tracking-widest uppercase"
+  style={{ color: "var(--brand-green)" }}
+>
+  Beneficios para los pacientes
+</span>
 
                   <h2
                     className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
@@ -623,15 +622,15 @@ export default function App() {
                       className="fade-in mb-8"
                     >
                       <span
-                        className="inline-block text-xs font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-4"
-                        style={{
-                          color: "var(--brand-green)",
-                          backgroundColor: "rgba(0,129,84,0.09)",
-                          border: "1px solid rgba(0,129,84,0.18)",
-                        }}
-                      >
-                        Preguntas Frecuentes
-                      </span>
+  className="inline-block text-base md:text-lg lg:text-xl font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-4"
+  style={{
+    color: "var(--brand-green)",
+    backgroundColor: "rgba(0,129,84,0.09)",
+    border: "1px solid rgba(0,129,84,0.18)",
+  }}
+>
+  Preguntas Frecuentes
+</span>
 
                       <h2
                         className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3"

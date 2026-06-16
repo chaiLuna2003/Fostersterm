@@ -565,20 +565,21 @@ export default function Nosotros() {
             >
               <div className="max-w-xl w-full">
                 <span
-                  className="
-  text-sm
-  md:text-xs
-  uppercase
-  tracking-[0.28em]
-  block
-"
-                  style={{
-                    color: "var(--brand-green)",
-                    fontWeight: 700,
-                  }}
-                >
-                  Nuestra Misión
-                </span>
+  className="
+    text-base
+    md:text-lg
+    lg:text-xl
+    uppercase
+    tracking-[0.28em]
+    block
+    font-bold
+  "
+  style={{
+    color: "var(--brand-green)",
+  }}
+>
+  Nuestra Misión
+</span>
 
                 <h2
                   className="
@@ -646,7 +647,14 @@ export default function Nosotros() {
           <img 
             src="/Fostersterm/VISIONIMG.png" 
             alt="Background Decor" 
-            className="w-full h-full object-cover object-left-top lg:object-fill"
+            className="
+  w-full
+  h-full
+  object-cover
+  object-[40%_center]
+  md:object-[55%_center]
+  lg:object-[90%_center]
+"
           />
           <div className="absolute inset-0 bg-gradient-to-l from-white via-white/90 to-transparent lg:hidden" />
         </div>
@@ -655,27 +663,40 @@ export default function Nosotros() {
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-20 pb-16 lg:pt-28 lg:pb-24 grid lg:grid-cols-12 gap-12 items-center flex-grow">
           
           {/* COLUMNA IZQUIERDA: Logo centrado */}
-          <div className="order-1 lg:col-span-7 flex flex-col items-center lg:items-start justify-center relative w-full min-h-[250px] lg:min-h-[400px]">
-            <div className="lg:ml-16 transform lg:-translate-y-6">
-              <img 
-                src="/Fostersterm/LogoFS.png" 
-                alt="Foster Stern Allergy Division" 
-                className="w-72 md:w-96 h-auto object-contain"
-              />
-            </div>
-          </div>
+          
 
           {/* COLUMNA DERECHA: Textos principales */}
-          <div ref={visionTxt} className="order-2 lg:col-span-5 flex flex-col justify-center">
+ <div
+  ref={visionTxt}
+  className="
+    order-2
+    lg:col-span-5
+    lg:col-start-7
+    lg:pl-10
+    flex
+    flex-col
+    justify-center
+  "
+>
             <div className="flex flex-col items-start mb-6">
-              <span className="text-xs uppercase tracking-[0.3em] font-bold text-[var(--brand-green)]">
-                Nuestra Visión
-              </span>
+              <span
+  className="
+    text-base
+    md:text-lg
+    lg:text-xl
+    uppercase
+    tracking-[0.3em]
+    font-bold
+    text-[var(--brand-green)]
+  "
+>
+  Nuestra Visión
+</span>
               <div className="w-12 h-[2px] bg-[var(--brand-green)] mt-2" />
             </div>
 
             <h2 className="text-4xl md:text-5xl lg:text-[30px] font-bold leading-[1.1] text-[var(--brand-primary)] tracking-tight">
-              Liderar el futuro de los servicios de alergia, conectando con clínicas a través de un ecosistema moderno, accesible y altamente eficiente, enfocado en mejorar la atención, ampliar el acceso y transformar la experiencia del paciente.
+              Somos líderes del presente y del futuro en servicios de alergia, conectando clínicas a través de un ecosistema moderno y accesible
             </h2>
 
             
@@ -743,44 +764,11 @@ export default function Nosotros() {
         style={{ backgroundColor: "#fafbfc" }}
       >
         {/* DECOR — hojas, esquina superior izquierda */}
-        <div
-          className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none select-none"
-          style={{ backgroundColor: "rgba(0,149,84,0.05)" }}
-        />
-        <svg
-          className="absolute top-10 left-6 w-40 h-40 pointer-events-none select-none opacity-40"
-          viewBox="0 0 200 200"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10 190 C 40 140, 60 100, 100 60 C 130 30, 160 20, 190 10"
-            stroke="var(--brand-green)"
-            strokeWidth="2"
-            opacity="0.5"
-          />
-          {[
-            [40, 150],
-            [65, 120],
-            [90, 95],
-            [115, 70],
-            [145, 45],
-          ].map(([x, y], i) => (
-            <ellipse
-              key={i}
-              cx={x}
-              cy={y}
-              rx="14"
-              ry="7"
-              fill="var(--brand-green)"
-              opacity="0.18"
-              transform={`rotate(-45 ${x} ${y})`}
-            />
-          ))}
-        </svg>
+        
+        
 
         {/* DECOR — grid de puntos, esquina superior derecha */}
-        <div className="absolute top-16 right-10 grid grid-cols-6 gap-3 pointer-events-none select-none opacity-60">
+        <div className="absolute top-6 right-10 grid grid-cols-6 gap-3 pointer-events-none select-none opacity-60">
           {Array.from({ length: 24 }).map((_, i) => (
             <span
               key={i}
@@ -790,107 +778,117 @@ export default function Nosotros() {
           ))}
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+        <div className="relative max-w-[1700px] mx-auto px-6 md:px-10 xl:px-16">
           {/* Header centrado */}
           <div ref={valTitle} className="text-center max-w-3xl mx-auto mb-16">
             <span
-              className="text-xs uppercase tracking-[0.35em] font-bold"
-              style={{ color: "var(--brand-green)" }}
-            >
-              Nuestros Valores
-            </span>
+  className="
+    text-base
+    md:text-lg
+    lg:text-xl
+    uppercase
+    tracking-[0.35em]
+    font-bold
+  "
+  style={{ color: "var(--brand-green)" }}
+>
+  Nuestros Valores
+</span>
             <div
               className="w-10 h-1 rounded-full mx-auto mt-3 mb-6"
               style={{ backgroundColor: "var(--brand-green)" }}
             />
             <h2
-              className="text-3xl md:text-5xl leading-tight"
-              style={{ fontWeight: 800, color: "var(--brand-primary)" }}
-            >
-              Lo que nos guía,
-              <br />
-              lo que{" "}
-              <span style={{ color: "var(--brand-green)" }}>
-                te impulsará.
-              </span>
-            </h2>
-            <p
-              className="mt-6 text-base leading-relaxed"
-              style={{ color: "var(--brand-muted)" }}
-            >
-              Nuestros valores son la base de todo lo que hacemos. Guían
-              nuestras decisiones y la forma en que trabajamos contigo.
-            </p>
+  className="text-4xl md:text-6xl lg:text-7xl leading-tight"
+  style={{ fontWeight: 800, color: "var(--brand-primary)" }}
+>
+  Lo que nos guía,
+  <br />
+  lo que{" "}
+  <span style={{ color: "var(--brand-green)" }}>
+    te impulsará.
+  </span>
+</h2>
+    <p
+  className="mt-6 text-lg md:text-xl lg:text-2xl leading-relaxed"
+  style={{ color: "var(--brand-muted)" }}
+>
+  Nuestros valores son la base de todo lo que hacemos. Guían
+  nuestras decisiones y la forma en que trabajamos contigo.
+</p>
           </div>
 
           {/* Tarjetas de valores */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              {
-                ref: val1,
-                icon: <Heart className="w-7 h-7" />,
-                titulo: "Pasión",
-                desc: "Nos mueve lo que hacemos y ponemos energía y dedicación en cada detalle para generar impacto.",
-              },
-              {
-                ref: val2,
-                icon: <UserRound className="w-7 h-7" />,
-                titulo: "Compromiso",
-                desc: "Nos comprometemos a dar siempre lo mejor de nosotros.",
-              },
-              {
-                ref: val3,
-                icon: <Lightbulb className="w-7 h-7" />,
-                titulo: "Innovación",
-                desc: "Buscamos soluciones creativas que generen impacto y valor.",
-              },
-              {
-                ref: val4,
-                icon: <ShieldCheck className="w-7 h-7" />,
-                titulo: "Transparencia",
-                desc: "Actuamos con honestidad y claridad en cada paso del camino.",
-              },
-              {
-                ref: val5,
-                icon: <Handshake className="w-7 h-7" />,
-                titulo: "Colaboración",
-                desc: "Creemos en el poder del trabajo en equipo para lograr más juntos.",
-              },
-            ].map(({ ref, icon, titulo, desc }) => (
-              <div
-                key={titulo}
-                ref={ref}
-                className="group bg-white rounded-3xl border p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                style={{ borderColor: "rgba(0,0,0,0.06)" }}
-              >
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-colors duration-300"
-                  style={{
-                    backgroundColor: "var(--brand-light)",
-                    color: "var(--brand-green)",
-                  }}
-                >
-                  {icon}
-                </div>
-                <h3
-                  className="text-xl"
-                  style={{ fontWeight: 700, color: "var(--brand-primary)" }}
-                >
-                  {titulo}
-                </h3>
-                <div
-                  className="w-8 h-[3px] rounded-full mt-3 mb-4"
-                  style={{ backgroundColor: "var(--brand-green)" }}
-                />
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "var(--brand-muted)" }}
-                >
-                  {desc}
-                </p>
-              </div>
-            ))}
-          </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 md:gap-8">
+  {[
+    {
+      ref: val1,
+      icon: <Heart className="w-8 h-8 md:w-10 md:h-10" />,
+      titulo: "Pasión",
+      desc: "Nos mueve lo que hacemos y ponemos energía y dedicación en cada detalle para generar impacto.",
+    },
+    {
+      ref: val2,
+      icon: <UserRound className="w-8 h-8 md:w-10 md:h-10" />,
+      titulo: "Compromiso",
+      desc: "Nos comprometemos a dar siempre lo mejor de nosotros.",
+    },
+    {
+      ref: val3,
+      icon: <Lightbulb className="w-8 h-8 md:w-10 md:h-10" />,
+      titulo: "Innovación",
+      desc: "Buscamos soluciones creativas que generen impacto y valor.",
+    },
+    {
+      ref: val4,
+      icon: <ShieldCheck className="w-8 h-8 md:w-10 md:h-10" />,
+      titulo: "Transparencia",
+      desc: "Actuamos con honestidad y claridad en cada paso del camino.",
+    },
+    {
+      ref: val5,
+      icon: <Handshake className="w-8 h-8 md:w-10 md:h-10" />,
+      titulo: "Colaboración",
+      desc: "Creemos en el poder del trabajo en equipo para lograr más juntos.",
+    },
+  ].map(({ ref, icon, titulo, desc }) => (
+    <div
+      key={titulo}
+      ref={ref}
+      className="group bg-white rounded-3xl border p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      style={{ borderColor: "rgba(0,0,0,0.06)" }}
+    >
+      <div
+        className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-6 transition-colors duration-300"
+        style={{
+          backgroundColor: "var(--brand-light)",
+          color: "var(--brand-green)",
+        }}
+      >
+        {icon}
+      </div>
+
+      <h3
+        className="text-2xl md:text-2xl lg:text-[1.7rem]"
+        style={{ fontWeight: 700, color: "var(--brand-primary)" }}
+      >
+        {titulo}
+      </h3>
+
+      <div
+        className="w-10 md:w-12 h-[3px] rounded-full mt-4 mb-5"
+        style={{ backgroundColor: "var(--brand-green)" }}
+      />
+
+      <p
+        className="text-base md:text-lg lg:text-[1.05rem] leading-relaxed"
+        style={{ color: "var(--brand-muted)" }}
+      >
+        {desc}
+      </p>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 
@@ -904,12 +902,19 @@ export default function Nosotros() {
       >
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="text-center mb-14">
-            <span
-              className="text-xs uppercase tracking-widest font-bold"
-              style={{ color: "var(--brand-green)" }}
-            >
-              Hablemos
-            </span>
+       <span
+  className="
+    text-lg
+    md:text-xl
+    lg:text-2xl
+    uppercase
+    tracking-[0.22em]
+    font-bold
+  "
+  style={{ color: "var(--brand-green)" }}
+>
+  Hablemos
+</span>
             <h2
               className="text-3xl md:text-4xl mt-3"
               style={{ fontWeight: 700, color: "var(--brand-primary)" }}
@@ -917,12 +922,12 @@ export default function Nosotros() {
               ¿Listo para unirte a nuestra red?
             </h2>
             <p
-              className="mt-4 max-w-xl mx-auto text-base"
-              style={{ color: "var(--brand-muted)" }}
-            >
-              Únete a las más de 500 clínicas que ya transformaron su práctica
-              médica con Foster Stern Group.
-            </p>
+  className="mt-4 max-w-xl mx-auto text-lg md:text-xl lg:text-2xl leading-relaxed"
+  style={{ color: "var(--brand-muted)" }}
+>
+  Únete a las más de 500 clínicas que ya transformaron su práctica
+  médica con Foster Stern.
+</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">

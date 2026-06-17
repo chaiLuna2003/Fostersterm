@@ -36,11 +36,11 @@ function useFadeIn(direction: "up" | "left" | "right" = "up") {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    
+
     // Reset inicial - asegurar que el elemento esté visible de inmediato en algunos casos
     if (direction === "left") el.classList.add("from-left");
     if (direction === "right") el.classList.add("from-right");
-    
+
     // Crear observer para animación al scroll
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -51,9 +51,9 @@ function useFadeIn(direction: "up" | "left" | "right" = "up") {
       },
       { threshold: 0.12 },
     );
-    
+
     observer.observe(el);
-    
+
     return () => {
       observer.disconnect();
     };
@@ -113,6 +113,7 @@ export default function App() {
             {/* ── HERO SECTION ── */}
             <header className="relative overflow-hidden overflow-x-hidden min-h-screen flex flex-col">
               {/* Background Hero */}
+              
               <div className="absolute inset-0 z-0">
                 <img
                   src="/Fostersterm/fam-foster-bg.png"
@@ -140,21 +141,20 @@ export default function App() {
                   {/* Text content — centered on mobile/tablet, RIGHT on desktop */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 lg:items-center">
                     <div className="lg:col-start-2 flex flex-col gap-5 md:gap-6 max-w-2xl text-center lg:text-right">
-                      
-
                       <h1
                         className="hero-title-shimmer text-3xl md:text-4xl lg:text-4xl leading-tight"
-                        
                         style={{
                           fontFamily: "'Nunito Sans', sans-serif",
                           fontWeight: 800,
                           WebkitTextStroke: "0.35px rgba(0,0,0,0.18)",
                         }}
                       >
-                        Su éxito es nuestro éxito. Transforme su clínica con nuestros servicios integrados de alergia, sin inversión inicial y con el respaldo de nuestro equipo experto, generando ingresos adicionales dentro de su práctica mientras crecemos juntos.
+                        Su éxito es nuestro éxito. Transforme su clínica con
+                        nuestros servicios integrados de alergia, sin inversión
+                        inicial y con el respaldo de nuestro equipo experto,
+                        generando ingresos adicionales dentro de su práctica
+                        mientras crecemos juntos.
                       </h1>
-
-                      
 
                       <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-end">
                         <a
@@ -164,21 +164,20 @@ export default function App() {
                         >
                           Agendar una reunión
                         </a>
-                        
                       </div>
-                    </div>                    
+                    </div>
                   </div>
                 </div>
               </div>
-              
             </header>
             {/* ── SECCIÓN: FOCUSED ALLERGY SOLUTIONS ── */}
             <section className="py-16 md:py-20 bg-white overflow-hidden">
-              <div className="max-w-7xl mx-auto px-6 md:px-10"><div className="flex flex-col lg:flex-row-reverse items-start lg:items-center gap-10 lg:gap-12">
+              <div className="max-w-7xl mx-auto px-6 md:px-10">
+                <div className="flex flex-col lg:flex-row-reverse items-start lg:items-center gap-10 lg:gap-12">
                   <div
-  ref={focusedImg}
-  className="fade-in w-full lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
->
+                    ref={focusedImg}
+                    className="fade-in w-full lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
+                  >
                     <img
                       src="/Fostersterm/chartUp.webp"
                       alt="Médico revisando paciente con alergia"
@@ -247,7 +246,7 @@ export default function App() {
                 </div>
               </div>
             </section>
-            
+
             <section className="py-16 md:py-20 bg-white">
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
@@ -284,7 +283,6 @@ export default function App() {
                       >
                         ¿Cómo Funciona la Alianza?
                       </h2>
-                      
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
@@ -356,7 +354,7 @@ export default function App() {
                 </div>
               </div>
             </section>
-            
+
             <ServiciosSection />
             {/* Beneficios*/}
             <section id="beneficios" className="py-20 lg:py-28 bg-white">
@@ -366,12 +364,12 @@ export default function App() {
                   ref={benefitsTitle}
                   className="fade-in max-w-3xl mb-14 lg:mb-20"
                 >
-                <span
-  className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
-  style={{ color: "var(--brand-green)" }}
->
-  Beneficios para clínicas
-</span>
+                  <span
+                    className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
+                    style={{ color: "var(--brand-green)" }}
+                  >
+                    Beneficios para clínicas
+                  </span>
 
                   <h2
                     className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
@@ -380,7 +378,8 @@ export default function App() {
                       color: "var(--brand-primary)",
                     }}
                   >
-                    Transformando clínicas. Mejorando vidas. Revolucionando la atención de servicios de alergias e inmunoterapia.
+                    Transformando clínicas. Mejorando vidas. Revolucionando la
+                    atención de servicios de alergias e inmunoterapia.
                   </h2>
 
                   <p
@@ -421,7 +420,6 @@ export default function App() {
                       title: "Cobertura respaldada por aseguradoras",
                       desc: "Las compañías de seguros ya cubren este tipo de servicios, facilitando la implementación y rentabilidad.",
                     },
-                    
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -459,9 +457,8 @@ export default function App() {
               </div>
             </section>
             {/* ── SECCIÓN: CASOS DE ÉXITO (CAROUSEL) ── */}
-            
+
             <section
-        
               id="beneficios-pacientes"
               className="py-20 lg:py-28 bg-white"
             >
@@ -471,12 +468,12 @@ export default function App() {
                   ref={benefitsPatientsTitle}
                   className="fade-in max-w-3xl md:ml-auto md:text-right mb-14 lg:mb-20"
                 >
-                <span
-  className="text-base md:text-lg lg:text-xl font-bold tracking-widest uppercase"
-  style={{ color: "var(--brand-green)" }}
->
-  Beneficios para los pacientes
-</span>
+                  <span
+                    className="text-base md:text-lg lg:text-xl font-bold tracking-widest uppercase"
+                    style={{ color: "var(--brand-green)" }}
+                  >
+                    Beneficios para los pacientes
+                  </span>
 
                   <h2
                     className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
@@ -500,7 +497,10 @@ export default function App() {
                 </div>
 
                 {/* GRID */}
-                <div ref={benefitsPatientsGrid} className="fade-in grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                <div
+                  ref={benefitsPatientsGrid}
+                  className="fade-in grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10"
+                >
                   {[
                     {
                       number: "01",
@@ -527,7 +527,7 @@ export default function App() {
                       title: "Cobertura por aseguradoras",
                       desc: "La mayoría de las compañías de seguros cubren tratamientos de inmunoterapia.",
                     },
-                     {
+                    {
                       number: "06",
                       title: "Pruebas de alergia",
                       desc: "Identificamos de forma rápida y precisa los factores específicos que desencadenan las reacciones para actuar con certeza.",
@@ -573,7 +573,7 @@ export default function App() {
                 </div>
               </div>
             </section>
-            
+
             {/* ── SECCIÓN: CÓMO IMPLEMENTAMOS LA ALIANZA ── */}
             <section id="alianza-implementacion">
               <AlianzaImplementacion />
@@ -612,25 +612,20 @@ export default function App() {
 
               <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-14 lg:gap-20 items-start">
-
                   {/* ── Columna imagen sticky ── */}
                   <div className="lg:w-5/12 flex-shrink-0 lg:sticky lg:top-10">
-
                     {/* Header encima de la imagen */}
-                    <div
-                      ref={faqTitle}
-                      className="fade-in mb-8"
-                    >
+                    <div ref={faqTitle} className="fade-in mb-8">
                       <span
-  className="inline-block text-base md:text-lg lg:text-xl font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-4"
-  style={{
-    color: "var(--brand-green)",
-    backgroundColor: "rgba(0,129,84,0.09)",
-    border: "1px solid rgba(0,129,84,0.18)",
-  }}
->
-  Preguntas Frecuentes
-</span>
+                        className="inline-block text-base md:text-lg lg:text-xl font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-4"
+                        style={{
+                          color: "var(--brand-green)",
+                          backgroundColor: "rgba(0,129,84,0.09)",
+                          border: "1px solid rgba(0,129,84,0.18)",
+                        }}
+                      >
+                        Preguntas Frecuentes
+                      </span>
 
                       <h2
                         className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3"
@@ -674,8 +669,6 @@ export default function App() {
                             "linear-gradient(to top, rgba(5,74,91,0.82) 0%, rgba(5,74,91,0.08) 60%, transparent 100%)",
                         }}
                       />
-
-                     
                     </div>
                   </div>
 
@@ -732,37 +725,40 @@ export default function App() {
               </div>
             </section>
             {/* ── SECCIÓN: CALL TO ACTION (CTA) ── */}
-<section
-  ref={ctaBlock}
-  className="fade-in relative py-24 overflow-hidden"
-  style={{
-    backgroundImage: "url('/Fostersterm/maxresdefault.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/50" />
+            <section
+              ref={ctaBlock}
+              className="fade-in relative py-24 overflow-hidden"
+              style={{
+                backgroundImage: "url('/Fostersterm/maxresdefault.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/50" />
 
-  <div className="relative max-w-7xl mx-auto px-6 flex justify-end">
-    <div className="max-w-2xl text-white text-right">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-        Lleve servicios especializados de alergia directamente a su clínica.
-      </h2>
+              <div className="relative max-w-7xl mx-auto px-6 flex justify-end">
+                <div className="max-w-2xl text-white text-right">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                    Lleve servicios especializados de alergia directamente a su
+                    clínica.
+                  </h2>
 
-      <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
-        Implementamos programas de servicios de alergia, proporcionamos personal especializado y ayudamos a que su práctica ofrezca más servicios médicos en un solo lugar.
-      </p>
+                  <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
+                    Implementamos programas de servicios de alergia,
+                    proporcionamos personal especializado y ayudamos a que su
+                    práctica ofrezca más servicios médicos en un solo lugar.
+                  </p>
 
-      <a
-        href="#contacto"
-        className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105"
-      >
-        Agendar una Reunión
-      </a>
-    </div>
-  </div>
-</section>
+                  <a
+                    href="#contacto"
+                    className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105"
+                  >
+                    Agendar una Reunión
+                  </a>
+                </div>
+              </div>
+            </section>
             {/* ── SECCIÓN: CONTACTO ── */}
             <section
               id="contacto"
@@ -804,10 +800,10 @@ export default function App() {
                       style={{ color: "var(--brand-muted)" }}
                     >
                       Asóciese con Foster Stern Allergy Division y transforme su
-                      clínica en un centro de referencia en servicios de alergia.
-                      Implementamos el programa completo — personal, protocolos,
-                      facturación y documentación — para que usted solo se
-                      enfoque en crecer.
+                      clínica en un centro de referencia en servicios de
+                      alergia. Implementamos el programa completo — personal,
+                      protocolos, facturación y documentación — para que usted
+                      solo se enfoque en crecer.
                     </p>
 
                     {/* MAPA */}
@@ -827,7 +823,6 @@ export default function App() {
                     </div>
 
                     {/* DIRECCIÓN */}
-                    
                   </div>
 
                   {/* Right Column - Form */}
@@ -855,7 +850,11 @@ export default function App() {
                         fontFamily: "'Nunito Sans', sans-serif",
                       }}
                     >
-                      Su éxito es nuestro éxito. Transforme su clínica con nuestros servicios integrados de alergia, sin inversión inicial y con el respaldo de nuestro equipo experto, generando ingresos adicionales dentro de su práctica mientras crecemos juntos.
+                      Su éxito es nuestro éxito. Transforme su clínica con
+                      nuestros servicios integrados de alergia, sin inversión
+                      inicial y con el respaldo de nuestro equipo experto,
+                      generando ingresos adicionales dentro de su práctica
+                      mientras crecemos juntos.
                     </p>
                     {/* Redes sociales */}
                     <div className="flex items-center gap-3 mt-1">

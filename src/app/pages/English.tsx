@@ -13,6 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Navbar } from "../components/Navbar";
 import { useEffect, useState, useRef } from "react";
@@ -310,287 +311,286 @@ export default function English() {
       {/* ── SERVICES ── */}
       
 
-      <section id="beneficios" className="py-20 lg:py-28 bg-white">
-              <div className="max-w-7xl mx-auto px-6">
-                {/* HEADER */}
-                <div
-                  ref={benefitsTitle}
-                  className="fade-in max-w-3xl mb-14 lg:mb-20"
-                >
-                  <span
-                    className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    Beneficios para clínicas
-                  </span>
+      <section id="benefits" className="py-20 lg:py-28 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+    {/* HEADER */}
+    <div
+      ref={benefitsTitle}
+      className="fade-in max-w-3xl mb-14 lg:mb-20"
+    >
+      <span
+        className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
+        style={{ color: "var(--brand-green)" }}
+      >
+        Benefits for Clinics
+      </span>
 
-                  <h2
-                    className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
-                    style={{
-                      fontFamily: "'Nunito Sans', sans-serif",
-                      color: "var(--brand-primary)",
-                    }}
-                  >
-                    Transformando clínicas. Mejorando vidas. Revolucionando la
-                    atención de servicios de alergias e inmunoterapia.
-                  </h2>
+      <h2
+  className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
+  style={{
+    fontFamily: "'Nunito Sans', sans-serif",
+    color: "var(--brand-primary)",
+  }}
+>
+  Transforming clinics. Improving lives. Revolutionizing allergy and immunotherapy care services.
+</h2>
 
-                  <p
-                    className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    Implementamos un sistema integral de servicios de alergia
-                    directamente en su clínica, sin complejidad operativa ni
-                    costos iniciales.
-                  </p>
-                </div>
+<p
+  className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed"
+  style={{ color: "var(--brand-muted)" }}
+>
+  We implement a comprehensive allergy care system directly within your clinic, without operational complexity or upfront costs.
+</p>
+    </div>
 
-                {/* GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  {[
-                    {
-                      number: "01",
-                      title: "Sin inversión inicial",
-                      desc: "No se requiere capital para implementar el programa de sensibilidad a alergias en su consultorio.",
-                    },
-                    {
-                      number: "02",
-                      title: "Sin carga adicional para su equipo",
-                      desc: "Nuestro personal especializado gestiona verificaciones de seguros, pruebas de alergia e inmunoterapia.",
-                    },
-                    {
-                      number: "03",
-                      title: "Ingresos adicionales mensuales",
-                      desc: "Integre nuevos servicios médicos y genere ingresos recurrentes para su práctica.",
-                    },
-                    {
-                      number: "04",
-                      title: "Mayor retención de pacientes",
-                      desc: "Evite derivaciones externas y mantenga más pacientes dentro de su propia clínica.",
-                    },
-                    {
-                      number: "05",
-                      title: "Cobertura respaldada por aseguradoras",
-                      desc: "Las compañías de seguros ya cubren este tipo de servicios, facilitando la implementación y rentabilidad.",
-                    },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="group border-b border-neutral-200 pb-8"
-                    >
-                      <div className="flex items-start gap-5">
-                        {/* NUMBER */}
-                        <div
-                          className="text-sm font-bold mt-1"
-                          style={{ color: "var(--brand-green)" }}
-                        >
-                          {item.number}
-                        </div>
+    {/* GRID */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+      {[
+        {
+          number: "01",
+          title: "No Upfront Investment",
+          desc: "No capital investment is required to implement the allergy sensitivity program in your practice.",
+        },
+        {
+          number: "02",
+          title: "No Additional Workload for Your Team",
+          desc: "Our specialized staff handles insurance verification, allergy testing, and immunotherapy services.",
+        },
+        {
+          number: "03",
+          title: "Additional Monthly Revenue",
+          desc: "Expand your medical services and generate recurring revenue for your practice.",
+        },
+        {
+          number: "04",
+          title: "Higher Patient Retention",
+          desc: "Avoid external referrals and keep more patients within your own clinic.",
+        },
+        {
+          number: "05",
+          title: "Insurance-Backed Coverage",
+          desc: "Insurance providers already cover these types of services, making implementation and profitability easier.",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group border-b border-neutral-200 pb-8"
+        >
+          <div className="flex items-start gap-5">
+            {/* NUMBER */}
+            <div
+              className="text-sm font-bold mt-1"
+              style={{ color: "var(--brand-green)" }}
+            >
+              {item.number}
+            </div>
 
-                        {/* CONTENT */}
-                        <div>
-                          <h3
-                            className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
-                            style={{ color: "var(--brand-primary)" }}
-                          >
-                            {item.title}
-                          </h3>
+            {/* CONTENT */}
+            <div>
+              <h3
+                className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                style={{ color: "var(--brand-primary)" }}
+              >
+                {item.title}
+              </h3>
 
-                          <p
-                            className="text-base md:text-lg leading-relaxed max-w-lg"
-                            style={{ color: "var(--brand-muted)" }}
-                          >
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
+              <p
+                className="text-base md:text-lg leading-relaxed max-w-lg"
+                style={{ color: "var(--brand-muted)" }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── BENEFITS ── */}
-      <section id="benefits" className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div ref={benefitsTitle} className="fade-in text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
-              Why Do Clinics Choose to Partner With Us?
-            </h2>
-            <p className="text-lg md:text-xl" style={{ color: "var(--brand-muted)" }}>
-              Your success in allergy services is our commitment
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-            <div ref={benefitsLeft} className="fade-in from-left space-y-6">
-              {[
-                { icon: <Shield className="w-6 h-6 text-[var(--brand-green)]" />, title: "New Revenue Opportunity", desc: "Generate a sustainable new revenue stream within your clinic. By integrating allergy services, your practice retains patients and captures income previously lost to outside referrals." },
-                { icon: <Users className="w-6 h-6 text-[var(--brand-green)]" />, title: "Specialized Staff, No Hiring Costs", desc: "Foster Stern assigns allergy-trained personnel directly to your clinic. You expand your clinical capacity without any recruitment, training, or new staff management processes." },
-              ].map((b, i) => (
-                <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
-                  <div>
-                    <h4 className="text-lg font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
-                    <p style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div ref={benefitsRight} className="fade-in from-right space-y-6">
-              {[
-                { icon: <Clock className="w-6 h-6 text-[var(--brand-green)]" />, title: "Patient Retention and Greater Loyalty", desc: "Offer a complete service within your practice. Your patients won't need to visit another provider, which increases satisfaction, retention, and your clinic's reputation." },
-                { icon: <ArrowRight className="w-6 h-6 text-[var(--brand-green)]" />, title: "Billing and Documentation Managed by Us", desc: "We manage the complete billing and clinical documentation process for allergy services. Transparent pricing structure, scalable to your practice volume, with no additional administrative burden on your team." },
-              ].map((b, i) => (
-                <div key={i} className="p-6 bg-gray-50 rounded-2xl flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">{b.icon}</div>
-                  <div>
-                    <h4 className="text-lg font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{b.title}</h4>
-                    <p style={{ color: "var(--brand-muted)" }}>{b.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* ── PROCESS ── */}
-      <section id="process" className="py-20 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <h2 className="text-3xl md:text-4xl mb-12" style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: "var(--brand-primary)" }}>
-            How We Implement the Partnership at Your Clinic
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { img: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80", text: "We assess your practice and design a custom allergy program tailored to your clinic." },
-              { img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80", text: "We assign allergy-trained personnel who operate directly within your office." },
-              { img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80", text: "We implement clinical protocols, documentation, and billing workflow from day one." },
-              { img: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&q=80", text: "We launch the allergy service with ongoing operational and clinical support." },
-              { img: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=80", text: "We monitor program performance with monthly reports and results optimization." },
-            ].map((step, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm group">
-                <div className="relative overflow-hidden" style={{ paddingBottom: "75%" }}>
-                  <img src={step.img} alt={step.text} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 loading-lazy" loading="lazy" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500 pointer-events-none" />
-                  <div className="absolute top-3 left-3 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style={{ backgroundColor: "var(--brand-green)" }}>{i + 1}</div>
-                </div>
-                <div className="p-5">
-                  <p className="text-sm leading-relaxed font-medium" style={{ color: "var(--brand-primary)" }}>{step.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>Frequently Asked Questions</h2>
-            <p className="text-xl" style={{ color: "var(--brand-muted)" }}>Answers to the most common questions about our services</p>
-          </div>
-          <div className="space-y-4">
-            {[
-              { q: "How does the partnership model work?", a: "Foster Stern helps your medical practice integrate allergy services efficiently, including skin prick testing, treatments, documentation, and administrative support. Our model is designed to improve patient care and generate new revenue opportunities, without adding significant operational burden to your clinic." },
-              { q: "Who performs the allergy testing?", a: "Allergy testing is performed by properly trained clinical staff, following established protocols and under the corresponding supervision of the medical practice. Foster Stern provides training, operational structure, and guidelines to ensure an organized and consistent process." },
-              { q: "What types of clinics can participate?", a: "Medical clinics that want to expand their services by integrating allergy testing and treatment can participate. This may include primary care practices such as internal medicine, pediatrics, family or general medicine, and other specialties that treat patients with allergic or respiratory symptoms such as pulmonologists." },
-              { q: "Is there any initial cost for the medical practice?", a: "Foster Stern offers a flexible model that may vary depending on the needs of the practice and the scope of implementation." },
-              { q: "How long does implementation take?", a: "Implementation time depends on the clinic's current structure. Foster Stern works to make the integration efficient, organized, and adapted to each practice's operational flow." },
-              { q: "What allergy services are offered?", a: "Services may include allergy testing, environmental sensitivity evaluation, subcutaneous immunotherapy coordination, and operational support for the allergy program. Specific services may vary depending on the practice, the medical provider, and patient needs." },
-              { q: "How does this program financially benefit the clinic?", a: "The program allows the clinic to offer an additional service within its practice, improve patient retention, and create a new revenue stream. By integrating allergy services, the practice can expand its clinical reach while generating sustainable financial opportunities through medically necessary and properly documented services." },
-            ].map(({ q, a }, i) => (
-              <EnFAQItem key={i} question={q} answer={a} />
-            ))}
-          </div>
+      <section
+  id="faq"
+  className="py-20 lg:py-28 overflow-hidden relative"
+  style={{
+    background:
+      "linear-gradient(160deg, #f0f7f9 0%, #ffffff 50%, #eaf5f0 100%)",
+  }}
+>
+  {/* Decorative blobs */}
+  <div
+    aria-hidden
+    className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
+    style={{
+      background:
+        "radial-gradient(circle, #054A5B 0%, transparent 70%)",
+    }}
+  />
+  <div
+    aria-hidden
+    className="pointer-events-none absolute -bottom-28 -left-28 w-80 h-80 rounded-full opacity-15 blur-3xl"
+    style={{
+      background:
+        "radial-gradient(circle, var(--brand-green) 0%, transparent 70%)",
+    }}
+  />
+
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <div className="flex flex-col lg:flex-row gap-14 lg:gap-20 items-start">
+      {/* ── Sticky image column ── */}
+      <div className="lg:w-5/12 flex-shrink-0 lg:sticky lg:top-10">
+        {/* Header above image */}
+        <div ref={faqTitle} className="fade-in mb-8">
+          <span
+            className="inline-block text-base md:text-lg lg:text-xl font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-4"
+            style={{
+              color: "var(--brand-green)",
+              backgroundColor: "rgba(0,129,84,0.09)",
+              border: "1px solid rgba(0,129,84,0.18)",
+            }}
+          >
+            Frequently Asked Questions
+          </span>
+
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3"
+            style={{
+              fontFamily: "'Nunito Sans', sans-serif",
+              color: "var(--brand-primary)",
+            }}
+          >
+            We Answer Your{" "}
+            <span style={{ color: "var(--brand-green)" }}>
+              Questions
+            </span>
+          </h2>
+
+          <p
+            className="text-xl leading-relaxed"
+            style={{ color: "var(--brand-muted)" }}
+          >
+            Everything you need to know about our partnership model and allergy services.
+          </p>
         </div>
-      </section>
+
+        {/* Image */}
+        <div
+          ref={faqItems}
+          className="fade-in from-left relative rounded-3xl overflow-hidden shadow-xl"
+          style={{ height: "380px" }}
+        >
+          <ImageWithFallback
+            src="/Fostersterm/1.3.png"
+            alt="Foster Stern Allergy — medical team"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(5,74,91,0.82) 0%, rgba(5,74,91,0.08) 60%, transparent 100%)",
+            }}
+          />
+        </div>
+      </div>
+
+      {/* ── Accordion column ── */}
+      <div className="flex-1 min-w-0 flex flex-col gap-3">
+        {[
+          {
+            question: "How does the partnership model work?",
+            answer:
+              "Foster Stern helps your medical practice integrate allergy services efficiently, including skin prick allergy testing, treatments, documentation, and administrative support. Our model is designed to improve patient care and create new revenue opportunities without adding significant operational burden to your clinic.",
+          },
+          {
+            question: "Who performs the allergy testing?",
+            answer:
+              "Allergy testing is performed by properly trained clinical staff, following established protocols and under the appropriate supervision of the medical practice. Foster Stern provides training, operational structure, and guidance to ensure an organized and consistent process.",
+          },
+          {
+            question: "What types of clinics can participate?",
+            answer:
+              "Medical clinics interested in expanding their services through allergy testing and treatment integration may participate. This can include primary care practices such as internal medicine, pediatrics, family medicine, general practice, and other specialties that treat patients with allergic or respiratory symptoms, such as pulmonologists.",
+          },
+          {
+            question:
+              "Is there any upfront cost for the medical practice?",
+            answer:
+              "Foster Stern offers a flexible model that may vary depending on the needs of the practice and the scope of implementation.",
+          },
+          {
+            question: "How long does implementation take?",
+            answer:
+              "Implementation time depends on the clinic’s current structure. Foster Stern works to ensure the integration is efficient, organized, and adapted to the operational workflow of each practice.",
+          },
+          {
+            question: "What allergy services are offered?",
+            answer:
+              "Services may include allergy testing, environmental sensitivity evaluations, coordination of subcutaneous immunotherapy, and operational support for managing the allergy program. Specific services may vary depending on the practice, medical provider, and patient needs.",
+          },
+          {
+            question:
+              "How does this program financially benefit the clinic?",
+            answer:
+              "The program allows the clinic to offer an additional service within its practice, improve patient retention, and create a new revenue stream. By integrating allergy services, the practice can expand its clinical reach while generating sustainable financial opportunities through medically necessary and properly documented services.",
+          },
+        ].map((item, i) => (
+  <FAQItem
+  key={i}
+  question={item.question}
+  answer={item.answer}
+  index={i}
+/>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ── CTA ── */}
-      <section ref={ctaBlock} className="fade-in py-16 bg-gradient-to-r from-[#054A5B] to-[#008154] text-white text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Turn Your Clinic Into an Allergy Reference Center</h2>
-          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">Foster Stern is the strategic partner your medical practice needs to integrate allergy services, generate new revenue, and improve patient care — with no operational complexity or upfront investment.</p>
-          <a href="#contact" className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition-colors">Schedule a Consultation with Our Team</a>
-        </div>
-      </section>
+      <section
+  ref={ctaBlock}
+  className="fade-in relative py-24 overflow-hidden"
+  style={{
+    backgroundImage: "url('/Fostersterm/maxresdefault.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50" />
+
+  <div className="relative max-w-7xl mx-auto px-6 flex justify-end">
+    <div className="max-w-2xl text-white text-right">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+        Bring specialized allergy services directly to your clinic.
+      </h2>
+
+      <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
+        We implement allergy care programs, provide specialized staff, and help
+        your practice offer more medical services in one place.
+      </p>
+
+      <a
+        href="#contacto"
+        className="inline-block bg-white text-[#054A5B] font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105"
+      >
+        Schedule a Meeting
+      </a>
+    </div>
+  </div>
+</section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left */}
-            <div ref={contactLeft} className="fade-in from-left">
-              <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: "'Nunito Sans', sans-serif", color: "var(--brand-primary)" }}>
-                Ready to Add Allergy Services to Your Practice?
-              </h2>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: "var(--brand-light)" }}>
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--brand-green)" }} />
-                <span className="text-sm font-bold uppercase tracking-wide" style={{ color: "var(--brand-green)" }}>
-                  Leading strategic partner in allergology for medical practices in South Florida
-                </span>
-              </div>
-              <p className="text-lg mb-8 leading-relaxed" style={{ color: "var(--brand-muted)" }}>
-                Partner with Foster Stern Allergy Division and transform your clinic into an allergy reference center. We implement the full program — staff, protocols, billing, and documentation — so you can focus entirely on growing.
-              </p>
-              <div className="overflow-hidden rounded-3xl border shadow-xl bg-white" style={{ borderColor: "var(--brand-secondary)" }}>
-                <iframe
-                  title="Foster Stern Group Location"
-                  src="https://www.google.com/maps?q=7480+SW+40th+Street+Suite+850+Miami+FL+33155&output=embed"
-                  width="100%"
-                  height="300"
-                  loading="lazy"
-                  className="w-full border-0"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <div className="mt-5 flex items-start gap-3">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: "var(--brand-light)" }}>
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" style={{ color: "var(--brand-green)" }}>
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>Main Office</p>
-                  <p className="text-sm leading-relaxed mt-1" style={{ color: "var(--brand-muted)" }}>7480 SW 40th Street Suite 850<br />Miami, FL 33155</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right — Form */}
-            <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 border border-gray-200 shadow-lg">
-              <form className="space-y-5">
-                {[
-                  { label: "Clinic Name", placeholder: "Enter your clinic name", type: "text" },
-                  { label: "Full Contact Name", placeholder: "Enter your full name", type: "text" },
-                  { label: "Title", placeholder: "Enter your title here", type: "text" },
-                  { label: "Direct Phone", placeholder: "Enter your direct phone number", type: "tel" },
-                  { label: "Email Address", placeholder: "Enter your email address", type: "email" },
-                  { label: "Address", placeholder: "Enter your address here", type: "text" },
-                  { label: "Specialty", placeholder: "Enter your specialty here", type: "text" },
-                ].map(({ label, placeholder, type }) => (
-                  <div key={label}>
-                    <label className="block mb-1.5 text-sm font-semibold" style={{ color: "var(--brand-primary)" }}>{label}</label>
-                    <input type={type} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[var(--brand-green)] focus:ring-2 focus:ring-[var(--brand-green)]/20 outline-none transition-all text-sm bg-gray-50" placeholder={placeholder} />
-                  </div>
-                ))}
-                <div className="flex items-start gap-3 pt-1">
-                  <input type="checkbox" id="consent-en" className="mt-1 w-4 h-4 flex-shrink-0 rounded border-gray-300 accent-[var(--brand-green)]" />
-                  <label htmlFor="consent-en" className="text-sm leading-relaxed cursor-pointer" style={{ color: "var(--brand-muted)" }}>
-                    I agree to be contacted about services and opportunities.
-                  </label>
-                </div>
-                <button type="submit" className="w-full px-8 py-4 text-white rounded-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg" style={{ backgroundColor: "var(--brand-green)" }}>
-                  Send Message
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* ── FOOTER ── */}
       <footer className="bg-white border-t" style={{ borderColor: "var(--brand-secondary)" }}>
@@ -681,32 +681,6 @@ export default function English() {
           </div>
         </div>
       </footer>
-    </div>
-  );
-}
-
-// Inline FAQ component for English page
-function EnFAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border rounded-2xl overflow-hidden transition-all duration-200" style={{ borderColor: open ? "var(--brand-green)" : "#e5e7eb" }}>
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-5 text-left"
-        type="button"
-      >
-        <span className="text-base font-semibold pr-4" style={{ color: "var(--brand-primary)" }}>{question}</span>
-        <span className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200" style={{ backgroundColor: open ? "var(--brand-green)" : "var(--brand-light)" }}>
-          <svg className="w-4 h-4 transition-transform duration-200" style={{ color: open ? "white" : "var(--brand-green)", transform: open ? "rotate(45deg)" : "none" }} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-          </svg>
-        </span>
-      </button>
-      {open && (
-        <div className="px-6 pb-5">
-          <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)" }}>{answer}</p>
-        </div>
-      )}
     </div>
   );
 }

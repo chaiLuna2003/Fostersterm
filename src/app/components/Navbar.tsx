@@ -111,18 +111,34 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between transition-all duration-300">
 
         {/* Logo con fade-in al montar + zoom-out hover + color al hacer scroll */}
-        <Link to={isEn ? "/english" : "/"} className="logo-link flex items-center">
-          <ImageWithFallback
-            src="/Fostersterm/LOGOFALLERGY.png"
-            alt="Foster Stern Group"
-            className="logo-fadein h-16 md:h-18 lg:h-24 w-auto object-contain"
-            style={
-              scrolled
-                ? { filter: "brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(600%) hue-rotate(122deg) brightness(92%)" }
-                : undefined
-            }
-          />
-        </Link>
+        
+<Link
+  to={isEn ? "/english" : "/"}
+  className="logo-link flex items-center"
+>
+  <ImageWithFallback
+    src="/Fostersterm/LOGOFALLERGY.png"
+    alt="Foster Stern Group"
+    className="
+      logo-fadein
+      h-[72px]
+      md:h-[88px]
+      lg:h-[115px]
+      w-auto
+      object-contain
+    "
+    style={
+      scrolled
+        ? {
+            filter:
+              "brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(600%) hue-rotate(122deg) brightness(92%)",
+          }
+        : undefined
+    }
+  />
+</Link>
+
+
 
         {/* Desktop nav — lg+ */}
         <div className="hidden lg:flex items-center gap-5 xl:gap-7">

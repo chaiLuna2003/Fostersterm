@@ -1,7 +1,10 @@
+
+interface Props {
+  lang?: "es" | "en";
+}
+
 const features = [
   {
-    title: "Enfoque personalizado",
-    desc: "Adaptado a las necesidades de su clínica y pacientes.",
     svg: (
       <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <circle cx="13" cy="10" r="6" stroke="#054A5B" strokeWidth="1.8"/>
@@ -12,8 +15,6 @@ const features = [
     ),
   },
   {
-    title: "Resultados medibles",
-    desc: "Mejoramos la eficiencia y la experiencia del paciente.",
     svg: (
       <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <path d="M5 26l7-9 7 5 8-12 7-6" stroke="#054A5B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -24,8 +25,6 @@ const features = [
     ),
   },
   {
-    title: "Acompañamiento continuo",
-    desc: "Soporte experto en cada etapa del proceso.",
     svg: (
       <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <circle cx="14" cy="18" r="9" stroke="#054A5B" strokeWidth="1.8"/>
@@ -35,8 +34,6 @@ const features = [
     ),
   },
   {
-    title: "Calidad y confianza",
-    desc: "Protocolos basados en evidencia y mejores prácticas.",
     svg: (
       <svg viewBox="0 0 40 36" fill="none" width="52" height="48">
         <path d="M20 3L8 8v10c0 8 5.5 14 12 16 6.5-2 12-8 12-16V8L20 3z" stroke="#054A5B" strokeWidth="1.8" strokeLinejoin="round"/>
@@ -46,145 +43,322 @@ const features = [
   },
 ];
 
-export function AlianzaImplementacion() {
+export function AlianzaImplementacion({
+  lang = "es",
+}: Props) {
+  const content = {
+    es: {
+      title: (
+        <>
+          Cómo Implementamos la{" "}
+          <span style={{ color: "#008154" }}>Alianza</span>{" "}
+          en su Clínica
+        </>
+      ),
+
+      subtitle:
+        "Un proceso colaborativo, estratégico y enfocado en resultados para el bienestar de sus pacientes y el crecimiento de su clínica.",
+
+      highlight: (
+        <>
+          Evaluamos su práctica y diseñamos el programa de alergia{" "}
+          <span style={{ color: "#008154" }}>
+            a medida para su clínica.
+          </span>
+        </>
+      ),
+
+      features: [
+        {
+          title: "Enfoque personalizado",
+          desc: "Adaptado a las necesidades de su clínica y pacientes.",
+        },
+        {
+          title: "Resultados medibles",
+          desc: "Mejoramos la eficiencia y la experiencia del paciente.",
+        },
+        {
+          title: "Acompañamiento continuo",
+          desc: "Soporte experto en cada etapa del proceso.",
+        },
+        {
+          title: "Calidad y confianza",
+          desc: "Protocolos basados en evidencia y mejores prácticas.",
+        },
+      ],
+    },
+
+    en: {
+      title: (
+        <>
+          How We Implement the{" "}
+          <span style={{ color: "#008154" }}>Partnership</span>{" "}
+          Within Your Clinic
+        </>
+      ),
+
+      subtitle:
+        "A collaborative, strategic, and results-driven process focused on patient well-being and clinic growth.",
+
+      highlight: (
+        <>
+          We evaluate your practice and design a customized allergy program{" "}
+          <span style={{ color: "#008154" }}>
+            tailored to your clinic.
+          </span>
+        </>
+      ),
+
+      features: [
+        {
+          title: "Personalized Approach",
+          desc: "Tailored to your clinic’s needs and patient care goals.",
+        },
+        {
+          title: "Measurable Results",
+          desc: "We improve operational efficiency and patient experience.",
+        },
+        {
+          title: "Continuous Support",
+          desc: "Expert guidance throughout every stage of the process.",
+        },
+        {
+          title: "Quality & Trust",
+          desc: "Evidence-based protocols and industry best practices.",
+        },
+      ],
+    },
+  };
+
+  const t = content[lang];
+
   return (
     <section style={{ background: "#f4f7f9", padding: "56px 0" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 20px" }}>
 
-        {/* ENCABEZADO */}
-        <div style={{ display: "flex", alignItems: "flex-start", gap: 12, marginBottom: 8 }}>
-          <div style={{
-            width: 46, height: 46, borderRadius: "50%", background: "#008154",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            flexShrink: 0, marginTop: 4,
-          }}>
+        {/* HEADER */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: 12,
+            marginBottom: 8,
+          }}
+        >
+          <div
+            style={{
+              width: 46,
+              height: 46,
+              borderRadius: "50%",
+              background: "#008154",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+              marginTop: 4,
+            }}
+          >
             <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-              <path d="M5 13l3-3h3l3 2h3l4-4" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M5 13l3 3 2-1 3 2 4-2 3 1 3-3" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M5 13l3-3h3l3 2h3l4-4"
+                stroke="white"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M5 13l3 3 2-1 3 2 4-2 3 1 3-3"
+                stroke="white"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
-          <h2 style={{
-            fontFamily: "'Source Sans 3','Nunito Sans',sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(24px, 5vw, 34px)",
-            color: "#054A5B",
-            lineHeight: 1.2,
-            margin: 0,
-          }}>
-            Cómo Implementamos la{" "}
-            <span style={{ color: "#008154" }}>Alianza</span>{" "}
-            en su Clínica
+
+          <h2
+            style={{
+              fontFamily: "'Source Sans 3','Nunito Sans',sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(30px, 6vw, 48px)",
+              color: "#054A5B",
+              lineHeight: 1.2,
+              margin: 0,
+            }}
+          >
+            {t.title}
           </h2>
         </div>
+
         <p
-  style={{
-    fontFamily: "'Source Sans 3',sans-serif",
-    fontSize: "clamp(1rem, 1.4vw, 1.35rem)",
-    color: "#5a7a84",
-    lineHeight: 1.65,
-    margin: "0 0 18px 0",
-  }}
->
-  Un proceso colaborativo, estratégico y enfocado en resultados
-  para el bienestar de sus pacientes y el crecimiento de su clínica.
-</p>
+          style={{
+            fontFamily: "'Source Sans 3',sans-serif",
+            fontSize: "clamp(1.1rem, 1.8vw, 1.55rem)",
+            color: "#5a7a84",
+            lineHeight: 1.65,
+            margin: "0 0 18px 0",
+          }}
+        >
+          {t.subtitle}
+        </p>
 
-        {/* TARJETA ÚNICA */}
-        <div style={{
-          borderRadius: 18,
-          overflow: "hidden",
-          boxShadow: "0 4px 24px rgba(5,74,91,0.13)",
-          background: "#e8eef2",
-        }}>
+        {/* CARD */}
+        <div
+          style={{
+            borderRadius: 18,
+            overflow: "hidden",
+            boxShadow: "0 4px 24px rgba(5,74,91,0.13)",
+            background: "#e8eef2",
+          }}
+        >
 
-          {/* FOTO */}
-          <div style={{ position: "relative", width: "100%", paddingBottom: "56%" }}>
+          {/* IMAGE */}
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              paddingBottom: "56%",
+            }}
+          >
             <img
               src="/Fostersterm/1.5.png"
-              alt="Clínica"
+              alt="Clinic"
               style={{
-                position: "absolute", inset: 0,
-                width: "100%", height: "100%",
-                objectFit: "cover", display: "block",
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
               }}
             />
-            
-            
           </div>
 
-          {/* FRANJA DESCRIPCIÓN */}
-          <div style={{
-            display: "flex", alignItems: "center", gap: 14,
-            background: "#dde5ea",
-            padding: "16px 18px",
-          }}>
-            <div style={{
-              width: 50, height: 50, borderRadius: 12,
-              background: "#008154",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              flexShrink: 0,
-            }}>
+          {/* HIGHLIGHT */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              background: "#dde5ea",
+              padding: "16px 18px",
+            }}
+          >
+            <div
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 12,
+                background: "#008154",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
               <svg viewBox="0 0 28 28" fill="none" width="24" height="24">
-                <rect x="4" y="2" width="20" height="24" rx="3" stroke="white" strokeWidth="1.8"/>
-                <path d="M9 4V3a3 3 0 0 1 6 0v1" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-                <path d="M8 14l4 4 8-8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M8 20h5" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+                <rect
+                  x="4"
+                  y="2"
+                  width="20"
+                  height="24"
+                  rx="3"
+                  stroke="white"
+                  strokeWidth="1.8"
+                />
+                <path
+                  d="M9 4V3a3 3 0 0 1 6 0v1"
+                  stroke="white"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M8 14l4 4 8-8"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M8 20h5"
+                  stroke="white"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
               </svg>
             </div>
-            <p style={{
-              fontFamily: "'Source Sans 3',sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(14px, 2.8vw, 17px)",
-              color: "#054A5B",
-              lineHeight: 1.4,
-              margin: 0,
-            }}>
-              Evaluamos su práctica y diseñamos el programa de alergia{" "}
-              <span style={{ color: "#008154" }}>a medida para su clínica.</span>
+
+            <p
+              style={{
+                fontFamily: "'Source Sans 3',sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(16px, 2.5vw, 22px)",
+                color: "#054A5B",
+                lineHeight: 1.4,
+                margin: 0,
+              }}
+            >
+              {t.highlight}
             </p>
           </div>
 
-          {/* 4 ÍCONOS */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            background: "#fff",
-            padding: "16px 10px 18px",
-          }}>
-            {features.map(({ title, desc, svg }) => (
-              <div key={title} style={{
-                display: "flex", flexDirection: "column",
-                alignItems: "center", textAlign: "center",
-                padding: "12px 10px",
-gap: 10,
-              }}>
-                {svg}
-                <p style={{
-                  fontFamily: "'Source Sans 3',sans-serif",
-                  fontWeight: 800,
-fontSize: "clamp(14px, 1.4vw, 18px)",
-color: "#054A5B",
-margin: 0,
-lineHeight: 1.35,
-letterSpacing: "-0.01em",
-                }}>
-                  {title}
-                </p>
-                <p style={{
-                  fontFamily: "'Source Sans 3',sans-serif",
-                  fontSize: "clamp(12px, 1.1vw, 15px)",
-color: "#5a7a84",
-margin: 0,
-lineHeight: 1.55,
-maxWidth: 180,
-                }}>
-                  {desc}
-                </p>
-              </div>
-            ))}
+          {/* FEATURES */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: window.innerWidth < 768 ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+              background: "#fff",
+              padding: "16px 10px 18px",
+            }}
+          >
+            {features.map(({ svg }, index) => {
+              const feature = t.features[index];
+
+              return (
+                <div
+                  key={feature.title}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    padding: "12px 10px",
+                    gap: 10,
+                  }}
+                >
+                  {svg}
+
+                  <p
+                    style={{
+                      fontFamily: "'Source Sans 3',sans-serif",
+                      fontWeight: 800,
+                      fontSize: "clamp(16px, 1.8vw, 22px)",
+                      color: "#054A5B",
+                      margin: 0,
+                      lineHeight: 1.35,
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {feature.title}
+                  </p>
+
+                  <p
+                    style={{
+                      fontFamily: "'Source Sans 3',sans-serif",
+                      fontSize: "clamp(14px, 1.35vw, 17px)",
+                      color: "#5a7a84",
+                      margin: 0,
+                      lineHeight: 1.55,
+                      maxWidth: 180,
+                    }}
+                  >
+                    {feature.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
-
       </div>
     </section>
   );

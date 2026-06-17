@@ -16,6 +16,10 @@ import { Link } from "react-router-dom";
 
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Navbar } from "../components/Navbar";
+import { FAQItem } from "../components/FAQItem";
+import { AlianzaImplementacion } from "../components/AlianzaImplementacion";
+import { ProcessCarousel } from "../components/ProcessCarousel";
+import { ServiciosSection } from "../components/ServiciosSection";
 import { useEffect, useState, useRef } from "react";
 
 function useFadeIn(direction: "up" | "left" | "right" = "up") {
@@ -45,11 +49,15 @@ export default function English() {
   const heroCard2 = useFadeIn();
   const svcTitle = useFadeIn();
   const svcCard1 = useFadeIn();
+  const faqTitle = useFadeIn();
+const faqItems = useFadeIn("left");
   const svcCard2 = useFadeIn();
   const svcCard3 = useFadeIn();
   const focusedImg = useFadeIn("right");
   const focusedTitle = useFadeIn("left");
   const focusedList = useFadeIn("left");
+  const benefitsPatientsTitle = useFadeIn();
+  const benefitsPatientsGrid = useFadeIn();
   const benefitsTitle = useFadeIn();
   const benefitsLeft = useFadeIn("left");
   const benefitsRight = useFadeIn("right");
@@ -308,8 +316,131 @@ export default function English() {
               </div>
             </section>
 
+
+<ServiciosSection lang="en" />
+
+
+
       {/* ── SERVICES ── */}
-      
+
+
+<section
+  id="benefits-patients"
+  className="py-20 lg:py-28 bg-white"
+>
+  <div className="max-w-7xl mx-auto px-6">
+    {/* HEADER */}
+    <div
+      ref={benefitsPatientsTitle}
+      className="fade-in max-w-3xl md:ml-auto md:text-right mb-14 lg:mb-20"
+    >
+      <span
+        className="text-base md:text-lg lg:text-xl font-bold tracking-widest uppercase"
+        style={{ color: "var(--brand-green)" }}
+      >
+        Benefits for Patients
+      </span>
+
+      <h2
+        className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
+        style={{
+          fontFamily: "'Nunito Sans', sans-serif",
+          color: "var(--brand-primary)",
+        }}
+      >
+        Specialized allergy care, more accessible and effective.
+      </h2>
+
+      <p
+        className="text-lg md:text-xl mt-6 max-w-2xl ml-auto leading-relaxed"
+        style={{ color: "var(--brand-muted)" }}
+      >
+        Our program allows patients to receive allergy testing and
+        treatment directly within the same clinic where they already
+        receive medical care.
+      </p>
+    </div>
+
+    {/* GRID */}
+    <div
+      ref={benefitsPatientsGrid}
+      className="fade-in grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10"
+    >
+      {[
+        {
+          number: "01",
+          title: "Fast and Safe Testing",
+          desc: "Allergy testing is safe, fast, and convenient for patients.",
+        },
+        {
+          number: "02",
+          title: "Improved Quality of Life",
+          desc: "Immunotherapy strengthens the immune system’s response against most allergens.",
+        },
+        {
+          number: "03",
+          title: "Treatment of the Root Cause",
+          desc: "We address the specific cause of allergic disease instead of only masking symptoms.",
+        },
+        {
+          number: "04",
+          title: "More Services in One Clinic",
+          desc: "Patients receive comprehensive care and additional medical services in one place.",
+        },
+        {
+          number: "05",
+          title: "Insurance Coverage",
+          desc: "Most insurance providers cover immunotherapy treatments.",
+        },
+        {
+          number: "06",
+          title: "Allergy Testing",
+          desc: "We quickly and accurately identify the specific triggers causing allergic reactions.",
+        },
+        {
+          number: "07",
+          title: "Immunotherapy Treatment",
+          desc: "We progressively strengthen the immune system so the body can tolerate allergens long term.",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group border-b border-neutral-200 pb-8"
+        >
+          <div className="flex items-start gap-5">
+            {/* NUMBER */}
+            <div
+              className="text-sm font-bold mt-1"
+              style={{ color: "var(--brand-green)" }}
+            >
+              {item.number}
+            </div>
+
+            {/* CONTENT */}
+            <div>
+              <h3
+                className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                style={{ color: "var(--brand-primary)" }}
+              >
+                {item.title}
+              </h3>
+
+              <p
+                className="text-base md:text-lg leading-relaxed max-w-lg"
+                style={{ color: "var(--brand-muted)" }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
 
       <section id="benefits" className="py-20 lg:py-28 bg-white">
   <div className="max-w-7xl mx-auto px-6">
@@ -409,10 +540,23 @@ export default function English() {
 </section>
 
       {/* ── BENEFITS ── */}
+
+
+<section id="alianza-implementacion">
+  <AlianzaImplementacion lang="en" />
+</section>
+
       
 
       {/* ── PROCESS ── */}
-      
+
+
+
+<section id="process">
+  <ProcessCarousel lang="en" />
+</section>
+
+
 
       {/* ── FAQ ── */}
       <section

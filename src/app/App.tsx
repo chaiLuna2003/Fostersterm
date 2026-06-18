@@ -120,13 +120,14 @@ export default function App() {
                   alt="Familia Foster Stern"
                   className="w-full h-full object-cover object-center"
                 />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(315deg, rgba(5, 74, 91, 0.85) 0%, rgba(5, 74, 91, 0.4) 45%, rgba(255, 255, 255, 0) 80%)",
-                  }}
-                />
+  <div
+  className="
+    absolute inset-0
+    bg-[linear-gradient(to_bottom,rgba(5,74,91,0.97)_0%,rgba(5,74,91,0.82)_35%,rgba(5,74,91,0.35)_55%,transparent_100%)]
+    
+    lg:bg-[linear-gradient(315deg,rgba(5,74,91,0.85)_0%,rgba(5,74,91,0.4)_45%,transparent_80%)]
+  "
+/>
               </div>
 
               {/* ── NAVBAR ── */}
@@ -149,21 +150,28 @@ export default function App() {
                           WebkitTextStroke: "0.35px rgba(0,0,0,0.18)",
                         }}
                       >
-                        Su éxito es nuestro éxito. Transforme su clínica con
-                        nuestros servicios integrados de alergia, sin inversión
-                        inicial y con el respaldo de nuestro equipo experto,
-                        generando ingresos adicionales dentro de su práctica
-                        mientras crecemos juntos.
+                        Transforme su clínica con nuestros servicios de alergia, sin inversión inicial y con el respaldo de nuestro equipo experto.
                       </h1>
 
                       <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-end">
                         <a
-                          href="#contacto"
-                          className="nav-cta px-8 py-4 rounded-2xl text-white text-center font-bold shadow-lg"
-                          style={{ backgroundColor: "var(--brand-green)" }}
-                        >
-                          Agendar una reunión
-                        </a>
+  href="#contacto"
+  className="
+    nav-cta
+    px-8 py-4
+    rounded-2xl
+    text-white
+    text-center
+    font-bold
+    text-xl
+    md:text-xl
+    lg:text-base
+    shadow-lg
+  "
+  style={{ backgroundColor: "var(--brand-green)" }}
+>
+  Agendar una reunión
+</a>
                       </div>
                     </div>
                   </div>
@@ -196,7 +204,7 @@ export default function App() {
                         color: "var(--brand-green)",
                       }}
                     >
-                      Su Clínica Merece una Oportunidad de Crecimiento Real
+                      Su Clínica Merece una Oportunidad de Crecimiento
                     </h2>
 
                     <p
@@ -214,7 +222,6 @@ export default function App() {
                       {[
                         "Cada derivación externa es un ingreso que su clínica podría haber capturado.",
                         "La demanda de pruebas e inmunoterapia crece año tras año.",
-                        "Implementar estos servicios parece complejo: personal, equipos, protocolos.",
                         "Su práctica deja de crecer mientras el mercado avanza sin usted.",
                       ].map((item, i) => (
                         <li key={i} className="flex items-start gap-4">
@@ -231,9 +238,9 @@ export default function App() {
                             />
                           </div>
                           <span
-                            className="text-xl leading-relaxed"
+                            className="text-xl font-bold leading-relaxed"
                             style={{
-                              color: "var(--brand-muted)",
+                              color: "054A5B ",
                               fontFamily: "'Nunito Sans', sans-serif",
                             }}
                           >
@@ -251,23 +258,51 @@ export default function App() {
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                   <div
-                    ref={howImg}
-                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] sm:h-[360px] md:h-[460px] lg:h-[650px] group"
-                  >
-                    <img
-                      src="/Fostersterm/image3.png"
-                      alt="Grafica con estadisticas altas."
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-24"
-                      style={{
-                        background:
-                          "linear-gradient(to top, rgba(5,74,91,0.88), transparent)",
-                      }}
-                    />
-                  </div>
+  ref={howImg}
+  className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] sm:h-[360px] md:h-[460px] lg:h-[550px] group"
+>
+  <img
+    src="/Fostersterm/image3.png"
+    alt="Grafica con estadisticas altas."
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+  />
+
+  {/* Overlay hover suave */}
+  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
+
+  {/* Card glass */}
+  <div className="absolute bottom-5 left-5 right-5">
+    <div
+      className="
+        rounded-2xl
+        px-5
+        py-4
+        md:px-6
+        md:py-5
+        backdrop-blur-xl
+        border
+        border-white/20
+        bg-white/10
+        shadow-2xl
+      "
+    >
+      
+
+      <h3
+        className="
+          text-white
+          font-semibold
+          text-lg
+          md:text-2xl
+          leading-tight
+          max-w-xl
+        "
+      >
+        PRUEBA DE ALERGIA
+      </h3>
+    </div>
+  </div>
+</div>
 
                   <div
                     ref={howContent}
@@ -315,7 +350,7 @@ export default function App() {
                             />
                           ),
                           title: "Reportes periódicos de rendimiento",
-                          desc: "Entregamos reportes claros sobre el desempeño del programa y damos seguimiento continuo como aliados estratégicos.",
+                          desc: "Entregamos reportes mensuales sobre los resultados del crecimiento de su práctica con prueba de alergia.",
                         },
                       ].map((item) => (
                         <div key={item.title} className="flex flex-col gap-2">
@@ -335,8 +370,8 @@ export default function App() {
                             {item.title}
                           </h3>
                           <p
-                            className="text-lg leading-relaxed"
-                            style={{ color: "var(--brand-muted)" }}
+                            className="text-lg font-bold leading-relaxed"
+                            style={{ color: "054A5B" }}
                           >
                             {item.desc}
                           </p>

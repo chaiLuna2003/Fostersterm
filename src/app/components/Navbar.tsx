@@ -99,7 +99,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
       style={{
-        backgroundColor: scrolled ? "rgba(255, 255, 255, 0.75)" : "transparent",
+        backgroundColor: scrolled ? "rgba(255, 255, 255, 0.5)" : "transparent",
         backdropFilter:       scrolled ? "blur(20px) saturate(180%)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
         boxShadow:    scrolled ? "0 4px 30px rgba(0, 0, 0, 0.05)" : "none",
@@ -117,7 +117,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
   className="logo-link flex items-center"
 >
   <ImageWithFallback
-    src="/Fostersterm/LOGOFALLERGY.png"
+    src="/Fostersterm/LogoFS.png"
     alt="Foster Stern Group"
     className="
       logo-fadein
@@ -131,7 +131,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
       scrolled
         ? {
             filter:
-              "brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(600%) hue-rotate(122deg) brightness(92%)",
+              "brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(600%) hue-rotate(12 2deg) brightness(92%)",
           }
         : undefined
     }
@@ -145,7 +145,8 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
 
           {mainSections.map(({ label, id, to }, i) => {
             const delay = `${i * 0.07 + 0.15}s`;
-            const baseClass = "nav-item-zoom nav-link text-sm xl:text-base font-semibold";
+            const baseClass =
+  "nav-item-zoom nav-link text-base lg:text-lg xl:text-xl font-bold";
 
             // Link a ruta propia (Nosotros, Blog…)
             if (to) {
@@ -178,7 +179,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
           {/* Blog */}
           <Link
             to={isEn ? "/english/blog" : "/blog"}
-            className="nav-item-zoom nav-link text-sm xl:text-base font-semibold"
+            className="nav-item-zoom nav-link text-base lg:text-lg xl:text-xl font-bold"
             style={{ color: textColor, animationDelay: `${mainSections.length * 0.07 + 0.15}s` }}
           >
             Blog
@@ -208,7 +209,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
                 
               }}
             >
-              🇲🇽 Español
+              Español
             </Link>
           ) : (
             <Link
@@ -220,7 +221,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
                 
               }}
             >
-              🇺🇸 English
+            English
             </Link>
           )}
         </div>

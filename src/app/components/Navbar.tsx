@@ -189,7 +189,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
           <a
             href={isEn ? "/english#contacto" : "/#contacto"}
             onClick={goToSection("contacto")}
-            className="nav-item-zoom nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold text-sm xl:text-base"
+            className="nav-item-zoom nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold text-base lg:text-lg xl:text-xl"
             style={{
               backgroundColor: "var(--brand-green)",
               
@@ -202,7 +202,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
           {isEn ? (
             <Link
               to="/"
-              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-sm xl:text-base"
+              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-base lg:text-lg xl:text-xl"
               style={{
                 color: textColor,
                 borderColor,
@@ -214,7 +214,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
           ) : (
             <Link
               to="/english"
-              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-sm xl:text-base"
+              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-base lg:text-lg xl:text-xl"
               style={{
                 color: textColor,
                 borderColor,

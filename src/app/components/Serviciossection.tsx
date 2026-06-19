@@ -59,7 +59,7 @@ export function ServiciosSection({
           Un Socio Estratégico,{" "}
           <span style={{ color: "var(--brand-green)" }}>
             No Un Proveedor Más
-          </span>
+          </span> 
         </>
       ),
 
@@ -229,7 +229,7 @@ export function ServiciosSection({
           className="fade-in text-center mb-14 md:mb-20"
         >
           <span
-            className="inline-block text-sm md:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full"
+            className="inline-block text-sm md:text-base lg:text-xl font-bold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full"
             style={{
               color: "var(--brand-green)",
               backgroundColor: "rgba(0,160,110,0.09)",
@@ -248,12 +248,12 @@ export function ServiciosSection({
             {t.title}
           </h2>
 
-          <p
-            className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-            style={{ color: "var(--brand-muted)" }}
-          >
-            {t.subtitle}
-          </p>
+         <p
+    className="text-xl md:text-2xl lg:text-3xl font-bold max-w-3xl mx-auto leading-relaxed"
+  style={{ color: "#054A5B" }}
+>
+  {t.subtitle}
+</p>
         </div>
 
         {/* LAYOUT */}
@@ -357,14 +357,21 @@ export function ServiciosSection({
                         {card.title}
                       </h3>
 
-                      <p
-                        className="text-[22px] md:text-[17px] leading-[1.85] mb-6 font-medium"
-                        style={{
-                          color: "var(--brand-muted)",
-                        }}
-                      >
-                        {card.desc}
-                      </p>
+    <p
+  className="
+    text-[20px]
+    md:text-[22px]
+    lg:text-xl
+    leading-[1.8]
+    mb-6
+    font-bold
+  "
+  style={{
+    color: "var(--brand-primary)",
+  }}
+>
+  {card.desc}
+</p>
 
                       {/* Chips */}
                       <ul className="flex flex-wrap gap-2">

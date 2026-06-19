@@ -113,21 +113,21 @@ export default function App() {
             {/* ── HERO SECTION ── */}
             <header className="relative overflow-hidden overflow-x-hidden min-h-screen flex flex-col">
               {/* Background Hero */}
-              
+
               <div className="absolute inset-0 z-0">
                 <img
                   src="/Fostersterm/fam-foster-bg.png"
                   alt="Familia Foster Stern"
                   className="w-full h-full object-cover object-center"
                 />
-  <div
-  className="
+                <div
+                  className="
     absolute inset-0
     bg-[linear-gradient(to_bottom,rgba(5,74,91,0.97)_0%,rgba(5,74,91,0.82)_35%,rgba(5,74,91,0.35)_55%,transparent_100%)]
     
     lg:bg-[linear-gradient(315deg,rgba(5,74,91,0.85)_0%,rgba(5,74,91,0.4)_45%,transparent_80%)]
   "
-/>
+                />
               </div>
 
               {/* ── NAVBAR ── */}
@@ -150,13 +150,15 @@ export default function App() {
                           WebkitTextStroke: "0.35px rgba(0,0,0,0.18)",
                         }}
                       >
-                        Transforme su clínica con nuestros servicios de alergia, sin inversión inicial y con el respaldo de nuestro equipo experto.
+                        Transforme su clínica con nuestros servicios de alergia,
+                        sin inversión inicial y con el respaldo de nuestro
+                        equipo experto.
                       </h1>
 
                       <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center lg:justify-end">
                         <a
-  href="#contacto"
-  className="
+                          href="#contacto"
+                          className="
     nav-cta
     px-8 py-4
     rounded-2xl
@@ -165,13 +167,13 @@ export default function App() {
     font-bold
     text-xl
     md:text-xl
-    lg:text-base
+    lg:text-xl
     shadow-lg
   "
-  style={{ backgroundColor: "var(--brand-green)" }}
->
-  Agendar una reunión
-</a>
+                          style={{ backgroundColor: "var(--brand-green)" }}
+                        >
+                          Agendar una reunión
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -186,11 +188,22 @@ export default function App() {
                     ref={focusedImg}
                     className="fade-in w-full lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
                   >
-                    <img
-                      src="/Fostersterm/chartUp.webp"
-                      alt="Médico revisando paciente con alergia"
-                      className="w-full h-[280px] md:h-[380px] lg:h-[540px] object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                  <img
+  src="/Fostersterm/chartUp.webp"
+  alt="Médico revisando paciente con alergia"
+  className="
+    w-full
+    h-[280px]
+    md:h-[420px]
+    lg:h-[620px]
+    xl:h-[500px]
+    object-cover
+    object-[60%_center]
+    transition-transform
+    duration-700
+    group-hover:scale-[1.02]
+  "
+/>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none rounded-3xl" />
                   </div>
 
@@ -204,6 +217,7 @@ export default function App() {
                         color: "var(--brand-green)",
                       }}
                     >
+
                       Su Clínica Merece una Oportunidad de Crecimiento
                     </h2>
 
@@ -258,22 +272,33 @@ export default function App() {
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                   <div
-  ref={howImg}
-  className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] sm:h-[360px] md:h-[460px] lg:h-[550px] group"
->
-  <img
-    src="/Fostersterm/image3.png"
-    alt="Grafica con estadisticas altas."
-    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-  />
+                    ref={howImg}
+                    className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] sm:h-[360px] md:h-[460px] lg:h-[800px] group"
+                  >
+                    <img
+  src="/Fostersterm/image3.png"
+  alt="Prueba de alergias"
+  className="
+    absolute
+    inset-0
+    w-full
+    h-full
+    object-cover
+    object-[60%_center]
+    transition-transform
+    duration-700
+    will-change-transform
+    group-hover:scale-[1.02]
+  "
+/>
 
-  {/* Overlay hover suave */}
-  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
+                    {/* Overlay hover suave */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
 
-  {/* Card glass */}
-  <div className="absolute bottom-5 left-5 right-5">
-    <div
-      className="
+                    {/* Card glass */}
+                    <div className="absolute bottom-5 left-5 right-5">
+                      <div
+                        className="
         rounded-2xl
         px-5
         py-4
@@ -285,11 +310,9 @@ export default function App() {
         bg-white/10
         shadow-2xl
       "
-    >
-      
-
-      <h3
-        className="
+                      >
+                        <h3
+                          className="
           text-white
           font-semibold
           text-lg
@@ -297,12 +320,12 @@ export default function App() {
           leading-tight
           max-w-xl
         "
-      >
-        PRUEBA DE ALERGIA
-      </h3>
-    </div>
-  </div>
-</div>
+                        >
+                          PRUEBA DE ALERGIA
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
 
                   <div
                     ref={howContent}

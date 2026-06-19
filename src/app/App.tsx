@@ -12,6 +12,7 @@ import {
   HeartPulse,
   Sparkles,
   ShieldCheck,
+  DollarSign,
 } from "lucide-react";
 import { Routes, Route, Link } from "react-router-dom";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
@@ -188,10 +189,10 @@ export default function App() {
                     ref={focusedImg}
                     className="fade-in w-full lg:w-[420px] flex-shrink-0 relative group overflow-hidden rounded-3xl shadow-lg"
                   >
-                  <img
-  src="/Fostersterm/chartUp.webp"
-  alt="Médico revisando paciente con alergia"
-  className="
+                    <img
+                      src="/Fostersterm/chartUp.webp"
+                      alt="Médico revisando paciente con alergia"
+                      className="
     w-full
     h-[280px]
     md:h-[420px]
@@ -203,7 +204,7 @@ export default function App() {
     duration-700
     group-hover:scale-[1.02]
   "
-/>
+                    />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none rounded-3xl" />
                   </div>
 
@@ -217,7 +218,6 @@ export default function App() {
                         color: "var(--brand-green)",
                       }}
                     >
-
                       Su Clínica Merece una Oportunidad de Crecimiento
                     </h2>
 
@@ -276,9 +276,9 @@ export default function App() {
                     className="fade-in from-left relative rounded-3xl overflow-hidden h-[280px] sm:h-[360px] md:h-[460px] lg:h-[800px] group"
                   >
                     <img
-  src="/Fostersterm/image3.png"
-  alt="Prueba de alergias"
-  className="
+                      src="/Fostersterm/image3.png"
+                      alt="Prueba de alergias"
+                      className="
     absolute
     inset-0
     w-full
@@ -290,7 +290,7 @@ export default function App() {
     will-change-transform
     group-hover:scale-[1.02]
   "
-/>
+                    />
 
                     {/* Overlay hover suave */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
@@ -416,104 +416,176 @@ export default function App() {
             <ServiciosSection />
             {/* Beneficios*/}
             <section id="beneficios" className="py-20 lg:py-28 bg-white">
-              <div className="max-w-7xl mx-auto px-6">
-                {/* HEADER */}
-                <div
-                  ref={benefitsTitle}
-                  className="fade-in max-w-3xl mb-14 lg:mb-20"
-                >
-                  <span
-                    className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    Beneficios para clínicas
-                  </span>
+  <div className="max-w-7xl mx-auto px-6">
+    
+    {/* TOP CONTENT */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-16 lg:mb-24">
+      
+      {/* LEFT TEXT */}
+      <div
+  ref={benefitsTitle}
+  className="fade-in max-w-3xl"
+>
+  {/* LABEL + ICON */}
+  <div className="flex items-center gap-4 mb-6">
+    <div
+      className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+      style={{
+        background: "rgba(16, 185, 129, 0.12)",
+        color: "var(--brand-green)",
+      }}
+    >
+      <DollarSign className="w-7 h-7" strokeWidth={2.5} />
+    </div>
 
-                  <h2
-                    className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
-                    style={{
-                      fontFamily: "'Nunito Sans', sans-serif",
-                      color: "var(--brand-primary)",
-                    }}
-                  >
-                    Transformando clínicas. Mejorando vidas. Revolucionando la
-                    atención de servicios de alergias e inmunoterapia.
-                  </h2>
+    <span
+      className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
+      style={{ color: "var(--brand-green)" }}
+    >
+      Beneficios para clínicas
+    </span>
+  </div>
 
-                  <p
-                    className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    Implementamos un sistema integral de servicios de alergia
-                    directamente en su clínica, sin complejidad operativa ni
-                    costos iniciales.
-                  </p>
-                </div>
+  <h2
+    className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
+    style={{
+      fontFamily: "'Nunito Sans', sans-serif",
+      color: "var(--brand-primary)",
+    }}
+  >
+    Transformando clínicas.
+Mejorando vidas.
+<span >Revolucionando la atención.</span>
+  </h2>
 
-                {/* GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  {[
-                    {
-                      number: "01",
-                      title: "Sin inversión inicial",
-                      desc: "No se requiere capital para implementar el programa de sensibilidad a alergias en su consultorio.",
-                    },
-                    {
-                      number: "02",
-                      title: "Sin carga adicional para su equipo",
-                      desc: "Nuestro personal especializado gestiona verificaciones de seguros, pruebas de alergia e inmunoterapia.",
-                    },
-                    {
-                      number: "03",
-                      title: "Ingresos adicionales mensuales",
-                      desc: "Integre nuevos servicios médicos y genere ingresos recurrentes para su práctica.",
-                    },
-                    {
-                      number: "04",
-                      title: "Mayor retención de pacientes",
-                      desc: "Evite derivaciones externas y mantenga más pacientes dentro de su propia clínica.",
-                    },
-                    {
-                      number: "05",
-                      title: "Cobertura respaldada por aseguradoras",
-                      desc: "Las compañías de seguros ya cubren este tipo de servicios, facilitando la implementación y rentabilidad.",
-                    },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="group border-b border-neutral-200 pb-8"
-                    >
-                      <div className="flex items-start gap-5">
-                        {/* NUMBER */}
-                        <div
-                          className="text-sm font-bold mt-1"
-                          style={{ color: "var(--brand-green)" }}
-                        >
-                          {item.number}
-                        </div>
+  <p
+    className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed"
+    style={{ color: "var(--brand-muted)" }}
+  >
+    Implementamos un sistema integral de servicios de alergia
+    directamente en su clínica, sin complejidad operativa ni
+    costos iniciales.
+  </p>
+</div>
 
-                        {/* CONTENT */}
-                        <div>
-                          <h3
-                            className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
-                            style={{ color: "var(--brand-primary)" }}
-                          >
-                            {item.title}
-                          </h3>
+      {/* RIGHT IMAGE */}
+      <div className="relative w-full h-[320px] md:h-[450px] lg:h-[520px] overflow-hidden rounded-3xl shadow-xl">
+        <img
+         src="/Fostersterm/5.1.png "
+          alt="Doctor atendiendo paciente"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </div>
 
-                          <p
-                            className="text-base md:text-lg leading-relaxed max-w-lg"
-                            style={{ color: "var(--brand-muted)" }}
-                          >
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
+    {/* GRID */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+      {[
+        {
+          number: "01",
+          title: "Sin inversión inicial",
+          desc: "No se requiere capital para implementar el programa de sensibilidad a alergias en su consultorio.",
+        },
+        {
+          number: "02",
+          title: "Sin carga adicional para su equipo",
+          desc: "Nuestro personal especializado gestiona verificaciones de seguros, pruebas de alergia e inmunoterapia.",
+        },
+        {
+          number: "03",
+          title: "Ingresos adicionales mensuales",
+          desc: "Integre nuevos servicios médicos y genere ingresos recurrentes para su práctica.",
+        },
+        {
+          number: "04",
+          title: "Mayor retención de pacientes",
+          desc: "Evite derivaciones externas y mantenga más pacientes dentro de su propia clínica.",
+        },
+        {
+          number: "05",
+          title: "Cobertura respaldada por aseguradoras",
+          desc: "Las compañías de seguros ya cubren este tipo de servicios, facilitando la implementación y rentabilidad.",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group border-b border-neutral-200 pb-8"
+        >
+          <div className="flex items-start gap-5">
+            
+            {/* NUMBER */}
+            <div
+              className="text-sm font-bold mt-1"
+              style={{ color: "var(--brand-green)" }}
+            >
+              {item.number}
+            </div>
+
+            {/* CONTENT */}
+            <div>
+              <h3
+                className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                style={{ color: "var(--brand-primary)" }}
+              >
+                {item.title}
+              </h3>
+
+              <p
+                className="text-base md:text-lg leading-relaxed max-w-lg"
+                style={{ color: "var(--brand-muted)" }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+{/* BOTTOM CTA CARD */}
+<div className="mt-20">
+  <div className="relative overflow-hidden rounded-[2rem] bg-[#0B5D6E] grid grid-cols-1 lg:grid-cols-2 items-center">
+    
+    {/* LEFT CONTENT */}
+    <div className="p-10 md:p-14 lg:p-16">
+      <h3
+        className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight"
+        style={{
+          fontFamily: "'Nunito Sans', sans-serif",
+          color: "#fff",
+        }}
+      >
+        Más servicios.
+        <br />
+        Mejores resultados.
+      </h3>
+
+      <p
+        className="mt-6 text-base md:text-lg leading-relaxed max-w-md"
+        style={{
+          color: "rgba(255,255,255,0.82)",
+        }}
+      >
+        Un modelo probado que impulsa el crecimiento de su clínica
+        mientras mejora la atención de sus pacientes.
+      </p>
+    </div>
+
+    {/* RIGHT IMAGE */}
+    <div className="relative h-[260px] md:h-[340px] lg:h-full min-h-[320px]">
+      <img
+        src="/Fostersterm/image.jpg"
+        alt="Hospital moderno"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* OPTIONAL OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/10"></div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
             {/* ── SECCIÓN: CASOS DE ÉXITO (CAROUSEL) ── */}
 
             <section

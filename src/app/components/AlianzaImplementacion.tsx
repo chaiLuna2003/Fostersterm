@@ -134,7 +134,7 @@ export function AlianzaImplementacion({
 
   return (
     <section style={{ background: "#f4f7f9", padding: "56px 0" }}>
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 20px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
 
         {/* HEADER */}
         <div
@@ -345,7 +345,7 @@ export function AlianzaImplementacion({
                   <p
                     style={{
                       fontFamily: "'Source Sans 3',sans-serif",
-                      fontSize: "clamp(14px, 1.35vw, 17px)",
+                      fontSize: "clamp(17px, 1.8vw, 22px)",
                       color: "#5a7a84",
                       margin: 0,
                       lineHeight: 1.55,

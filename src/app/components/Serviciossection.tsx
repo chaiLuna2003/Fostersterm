@@ -56,7 +56,7 @@ export function ServiciosSection({
 
       title: (
         <>
-          Un Socio Estratégico,{" "}
+          Un Socio Estratégico,{" "} 
           <span style={{ color: "var(--brand-green)" }}>
             No Un Proveedor Más
           </span> 

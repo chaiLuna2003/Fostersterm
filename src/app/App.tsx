@@ -31,6 +31,7 @@ import AboutUs from "./pages/AboutUs";
 import BlogEn from "./pages/BlogEn";
 import { useEffect, useState, useRef } from "react";
 
+
 // Hook para fade-in al hacer scroll - MEJORADO para manejar navegación
 function useFadeIn(direction: "up" | "left" | "right" = "up") {
   const ref = useRef<HTMLDivElement>(null);
@@ -81,6 +82,7 @@ export default function App() {
   // Benefits — pacientes (needs its own ref — same ref causes observer.disconnect() to fire once)
   const benefitsPatientsTitle = useFadeIn();
   const benefitsPatientsGrid = useFadeIn();
+  
 
   // FAQ
   const faqTitle = useFadeIn();
@@ -447,20 +449,24 @@ export default function App() {
   </div>
 
   <h2
-    className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
-    style={{
-      fontFamily: "'Nunito Sans', sans-serif",
-      color: "var(--brand-primary)",
-    }}
-  >
-    Transformando clínicas.
-Mejorando vidas.
-<span >Revolucionando la atención.</span>
-  </h2>
+  className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mt-4"
+  style={{
+    fontFamily: "'Nunito Sans', sans-serif",
+    color: "#0f4c5c", // Un azul oscuro/verdoso similar al de la imagen
+  }}
+>
+  Transformando <br />
+  clínicas. <br />
+  Mejorando vidas. <br />
+  <span style={{ color: "#0f8152" }}>
+    Revolucionando la <br />
+    atención.
+  </span>
+</h2>
 
   <p
-    className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed"
-    style={{ color: "var(--brand-muted)" }}
+    className="text-lg font-bold md:text-xl mt-6 max-w-2xl leading-relaxed"
+    style={{ color: "#000000)" }}
   >
     Implementamos un sistema integral de servicios de alergia
     directamente en su clínica, sin complejidad operativa ni
@@ -469,7 +475,7 @@ Mejorando vidas.
 </div>
 
       {/* RIGHT IMAGE */}
-      <div className="relative w-full h-[320px] md:h-[450px] lg:h-[520px] overflow-hidden rounded-3xl shadow-xl">
+      <div className="relative w-full h-[320px] md:h-[450px] lg:h-[580px] overflow-hidden rounded-3xl shadow-xl">
         <img
          src="/Fostersterm/5.1.png "
           alt="Doctor atendiendo paciente"
@@ -501,11 +507,7 @@ Mejorando vidas.
           title: "Mayor retención de pacientes",
           desc: "Evite derivaciones externas y mantenga más pacientes dentro de su propia clínica.",
         },
-        {
-          number: "05",
-          title: "Cobertura respaldada por aseguradoras",
-          desc: "Las compañías de seguros ya cubren este tipo de servicios, facilitando la implementación y rentabilidad.",
-        },
+        
       ].map((item, i) => (
         <div
           key={i}
@@ -531,8 +533,8 @@ Mejorando vidas.
               </h3>
 
               <p
-                className="text-base md:text-lg leading-relaxed max-w-lg"
-                style={{ color: "var(--brand-muted)" }}
+                className="text-lg font-bold md:text-lg leading-relaxed max-w-lg"
+                style={{ color: "#000000" }}
               >
                 {item.desc}
               </p>
@@ -561,7 +563,7 @@ Mejorando vidas.
       </h3>
 
       <p
-        className="mt-6 text-base md:text-lg leading-relaxed max-w-md"
+        className="mt-6 text-base font-bold md:text-lg leading-relaxed max-w-md"
         style={{
           color: "rgba(255,255,255,0.82)",
         }}
@@ -585,124 +587,146 @@ Mejorando vidas.
   </div>
 </div>
   </div>
-</section>
+            </section>
             {/* ── SECCIÓN: CASOS DE ÉXITO (CAROUSEL) ── */}
 
-            <section
-              id="beneficios-pacientes"
-              className="py-20 lg:py-28 bg-white"
+            <section id="beneficios-pacientes" className="py-20 lg:py-28 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+    
+    {/* TOP CONTENT */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-16 lg:mb-24">
+      
+      {/* LEFT TEXT */}
+      {/* LEFT IMAGE */}
+<div className="relative w-full h-[320px] md:h-[450px] lg:h-[580px] overflow-hidden rounded-3xl shadow-xl order-1 lg:order-1">
+  <img
+    src="/Fostersterm/5.1.png"
+    alt="Doctor atendiendo paciente"
+    className="w-full h-full object-cover"
+  />
+</div>
+
+{/* RIGHT TEXT */}
+<div
+  ref={benefitsTitle}
+  className="fade-in max-w-3xl order-2 lg:order-2"
+>
+  {/* LABEL + ICON */}
+  <div className="flex items-center gap-4 mb-6">
+    
+
+    <span
+      className="text-base md:text-lg lg:text-xl font-bold tracking-[0.2em] uppercase"
+      style={{ color: "var(--brand-green)" }}
+    >
+                Beneficios para los pacientes
+    </span>
+  </div>
+
+  <h2
+    className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mt-4"
+    style={{
+      fontFamily: "'Nunito Sans', sans-serif",
+      color: "#0f4c5c",
+    }}
+  >
+        Atención especializada en alergias mas accesible y efectiva.
+  </h2>
+
+  <p
+    className="text-lg font-bold md:text-xl mt-6 max-w-2xl leading-relaxed"
+    style={{ color: "#000000" }}
+  >
+    Nuestro programa permite que los pacientes reciban pruebas y
+          tratamientos de alergia directamente en la misma clínica donde ya
+          reciben su atención médica habitual.
+
+  </p>
+</div>
+    </div>
+
+    {/* GRID */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+      {[
+       {
+          number: "01",
+          title: "Pruebas rápidas y seguras",
+          desc: "La prueba de alergias es segura, rápida y práctica para los pacientes.",
+          featured: true // Marcamos este elemento para romper la simetría de forma intencional
+        },
+        {
+          number: "02",
+          title: "Mejor calidad de vida",
+          desc: "La inmunoterapia fortalece la respuesta del sistema inmunológico frente a la mayoría de los alérgenos.",
+        },
+        {
+          number: "03",
+          title: "Tratamiento de la causa real",
+          desc: "Se trata la causa específica de la enfermedad alérgica en lugar de solo ocultar los síntomas.",
+        },
+        {
+          number: "04",
+          title: "Más servicios en una sola clínica",
+          desc: "Los pacientes reciben atención integral y más servicios médicos en el mismo lugar.",
+        },
+        {
+          number: "05",
+          title: "Cobertura por aseguradoras",
+          desc: "La mayoría de las compañías de seguros cubren tratamientos de inmunoterapia.",
+        },
+        {
+          number: "06",
+          title: "Pruebas de alergia",
+          desc: "Identificamos de forma rápida y precisa los factores específicos que desencadenan las reacciones para actuar con certeza.",
+        },
+        {
+          number: "07",
+          title: "Tratamiento de inmunoterapia",
+          desc: "Fortalecemos el sistema inmunológico de manera progresiva, logrando que el cuerpo tolere los alérgenos a largo plazo.",
+        },
+
+        
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group border-b border-neutral-200 pb-8"
+        >
+          <div className="flex items-start gap-5">
+            
+            {/* NUMBER */}
+            <div
+              className="text-sm font-bold mt-1"
+              style={{ color: "var(--brand-green)" }}
             >
-              <div className="max-w-7xl mx-auto px-6">
-                {/* HEADER */}
-                <div
-                  ref={benefitsPatientsTitle}
-                  className="fade-in max-w-3xl md:ml-auto md:text-right mb-14 lg:mb-20"
-                >
-                  <span
-                    className="text-base md:text-lg lg:text-xl font-bold tracking-widest uppercase"
-                    style={{ color: "var(--brand-green)" }}
-                  >
-                    Beneficios para los pacientes
-                  </span>
+              {item.number}
+            </div>
 
-                  <h2
-                    className="text-4xl md:text-5xl lg:text-6xl leading-tight mt-4"
-                    style={{
-                      fontFamily: "'Nunito Sans', sans-serif",
-                      color: "var(--brand-primary)",
-                    }}
-                  >
-                    Atención especializada en alergias, más accesible y
-                    efectiva.
-                  </h2>
+            {/* CONTENT */}
+            <div>
+              <h3
+                className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
+                style={{ color: "var(--brand-primary)" }}
+              >
+                {item.title}
+              </h3>
 
-                  <p
-                    className="text-lg md:text-xl mt-6 max-w-2xl ml-auto leading-relaxed"
-                    style={{ color: "var(--brand-muted)" }}
-                  >
-                    Nuestro programa permite que los pacientes reciban pruebas y
-                    tratamientos de alergia directamente en la misma clínica
-                    donde ya reciben atención médica.
-                  </p>
-                </div>
+              <p
+                className="text-lg font-bold md:text-lg leading-relaxed max-w-lg"
+                style={{ color: "#000000" }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
 
-                {/* GRID */}
-                <div
-                  ref={benefitsPatientsGrid}
-                  className="fade-in grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10"
-                >
-                  {[
-                    {
-                      number: "01",
-                      title: "Pruebas rápidas y seguras",
-                      desc: "La prueba de alergias es segura, rápida y práctica para los pacientes.",
-                    },
-                    {
-                      number: "02",
-                      title: "Mejor calidad de vida",
-                      desc: "La inmunoterapia fortalece la respuesta del sistema inmunológico frente a la mayoría de los alérgenos.",
-                    },
-                    {
-                      number: "03",
-                      title: "Tratamiento de la causa real",
-                      desc: "Se trata la causa específica de la enfermedad alérgica en lugar de solo ocultar los síntomas.",
-                    },
-                    {
-                      number: "04",
-                      title: "Más servicios en una sola clínica",
-                      desc: "Los pacientes reciben atención integral y más servicios médicos en el mismo lugar.",
-                    },
-                    {
-                      number: "05",
-                      title: "Cobertura por aseguradoras",
-                      desc: "La mayoría de las compañías de seguros cubren tratamientos de inmunoterapia.",
-                    },
-                    {
-                      number: "06",
-                      title: "Pruebas de alergia",
-                      desc: "Identificamos de forma rápida y precisa los factores específicos que desencadenan las reacciones para actuar con certeza.",
-                    },
-                    {
-                      number: "07",
-                      title: "Tratamiento de inmunoterapia",
-                      desc: "Fortalecemos el sistema inmunológico de manera progresiva, logrando que el cuerpo tolere los alérgenos a largo plazo.",
-                    },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="group border-b border-neutral-200 pb-8"
-                    >
-                      <div className="flex items-start gap-5">
-                        {/* NUMBER */}
-                        <div
-                          className="text-sm font-bold mt-1"
-                          style={{ color: "var(--brand-green)" }}
-                        >
-                          {item.number}
-                        </div>
+{/* BOTTOM CTA CARD */}
 
-                        {/* CONTENT */}
-                        <div>
-                          <h3
-                            className="text-2xl md:text-3xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1"
-                            style={{ color: "var(--brand-primary)" }}
-                          >
-                            {item.title}
-                          </h3>
-
-                          <p
-                            className="text-base md:text-lg leading-relaxed max-w-lg"
-                            style={{ color: "var(--brand-muted)" }}
-                          >
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+  </div>
             </section>
+         
 
             {/* ── SECCIÓN: CÓMO IMPLEMENTAMOS LA ALIANZA ── */}
             <section id="alianza-implementacion">
@@ -771,7 +795,7 @@ Mejorando vidas.
                       </h2>
 
                       <p
-                        className="text-xl leading-relaxed"
+                        className="text-2xl leading-relaxed"
                         style={{ color: "var(--brand-muted)" }}
                       >
                         Todo lo que necesita saber sobre nuestro modelo de
@@ -874,7 +898,7 @@ Mejorando vidas.
                     clínica.
                   </h2>
 
-                  <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
+                  <p className="text-lg md:text-2xl opacity-90 mb-8 leading-relaxed">
                     Implementamos programas de servicios de alergia,
                     proporcionamos personal especializado y ayudamos a que su
                     práctica ofrezca más servicios médicos en un solo lugar.
@@ -894,7 +918,7 @@ Mejorando vidas.
               id="contacto"
               className="py-20 bg-gradient-to-b from-gray-50 to-white"
             >
-              <div className="max-w-6xl mx-auto px-6">
+              <div className="max-w-6xl mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
                   {/* Left Column - Info */}
                   <div>
@@ -926,7 +950,7 @@ Mejorando vidas.
                     </div>
 
                     <p
-                      className="text-lg mb-8 leading-relaxed"
+                      className="text-2xl mb-8 leading-relaxed"
                       style={{ color: "var(--brand-muted)" }}
                     >
                       Asóciese con Foster Stern Allergy Division y transforme su
@@ -1241,6 +1265,26 @@ Mejorando vidas.
                   </div>
                 </div>
               </div>
+              {/* WhatsApp Fixed Button */}
+<a
+  href="https://wa.me/17869773733"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp"
+  className="fixed bottom-5 right-5 z-50 
+  w-16 h-16 rounded-full 
+  flex items-center justify-center
+  shadow-2xl hover:scale-110 
+  transition-all duration-300"
+  style={{ backgroundColor: "#25D366" }}
+>
+  <svg
+    viewBox="0 0 32 32"
+    className="w-8 h-8 fill-white"
+  >
+    <path d="M16.04 3C8.84 3 3 8.74 3 15.82c0 2.53.74 4.98 2.13 7.08L3 29l6.3-2.05a13.2 13.2 0 006.74 1.84H16c7.2 0 13.04-5.74 13.04-12.82C29.04 8.74 23.2 3 16.04 3zm0 23.5c-2.03 0-4.01-.54-5.74-1.56l-.41-.24-3.74 1.22 1.22-3.64-.27-.43a10.3 10.3 0 01-1.58-5.48c0-5.7 4.72-10.34 10.52-10.34 5.8 0 10.52 4.64 10.52 10.34 0 5.7-4.72 10.34-10.52 10.34zm5.77-7.77c-.31-.15-1.84-.9-2.12-1-.28-.1-.49-.15-.69.15-.2.3-.79 1-.96 1.2-.18.2-.36.22-.67.07-.31-.15-1.3-.47-2.48-1.5-.92-.8-1.54-1.8-1.72-2.1-.18-.3-.02-.46.13-.61.13-.13.31-.35.46-.52.15-.18.2-.3.31-.5.1-.2.05-.37-.03-.52-.08-.15-.69-1.65-.95-2.26-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.52.08-.79.37-.28.3-1.03 1-1.03 2.45s1.05 2.85 1.2 3.05c.15.2 2.05 3.24 5.08 4.42.72.3 1.29.47 1.73.6.73.23 1.39.2 1.91.12.58-.09 1.84-.75 2.1-1.48.26-.73.26-1.35.18-1.48-.08-.13-.28-.2-.59-.35z" />
+  </svg>
+</a>
             </footer>
           </div>
         }

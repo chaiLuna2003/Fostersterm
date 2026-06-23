@@ -189,20 +189,20 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
           <a
             href={isEn ? "/english#contacto" : "/#contacto"}
             onClick={goToSection("contacto")}
-            className="nav-item-zoom nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold text-base lg:text-lg xl:text-xl"
+            className="nav-item-zoom nav-cta px-4 py-2 rounded-xl text-white shadow-md font-bold text-base lg:text-lg xl:text-lg"
             style={{
               backgroundColor: "var(--brand-green)",
               
             }}
           >
-            {isEn ? "Contact Us" : "Contactar"}
+            {isEn ? "Contact " : "Contactar"}
           </a>
 
           {/* Selector de idioma */}
           {isEn ? (
             <Link
               to="/"
-              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-base lg:text-lg xl:text-xl"
+              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-base lg:text-lg xl:text-lg"
               style={{
                 color: textColor,
                 borderColor,
@@ -214,7 +214,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
           ) : (
             <Link
               to="/english"
-              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-base lg:text-lg xl:text-xl"
+              className="nav-item-zoom px-4 py-2 rounded-xl font-bold border-2 text-base lg:text-lg xl:text-lg"
               style={{
                 color: textColor,
                 borderColor,

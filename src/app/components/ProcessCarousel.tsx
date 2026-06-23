@@ -193,7 +193,7 @@ export function ProcessCarousel({
                 {/* TEXT */}
                 <div className="p-5">
                   <p
-                    className="text-base leading-snug"
+                    className="text-xl leading-snug"
                     style={{
                       color: "var(--brand-primary)",
                       fontFamily: "'Source Sans 3', sans-serif",

@@ -285,14 +285,14 @@ export function ServiciosSection({
                 }}
               >
                 <p
-                  className="text-xs font-bold tracking-[0.2em] uppercase mb-1"
+                  className="text-lg font-bold tracking-[0.2em] uppercase mb-1"
                   style={{ color: "#00000" }}
                 >
                   {t.imageTitle}
                 </p>
 
                 <p
-                  className="text-white text-base font-semibold leading-snug"
+                  className="text-white text-xl font-semibold leading-snug"
                   style={{
                     fontFamily: "'Nunito Sans', sans-serif",
                   }}

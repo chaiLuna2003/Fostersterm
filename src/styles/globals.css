@@ -150,3 +150,25 @@
   left: 0;
   right: 0;
 }
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  8% {
+    transform: scale(1.18);
+  }
+
+  16% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.whatsapp-pulse {
+  animation: whatsappPulse 5s infinite;
+}

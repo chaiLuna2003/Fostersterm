@@ -356,16 +356,7 @@ export default function App() {
                           title: "Personal entrenado y asignado a su clínica",
                           desc: "Asignamos personal capacitado en brindar los servicios que ofrecemos, integrado a su clínica.",
                         },
-                        {
-                          icon: (
-                            <ClipboardList
-                              className="w-6 h-6"
-                              style={{ color: "var(--brand-green)" }}
-                            />
-                          ),
-                          title: "Facturación y documentación incluidas",
-                          desc: "Nos encargamos de la documentación clínica y la facturación, reduciendo la carga operativa de su equipo.",
-                        },
+                        
                         {
                           icon: (
                             <HeartPulse
@@ -374,7 +365,7 @@ export default function App() {
                             />
                           ),
                           title: "Reportes periódicos de rendimiento",
-                          desc: "Entregamos reportes mensuales sobre los resultados del crecimiento de su práctica con prueba de alergia.",
+                          desc: "Entregamos reportes mensuales sobre los resultados del crecimiento de su práctica con los servicios de alergia.",
                         },
                       ].map((item) => (
                         <div key={item.title} className="flex flex-col gap-2">
@@ -620,7 +611,7 @@ export default function App() {
                         color: "#0f4c5c",
                       }}
                     >
-                      Atención especializada en alergias mas accesible y
+                      Atención especializada en alergias más accesible y
                       efectiva.
                     </h2>
 
@@ -640,8 +631,8 @@ export default function App() {
                   {[
                     {
                       number: "01",
-                      title: "Pruebas rápidas y seguras",
-                      desc: "La prueba de alergias es segura, rápida y práctica para los pacientes.",
+                      title: "Pruebas de alergia rápidas y seguras",
+                      desc: "Identificamos de forma rápida, práctica y precisa los factores específicos que desencadenan las reacciones. Un proceso completamente seguro para que los pacientes actúen con total certeza.",
                       featured: true, // Marcamos este elemento para romper la simetría de forma intencional
                     },
                     {
@@ -664,14 +655,10 @@ export default function App() {
                       title: "Cobertura por aseguradoras",
                       desc: "La mayoría de las compañías de seguros cubren tratamientos de inmunoterapia.",
                     },
+                    
                     {
                       number: "06",
-                      title: "Pruebas de alergia",
-                      desc: "Identificamos de forma rápida y precisa los factores específicos que desencadenan las reacciones para actuar con certeza.",
-                    },
-                    {
-                      number: "07",
-                      title: "Tratamiento de inmunoterapia",
+                      title: "Servicios de alergia",
                       desc: "Fortalecemos el sistema inmunológico de manera progresiva, logrando que el cuerpo tolere los alérgenos a largo plazo.",
                     },
                   ].map((item, i) => (

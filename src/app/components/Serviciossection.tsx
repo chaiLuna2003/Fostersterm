@@ -269,7 +269,7 @@ export function ServiciosSection({
               style={{ backgroundColor: "#054A5B" }}
             >
               <ImageWithFallback
-                src="/Fostersterm/1.1.jpeg"
+                src="/Fostersterm/1.1.png"
                 alt="Foster Stern Allergy Clinical Space"
                 className="absolute inset-0 w-full h-full object-cover"
               />

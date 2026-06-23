@@ -308,16 +308,8 @@ const faqItems = useFadeIn("left");
                           title: "Trained Staff Assigned to Your Clinic",
                           desc: "We assign trained personnel integrated into your clinic to deliver the services we offer.",
                         },
-                        {
-                          icon: (
-                            <ClipboardList
-                              className="w-6 h-6"
-                              style={{ color: "var(--brand-green)" }}
-                            />
-                          ),
-                          title: "Billing and Documentation Included",
-                          desc: "We handle clinical documentation and billing, reducing your team's operational burden.",
-                        },
+                    
+                    
                         {
                           icon: (
                             <HeartPulse

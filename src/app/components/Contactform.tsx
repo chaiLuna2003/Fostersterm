@@ -1,26 +1,65 @@
 import { ArrowRight } from "lucide-react";
 
 /**
- * ContactForm — componente reutilizable de contacto.
- * Se usa en Home (#contacto) y en la página Nosotros.
+ * ContactForm — Reusable contact form component.
+ * Supports multilingual content via the "lang" prop (defaults to "es").
  */
-export function ContactForm() {
+export function ContactForm({ lang = "es" }) {
+  // Multilingual dictionary
+  const content = {
+    es: {
+      clinicName: "Nombre de la Clínica",
+      clinicPlaceholder: "Escriba el nombre de su clínica",
+      fullName: "Nombre Completo del Contacto",
+      fullNamePlaceholder: "Escriba su nombre completo",
+      phone: "Teléfono Directo",
+      phonePlaceholder: "Escriba su teléfono directo",
+      email: "Correo Electrónico",
+      emailPlaceholder: "Escriba su correo electrónico",
+      address: "Dirección",
+      addressPlaceholder: "Escriba su dirección aquí",
+      specialty: "Especialidad",
+      specialtyPlaceholder: "Escriba su especialidad aquí",
+      consent: "Acepto ser contactado sobre servicios y oportunidades.",
+      submitBtn: "Enviar Mensaje",
+    },
+    en: {
+      clinicName: "Clinic Name",
+      clinicPlaceholder: "Enter your clinic's name",
+      fullName: "Contact Full Name",
+      fullNamePlaceholder: "Enter your full name",
+      phone: "Direct Phone Number",
+      phonePlaceholder: "Enter your direct phone number",
+      email: "Email Address",
+      emailPlaceholder: "Enter your email address",
+      address: "Address",
+      addressPlaceholder: "Enter your address here",
+      specialty: "Specialty",
+      specialtyPlaceholder: "Enter your specialty here",
+      consent: "I agree to be contacted regarding services and opportunities.",
+      submitBtn: "Send Message",
+    }
+  };
+
+  // Select the appropriate text dictionary based on the prop
+  const t = content[lang] || content.es;
+
   return (
     <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-gray-200 shadow-lg">
       <form className="space-y-5">
 
-        {/* Nombre Clínica */}
+        {/* Clinic Name */}
         <div>
           <label
             className="block mb-2 text-lg font-semibold"
             style={{ color: "var(--brand-primary)" }}
           >
-            Nombre de la Clínica
+            {t.clinicName}
           </label>
 
           <input
             type="text"
-            placeholder="Escriba el nombre de su clínica"
+            placeholder={t.clinicPlaceholder}
             className="w-full px-4 py-4 rounded-lg border border-gray-200 
             focus:border-[var(--brand-green)] 
             focus:ring-2 focus:ring-[var(--brand-green)]/20 
@@ -30,18 +69,18 @@ export function ContactForm() {
           />
         </div>
 
-        {/* Nombre Completo */}
+        {/* Full Name */}
         <div>
           <label
             className="block mb-2 text-lg font-semibold"
             style={{ color: "var(--brand-primary)" }}
           >
-            Nombre Completo del Contacto
+            {t.fullName}
           </label>
 
           <input
             type="text"
-            placeholder="Escriba su nombre completo"
+            placeholder={t.fullNamePlaceholder}
             className="w-full px-4 py-4 rounded-lg border border-gray-200 
             focus:border-[var(--brand-green)] 
             focus:ring-2 focus:ring-[var(--brand-green)]/20 
@@ -51,18 +90,18 @@ export function ContactForm() {
           />
         </div>
 
-        {/* Teléfono */}
+        {/* Phone */}
         <div>
           <label
             className="block mb-2 text-lg font-semibold"
             style={{ color: "var(--brand-primary)" }}
           >
-            Teléfono Directo
+            {t.phone}
           </label>
 
           <input
-            type="tel"
-            placeholder="Escriba su teléfono directo"
+            type="text"
+            placeholder={t.phonePlaceholder}
             className="w-full px-4 py-4 rounded-lg border border-gray-200 
             focus:border-[var(--brand-green)] 
             focus:ring-2 focus:ring-[var(--brand-green)]/20 
@@ -72,18 +111,18 @@ export function ContactForm() {
           />
         </div>
 
-        {/* Correo */}
+        {/* Email */}
         <div>
           <label
             className="block mb-2 text-lg font-semibold"
             style={{ color: "var(--brand-primary)" }}
           >
-            Correo Electrónico
+            {t.email}
           </label>
 
           <input
             type="email"
-            placeholder="Escriba su correo electrónico"
+            placeholder={t.emailPlaceholder}
             className="w-full px-4 py-4 rounded-lg border border-gray-200 
             focus:border-[var(--brand-green)] 
             focus:ring-2 focus:ring-[var(--brand-green)]/20 
@@ -93,18 +132,18 @@ export function ContactForm() {
           />
         </div>
 
-        {/* Dirección */}
+        {/* Address */}
         <div>
           <label
             className="block mb-2 text-lg font-semibold"
             style={{ color: "var(--brand-primary)" }}
           >
-            Dirección
+            {t.address}
           </label>
 
           <input
             type="text"
-            placeholder="Escriba su dirección aquí"
+            placeholder={t.addressPlaceholder}
             className="w-full px-4 py-4 rounded-lg border border-gray-200 
             focus:border-[var(--brand-green)] 
             focus:ring-2 focus:ring-[var(--brand-green)]/20 
@@ -114,18 +153,18 @@ export function ContactForm() {
           />
         </div>
 
-        {/* Especialidad */}
+        {/* Specialty */}
         <div>
           <label
             className="block mb-2 text-lg font-semibold"
             style={{ color: "var(--brand-primary)" }}
           >
-            Especialidad
+            {t.specialty}
           </label>
 
           <input
             type="text"
-            placeholder="Escriba su especialidad aquí"
+            placeholder={t.specialtyPlaceholder}
             className="w-full px-4 py-4 rounded-lg border border-gray-200 
             focus:border-[var(--brand-green)] 
             focus:ring-2 focus:ring-[var(--brand-green)]/20 
@@ -148,11 +187,11 @@ export function ContactForm() {
             className="text-lg leading-relaxed cursor-pointer"
             style={{ color: "var(--brand-muted)" }}
           >
-            Acepto ser contactado sobre servicios y oportunidades.
+            {t.consent}
           </label>
         </div>
 
-        {/* Botón */}
+        {/* Submit Button */}
         <button
           type="submit"
           className="w-full px-8 py-4 text-white rounded-lg 
@@ -161,7 +200,7 @@ export function ContactForm() {
           text-lg font-semibold"
           style={{ backgroundColor: "var(--brand-green)" }}
         >
-          Enviar Mensaje
+          {t.submitBtn}
           <ArrowRight className="w-5 h-5" />
         </button>
       </form>

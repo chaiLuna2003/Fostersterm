@@ -18,7 +18,7 @@ export function ProcessCarousel({
       slides: [
         {
           id: 1,
-          imagen: "/Fostersterm/ClinicalSpaceFSA.webp",
+          imagen: "/Fostersterm/ClinicalSpaceFSA.png",
           texto:
             "Evaluamos su práctica y diseñamos el programa de alergia a medida para su clínica.",
         },
@@ -58,7 +58,7 @@ export function ProcessCarousel({
       slides: [
         {
           id: 1,
-          imagen: "/Fostersterm/ClinicalSpaceFSA.webp",
+          imagen: "/Fostersterm/ClinicalSpaceFSA.png",
           texto:
             "We evaluate your practice and design a customized allergy program for your clinic.",
         },

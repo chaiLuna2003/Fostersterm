@@ -1,7 +1,24 @@
-import { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Navbar } from "../components/Navbar";
+import { ContactForm } from "../components/Contactform";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Quote,
+  ShieldPlus,
+  Activity,
+  Headset,
+  HeartHandshake,
+  Globe,
+  Stethoscope,
+  Lightbulb,
+  Heart,
+  UserRound,
+  ShieldCheck,
+  Handshake,
+} from "lucide-react";
 
 function useFade(direction: "up" | "left" | "right" = "up", delay = 0) {
   const ref = useRef<HTMLDivElement>(null);
@@ -548,22 +565,26 @@ function Footer() {
 }
 
 export default function AboutUs() {
-  const heroRef   = useFade("up",  0);
-  const missionL  = useFade("left",  0.1);
-  const missionR  = useFade("right", 0.1);
-  const valTitle  = useFade("up",  0);
-  const val1      = useFade("up",  0.05);
-  const val2      = useFade("up",  0.1);
-  const val3      = useFade("up",  0.15);
-  const val4      = useFade("up",  0.2);
-  const teamTitle = useFade("up",  0);
-  const teamCard1 = useFade("up",  0.05);
-  const teamCard2 = useFade("up",  0.1);
-  const teamCard3 = useFade("up",  0.15);
-  const ctaRef    = useFade("up",  0);
+  const heroSub = useFade("up", 0.25);
+    const heroStats = useFade("up", 0.4);
+    const misionImg = useFade("left");
+    const misionTxt = useFade("right");
+    const visionTxt = useFade("left");
+    const valTitle = useFade("up");
+    const val1 = useFade("up", 0);
+    const val2 = useFade("up", 0.15);
+    const val3 = useFade("up", 0.3);
+    const val4 = useFade("up", 0.45);
+    const val5 = useFade("up", 0.6);
+    const teamTitle = useFade("up");
+    const team1 = useFade("up", 0);
+    const [testimonialIndex, setTestimonialIndex] = useState(0);
+    
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden" style={{ fontFamily: "'Nunito Sans', sans-serif" }}>
+      
+      <Navbar lang="en" />
 
       {/* ── HERO ── */}
       <section
@@ -714,14 +735,14 @@ export default function AboutUs() {
             </div>
             <div className="flex flex-col justify-start pt-0.5">
               <h3 
-                className="text-sm font-semibold tracking-wide" 
+                className="text-lg font-semibold tracking-wide" 
                 style={{ color: "white" }}
               >
                 {item.title}
               </h3>
               
               <p
-                className="text-[13px] font-normal leading-relaxed mt-1.5 tracking-normal"
+                className="text-[16px] font-bold leading-relaxed mt-1.5 tracking-normal"
                 style={{
                   color: "rgba(255,255,255,0.88)",
                 }}
@@ -734,86 +755,366 @@ export default function AboutUs() {
       </div>
     </div>
   </div>
-</section>
+      </section>
 
       {/* ── MISSION & VISION ── */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#f8fafb" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div ref={missionL}>
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ backgroundColor: "var(--brand-light)", color: "var(--brand-green)" }}>
-                Our Mission
-              </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-6" style={{ color: "var(--brand-primary)" }}>
-                Empowering Clinics.<br />Improving Lives.
-              </h2>
-              <p className="text-base leading-relaxed mb-5" style={{ color: "var(--brand-muted)" }}>
-                We partner with medical clinics to integrate comprehensive allergy services — at zero upfront cost. Our model allows healthcare providers to focus on what matters most: patient care.
-              </p>
-              <p className="text-base leading-relaxed" style={{ color: "var(--brand-muted)" }}>
-                By handling billing, clinical coordination, and operational support, we create a seamless extension of each clinic's team, driving better patient outcomes and sustainable revenue growth.
-              </p>
+      <section className="py-20 lg:py-28 bg-white overflow-hidden w-full">
+        <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-0 lg:items-center w-full">
+            {/* LEFT COLUMN: TEXT */}
+            <div
+              ref={misionTxt}
+              className="order-2 lg:order-1 px-6 md:px-10 lg:pl-[calc((100vw-1280px)/2+40px)] lg:pr-16 flex flex-col justify-center w-full"
+            >
+              <div className="max-w-xl w-full">
+                <span
+                  className="
+                    text-base
+                    md:text-lg
+                    lg:text-xl
+                    uppercase
+                    tracking-[0.28em]
+                    block
+                    font-bold
+                  "
+                  style={{
+                    color: "var(--brand-green)",
+                  }}
+                >
+                  Our Mission
+                </span>
+
+                <h2
+                  className="
+                    text-[2.3rem]
+                    sm:text-5xl
+                    md:text-6xl
+                    lg:text-[4.2rem]
+                    mt-5
+                    leading-[1.08]
+                  "
+                  style={{
+                    color: "var(--brand-primary)",
+                    fontWeight: 700,
+                  }}
+                >
+                  Transforming modern healthcare.
+                </h2>
+
+                <p
+                  className="
+                    mt-6 md:mt-8
+                    text-[17px]
+                    sm:text-lg
+                    md:text-xl
+                    leading-[1.9]
+                  "
+                  style={{
+                    color: "var(--brand-muted)",
+                  }}
+                >
+                  At Foster Stern, we empower medical clinics through comprehensive allergy 
+                  solutions, clinical technology, and specialized support, enabling them to offer 
+                  world-class care with zero upfront investment and a patient-centered approach.
+                </p>
+
+                {/* FEATURES */}
+                
+              </div>
             </div>
 
-            <div ref={missionR} className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ minHeight: "380px" }}>
-              <ImageWithFallback
-                src="/Fostersterm/ImagenNosotros.png"
-                alt="Foster Stern Team"
-                className="w-full h-full object-cover"
-                style={{ minHeight: "380px" }}
-              />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,74,91,0.4) 0%, transparent 60%)" }} />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="flex gap-4">
-                  {[
-                    { number: "200+", label: "Partner Clinics" },
-                    { number: "50k+", label: "Patients Served" },
-                    { number: "15+", label: "Years Experience" },
-                  ].map(({ number, label }) => (
-                    <div key={label} className="flex-1 rounded-2xl px-3 py-3 text-center" style={{ backgroundColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}>
-                      <p className="text-xl font-extrabold text-white">{number}</p>
-                      <p className="text-xs text-white/80 font-medium">{label}</p>
-                    </div>
-                  ))}
-                </div>
+            {/* RIGHT COLUMN: IMAGE */}
+            <div
+              ref={misionImg}
+              className="relative group order-1 lg:order-2 w-full flex justify-end"
+            >
+              <div className="overflow-hidden w-full h-[340px] sm:h-[460px] lg:h-[600px] rounded-none shadow-2xl">
+                <img
+                  src="/Fostersterm/MISIONIMG.png"
+                  alt="Foster Stern Mission"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── VALUES ── */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div ref={valTitle} className="text-center mb-14">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ backgroundColor: "var(--brand-light)", color: "var(--brand-green)" }}>
-              Our Values
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold" style={{ color: "var(--brand-primary)" }}>
-              The Principles That Guide Us
+      <section className="relative min-h-screen w-full bg-white overflow-hidden flex flex-col justify-between">
+        
+        {/* ── DECORATIVE BACKGROUND IMAGE ── */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img 
+            src="/Fostersterm/VISIONIMG.png" 
+            alt="Background Decor" 
+            className="
+              w-full
+              h-full
+              object-cover
+              object-[40%_center]
+              md:object-[55%_center]
+              lg:object-[90%_center]
+            "
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-white via-white/90 to-transparent lg:hidden" />
+        </div>
+
+        {/* ── MAIN CONTENT ── */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-20 pb-16 lg:pt-28 lg:pb-24 grid lg:grid-cols-12 gap-12 items-center flex-grow">
+          
+          {/* LEFT COLUMN: Centered Logo */}
+          
+
+          {/* RIGHT COLUMN: Main Texts */}
+          <div
+            ref={visionTxt}
+            className="
+              order-2
+              lg:col-span-5
+              lg:col-start-7
+              lg:pl-10
+              flex
+              flex-col
+              justify-center
+            "
+          >
+            <div className="flex flex-col items-start mb-6">
+              <span
+                className="
+                  text-base
+                  md:text-lg
+                  lg:text-xl
+                  uppercase
+                  tracking-[0.3em]
+                  font-bold
+                  text-[var(--brand-green)]
+                "
+              >
+                Our Vision
+              </span>
+              <div className="w-12 h-[2px] bg-[var(--brand-green)] mt-2" />
+            </div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-[30px] font-bold leading-[1.1] text-[var(--brand-primary)] tracking-tight">
+              We are leaders of the present and the future in allergy services, connecting clinics through a modern and accessible ecosystem
             </h2>
+
+            
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        </div>
+
+        {/* ── LOWER DARK BAND (4 Informational Pillars) ── */}
+        <div className="relative z-10 w-full bg-[#076677] border-t border-white/10 py-6 md:py-8 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-8 items-center divide-y sm:divide-y-0 lg:divide-x divide-white/10">
+            
+            {/* Pillar 1 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-0 lg:pl-0">
+              <div className="text-white flex-shrink-0">
+                <Globe className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Connected network</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">We transform access to allergy services with innovation, efficiency, and centered care.</p>
+              </div>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-0 lg:pl-8">
+              <div className="text-white flex-shrink-0">
+                <Stethoscope className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Medical excellence</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">We drive knowledge and specialization in every clinic.</p>
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-4 lg:pt-0 lg:pl-8">
+              <div className="text-white flex-shrink-0">
+                <Lightbulb className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Constant innovation</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">Technology and science at the service of allergy care.</p>
+              </div>
+            </div>
+
+            {/* Pillar 4 */}
+            <div className="flex items-center gap-4 pt-4 sm:pt-4 lg:pt-0 lg:pl-8">
+              <div className="text-white flex-shrink-0">
+                <Heart className="w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wide">Patient-centered</h4>
+                <p className="text-white/60 text-xs mt-0.5 leading-snug">We improve lives with access and quality care.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      {/* ── VALUES ── */}
+      
+      <section
+        className="relative py-28 overflow-hidden"
+        id="values"
+        style={{ backgroundColor: "#fafbfc" }}
+      >
+        {/* DECOR — leaves, top left corner */}
+        
+        
+
+        {/* DECOR — dot grid, top right corner */}
+        <div className="absolute top-6 right-10 grid grid-cols-6 gap-3 pointer-events-none select-none opacity-60">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <span
+              key={i}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: "var(--brand-green)" }}
+            />
+          ))}
+        </div>
+
+        <div className="relative max-w-[1700px] mx-auto px-6 md:px-10 xl:px-16">
+          {/* Centered Header */}
+          <div ref={valTitle} className="text-center max-w-3xl mx-auto mb-16">
+            <span
+              className="
+                text-base
+                md:text-lg
+                lg:text-xl
+                
+                uppercase
+                tracking-[0.35em]
+                font-bold
+              "
+              style={{ color: "var(--brand-green)" }}
+            >
+              Our Values
+            </span>
+            <div
+              className="w-10 h-1 rounded-full mx-auto mt-3 mb-6"
+              style={{ backgroundColor: "var(--brand-green)" }}
+            />
+            <h2
+              className="text-2xl md:text-6xl lg:text-5xl leading-tight"
+              style={{ fontWeight: 800, color: "var(--brand-primary)" }}
+            >
+              What guides us,
+              <br />
+              what will <span style={{ color: "var(--brand-green)" }}>drive you.</span>
+            </h2>
+            <p
+              className="mt-6 text-lg md:text-xl lg:text-2xl leading-relaxed"
+              style={{ color: "var(--brand-muted)" }}
+            >
+              Our values are the foundation of everything we do. They guide
+              our decisions and the way we work with you.
+            </p>
+          </div>
+
+          {/* Value Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 md:gap-8">
             {[
-              { ref: val1, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "Integrity", desc: "We operate with full transparency in every partnership and patient interaction." },
-              { ref: val2, icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0", title: "Partnership", desc: "Your clinic's success is our success. We grow together." },
-              { ref: val3, icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Innovation", desc: "We constantly seek smarter, more efficient ways to deliver allergy care." },
-              { ref: val4, icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z", title: "Patient-First", desc: "Every decision we make starts with the well-being of the patient." },
-            ].map(({ ref, icon, title, desc }) => (
+              {
+                ref: val1,
+                icon: (
+                  <img
+                    src="/Fostersterm/pasion.png"
+                    alt="Passion"
+                    className="w-[100px] h-[100px] object-contain"
+                  />
+                ),
+                titulo: "Passion",
+                desc: "We are driven by what we do, bringing energy and dedication into every single detail to generate impact.",
+              },
+              {
+                ref: val2,
+                icon: (
+                  <img
+                    src="/Fostersterm/compromiso.png"
+                    alt="Commitment"
+                    className="w-[100px] h-[100px] object-contain"
+                  />
+                ),
+                titulo: "Commitment",
+                desc: "We pledge to always deliver the absolute best of ourselves.",
+              },
+              {
+                ref: val3,
+                icon: (
+                  <img
+                    src="/Fostersterm/innovacion.png"
+                    alt="Innovation"
+                    className="w-[100px] h-[100px] object-contain"
+                  />
+                ),
+                titulo: "Innovation",
+                desc: "We look for creative solutions that generate meaningful impact and value.",
+              },
+              {
+                ref: val4,
+                icon: (
+                  <img
+                    src="/Fostersterm/transparencia.png"
+                    alt="Transparency"
+                    className="w-[100px] h-[100px] object-contain"
+                  />
+                ),
+                titulo: "Transparency",
+                desc: "We act with honesty and clarity at every single step of the way.",
+              },
+              {
+                ref: val5,
+                icon: (
+                  <img
+                    src="/Fostersterm/colaboracion.png"
+                    alt="Collaboration"
+                    className="w-[100px] h-[100px] object-contain"
+                  />
+                ),
+                titulo: "Collaboration",
+                desc: "We believe in the power of teamwork to achieve greater things together.",
+              },
+            ].map(({ ref, icon, titulo, desc }) => (
               <div
-                key={title}
+                key={titulo}
                 ref={ref}
-                className="rounded-2xl p-7 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
-                style={{ border: "1px solid var(--brand-secondary)", backgroundColor: "#f8fafb" }}
+                className="group bg-white rounded-3xl border p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                style={{ borderColor: "rgba(0,0,0,0.06)" }}
               >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: "var(--brand-light)" }}>
-                  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.8} style={{ color: "var(--brand-green)" }}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
-                  </svg>
+                <div
+                  className="w-20 h-20 md:w-26 md:h-26 rounded-full flex items-center justify-center mb-6 transition-colors duration-300"
+                  style={{
+                    backgroundColor: "var(--brand-light)",
+                    color: "var(--brand-green)",
+                  }}
+                >
+                  {icon}
                 </div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "var(--brand-primary)" }}>{title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)" }}>{desc}</p>
+
+                <h3
+                  className="text-2xl md:text-2xl lg:text-[1.7rem]"
+                  style={{ fontWeight: 700, color: "var(--brand-primary)" }}
+                >
+                  {titulo}
+                </h3>
+
+                <div
+                  className="w-10 md:w-12 h-[3px] rounded-full mt-4 mb-5"
+                  style={{ backgroundColor: "var(--brand-green)" }}
+                />
+
+                <p
+                  className="text-base md:text-lg lg:text-[1.15rem] font-bold leading-relaxed"
+                  style={{ color: "var(--brand-primary)" }}
+                >
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
@@ -821,73 +1122,79 @@ export default function AboutUs() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#f8fafb" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div ref={teamTitle} className="text-center mb-14">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ backgroundColor: "var(--brand-light)", color: "var(--brand-green)" }}>
-              Our Team
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold" style={{ color: "var(--brand-primary)" }}>
-              The People Behind Foster Stern
-            </h2>
-            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "var(--brand-muted)" }}>
-              A multidisciplinary team of healthcare and business professionals united by one goal: better allergy care.
-            </p>
-          </div>
+      
+      <section
+              id="contact"
+              className="py-20 bg-gradient-to-b from-gray-50 to-white"
+            >
+              <div className="max-w-6xl mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+                  {/* Left Column - Info */}
+                  <div>
+                    <h2
+                      className="text-4xl md:text-5xl mb-4"
+                      style={{
+                        fontFamily: "'Nunito Sans', sans-serif",
+                        color: "var(--brand-primary)",
+                      }}
+                    >
+                      Ready to Add Allergy Services to Your Practice?
+                    </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { ref: teamCard1, img: "/Fostersterm/Carlitos-Solo.png", name: "Carlos Foster", role: "Founder & CEO", bio: "With over 15 years in healthcare management, Carlos founded Foster Stern to bridge the gap between clinical excellence and business efficiency." },
-              { ref: teamCard2, img: "/Fostersterm/image.jpg", name: "Medical Team", role: "Clinical Specialists", bio: "Our certified allergists and clinical coordinators ensure every partner clinic delivers the highest standard of patient care." },
-              { ref: teamCard3, img: "/Fostersterm/EstreChandoManos21339x784.jpg", name: "Operations Team", role: "Billing & Support", bio: "Our billing and administrative experts handle the complexity so your team can stay focused on patients." },
-            ].map(({ ref, img, name, role, bio }) => (
-              <div
-                key={name}
-                ref={ref}
-                className="rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
-                style={{ border: "1px solid var(--brand-secondary)" }}
-              >
-                <div className="h-52 overflow-hidden">
-                  <ImageWithFallback src={img} alt={name} className="w-full h-full object-cover object-top" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-0.5" style={{ color: "var(--brand-primary)" }}>{name}</h3>
-                  <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--brand-green)" }}>{role}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--brand-muted)" }}>{bio}</p>
+                    {/* Company badge */}
+                    <div
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
+                      style={{ backgroundColor: "var(--brand-light)" }}
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: "var(--brand-green)" }}
+                      />
+                      <span
+                        className="text-sm font-bold uppercase tracking-wide"
+                        style={{ color: "var(--brand-green)" }}
+                      >
+                        Leading strategic partner.
+                      </span>
+                    </div>
+
+                    <p
+                      className="text-2xl mb-8 leading-relaxed"
+                      style={{ color: "var(--brand-muted)" }}
+                    >
+                      Partner with Foster Stern Allergy Division and transform your
+                      clinic into a referral center for allergy services. We implement 
+                      the complete program — staff, protocols, billing, and documentation — so 
+                      you can focus solely on growing.
+                    </p>
+
+                    {/* MAP */}
+                    <div
+                      className="overflow-hidden rounded-3xl border shadow-xl bg-white"
+                      style={{ borderColor: "var(--brand-secondary)" }}
+                    >
+                      <iframe
+                        title="Foster Stern Group Location"
+                        src="https://www.google.com/maps?q=7480+SW+40th+Street+Suite+850+Miami+FL+33155&output=embed"
+                        width="100%"
+                        height="350"
+                        loading="lazy"
+                        className="w-full border-0"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+
+                    {/* ADDRESS */}
+                  </div>
+
+                  {/* Right Column - Form */}
+                  <ContactForm lang="en"/>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
       {/* ── CTA ── */}
-      <section className="py-20" style={{ background: "linear-gradient(135deg, var(--brand-primary) 0%, #006643 100%)" }}>
-        <div ref={ctaRef} className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-            Ready to Transform Your Clinic?
-          </h2>
-          <p className="text-lg mb-8" style={{ color: "rgba(255,255,255,0.85)" }}>
-            Join over 200 clinics already growing with Foster Stern Group — no upfront investment required.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/english"
-              className="inline-block px-8 py-3.5 rounded-xl font-bold text-base transition-all hover:scale-105 hover:shadow-lg"
-              style={{ backgroundColor: "var(--brand-green)", color: "white" }}
-            >
-              Get Started Today
-            </Link>
-            <Link
-              to="/english/blog"
-              className="inline-block px-8 py-3.5 rounded-xl font-bold text-base transition-all hover:scale-105"
-              style={{ border: "2px solid rgba(255,255,255,0.6)", color: "white" }}
-            >
-              Read Our Blog
-            </Link>
-          </div>
-        </div>
-      </section>
+      
 
       <Footer />
     </div>

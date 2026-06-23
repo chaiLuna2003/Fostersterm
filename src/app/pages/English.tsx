@@ -22,6 +22,7 @@ import { AlianzaImplementacion } from "../components/AlianzaImplementacion";
 import { ProcessCarousel } from "../components/ProcessCarousel";
 import { ServiciosSection } from "../components/ServiciosSection";
 import { useEffect, useState, useRef } from "react";
+import { ContactForm } from "../components/Contactform";
 
 function useFadeIn(direction: "up" | "left" | "right" = "up") {
   const ref = useRef<HTMLDivElement>(null);
@@ -108,7 +109,7 @@ const faqItems = useFadeIn("left");
                           WebkitTextStroke: "0.35px rgba(0,0,0,0.18)",
                         }}
                       >
-                        Transform your clinic with our allergy services, with no upfront investment and backed by our expert team."
+                        Transform your clinic with our allergy services, with no upfront investment and backed by our expert team.
 
                       </h1>
 
@@ -407,8 +408,8 @@ const faqItems = useFadeIn("left");
                       }}
                     >
                       Transforming <br />
-                      clinics, <br />
-                      Improving lives, <br />
+                      clinics. <br />
+                      Improving lives. <br />
                       <span style={{ color: "#0f8152" }}>
                         Revolutionizing<br />
                         care.
@@ -503,7 +504,7 @@ const faqItems = useFadeIn("left");
                           color: "#fff",
                         }}
                       >
-                        More Services
+                        More Services.
                         <br />
                         Better results.
                       </h3>
@@ -593,7 +594,7 @@ const faqItems = useFadeIn("left");
                   {[
                     {
                       number: "01",
-                      title: "Fast and Safe Testing",
+                      title: "Fast and Safe",
                       desc: "Allergy testing is safe, quick, and convenient for patients.",
                       featured: true, // Marcamos este elemento para romper la simetría de forma intencional
                     },
@@ -862,6 +863,75 @@ const faqItems = useFadeIn("left");
 
       {/* ── CONTACT ── */}
       
+      <section
+              id="contact"
+              className="py-20 bg-gradient-to-b from-gray-50 to-white"
+            >
+              <div className="max-w-6xl mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+                  {/* Left Column - Info */}
+                  <div>
+                    <h2
+                      className="text-4xl md:text-5xl mb-4"
+                      style={{
+                        fontFamily: "'Nunito Sans', sans-serif",
+                        color: "var(--brand-primary)",
+                      }}
+                    >
+                      Ready to Add Allergy Services to Your Practice?
+                    </h2>
+
+                    {/* Company badge */}
+                    <div
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
+                      style={{ backgroundColor: "var(--brand-light)" }}
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: "var(--brand-green)" }}
+                      />
+                      <span
+                        className="text-sm font-bold uppercase tracking-wide"
+                        style={{ color: "var(--brand-green)" }}
+                      >
+                        Leading strategic partner.
+                      </span>
+                    </div>
+
+                    <p
+                      className="text-2xl mb-8 leading-relaxed"
+                      style={{ color: "var(--brand-muted)" }}
+                    >
+                      Partner with Foster Stern Allergy Division and transform your
+                      clinic into a referral center for allergy services. We implement 
+                      the complete program — staff, protocols, billing, and documentation — so 
+                      you can focus solely on growing.
+                    </p>
+
+                    {/* MAP */}
+                    <div
+                      className="overflow-hidden rounded-3xl border shadow-xl bg-white"
+                      style={{ borderColor: "var(--brand-secondary)" }}
+                    >
+                      <iframe
+                        title="Foster Stern Group Location"
+                        src="https://www.google.com/maps?q=7480+SW+40th+Street+Suite+850+Miami+FL+33155&output=embed"
+                        width="100%"
+                        height="350"
+                        loading="lazy"
+                        className="w-full border-0"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+
+                    {/* ADDRESS */}
+                  </div>
+
+                  {/* Right Column - Form */}
+                  <ContactForm lang="en" />
+                </div>
+              </div>
+            </section>
 
       {/* ── FOOTER ── */}
       <footer
@@ -1331,6 +1401,7 @@ const faqItems = useFadeIn("left");
   </div>
 
   {/* WHATSAPP BUTTON */}
+  {/* WHATSAPP BUTTON */}
   <a
     href="https://wa.me/17869773733"
     target="_blank"
@@ -1370,7 +1441,7 @@ const faqItems = useFadeIn("left");
         fill-white
       "
     >
-      <path d="M16.04 3C8.84 3 3 8.74 3 15.82c0 2.53.74 4.98 2.13 7.08L3 29l6.3-2.05a13.2 13.2 0 006.74 1.84H16c7.2 0 13.04-5.74 13.04-12.82C29.04 8.74 23.2 3 16.04 3zm0 23.5c-2.03 0-4.01-.54-5.74-1.56l-.41-.24-3.74 1.22 1.22-3.64-.27-.43a10.3 10.3 0 01-1.58-5.48c0-5.7 4.72-10.34 10.52-10.34 5.8 0 10.52 4.64 10.52 10.34 0 5.7-4.72 10.34-10.52 10.34zm5.77-7.77c-.31-.15-1.84-.9-2.12-1-.28-.1-.49-.15-.69.15-.2.3-.79 1-.96 1.2-.18.2-.36.22-.67.07-.31-.15-1.3-.47-2.48-1.5-.92-.8-1.54-1.8-1.72-2.1-.18-.3-.02-.46.13-.61.13-.13.31-.35.46-.52.15-.18.2-.3 Ram.31-.5.1-.2.05-.37-.03-.52-.08-.15-.69-1.65-.95-2.26-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.52.08-.79.37-.28.3-1.03 1-1.03 2.45s1.05 2.85 1.2 3.05c.15.2 2.05 3.24 5.08 4.42.72.3 1.29.47 1.73.6.73.23 1.39.2 1.91.12.58-.09 1.84-.75 2.1-1.48.26-.73.26-1.35.18-1.48-.08-.13-.28-.2-.59-.35z" />
+     <path d="M16.04 3C8.84 3 3 8.74 3 15.82c0 2.53.74 4.98 2.13 7.08L3 29l6.3-2.05a13.2 13.2 0 006.74 1.84H16c7.2 0 13.04-5.74 13.04-12.82C29.04 8.74 23.2 3 16.04 3zm0 23.5c-2.03 0-4.01-.54-5.74-1.56l-.41-.24-3.74 1.22 1.22-3.64-.27-.43a10.3 10.3 0 01-1.58-5.48c0-5.7 4.72-10.34 10.52-10.34 5.8 0 10.52 4.64 10.52 10.34 0 5.7-4.72 10.34-10.52 10.34zm5.77-7.77c-.31-.15-1.84-.9-2.12-1-.28-.1-.49-.15-.69.15-.2.3-.79 1-.96 1.2-.18.2-.36.22-.67.07-.31-.15-1.3-.47-2.48-1.5-.92-.8-1.54-1.8-1.72-2.1-.18-.3-.02-.46.13-.61.13-.13.31-.35.46-.52.15-.18.2-.3.31-.5.1-.2.05-.37-.03-.52-.08-.15-.69-1.65-.95-2.26-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.52.08-.79.37-.28.3-1.03 1-1.03 2.45s1.05 2.85 1.2 3.05c.15.2 2.05 3.24 5.08 4.42.72.3 1.29.47 1.73.6.73.23 1.39.2 1.91.12.58-.09 1.84-.75 2.1-1.48.26-.73.26-1.35.18-1.48-.08-.13-.28-.2-.59-.35z" />
     </svg>
   </a>
 </footer>

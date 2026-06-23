@@ -808,7 +808,7 @@ export default function Nosotros() {
         <div className="flex flex-col justify-start pt-0.5">
           {/* TÍTULO: Tamaño contenido pero con tracking y peso para que resalte */}
           <h3 
-            className="text-sm font-semibold tracking-wide" 
+            className="text-lg font-semibold tracking-wide" 
             style={{ color: "white" }}
           >
             {item.title}
@@ -816,7 +816,7 @@ export default function Nosotros() {
           
           {/* DESCRIPCIÓN: Tamaño intermedio exacto (13px) y opacidad alta para legibilidad premium */}
           <p
-            className="text-[13px] font-normal leading-relaxed mt-1.5 tracking-normal"
+            className="text-[16px] font-normal leading-relaxed mt-1.5 tracking-normal"
             style={{
               color: "rgba(255,255,255,0.88)",
             }}

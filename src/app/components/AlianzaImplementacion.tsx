@@ -221,7 +221,7 @@ export function AlianzaImplementacion({
             }}
           >
             <img
-              src="/Fostersterm/1.5.png"
+              src="/1.5.png"
               alt="Clinic"
               style={{
                 position: "absolute",

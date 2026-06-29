@@ -80,7 +80,7 @@ export function ServiciosSection({
             "Diseñamos e implementamos pruebas e inmunoterapia en su clínica, con protocolos alineados a las mejores prácticas.",
 
           points: [
-            "Pruebas e inmunoterapia in-house",
+            "Pruebas e inmunoterapia dentro de su clínica",
             "Protocolos estandarizados",
             "Implementación rápida y sin fricción",
           ],
@@ -269,37 +269,12 @@ export function ServiciosSection({
               style={{ backgroundColor: "#054A5B" }}
             >
               <ImageWithFallback
-                src="/Fostersterm/1.1.png"
+                src="/1.1.png"
                 alt="Foster Stern Allergy Clinical Space"
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              {/* Glassmorphism caption */}
-              <div
-                className="absolute bottom-6 left-6 right-6 rounded-2xl p-5"
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  backdropFilter: "blur(14px)",
-                  WebkitBackdropFilter: "blur(14px)",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                }}
-              >
-                <p
-                  className="text-lg font-bold tracking-[0.2em] uppercase mb-1"
-                  style={{ color: "#00000" }}
-                >
-                  {t.imageTitle}
-                </p>
-
-                <p
-                  className="text-white text-xl font-semibold leading-snug"
-                  style={{
-                    fontFamily: "'Nunito Sans', sans-serif",
-                  }}
-                >
-                  {t.imageDesc}
-                </p>
-              </div>
+              
             </div>
           </div>
 

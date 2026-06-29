@@ -9,6 +9,32 @@ interface NavbarProps {
 }
 
 const NAV_STYLES = `
+
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  6% {
+    transform: scale(1.08);
+  }
+
+  16% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo-pulse {
+  animation:
+    logoFadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both,
+    logoPulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
   @keyframes logoFadeIn {
     0%   { opacity: 0; transform: translateY(-8px) scale(0.95); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -33,13 +59,23 @@ const NAV_STYLES = `
     animation: logoFadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   .nav-item-zoom {
-    display: inline-block;
-    animation: navItemZoomIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .nav-item-zoom:hover {
-    transform: scale(1.18);
-  }
+  display: inline-block;
+  animation: navItemZoomIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+
+  transition:
+  transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+  letter-spacing 0.3s ease;
+    color 0.28s ease;
+
+  transform-origin: center;
+  will-change: transform;
+}
+
+.nav-item-zoom:hover {
+  transform: scale(1.1);
+  letter-spacing: 0.95px;
+}
+  
 `;
 
 export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
@@ -80,7 +116,7 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
 
   const mainSections = isEn
     ? [
-        { label: "Home",       id: "",  to: "/english"       },
+        
         { label: "About Us",   id: "",  to: "/english/about" },
         { label: "Services",   id: "servicios"               },
         { label: "Benefits",   id: "beneficios"              },
@@ -117,10 +153,10 @@ export function Navbar({ forceScrolled = false, lang = "es" }: NavbarProps) {
   className="logo-link flex items-center"
 >
   <ImageWithFallback
-    src="/Fostersterm/LogoFS.png"
+    src="/LogoFS.png"
     alt="Foster Stern Group"
     className="
-      logo-fadein
+      logo-pulse
       h-[72px]
       md:h-[88px]
       lg:h-[115px]

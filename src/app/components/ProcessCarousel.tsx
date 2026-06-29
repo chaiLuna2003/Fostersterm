@@ -18,31 +18,31 @@ export function ProcessCarousel({
       slides: [
         {
           id: 1,
-          imagen: "/Fostersterm/ClinicalSpaceFSA.png",
+          imagen: "/ClinicalSpaceFSA.png",
           texto:
             "Evaluamos su práctica y diseñamos el programa de alergia a medida para su clínica.",
         },
         {
           id: 2,
-          imagen: "/Fostersterm/2.png",
+          imagen: "/2.png",
           texto:
             "Asignamos personal entrenado en alergias que opera directamente en su consultorio.",
         },
         {
           id: 3,
-          imagen: "/Fostersterm/1.png",
+          imagen: "/1.png",
           texto:
             "Implementamos protocolos clínicos, documentación y flujo de facturación desde el día uno.",
         },
         {
           id: 4,
-          imagen: "/Fostersterm/4.png",
+          imagen: "/4.png",
           texto:
             "Lanzamos el servicio de alergia con soporte operativo y clínico continuo.",
         },
         {
           id: 5,
-          imagen: "/Fostersterm/5.png",
+          imagen: "/5.png",
           texto:
             "Monitoreamos el rendimiento del programa con reportes mensuales y optimización de resultados.",
         },
@@ -58,31 +58,31 @@ export function ProcessCarousel({
       slides: [
         {
           id: 1,
-          imagen: "/Fostersterm/ClinicalSpaceFSA.png",
+          imagen: "/ClinicalSpaceFSA.png",
           texto:
             "We evaluate your practice and design a customized allergy program for your clinic.",
         },
         {
           id: 2,
-          imagen: "/Fostersterm/2.png",
+          imagen: "/2.png",
           texto:
             "We assign allergy-trained personnel who operate directly within your office.",
         },
         {
           id: 3,
-          imagen: "/Fostersterm/1.png",
+          imagen: "/1.png",
           texto:
             "We implement clinical protocols, documentation, and billing workflows from day one.",
         },
         {
           id: 4,
-          imagen: "/Fostersterm/4.png",
+          imagen: "/4.png",
           texto:
             "We launch the allergy service with continuous clinical and operational support.",
         },
         {
           id: 5,
-          imagen: "/Fostersterm/5.png",
+          imagen: "/5.png",
           texto:
             "We monitor program performance through monthly reporting and continuous optimization.",
         },

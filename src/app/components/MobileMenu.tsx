@@ -67,7 +67,7 @@ export function MobileMenu({ scrolled = false, lang = "es" }: MobileMenuProps) {
         {/* Header del panel */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
           <img
-            src="/Fostersterm/LogoFS.png"
+            src="/LogoFS.png"
             alt="Foster Stern Group"
             className="h-14 w-auto object-contain"
           />
